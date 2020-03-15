@@ -12,6 +12,9 @@ def home(request):
 
 
 
+
+####line bot#####
+
 from django.http import HttpResponseForbidden, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
