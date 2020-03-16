@@ -131,7 +131,7 @@ def handle_text_message(event):
     dict_message=dict_event['message'].__dict__
     # print(dict_message['text'])
 
-    if dict_message['text']=='บันทึกรายวัน':
+    if dict_message['text']=='บันทึกสุขภาพ':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
         print(user_employee)
@@ -162,7 +162,7 @@ def handle_text_message(event):
                                 employee_ID=dict_message['text'], activity_text=json.dumps(obj), quarantined=False, infected=False)
             new_user.save()
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานนสำเร็จ'))
+                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ'))
 
             # ส่งคำถามคัดกรอง
 
