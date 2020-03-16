@@ -8,8 +8,11 @@ def home(request):
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
+    print('access daily update')
     data=employee.objects.get(employee_ID=id)
+    print(data)
     context = {'data': data}
+    print(context)
     return render (request, 'myworkplace/daily_update.html', context)
 
 
