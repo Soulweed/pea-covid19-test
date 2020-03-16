@@ -94,7 +94,7 @@ def handle_text_message(event):
     if dict_message['text'].isnumeric() and len(dict_message['text'])==6: # check is number
         employee_ID_list =[x.employee_ID for x in employee.objects.all()]
         print(employee_ID_list)
-        if True:  # check new customer
+        if int(dict_message['text']) not in employee_ID_list:  # check new customer
             new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
                                 employee_ID=dict_message['text'], activity_text='register', quarantined=False, infected=True)
             new_user.save()
