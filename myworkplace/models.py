@@ -2,12 +2,11 @@ from django.db import models
 
 # Create your models here.
 class employee(models.Model):
-    emplyee_name=models.CharField(max_length=300)
+    emplyee_name=models.CharField(max_length=255)
     employee_ID=models.IntegerField(default=999999)
-    employee_line_ID = models.CharField(max_length=300)
-
-    activity_text = models.TextField(max_length=300, default='000')  #
-    quarantined = models.BooleanField(default=False, blank=True)
+    employee_line_ID = models.CharField(max_length=255)
+    activity_text = models.TextField(default='000')  #
+    quarantined = models.BooleanField(default=False, blank=True, null=True)
     infected = models.BooleanField(default=False, blank=True)
 
 

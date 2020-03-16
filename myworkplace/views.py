@@ -7,10 +7,9 @@ def home(request):
     context = {'number_of_employee': len(data1)}
     return render(request, 'myworkplace/home.html', context)
 
-def daily_update(request):
-    data='test'
-    context = {'data': data}
-    return render (request, 'myworkplace/home.html', context)
+def daily_update(request, id):
+    context = {'data': id}
+    return render (request, 'myworkplace/daily_update.html', context)
 
 
 # API
@@ -98,6 +97,7 @@ def handle_text_message(event):
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
         print(user_employee)
         if dict_source['user_id'] in employee_Line_ID_list:
+
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text=' www.https://pea-covid19-test.herokuapp.com/daily_update/{}'.format(user_employee.employee_ID)))
         else:
@@ -118,7 +118,9 @@ def handle_text_message(event):
         else:  # existing customer
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไม่สามารถลงทะเบียนได้ไลน์ไอดีนี้ได้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
-
+    else:
+        line_bot_api.reply_message(event.reply_token,
+                                           TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
 
     # else: # existing customer
     #     if dict_message['text']=='บริการพิเศษ':
