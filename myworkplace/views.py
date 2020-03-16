@@ -67,12 +67,15 @@ reply_text='A whole new world'
 # # オウム返し
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    print(event.__dict__)
     print('Here is handle_text_message function')
     dict_event=event.__dict__
-    dict_source=dict_event['source'].__dict__
-
     print(dict_event)
+
+    dict_source=dict_event['source'].__dict__
+    dict_message=dict_event['message'].__dict__
+    print(dict_message)
+
+
     if True: # new customer
         new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
                             employee_ID=22222, activity_text='register', quarantined=False, infected=True)
