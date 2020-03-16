@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import employee
+import json
 from datetime import datetime
+
+
 # Create your views here.
 def home(request):
     data1 = employee.objects.all()
@@ -17,8 +20,19 @@ def daily_update(request, id):
     if request.method=="POST":
         activity = request.POST.get("activity")
         print(activity)
+
+        health = activity
+
         user = employee.objects.get(employee_ID=id)
-        user.update_activitiy({'data':activity})
+        print(user.__dict__)
+        # user.update_activitiy({'data':activity})
+        data = json.loads(user.activity_text)
+        print(data)
+        data.append({'type':'daily_update', 'datetime':datetime.now(), 'health':health})
+        print(data)
+        user.activity_text = json.dumps(data)
+        user.save()
+
 
 
     return render (request, 'myworkplace/daily_update.html', context)
@@ -140,8 +154,9 @@ def handle_text_message(event):
     elif dict_message['text'].isnumeric() and len(dict_message['text'])==6: # check is number
         employee_Line_ID_list =[x.employee_line_ID for x in employee.objects.all()]
         if dict_source['user_id'] not in employee_Line_ID_list:  # check new customer
+            obj = [{'type':'register', 'datetime':datetime.now()}]
             new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
-                                employee_ID=dict_message['text'], activity_text='register', quarantined=False, infected=False)
+                                employee_ID=dict_message['text'], activity_text=json.dumps(obj), quarantined=False, infected=False)
             new_user.save()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานนสำเร็จ'))
