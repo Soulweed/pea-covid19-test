@@ -68,7 +68,7 @@ reply_text='A whole new world'
 def handle_text_message(event):
     print(event.__dict__)
     print('Here is handle_text_message function')
-    print(event)
+    print(event["source"]["userID"])
     line_bot_api.reply_message(event.reply_token,
                                TextSendMessage(text=reply_text))
 
