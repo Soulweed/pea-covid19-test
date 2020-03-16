@@ -95,7 +95,7 @@ def handle_text_message(event):
 
     if dict_message['text']=='บันทึกรายวัน':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
-        user_employee = employee.objects.get(employee_line_ID=int(dict_source['user_id']))
+        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
         print(user_employee)
         if dict_source['user_id'] in employee_Line_ID_list:
             line_bot_api.reply_message(event.reply_token,
