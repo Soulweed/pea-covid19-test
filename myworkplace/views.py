@@ -75,8 +75,8 @@ def callback(request):
         HttpResponseForbidden()
     return HttpResponse('OK', status=200)
 
-def gen_DU_form(request):
-    pass
+# def gen_DU_form(request):
+#     pass
 
 
 reply_text='A whole new world'
@@ -86,11 +86,9 @@ def handle_text_message(event):
     print('Here is handle_text_message function')
     dict_event=event.__dict__
     # print(dict_event)
-
     dict_source=dict_event['source'].__dict__
     dict_message=dict_event['message'].__dict__
     # print(dict_message['text'])
-
     if dict_message['text'].isnumeric() and len(dict_message['text'])==6: # check is number
         employee_Line_ID_list =[x.employee_line_ID for x in employee.objects.all()]
         print(employee_Line_ID_list)
