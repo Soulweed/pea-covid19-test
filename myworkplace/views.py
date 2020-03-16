@@ -75,8 +75,9 @@ def callback(request):
         HttpResponseForbidden()
     return HttpResponse('OK', status=200)
 
-# def gen_DU_form(request):
-#     pass
+def gen_DU_form(request):
+
+    pass
 
 
 reply_text='A whole new world'
@@ -103,6 +104,11 @@ def handle_text_message(event):
                                        TextSendMessage(text='ไม่สามารถลงทะเบียนได้ไลน์ไอดีนี้ได้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
 
     else: # existing customer
-        line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
+        if dict_message['text']=='บริการพิเศษ':
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='working on it บริการพิเศษ'))
+        else:
+
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
 
