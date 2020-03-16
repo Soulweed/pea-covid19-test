@@ -9,7 +9,7 @@ def home(request):
 
 def daily_update(request, id):
     print('access daily update')
-    data=employee.objects.get(employee_ID=id)
+    data=employee.objects.get(employee_ID=id).__dict__
     print(type(data))
     print(data)
     context = {'data': data}
