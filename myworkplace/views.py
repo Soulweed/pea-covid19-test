@@ -78,6 +78,9 @@ def callback(request):
         HttpResponseForbidden()
     return HttpResponse('OK', status=200)
 
+def gen_DU_form(request):
+    pass
+
 
 reply_text='A whole new world'
 # # オウム返し
@@ -94,7 +97,7 @@ def handle_text_message(event):
     if dict_message['text'].isnumeric() and len(dict_message['text'])==6: # check is number
         employee_Line_ID_list =[x.employee_line_ID for x in employee.objects.all()]
         print(employee_Line_ID_list)
-        if int(dict_source['user_id']) not in employee_Line_ID_list:  # check new customer
+        if dict_source['user_id'] not in employee_Line_ID_list:  # check new customer
             new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
                                 employee_ID=dict_message['text'], activity_text='register', quarantined=False, infected=False)
             new_user.save()
@@ -107,7 +110,6 @@ def handle_text_message(event):
     else: # existing customer
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
-
 
 # @handler.add(MessageEvent, message=TextMessage)
 # def handle_text_message(event):
