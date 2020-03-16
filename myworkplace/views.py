@@ -11,9 +11,6 @@ def home(request):
 
 
 
-
-
-
 # API
 from rest_framework import viewsets
 
@@ -111,18 +108,3 @@ def handle_text_message(event):
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
 
-# @handler.add(MessageEvent, message=TextMessage)
-# def handle_text_message(event):
-#     if event.message.text =='stock':
-#         print('Here is handle_text_message function')
-#         reply_text = ''
-#         num = 1
-#         for obj in queryset:
-#             reply_text = reply_text + '{}. '.format(num)
-#             reply_text = reply_text + 'Import date:{} type:{} class:{} weight:{} '.format(obj.create_at, obj.melon_type,
-#                                                                                           obj.melon_class,
-#                                                                                           obj.weight)
-#             reply_text = reply_text + '       '
-#             num += 1
-#         line_bot_api.reply_message(event.reply_token,
-#                                    TextSendMessage(text=reply_text))
