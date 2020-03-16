@@ -75,15 +75,21 @@ def handle_text_message(event):
     dict_message=dict_event['message'].__dict__
     print(dict_message['text'])
 
+    if dict_message['text'].isnumeric(): # check is number
+        if True:  # check new customer
+            new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
+                                employee_ID=22222, activity_text='register', quarantined=False, infected=True)
+            new_user.save()
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานของท่านเป็นที่เรียบร้อยแล้ว'))
+        else:  # existing customer
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='รหัสพนักงานนี้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
 
-    if True: # new customer
-        new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
-                            employee_ID=22222, activity_text='register', quarantined=False, infected=True)
-        new_user.save()
-        line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(text='ลงทะเบียนแล้ว'))
     else: # existing customer
-        pass
+        line_bot_api.reply_message(event.reply_token,
+                                   TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
+
 
 # @handler.add(MessageEvent, message=TextMessage)
 # def handle_text_message(event):
