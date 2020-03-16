@@ -8,7 +8,8 @@ def home(request):
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
-    context = {'data': id}
+    data=employee.objects.get(employee_ID=id)
+    context = {'data': data}
     return render (request, 'myworkplace/daily_update.html', context)
 
 
@@ -100,6 +101,7 @@ def handle_text_message(event):
 
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text=' www.https://pea-covid19-test.herokuapp.com/daily_update/{}'.format(user_employee.employee_ID)))
+
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
