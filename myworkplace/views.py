@@ -71,13 +71,16 @@ def handle_text_message(event):
     print('Here is handle_text_message function')
     dict_event=event.__dict__
     dict_source=dict_event['source'].__dict__
-    print(dict_source['user_id'])
 
-    new_user = employee(emplyee_name=dict_source['user_id'], employee_ID=22222, activity_text='register', quarantined=False, infected=True)
-    new_user.save()
-
-    line_bot_api.reply_message(event.reply_token,
-                               TextSendMessage(text='ลงทะเบียนแล้ว'))
+    print(dict_event)
+    if True: # new customer
+        new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
+                            employee_ID=22222, activity_text='register', quarantined=False, infected=True)
+        new_user.save()
+        line_bot_api.reply_message(event.reply_token,
+                                   TextSendMessage(text='ลงทะเบียนแล้ว'))
+    else: # existing customer
+        pass
 
 # @handler.add(MessageEvent, message=TextMessage)
 # def handle_text_message(event):
