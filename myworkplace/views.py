@@ -72,7 +72,8 @@ def handle_text_message(event):
     dict_event=event.__dict__
     dict_source=dict_event['source'].__dict__
     print(dict_source['user_id'])
-    new_user = employee(emplyee_name='temp', employee_ID=dict_source['user_id'], activity_text='register', quarantined=False, infected=True)
+
+    new_user = employee(emplyee_name=dict_source['user_id'], employee_ID=22222, activity_text='register', quarantined=False, infected=True)
     new_user.save()
 
     line_bot_api.reply_message(event.reply_token,
