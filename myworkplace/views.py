@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import employee
+
 # Create your views here.
 def home(request):
     data1 = employee.objects.all()
@@ -68,20 +69,14 @@ reply_text='A whole new world'
 def handle_text_message(event):
     print(event.__dict__)
     print('Here is handle_text_message function')
-    # print(event.source.userId)
     dict_event=event.__dict__
-    print(dict_event)
-    print(type(dict_event))
-    print(dict_event.keys())
-    print(dict_event['source'])
-    print(type(dict_event['source']))
-    print(dict_event['source'].__dict__)
     dict_source=dict_event['source'].__dict__
-    print(dict_source)
     print(dict_source['user_id'])
+    new_user = employee(emplyee_name='temp', employee_ID=dict_source['user_id'], activity_text='register', quarantined=False, infected=True)
+    new_user.save()
 
     line_bot_api.reply_message(event.reply_token,
-                               TextSendMessage(text=reply_text))
+                               TextSendMessage(text='ลงทะเบียนแล้ว'))
 
 # @handler.add(MessageEvent, message=TextMessage)
 # def handle_text_message(event):
