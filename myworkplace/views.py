@@ -14,6 +14,22 @@ def home(request):
 
 
 
+# API
+from rest_framework import viewsets
+
+from .serializers import QuestionSerializer
+from .models import question
+
+
+class QuestionViewSet(viewsets.ModelViewSet):
+    queryset = question.objects.all().order_by('question_text')
+    serializer_class = QuestionSerializer
+
+
+
+
+
+
 ####line bot#####
 
 from django.http import HttpResponseForbidden, HttpResponse
@@ -76,6 +92,7 @@ def handle_text_message(event):
     print(dict_message['text'])
 
     if dict_message['text'].isnumeric(): # check is number
+
         if True:  # check new customer
             new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
                                 employee_ID=22222, activity_text='register', quarantined=False, infected=True)
