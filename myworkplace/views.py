@@ -17,6 +17,9 @@ def daily_update(request, id):
     if request.method=="POST":
         activity = request.POST.get("activity")
         print(activity)
+        user = employee.objects.get(employee_ID=id)
+        user.update_activitiy({'data':activity})
+
 
     return render (request, 'myworkplace/daily_update.html', context)
 

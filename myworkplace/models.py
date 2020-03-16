@@ -1,4 +1,5 @@
 from django.db import models
+import json
 
 # Create your models here.
 class employee(models.Model):
@@ -14,8 +15,11 @@ class employee(models.Model):
         return "{}".format(self.employee_ID)
 
 
-    def update_activitiy(self):
-        pass
+    def update_activitiy(self, activity):
+        data = json.loads(self.activity_text)
+        data.append(activity)
+        self.activity_text = json.dumps(data)
+        self.save()
 
     def form1(self):
         pass
