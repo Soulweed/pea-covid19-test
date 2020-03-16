@@ -103,12 +103,13 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไม่สามารถลงทะเบียนได้ไลน์ไอดีนี้ได้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
 
-    else: # existing customer
-        if dict_message['text']=='บริการพิเศษ':
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='working on it บริการพิเศษ'))
-        else:
 
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
+    # else: # existing customer
+    #     if dict_message['text']=='บริการพิเศษ':
+    #         line_bot_api.reply_message(event.reply_token,
+    #                                    TextSendMessage(text='working on it บริการพิเศษ'))
+    #
+    #     else:
+    #         line_bot_api.reply_message(event.reply_token,
+    #                                    TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
 
