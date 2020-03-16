@@ -5,10 +5,12 @@ from .models import employee
 def home(request):
     data1 = employee.objects.all()
     context = {'number_of_employee': len(data1)}
-    print(context)
     return render(request, 'myworkplace/home.html', context)
 
-
+def daily_update(request):
+    data='test'
+    context = {'data': data}
+    return render (request, 'myworkplace/home.html', context)
 
 
 # API
@@ -93,9 +95,11 @@ def handle_text_message(event):
 
     if dict_message['text']=='บันทึกรายวัน':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
-        if dict_source['user_id']  in employee_Line_ID_list:
+        user_employee = employee.objects.get(employee_line_ID=int(dict_source['user_id']))
+        print(user_employee)
+        if dict_source['user_id'] in employee_Line_ID_list:
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='เข้าเวป www.google.com'))
+                                       TextSendMessage(text=' www.https://pea-covid19-test.herokuapp.com/daily_update/{}'.format(user_employee.employee_ID)))
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
@@ -108,6 +112,9 @@ def handle_text_message(event):
             new_user.save()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานนสำเร็จ'))
+
+            # ส่งคำถามคัดกรอง
+
         else:  # existing customer
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไม่สามารถลงทะเบียนได้ไลน์ไอดีนี้ได้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))

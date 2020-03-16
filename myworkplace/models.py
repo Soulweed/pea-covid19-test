@@ -18,6 +18,8 @@ class employee(models.Model):
     def update_activitiy(self):
         pass
 
+    def form1(self):
+        pass
 
 
 class question(models.Model):
