@@ -14,6 +14,10 @@ def daily_update(request, id):
     print(data)
     context = {'data': data}
     print(context)
+    if request.method=="POST":
+        activity = request.POST.get("activity")
+        print(activity)
+
     return render (request, 'myworkplace/daily_update.html', context)
 
 

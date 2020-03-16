@@ -8,6 +8,12 @@
 <p>{{ data.employee_line_ID }}</p>
 <p>{{ data.quarantined }}</p>
 
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name = "activity">
+        <button type="submit"> submit </button>
+    </form>
+
 
 
 {% endblock %}
