@@ -26,14 +26,16 @@ def daily_update(request, id):
         user = employee.objects.get(employee_ID=id)
         print(user.__dict__)
         # user.update_activitiy({'data':activity})
+
+        obj = {'type':'daily_update', 'health':health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
         data = json.loads(user.activity_text)
         print(data)
-        data.append({'type':'daily_update', 'datetime':datetime.now(), 'health':health})
+
+        data.append(obj)
         print(data)
         user.activity_text = json.dumps(data)
         user.save()
-
-
 
     return render (request, 'myworkplace/daily_update.html', context)
 
