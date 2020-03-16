@@ -68,7 +68,7 @@ reply_text='A whole new world'
 def handle_text_message(event):
     print(event.__dict__)
     print('Here is handle_text_message function')
-    print(event.source.userId)
+    # print(event.source.userId)
     dict_event=event.__dict__
     print(dict_event)
     print(type(dict_event))
