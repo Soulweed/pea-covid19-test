@@ -77,10 +77,18 @@ WSGI_APPLICATION = 'peacovid19v2.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'd8obmjir14d5r0',
+            'USER': 'ygwjtjeoxlfxre',
+            'PASSWORD': 'e21c1b1640408b087a0ec8c3138a7a0eda181b07b2a5e21d112e5b458fb49353',
+            'HOST': 'ec2-54-197-48-79.compute-1.amazonaws.com',
+            'PORT': '5432',
+        }
 }
 
 
