@@ -10,6 +10,7 @@ def home(request):
 def daily_update(request, id):
     print('access daily update')
     data=employee.objects.get(employee_ID=id)
+    print(type(data))
     print(data)
     context = {'data': data}
     print(context)
