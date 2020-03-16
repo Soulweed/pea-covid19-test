@@ -154,7 +154,8 @@ def handle_text_message(event):
     elif dict_message['text'].isnumeric() and len(dict_message['text'])==6: # check is number
         employee_Line_ID_list =[x.employee_line_ID for x in employee.objects.all()]
         if dict_source['user_id'] not in employee_Line_ID_list:  # check new customer
-            obj = [{'type':'register', 'datetime':datetime.now()}]
+            obj = [{'type':'register', 'datetime':datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
+
             new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
                                 employee_ID=dict_message['text'], activity_text=json.dumps(obj), quarantined=False, infected=False)
             new_user.save()
