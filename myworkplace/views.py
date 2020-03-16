@@ -78,6 +78,7 @@ def handle_text_message(event):
     print(dict_event['source'].__dict__)
     dict_source=dict_event['source'].__dict__
     print(dict_source)
+    print(dict_source['user_id'])
 
     line_bot_api.reply_message(event.reply_token,
                                TextSendMessage(text=reply_text))
