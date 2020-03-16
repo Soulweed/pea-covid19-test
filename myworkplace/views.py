@@ -92,17 +92,17 @@ def handle_text_message(event):
     # print(dict_message['text'])
 
     if dict_message['text'].isnumeric() and len(dict_message['text'])==6: # check is number
-        employee_ID_list =[x.employee_ID for x in employee.objects.all()]
-        print(employee_ID_list)
-        if int(dict_message['text']) not in employee_ID_list:  # check new customer
+        employee_Line_ID_list =[x.employee_line_ID for x in employee.objects.all()]
+        print(employee_Line_ID_list)
+        if int(dict_source['user_id']) not in employee_Line_ID_list:  # check new customer
             new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
-                                employee_ID=dict_message['text'], activity_text='register', quarantined=False, infected=True)
+                                employee_ID=dict_message['text'], activity_text='register', quarantined=False, infected=False)
             new_user.save()
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานของท่านเป็นที่เรียบร้อยแล้ว'))
+                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานนสำเร็จ'))
         else:  # existing customer
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='รหัสพนักงานนี้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
+                                       TextSendMessage(text='ไม่สามารถลงทะเบียนได้ไลน์ไอดีนี้ได้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
 
     else: # existing customer
         line_bot_api.reply_message(event.reply_token,
