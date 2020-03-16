@@ -94,7 +94,6 @@ def callback(request):
     return HttpResponse('OK', status=200)
 
 def gen_DU_form(request):
-
     pass
 
 
@@ -114,19 +113,17 @@ def handle_text_message(event):
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
         print(user_employee)
         if dict_source['user_id'] in employee_Line_ID_list:
-
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='www.https://pea-covid19-test.herokuapp.com/daily_update/{}/'.format(user_employee.employee_ID)))
-
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
+
     elif dict_message['text']=='ข้อมูลส่วนตัว':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
         print(user_employee)
         if dict_source['user_id'] in employee_Line_ID_list:
-
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='www.https://pea-covid19-test.herokuapp.com/personal_info/{}/'.format(user_employee.employee_line_ID)))
         else:
