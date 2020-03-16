@@ -66,6 +66,7 @@ reply_text='A whole new world'
 # # オウム返し
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
+    print(event.__dict__)
     print('Here is handle_text_message function')
     line_bot_api.reply_message(event.reply_token,
                                TextSendMessage(text=reply_text))
