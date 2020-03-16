@@ -103,7 +103,7 @@ def handle_text_message(event):
         if dict_source['user_id'] in employee_Line_ID_list:
 
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text=' www.https://pea-covid19-test.herokuapp.com/daily_update{}'.format(user_employee.employee_ID)))
+                                       TextSendMessage(text='www.https://pea-covid19-test.herokuapp.com/daily_update/{}/'.format(user_employee.employee_ID)))
 
         else:
             line_bot_api.reply_message(event.reply_token,
