@@ -73,7 +73,7 @@ def handle_text_message(event):
 
     dict_source=dict_event['source'].__dict__
     dict_message=dict_event['message'].__dict__
-    print(dict_message)
+    print(dict_message['text'])
 
 
     if True: # new customer
