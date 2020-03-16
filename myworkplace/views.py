@@ -90,9 +90,18 @@ def handle_text_message(event):
     dict_source=dict_event['source'].__dict__
     dict_message=dict_event['message'].__dict__
     # print(dict_message['text'])
-    if dict_message['text'].isnumeric() and len(dict_message['text'])==6: # check is number
+
+    if dict_message['text']=='บันทึกรายวัน':
+        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
+        if dict_source['user_id']  in employee_Line_ID_list:
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='เข้าเวป www.google.com'))
+        else:
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
+
+    elif dict_message['text'].isnumeric() and len(dict_message['text'])==6: # check is number
         employee_Line_ID_list =[x.employee_line_ID for x in employee.objects.all()]
-        print(employee_Line_ID_list)
         if dict_source['user_id'] not in employee_Line_ID_list:  # check new customer
             new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
                                 employee_ID=dict_message['text'], activity_text='register', quarantined=False, infected=False)
