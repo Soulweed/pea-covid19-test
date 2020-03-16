@@ -26,6 +26,12 @@ def personal_info(request, id):
     print(context)
     return render(request, 'myworkplace/personal_info.html', context)
 
+def add_daily_update(request):
+    if request.method == 'POST':
+
+        activity='daily_update at time'
+
+        user = employee.objects.get(employee_ID=)
 
 # API
 from rest_framework import viewsets

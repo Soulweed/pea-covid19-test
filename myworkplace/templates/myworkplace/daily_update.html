@@ -7,6 +7,16 @@
 
 <p>{{ data.employee_line_ID }}</p>
 <p>{{ data.quarantined }}</p>
+
+    <form action="{% url 'myworkplace:add_daily_update' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="voter-id-input">Your ID:</label>
+            <input name="voter-id-input" type="text" class="form-control" id="employee-id-input" placeholder="fe021e59-c29d-4532-9e99-5c42f1910af3"  required autofocus>
+        </div>
+    </form>
+
+
 {% endblock %}
 
 

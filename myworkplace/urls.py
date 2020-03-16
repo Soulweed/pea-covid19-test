@@ -14,5 +14,6 @@ urlpatterns = [
     path('callback/', views.callback, name='callback'),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('add_daily_update/', views.add_daily_update, name='add_daily_update'),
 
 ]
