@@ -12,7 +12,8 @@
 
     <title>PEA COVID-19 {% block title_bl %}{% endblock %}</title>
 
-<style>
+
+    <style>
         /* fonts */
         @font-face {
             font-family: "Kanit-Black";
@@ -259,6 +260,81 @@
             margin: 35px auto;
         }
     </style>
+
+    <style>
+        /* fonts */
+        @font-face {
+            font-family: "Kanit-Black";
+            src: url('../fonts/Kanit-Black.ttf') format("truetype");
+        }
+
+        @font-face {
+            font-family: "Kanit-Bold";
+            src: url('../fonts/Kanit-Black') format("truetype");
+        }
+
+        @font-face {
+            font-family: "Kanit-Light";
+            src: url('../fonts/Kanit-Light.ttf') format("truetype");
+        }
+
+        @font-face {
+            font-family: "Kanit-Medium";
+            src: url('../fonts/Kanit-Medium.ttf') format("truetype");
+        }
+
+        @font-face {
+            font-family: "Kanit-Regular";
+            src: url('../fonts/Kanit-Regular.ttf') format("truetype");
+        }
+
+        @font-face {
+            font-family: "Kanit-SemiBold";
+            src: url('../fonts/Kanit-SemiBold.ttf') format("truetype");
+        }
+
+        /* fonts */
+
+        body {
+            background-image: url("{% static 'img/bgcovid19.png' %}");
+            background-position: top;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            font-family: "Kanit-Regular";
+            font-size: medium;
+        }
+
+        #heading {
+            font-family: "Kanit-Bold";
+            color: white;
+            text-align: center;
+        }
+
+        #yellowlady {
+            float: right;
+            width: 20%;
+        }
+
+        #question {
+            border-radius: 25px;
+            border-color: transparent;
+            background-color: white;
+            color: black;
+            font-family: "Kanit-Regular";
+        }
+
+        fieldset {
+            color: black;
+            font-family: "Kanit-Regular";
+        }
+
+        h6 {
+            color: black;
+            font-family: "Kanit-Regular";
+        }
+    </style>
+
+
 </head>
 <body>
 {% block body_bl %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import employee
 import json
 from datetime import datetime
@@ -49,7 +49,58 @@ def personal_info(request, id):
     print(context)
     return render(request, 'myworkplace/personal_info.html', context)
 
+def screen(request, id):
+    data = employee.objects.get(employee_ID=id).__dict__
+    context = {'data': data}
+    if request.method=="POST":
+        name = request.POST.get("input_name")
+        workplace = request.POST.get("input_workplace")
+        gender = request.POST.get("input_gender")
+        age = request.POST.get("input_age")
 
+        fever = request.POST.get("input_fever")
+        cold = request.POST.get("input_cold")
+        travel = request.POST.get("input_travel")
+        travel_dangerous_area = request.POST.get("input_travel_dangerous_area")
+        home_dangerous = request.POST.get("input_home_dangerous")
+        meet_foreigner = request.POST.get("input_meet_foreigner")
+        contact = request.POST.get("input_contact")
+        if fever=='FALSE' and cold =='FALSE' and travel=='FALSE' and travel_dangerous_area=='FALSE' \
+                and home_dangerous=='FALSE' and meet_foreigner=='FALSE' and contact=='FALSE':
+            health ="normal ปกติ"
+        elif travel=='TRUE' or travel_dangerous_area=='TRUE' \
+                or home_dangerous=='TRUE' or meet_foreigner=='TRUE' or contact=='TRUE':
+            health = 'High risk เสี่ยงสูง'
+        else:
+            health = 'Risk เสี่ยง'
+
+        user = employee.objects.get(employee_ID=id)
+        user.emplyee_name=name
+        user.work=workplace
+        user.employee_gender=gender
+        user.employee_age=age
+
+        obj = {'type':'first_screen', 'health':health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+        data = json.loads(user.activity_text)
+        # print(data)
+
+        data.append(obj)
+        # print(data)
+        user.activity_text = json.dumps(data, ensure_ascii=False)
+        user.save()
+        context.update({'health':health})
+        print('######################')
+
+        print(context)
+        return render(request, 'myworkplace/confirm_screen.html', context)
+    print('----------------------')
+    print(context)
+    return render(request, 'myworkplace/screen.html', context)
+
+def confirm_screen(request):
+
+    return render(request, 'myworkplace/confirm_screen.html')
 
 
 # API
@@ -155,6 +206,7 @@ def handle_text_message(event):
 
     elif dict_message['text'].isnumeric() and len(dict_message['text'])==6: # check is number
         employee_Line_ID_list =[x.employee_line_ID for x in employee.objects.all()]
+
         if dict_source['user_id'] not in employee_Line_ID_list:  # check new customer
             obj = [{'type':'register', 'datetime':datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
 
@@ -162,7 +214,8 @@ def handle_text_message(event):
                                 employee_ID=dict_message['text'], activity_text=json.dumps(obj), quarantined=False, infected=False)
             new_user.save()
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ'))
+                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ '
+                                                            'กรุณากรอกแบบฟอร์มคัดกรอง www.https://pea-covid19-test.herokuapp.com/screen/{}/'.format(new_user.employee_ID)))
 
             # ส่งคำถามคัดกรอง
 

@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title_bl %} screen{% endblock %}
+{% block body_bl %}
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container" id="heading">
+                <div class="px-5 pt-5 mt-5 row">
+                    <div class="col-sm-12">
+                        <label for="the_question">
+                            <h1>1. แบบคัดกรอง PEA Covid-19</h1>
+                        </label>
+                        <img src="{% static 'img/yellowlady.png' %}" alt="yellowlady" id="yellowlady">
+                    </div>
+                </div>
+                <div class="pb-5 container" id="question">
+                    <div class="pt-4 px-5 row">
+                        <div class="pt-5 col-sm-12">
+                            <fieldset>
+                                <legend>1.1 รหัสพนักงาน (ชื่อ,สังกัด)</legend>
+                                <p>รหัสพนักงาน{{ data.employee_ID }}</p>
+        {#                        <input class="w-75" type="text" placeholder="รหัสพนักงาน.. (ตัวเลข 6 หลัก)">#}
+                                <input class="w-75" type="text" name="input_name" placeholder="ชื่อ..">
+                                <input class="w-75" type="text" name="input_workplace" placeholder="สังกัด..">
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <fieldset>
+                                <legend>1.2 เพศ</legend>
+                                <input type="radio"  name="input_gender" id="the_question_yes" value="Male">
+                                <label for="the_question_male" class="after_radio">ชาย</label>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio"  name="input_gender" id="the_question_no" value="Female">
+                                <label for="the_question_female" class="after_radio">หญิง</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <fieldset>
+                                <legend>1.3 อายุ</legend>
+                                <input class="w-75" type="text" name="input_age" placeholder="อายุ...(ปี)">
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <h6>เราจะถามคำถามสั้นๆ ใช้เวลาประมาณ 5 นาที และช่วยคุณประเมินว่า คุณมีความเสี่ยงต่อโรคมากน้อยเพียงใด
+                                เข้าเกณฑ์เข้ารับการตรวจตามประกาศกรมควบคุมโรคหรือไม่</h6>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <fieldset>
+                                <legend>2. คุณมีไข้ ตัวร้อน หรือรู้สึกครั่นเนื้อครั่นตัว อย่างใดอย่างหนึ่งหรือไม่
+                                    (วัดอุณภูมิแล้วมากกว่า 37.5 องศา)</legend>
+                                <input type="radio" name="input_fever" id="the_question_yes" value="TRUE">
+                                <label for="the_question_yes" class="after_radio">ใช่</label>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio" name="input_fever" id="the_question_no" value="FALSE">
+                                <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <fieldset>
+                                <legend>3. คุณมีอาการไอ เจ็บคอ มีเสมหะ มีน้ำมูก หายใจลำบาก อย่างใดอย่างหนึ่งหรือไม่</legend>
+                                <input type="radio" name="input_cold" id="the_question_yes" value="TRUE">
+                                <label for="the_question_yes" class="after_radio">ใช่</label>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio" name="input_cold" id="the_question_no" value="FALSE">
+                                <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <fieldset>
+                                <legend>4. คุณได้เดินทางไปต่างประเทศในช่วง 2 สัปดาห์ที่ผ่านมาหรือไม่</legend>
+                                <input type="radio" name="input_travel" id="the_question_yes" value="TRUE">
+                                <label for="the_question_yes" class="after_radio">ใช่</label>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio" name="input_travel" id="the_question_no" value="FALSE">
+                                <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <fieldset>
+                                <legend>5. เมื่อ 2 สัปดาห์ที่ผ่านมาคุณได้เดินทางผ่าน ประเทศจีน, ญี่ปุ่น, สิงคโปร์, เกาหลีใต้,
+                                    ฮ่องกง, ไต้หวัน, มาเก๊า ,อิตาลี, อังกฤษ,เยอรมัน, ฝรั่งเศส, สเปน, อิหร่าน, สหรัฐอเมริกา
+                                    หรือไม่</legend>
+                                <input type="radio" name="input_travel_dangerous_area" id="the_question_yes" value="TRUE">
+                                <label for="the_question_yes" class="after_radio">ใช่</label>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio" name="input_travel_dangerous_area" id="the_question_no" value="FALSE">
+                                <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <fieldset>
+                                <legend>6. ในบ้านหรือห้องพัก มีคนเดินทางมาจากพื้นที่เสี่ยงในช่วง 14 วันหรือไม่? .
+                                    พื้นที่เสี่ยงได้แก่ ประเทศจีน-ฮ่องกง มาเก๊า เกาหลีใต้ อิหร่าน อิตาลี ไต้หวัน* สิงคโปร์*
+                                    เยอรมนี ฝรั่งเศส สเปน เดนมาร์ก เนเธอร์แลนด์ สวิสเซอร์แลนด์ นอร์เวย์ สวีเดน อังกฤษ ญี่ปุ่น
+                                    หรืออเมริกา หรือไม่ * เฉพาะผู้ที่เดินทางจากไต้หวันและสิงคโปร์ก่อนวันที่ 14 มีนาคม 2563
+                                </legend>
+                                <input type="radio" name="input_home_dangerous" id="the_question_yes" value="TRUE">
+                                <label for="the_question_yes" class="after_radio">ใช่</label>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio" name="input_home_dangerous" id="the_question_no" value="FALSE">
+                                <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <fieldset>
+                                <legend>7. คุณประกอบอาชีพที่เจอกับนักท่องเที่ยวชาวต่างชาติเป็นประจำหรือไม่</legend>
+                                <input type="radio" name="input_meet_foreigner" id="the_question_yes" value="TRUE">
+                                <label for="the_question_yes" class="after_radio">ใช่</label>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio" name="input_meet_foreigner" id="the_question_no" value="FALSE">
+                                <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="pt-3 px-5 row">
+                        <div class="col-sm-12">
+                            <fieldset>
+                                <legend>8. คุณได้สัมผัสหรือทำกิจกรรมร่วมกับผู้ติดเชื้อ(ได้รับการตรวจยืนยันว่าเป็นโรค COVID-19)
+                                    หรือไม่</legend>
+                                <input type="radio" name="input_contact" id="the_question_yes" value="TRUE">
+                                <label for="the_question_yes" class="after_radio">ใช่</label>
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <input type="radio" name="input_contact" id="the_question_no" value="FALSE">
+                                <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                            </fieldset>
+                        </div>
+                    </div>
+{#                    <div class="pt-3 px-5 row">#}
+{#                        <div class="col-sm-12">#}
+{#                            <fieldset>#}
+{#                                <legend>9. คุณอาศัยอยู่ในกรุงเทพฯ หรือไม่?</legend>#}
+{#                                <input type="radio" name="input_bangkok" id="the_question_yes" value="TRUE">#}
+{#                                <label for="the_question_yes" class="after_radio">ใช่</label>#}
+{#                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;#}
+{#                                <input type="radio" name="input_bangkok" id="the_question_no" value="FALSE">#}
+{#                                <label for="the_question_no" class="after_radio">ไม่ใช่</label>#}
+{#                            </fieldset>#}
+{#                        </div>#}
+{#                    </div>#}
+                </div>
+                <button type="submit"> submit </button>
+
+        </div>
+    </form>
+
+{% endblock %}
+
+
+
