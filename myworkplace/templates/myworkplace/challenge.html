@@ -2,7 +2,7 @@
 {% load static %}
 
 
-{% block title_bl %} screen{% endblock %}
+{% block title_bl %} Challenge{% endblock %}
 {% block body_bl %}
 
 
@@ -16,7 +16,9 @@
                 <label for=""> Day1 </label>
             </div>
         </div><br>
-        <form action="POST">
+        <form method="POST">
+                {% csrf_token %}
+
             <div class="card">
                 <div class="card-header">
                     เมื่อสัมผัสสิ่งของ เพื่อป้องกัน COVID-19 คุณควรทำอย่างไร
@@ -25,20 +27,20 @@
                 <div class="card-body" >
                     <div class="row justify-content-start">
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" >
+                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="A">
                         <label class="custom-control-label" for="customRadio2">คำตอบ A </label>
                     </div>
                     </div><br>
                     <div class="row justify-content-start">
                      <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="B">
                         <label class="custom-control-label" for="customRadio2">คำตอบ B</label>
                      </div>
                     </div><br>
                     <div class="row justify-content-start">
 
                       <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" value="C">
                         <label class="custom-control-label" for="customRadio2">คำตอบ C</label>
                       </div>
                     </div>

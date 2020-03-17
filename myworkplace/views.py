@@ -156,8 +156,6 @@ def checkin(request, id):
     return render(request, 'myworkplace/checkin.html', context)
 
 
-
-
 def challenge(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
