@@ -4,6 +4,7 @@
 
 {% block title_bl %} screen{% endblock %}
 {% block body_bl %}
+
     <form method="POST">
         {% csrf_token %}
         <div class="container" id="heading">
@@ -22,7 +23,7 @@
                                 <legend>1.1 รหัสพนักงาน (ชื่อ,สังกัด)</legend>
                                 <p>รหัสพนักงาน{{ data.employee_ID }}</p>
         {#                        <input class="w-75" type="text" placeholder="รหัสพนักงาน.. (ตัวเลข 6 หลัก)">#}
-                                <input class="w-75" type="text" name="input_name" placeholder="ชื่อ..">
+                                <input class="w-75" type="text" name="input_name" placeholder="ชื่อ (ไม่ต้องระบบคำนำหน้า) ">
                                 <input class="w-75" type="text" name="input_workplace" placeholder="สังกัด..">
                             </fieldset>
                         </div>
@@ -81,7 +82,7 @@
                     <div class="pt-3 px-5 row">
                         <div class="col-sm-12">
                             <fieldset>
-                                <legend>4. คุณได้เดินทางไปต่างประเทศในช่วง 2 สัปดาห์ที่ผ่านมาหรือไม่</legend>
+                                <legend>4. คุณได้เดินทางไปต่างประเทศในช่วง 14 วัน ที่ผ่านมาหรือไม่</legend>
                                 <input type="radio" name="input_travel" id="the_question_yes" value="TRUE">
                                 <label for="the_question_yes" class="after_radio">ใช่</label>
                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;

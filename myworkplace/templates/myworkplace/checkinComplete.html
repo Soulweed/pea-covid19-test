@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title_bl %} screen{% endblock %}
+{% block body_bl %}
+
+<div class="w3-container w3-animate-bottom">
+    <div class="w3-row w3-padding" style="padding-top: 32px;">
+        <div class="w3-col s12 w3-card-4 w3-round-xlarge w3-display-container w3-white" style="height: 400px;">
+            <div class="w3-display-middle" align="center">
+                <i class="fa fa-check-circle" style="font-size:80px;"></i><br>
+                <span>Check-in สำเร็จ</span><br>
+                <span class="w3-text-grey">{{data.datetime}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

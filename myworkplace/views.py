@@ -71,6 +71,7 @@ def personal_info(request, id):
 def screen(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
+
     if request.method == "POST":
         name = request.POST.get("input_name")
         workplace = request.POST.get("input_workplace")
@@ -117,8 +118,51 @@ def screen(request, id):
     return render(request, 'myworkplace/screen.html', context)
 
 
+def checkin(request, id):
+    data = employee.objects.get(employee_ID=id).__dict__
+    context = {'data': data}
+
+    if request.method == "POST":
+        latitude = request.POST.get("latitude")
+        longitude = request.POST.get("longitude")
+
+        obj = {'type': 'checkin', 'latitude': latitude, 'longitude': longitude, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+        user = employee.objects.get(employee_ID=id)
+        data = json.loads(user.activity_text)
+        data.append(obj)
+        print(data)
+        user.activity_text = json.dumps(data, ensure_ascii=False)
+        user.save()
+        context['data'].update({'datetime': obj['datetime']})
+        return render(request, 'myworkplace/checkinComplete.html', context)
+
+    return render(request, 'myworkplace/checkin.html', context)
+
+
+
+
+def risk_group(request, id):
+    data = employee.objects.get(employee_ID=id).__dict__
+    context = {'data': data}
+    if request.method == "POST":
+        print('here we are')
+        print('send email')  # send email
+
+        return render(request, 'myworkplace/confirm.html', context)
+    print('----------------------')
+    print(context)
+    return render(request, 'myworkplace/risk_group.html', context)
+
 def confirm(request):
+    print('link to confirm page')
     return render(request, 'myworkplace/confirm.html')
+
+def confirm_WFH(request):
+    print('link to work form home confirm page')
+
+    return render(request, 'myworkplace/confirm_WFH.html')
+
 
 
 # API
@@ -259,6 +303,15 @@ def handle_text_message(event):
 
 
 
+    elif dict_message['text'] == 'checkin':
+        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
+        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
+        print(user_employee)
+        if dict_source['user_id'] in employee_Line_ID_list:
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ '
+                                                            'กรุณากรอกแบบฟอร์มคัดกรอง www.https://pea-covid19-test.herokuapp.com/checkin/{}/'.format(
+                                           user_employee.employee_ID)))
 
     elif dict_message['text'] == 'ข้อมูลส่วนตัว':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]

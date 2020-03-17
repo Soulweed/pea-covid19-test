@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/checkin.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/checkinComplete.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm_WFH.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/risk_group.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,10 +27,68 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="299" column="37" lean-forward="true" selection-start-line="299" selection-start-column="37" selection-end-line="299" selection-end-column="37" />
+            <state relative-caret-position="214">
+              <caret line="310" column="57" lean-forward="true" selection-start-line="310" selection-start-column="57" selection-end-line="310" selection-end-column="57" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkin.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/checkin.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1006">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="63" selection-end-column="0" />
+              <folding>
+                <element signature="e#1196#1218#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkinComplete.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/checkinComplete.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+              <folding>
+                <element signature="e#189#215#0#HTML" expanded="true" />
+                <element signature="e#305#327#0#HTML" expanded="true" />
+                <element signature="e#434#457#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="24" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="497" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screen.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="84" column="82" lean-forward="false" selection-start-line="84" selection-start-column="82" selection-end-line="84" selection-end-column="82" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,12 +127,16 @@
         <option value="$PROJECT_DIR$/myworkplace/models.py" />
         <option value="$PROJECT_DIR$/peacovid19v2/settings.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm_screen.html" />
-        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm_WFH.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/risk_group.html" />
+        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/checkin.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/checkinComplete.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
       </list>
     </option>
@@ -226,8 +296,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40694788" sideWeight="0.49427754" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3383405" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40818858" sideWeight="0.49427754" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18526466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -396,14 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="98" column="85" lean-forward="false" selection-start-line="98" selection-start-column="58" selection-end-line="98" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/peacovid19v2/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -412,103 +474,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html">
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="103" column="70" lean-forward="false" selection-start-line="103" selection-start-column="70" selection-end-line="103" selection-end-column="70" />
-          <folding>
-            <element signature="e#1361#1367#0#HTML" expanded="true" />
-            <element signature="e#1368#1374#0#HTML" expanded="true" />
-            <element signature="e#1375#1381#0#HTML" expanded="true" />
-            <element signature="e#1382#1388#0#HTML" expanded="true" />
-            <element signature="e#1389#1395#0#HTML" expanded="true" />
-            <element signature="e#1396#1402#0#HTML" expanded="true" />
-            <element signature="e#1403#1409#0#HTML" expanded="true" />
-            <element signature="e#1410#1416#0#HTML" expanded="true" />
-            <element signature="e#2108#2114#0#HTML" expanded="true" />
-            <element signature="e#2115#2121#0#HTML" expanded="true" />
-            <element signature="e#2122#2128#0#HTML" expanded="true" />
-            <element signature="e#2129#2135#0#HTML" expanded="true" />
-            <element signature="e#2136#2142#0#HTML" expanded="true" />
-            <element signature="e#2143#2149#0#HTML" expanded="true" />
-            <element signature="e#2150#2156#0#HTML" expanded="true" />
-            <element signature="e#2157#2163#0#HTML" expanded="true" />
-            <element signature="e#2863#2869#0#HTML" expanded="true" />
-            <element signature="e#2870#2876#0#HTML" expanded="true" />
-            <element signature="e#2877#2883#0#HTML" expanded="true" />
-            <element signature="e#2884#2890#0#HTML" expanded="true" />
-            <element signature="e#2891#2897#0#HTML" expanded="true" />
-            <element signature="e#2898#2904#0#HTML" expanded="true" />
-            <element signature="e#2905#2911#0#HTML" expanded="true" />
-            <element signature="e#2912#2918#0#HTML" expanded="true" />
-            <element signature="e#3675#3681#0#HTML" expanded="true" />
-            <element signature="e#3682#3688#0#HTML" expanded="true" />
-            <element signature="e#3689#3695#0#HTML" expanded="true" />
-            <element signature="e#3696#3702#0#HTML" expanded="true" />
-            <element signature="e#3703#3709#0#HTML" expanded="true" />
-            <element signature="e#3710#3716#0#HTML" expanded="true" />
-            <element signature="e#3717#3723#0#HTML" expanded="true" />
-            <element signature="e#3724#3730#0#HTML" expanded="true" />
-            <element signature="e#4535#4541#0#HTML" expanded="true" />
-            <element signature="e#4542#4548#0#HTML" expanded="true" />
-            <element signature="e#4549#4555#0#HTML" expanded="true" />
-            <element signature="e#4556#4562#0#HTML" expanded="true" />
-            <element signature="e#4563#4569#0#HTML" expanded="true" />
-            <element signature="e#4570#4576#0#HTML" expanded="true" />
-            <element signature="e#4577#4583#0#HTML" expanded="true" />
-            <element signature="e#4584#4590#0#HTML" expanded="true" />
-            <element signature="e#5348#5354#0#HTML" expanded="true" />
-            <element signature="e#5355#5361#0#HTML" expanded="true" />
-            <element signature="e#5362#5368#0#HTML" expanded="true" />
-            <element signature="e#5369#5375#0#HTML" expanded="true" />
-            <element signature="e#5376#5382#0#HTML" expanded="true" />
-            <element signature="e#5383#5389#0#HTML" expanded="true" />
-            <element signature="e#5390#5396#0#HTML" expanded="true" />
-            <element signature="e#5397#5403#0#HTML" expanded="true" />
-            <element signature="e#6070#6076#0#HTML" expanded="true" />
-            <element signature="e#6077#6083#0#HTML" expanded="true" />
-            <element signature="e#6084#6090#0#HTML" expanded="true" />
-            <element signature="e#6091#6097#0#HTML" expanded="true" />
-            <element signature="e#6098#6104#0#HTML" expanded="true" />
-            <element signature="e#6105#6111#0#HTML" expanded="true" />
-            <element signature="e#6112#6118#0#HTML" expanded="true" />
-            <element signature="e#6119#6125#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="338" column="6" lean-forward="true" selection-start-line="338" selection-start-column="6" selection-end-line="338" selection-end-column="6" />
+        <state relative-caret-position="66">
+          <caret line="18" column="27" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm.html">
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm_WFH.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="40" column="7" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="7" />
+        <state relative-caret-position="112">
+          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1329">
+          <caret line="18" column="24" lean-forward="true" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/risk_group.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="74" column="51" lean-forward="false" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="51" />
           <folding>
-            <element signature="n#style#0;n#h1#3;n#center#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="84" column="82" lean-forward="false" selection-start-line="84" selection-start-column="82" selection-end-line="84" selection-end-column="82" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="30" />
+        <state relative-caret-position="240">
+          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/checkin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1006">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="e#1196#1218#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/checkinComplete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+          <folding>
+            <element signature="e#189#215#0#HTML" expanded="true" />
+            <element signature="e#305#327#0#HTML" expanded="true" />
+            <element signature="e#434#457#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="24" column="4" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="497" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="299" column="37" lean-forward="true" selection-start-line="299" selection-start-column="37" selection-end-line="299" selection-end-column="37" />
+        <state relative-caret-position="214">
+          <caret line="310" column="57" lean-forward="true" selection-start-line="310" selection-start-column="57" selection-end-line="310" selection-end-column="57" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
