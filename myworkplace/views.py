@@ -153,6 +153,8 @@ from linebot.models import (
     MessageEvent,
     TextMessage,
     TextSendMessage,
+    FlexSendMessage,
+
 )
 import os
 
@@ -211,7 +213,22 @@ def handle_text_message(event):
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
     elif dict_message['text']=='test':
         line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(text='ทดสอบ'))
+                                   FlexSendMessage(
+                                       alt_text='hello',
+                                       contents={
+                                           'type': 'bubble',
+                                           'direction': 'ltr',
+                                           'hero': {
+                                               'type': 'image',
+                                               'url': 'https://example.com/cafe.jpg',
+                                               'size': 'full',
+                                               'aspectRatio': '20:13',
+                                               'aspectMode': 'cover',
+                                               'action': {'type': 'uri', 'uri': 'http://example.com', 'label': 'label'}
+                                           }
+                                       }
+                                   )
+                                   )
 
         # {
         #     "type": "bubble",
