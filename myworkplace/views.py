@@ -192,6 +192,143 @@ def handle_text_message(event):
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
+    elif dict_message['text']=='test':
+
+        {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                    {
+                        "type": "image",
+                        "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
+                        "size": "full",
+                        "aspectMode": "cover",
+                        "aspectRatio": "1:1",
+                        "gravity": "center"
+                    },
+                    {
+                        "type": "image",
+                        "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
+                        "position": "absolute",
+                        "aspectMode": "fit",
+                        "aspectRatio": "1:1",
+                        "offsetTop": "0px",
+                        "offsetBottom": "0px",
+                        "offsetStart": "0px",
+                        "offsetEnd": "0px",
+                        "size": "full"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "ระดับความเสี่ยง",
+                                "size": "lg"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "horizontal",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "เสี่ยงมาก",
+                                        "size": "4xl",
+                                        "align": "center",
+                                        "offsetStart": "20px"
+                                    },
+                                    {
+                                        "type": "image",
+                                        "url": "https://sv1.picz.in.th/images/2020/03/17/Qw4M9N.png",
+                                        "size": "xs"
+                                    }
+                                ],
+                                "margin": "lg"
+                            },
+                            {
+                                "type": "separator",
+                                "color": "#111111",
+                                "margin": "lg"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "horizontal",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": "คะแนนความ",
+                                                "size": "xl",
+                                                "weight": "bold"
+                                            },
+                                            {
+                                                "type": "text",
+                                                "text": "ตระหนักโรค",
+                                                "size": "xl",
+                                                "weight": "bold"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "text",
+                                                "text": "4",
+                                                "size": "4xl",
+                                                "align": "end"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "margin": "md"
+                            },
+                            {
+                                "type": "separator",
+                                "color": "#111111"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "บันทึกสุขภาพประจำวัน",
+                                        "size": "md"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "2020-03-06",
+                                        "size": "md"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "บันทึกแล้ว",
+                                        "size": "lg",
+                                        "weight": "bold",
+                                        "style": "italic"
+                                    }
+                                ],
+                                "margin": "md"
+                            }
+                        ],
+                        "position": "absolute",
+                        "offsetStart": "20px",
+                        "offsetTop": "10px"
+                    }
+                ],
+                "paddingAll": "0px",
+                "position": "relative"
+            }
+        }
+
 
     elif dict_message['text']=='ข้อมูลส่วนตัว':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]

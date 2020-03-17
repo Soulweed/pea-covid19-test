@@ -3,20 +3,45 @@
 
 
 {% block title_bl %} screen{% endblock %}
+    <body style="background-color : purple ; padding:200px">
+
 {% block body_bl %}
 
-                <div class="px-5 pt-5 mt-5 row">
-                    <div class="col-sm-12">
-                        <label for="the_question">
-                            <h1>1. ยืนยันการคัดกรอง PEA Covid-19</h1>
-                        </label>
-                        <img src="{% static 'img/yellowlady.png' %}" alt="yellowlady" id="yellowlady">
-                    </div>
-                </div>
+{#                <div class="px-5 pt-5 mt-5 row">#}
+{#                    <div class="col-sm-12">#}
+{#                        <label for="the_question">#}
+{#                            <h1>1. ยืนยันการคัดกรอง PEA Covid-19</h1>#}
+{#                        </label>#}
+{#                        <img src="{% static 'img/yellowlady.png' %}" alt="yellowlady" id="yellowlady">#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#<p>รหัสพนักงาน{{ data.employee_ID }}</p>#}
+{#<p>ความเสี่ยง {{ health }}</p>#}
+{#    #}
+{#    #}
+{#    #}
+{#{% block body_bl %}            #}
 
-<p>รหัสพนักงาน{{ data.employee_ID }}</p>
-<p>ความเสี่ยง {{ health }}</p>
+
+    <div class="container" style="background-color: white;padding:20px" >
+                        <div class="col-sm-12 " >
+                                <center>
+                                <h1>1. ยืนยันการคัดกรอง PEA Covid-19</h1>
+                                <br>
+                                <h1><p>รหัสพนักงาน : 507192 {{ data.employee_ID }}</p></h1>
+                                <h1><p>ความเสี่ยง</p></h1>
+                                <br>s
+                                <h1 class="display-1" style = "color : red" ><p>{{ health }}</p></h1>
+                                 </center>
+                        </div>
+
+
+    </div>
+</body>
 {% endblock %}
+
+{#{% endblock %}#}
 
 
 
