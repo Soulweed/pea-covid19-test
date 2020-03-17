@@ -547,7 +547,7 @@ def handle_text_message(event):
         "action": {
           "type": "uri",
           "label": "action",
-          "uri": "http://pea-covid19-test.herokuapp.com/checkin/{}/".format(user_employee.employee_ID)
+          "uri": "https://pea-covid19-test.herokuapp.com/checkin/{}/".format(user_employee.employee_ID)
         }
       },
       {
@@ -560,7 +560,7 @@ def handle_text_message(event):
         "action": {
           "type": "uri",
           "label": "action",
-          "uri": "http://pea-covid19-test.herokuapp.com/"
+          "uri": "https://pea-covid19-test.herokuapp.com/"
         }
       }
     ],
@@ -597,7 +597,7 @@ def handle_text_message(event):
         "action": {
           "type": "uri",
           "label": "action",
-          "uri": "http://pea-covid19-test.herokuapp.com/normal_group/{}/".format(user_employee.employee_ID)
+          "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(user_employee.employee_ID)
         },
         "offsetStart": "-3px",
         "offsetTop": "5px"
@@ -611,7 +611,7 @@ def handle_text_message(event):
         "action": {
           "type": "uri",
           "label": "action",
-          "uri": "http://pea-covid19-test.herokuapp.com/risk_group/{}/".format(user_employee.employee_ID)
+          "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(user_employee.employee_ID)
         },
         "size": "full",
         "offsetStart": "-5px"
