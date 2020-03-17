@@ -207,7 +207,34 @@ def handle_text_message(event):
         print(user_employee)
         if dict_source['user_id'] in employee_Line_ID_list:
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='www.https://pea-covid19-test.herokuapp.com/daily_update/{}/'.format(user_employee.employee_ID)))
+                                        FlexSendMessage(
+                                            alt_text='hello',
+                                            contents={
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/17/QwPIx0.png",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "1:1",
+        "gravity": "center",
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "https://pea-covid19-test.herokuapp.com/daily_update/{}/".format(user_employee.employee_ID)
+        }
+      }
+    ],
+    "paddingAll": "0px"
+  }
+}
+                                        )
+                                        )
+                                       # TextSendMessage(text='www.https://pea-covid19-test.herokuapp.com/daily_update/{}/'.format(user_employee.employee_ID)))
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
