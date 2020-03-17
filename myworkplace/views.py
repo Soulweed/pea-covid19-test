@@ -2,6 +2,12 @@ from django.shortcuts import render, redirect
 from .models import employee
 import json
 from datetime import datetime
+import getpass
+from collections import defaultdict
+from exchangelib import Configuration, Account, DELEGATE, Credentials
+from exchangelib import Message, Mailbox, FileAttachment
+import base64
+import requests, xmltodict
 
 
 # Create your views here.
@@ -85,6 +91,7 @@ def screen(request, id):
         home_dangerous = request.POST.get("input_home_dangerous")
         meet_foreigner = request.POST.get("input_meet_foreigner")
         contact = request.POST.get("input_contact")
+
         if fever == 'FALSE' and cold == 'FALSE' and travel == 'FALSE' and travel_dangerous_area == 'FALSE' \
                 and home_dangerous == 'FALSE' and meet_foreigner == 'FALSE' and contact == 'FALSE':
             health = "normal ปกติ"
@@ -99,6 +106,8 @@ def screen(request, id):
         user.work = workplace
         user.employee_gender = gender
         user.employee_age = age
+        user.healthy = health
+
 
         obj = {'type': 'first_screen', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
         data = json.loads(user.activity_text)
@@ -112,7 +121,13 @@ def screen(request, id):
         print('######################')
 
         print(context)
-        return render(request, 'myworkplace/confirm.html', context)
+        if health == "normal ปกติ":
+            return redirect(normal_group, id)
+        elif health == 'Risk เสี่ยง':
+            return redirect(medium_group, id)
+        else:
+            return redirect(risk_group, id)
+        # return render(request, 'myworkplace/confirm.html', context)
     print('----------------------')
     print(context)
     return render(request, 'myworkplace/screen.html', context)
@@ -142,23 +157,69 @@ def checkin(request, id):
 
 
 
-def risk_group(request, id):
+def normal_group(request, id):
+    data = employee.objects.get(employee_ID=id).__dict__
+    context = {'data': data}
+    if request.method == "POST":
+        print('here we are')
+        print('send email')  # send email
+        start_date = request.POST.get("id_start_date")
+        end_date = request.POST.get("id_end_date")
+        total_date = request.POST.get("id_total_date")
+        employee_up1 = request.POST.get("id_employee_up1")
+        employee_up2 = request.POST.get("id_employee_up2")
+        customRadio = request.POST.get("customRadio")
+
+        print(start_date, end_date, total_date, employee_up1, employee_up2)
+
+        ######send email here#########
+        if(customRadio == 'Accept'):
+            print(id)
+            print(employee_up1)
+            print(employee_up2)
+
+        return redirect(confirm, id)
+    print('----------------------')
+    print(context)
+    return render(request, 'myworkplace/normal_group.html', context)
+
+
+
+
+def medium_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
     if request.method == "POST":
         print('here we are')
         print('send email')  # send email
 
-        return render(request, 'myworkplace/confirm.html', context)
+        return redirect(confirm, id)
+    print('----------------------')
+    print(context)
+    return render(request, 'myworkplace/medium_group.html', context)
+
+
+
+def risk_group(request, id):
+    data = employee.objects.get(employee_ID=id).__dict__
+    print('risk group')
+    context = {'data': data}
+    if request.method == "POST":
+        print('here we are')
+        print('send email')  # send email
+        ######send email here#########
+        return redirect(confirm, id)
     print('----------------------')
     print(context)
     return render(request, 'myworkplace/risk_group.html', context)
 
-def confirm(request):
+def confirm(request, id):
     print('link to confirm page')
-    return render(request, 'myworkplace/confirm.html')
+    data = employee.objects.get(employee_ID=id).__dict__
+    context = {'data': data}
+    return render(request, 'myworkplace/confirm.html', context)
 
-def confirm_WFH(request):
+def confirm_WFH(request, id):
     print('link to work form home confirm page')
 
     return render(request, 'myworkplace/confirm_WFH.html')
@@ -310,8 +371,9 @@ def handle_text_message(event):
         if dict_source['user_id'] in employee_Line_ID_list:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ '
-                                                            'กรุณากรอกแบบฟอร์มคัดกรอง www.https://pea-covid19-test.herokuapp.com/checkin/{}/'.format(
+                                                            'กรุณากรอกแบบฟอร์มคัดกรอง https://pea-covid19-test.herokuapp.com/checkin/{}/'.format(
                                            user_employee.employee_ID)))
+
 
     elif dict_message['text'] == 'ข้อมูลส่วนตัว':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
@@ -460,6 +522,108 @@ def handle_text_message(event):
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
+    elif dict_message['text'] == 'time-stamp':
+        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
+        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
+        print(user_employee)
+        if dict_source['user_id'] in employee_Line_ID_list:
+            line_bot_api.reply_message(event.reply_token,
+                                       FlexSendMessage(
+                                           alt_text='hello',
+                                           contents={
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "2:1",
+        "gravity": "center",
+        "url": "https://www.img.in.th/images/b062328037de6ae13b3843c25c042127.png",
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "http://pea-covid19-test.herokuapp.com/checkin/{}/".format(user_employee.employee_ID)
+        }
+      },
+      {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/17/Q1OEMa.png",
+        "gravity": "center",
+        "size": "full",
+        "aspectRatio": "2:1",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "http://pea-covid19-test.herokuapp.com/"
+        }
+      }
+    ],
+    "paddingAll": "0px"
+  }
+}
+                                       )
+                                       )
+        else:
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
+
+    elif dict_message['text'] == 'Covid-leave':
+        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
+        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
+        print(user_employee)
+        if dict_source['user_id'] in employee_Line_ID_list:
+            line_bot_api.reply_message(event.reply_token,
+                                       FlexSendMessage(
+                                           alt_text='hello',
+                                           contents={
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "2:1",
+        "gravity": "center",
+        "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lrKf.png",
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "http://pea-covid19-test.herokuapp.com/normal_group/{}/".format(user_employee.employee_ID)
+        },
+        "offsetStart": "-3px",
+        "offsetTop": "5px"
+      },
+      {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lX3z.png",
+        "gravity": "center",
+        "aspectRatio": "2:1",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "http://pea-covid19-test.herokuapp.com/risk_group/{}/".format(user_employee.employee_ID)
+        },
+        "size": "full",
+        "offsetStart": "-5px"
+      }
+    ],
+    "paddingAll": "0px"
+  }
+}
+                                       )
+                                       )
+        else:
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
 
     elif dict_message['text'].isnumeric() and len(dict_message['text']) == 6:  # check is number
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
@@ -495,3 +659,145 @@ def handle_text_message(event):
     #     else:
     #         line_bot_api.reply_message(event.reply_token,
     #                                    TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+def connect(server, email, username, password):
+    """
+    Get Exchange account cconnection with server
+    """
+    creds = Credentials(username=username, password=password)
+    config = Configuration(server=server, credentials=creds)
+    return Account(primary_smtp_address=email, autodiscover=False, config = config, access_type=DELEGATE)
+
+def print_tree(account):
+    """
+    Print folder tree
+    """
+    print(account.root.tree())
+
+def get_recent_emails(account, folder_name, count):
+    """
+    Retrieve most emails for a given folder
+    """
+    # Get the folder object
+    folder = account.root / 'Top of Information Store' / folder_name
+    # Get emails
+    return folder.all().order_by('-datetime_received')[:count]
+
+def count_senders(emails):
+    """
+    Given emails, provide counts of sender by name
+    """
+    counts = defaultdict(int)
+    for email in emails:
+        counts[email.sender.name] += 1
+    return counts
+
+def print_non_replies(emails, agents):
+    """
+    Print subjects where no agents have replied
+    """
+    dealt_with = dict()
+    not_dealt_with = dict()
+    not_dealt_with_list = list()
+    for email in emails: # newest to oldest
+        # Simplify subject
+        subject = email.subject.lower().replace('re: ', '').replace('fw: ', '')
+
+        if subject in dealt_with or subject in not_dealt_with:
+            continue
+        elif email.sender.name in agents:
+            # If most recent email was from an agent it's been dealt with
+            dealt_with[subject] = email
+        else:
+            # Email from anyone else has not been dealt with
+            not_dealt_with[subject] = email
+            not_dealt_with_list += [email.subject]
+
+    print('NOT DEALT WITH:')
+    for subject in not_dealt_with_list:
+        print(' * ', subject)
+
+def send_email(account, subject, body, recipients, attachments=None):
+    """
+    Send an email.
+    Parameters
+    ----------
+    account : Account object
+    subject : str
+    body : str
+    recipients : list of str
+        Each str is and email adress
+    attachments : list of tuples or None
+        (filename, binary contents)
+    Examples
+    --------
+    send_email(account, 'Subject line', 'Hello!', ['info@example.com'])
+    """
+    to_recipients = []
+    for recipient in recipients:
+        to_recipients.append(Mailbox(email_address=recipient))
+    # Create message
+    m = Message(account=account,
+                folder=account.sent,
+                subject=subject,
+                body=body,
+                to_recipients=to_recipients)
+
+    # attach files
+    for attachment_name, attachment_content in attachments or []:
+        file = FileAttachment(name=attachment_name, content=attachment_content)
+        m.attach(file)
+    m.send_and_save()
+
+
+
+
+
+
+
+
+
+def get_user_data(username):
+    n=0
+    while (n<10):
+        try:
+            url="https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
+            headers = {'content-type': 'text/xml'}
+            xmltext ='''<?xml version="1.0" encoding="utf-8"?>
+                        <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                        <soap:Body>
+                            <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
+                            <WSAuthenKey>{0}</WSAuthenKey>
+                            <EmployeeId>{1}</EmployeeId>
+                            </GetEmployeeInfoByEmployeeId_SI>
+                        </soap:Body>
+                        </soap:Envelope>'''
+            wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
+            body = xmltext.format(wsauth,username)
+            res = requests.post(url,data=body,headers=headers, timeout=1, allow_redirects=True)
+            o = xmltodict.parse(res.text)
+            jsonconvert = dict(o)
+            authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse']['GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
+            break
+        except:
+            n += 1
+            authData = 'error'
+    print(authData.get('Email'))
+
+    return authData
+
+
+
+

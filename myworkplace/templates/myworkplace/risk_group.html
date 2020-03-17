@@ -1,72 +1,35 @@
+
+
 {% extends 'base.html' %}
 {% load static %}
 
 
-{% block title_bl %} daily update{% endblock %}
+{% block title_bl %} Personal information page{% endblock %}
 {% block body_bl %}
-
-{#<p>{{ data.employee_line_ID }}</p>#}
-{#<p>{{ data.quarantined }}</p>#}
 
 <div class="container" id="heading">
         <div class="px-5 pt-5 mt-5 row">
             <div class="col-sm-12">
                 <label for="the_question">
-                    <h1 id="app">เงื่อนไขปกติ</h1>
+                    <h2 id="app">เงื่อนไขกลุ่มเสี่ยง</h2>
                 </label>
                 <img src="{% static 'img/yellowlady.png' %}" alt="yellowlady" id="yellowlady">
             </div>
         </div>
         <div class="card">
             <div class="card-header">
-              สิ่งที่ต้องมี
+                Work from Home
             </div>
             <div class="card-body" >
               <!-- <blockquote class="blockquote mb-0"> -->
-                  <ol style="text-align: left;">
-                      <li>คอมพิวเตอร์ส่วนตัว/แท็ปเล็ต<br> (PC/Notebook/Tablet)</li>
-                      <li>สามารถติดตั้งและพร้อมใช้งานระบบ VPN <br>เพื่อเข้าถึงระบบงานของ PEA ได้</li>
-                      <li>สามารถติดตั้งและพร้อมใช้งานระบบ SAP <br>(กรณีที่จำเป็นใช้เพื่อทำงานที่เกี่ยวข้อง)</li>
-                      <li>สามารถติดตั้งและพร้อมใช้งานระบบ UC <br>ในโทรศัพท์มือถือ/แท็ปเล็ต</li>
-                      <li>มีอินเตอร์เน็ตพร้อมใช้สำหรับการทำงาน</li>
-                      <li>ได้รับการอนุมัติจากผู้บังคับบัญชา<br>เรียบร้อยแล้ว</li>
-                  </ol>
+                 <p style="color: #000000;">จากสถานการณ์  COVID-19 ทาง PEA ได้เล็งเห็นถึงความสำคัญต่อสุขภาพของพนักงานทุกคน การปฏิบัติงานจากที่บ้านจึงเป็นทางเลือกหนึ่งเพื่อลดความเสี่ยงในการติดเชื้อและการแพร่ระบาดของไวรัส
+                    PEA ได้เปิดโครงการ Work from Home เพื่อรองรับพนักงานที่อยู่ในกลุ่มเสี่ยง โดยพนักงานต้องปฏิบัติตามเงื่อนไขดังต่อไปนี้อย่างเคร่งครัด
+                </p>
               <!-- </blockquote> -->
             </div>
           </div><br>
-
-
-    <form method="POST">
-        {% csrf_token %}
-
-    <div class="form-group">
-                <label for="inputEmid" style="color: #000000;">กรอกรหัสพนักงาน</label>
-                <input type="text" class="form-control" id="inputEmid">
-            </div>
-            <div class="form-group">
-            <label for="inputEmid" style="color: #000000;">วันที่เริ่มต้น Work from Home</label>
-            <div class="input-daterange input-group">
-                <input type="text" class="input-sm form-control" id="datepicker1" placeholder="วันที่เริ่มต้น" onchange="startdate()">
-                <span style="color: #000000;"  >ถึง</span>
-                <input type="text" class="input-sm form-control" id="datepicker2" placeholder="วันที่สิ้นสุด" onchange="enddate()">
-            </div>
-            </div>
-            <label for="inputEmid" style="color: #000000;" id="diffdate">รวมจำนวนวันที่ Work from home XX วัน</label>
-            <div class="form-group">
-            <label for="" style="color: #000000;">รายละเอียดงานที่ต้องทำในช่วง Work from Home</label>
-            <textarea class="form-control" id="detailTextarea" placeholder="โปรดกรอก"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="inputEmid" style="color: #000000;">กรอกรหัสผู้บังคับบัญชาขั้นต้น</label>
-                <input type="text" class="form-control" id="inputEmid">
-            </div>
-
-                    <div class="form-group">
-                <label for="inputEmid" style="color: #000000;">กรอกรหัสผู้มีอำนาจอนุมัติการลา</label>
-                <input type="text" class="form-control" id="inputEmid">
-            </div>
-            <label for="inputEmid" style="color: #000000;">เงื่อนไขการอนุมัติเป็นดุลยพินิจของผู้บังคับบัญชา
-            </label>
+        <form method="POST">
+    {% csrf_token %}
             <div class="card">
             <div class="card-header">
              เงื่อนไขและข้อกำหนด
@@ -74,39 +37,29 @@
             <div class="card-body" >
               <!-- <blockquote class="blockquote mb-0"> -->
                   <ol style="text-align: left;">
-                      <li>อยู่ในสถานะพร้อมปฏิบัติงานและไม่ออกจากที่พักตลอดช่วงเวลาทำการ <br>(จันทร์-ศุกร์ เวลา 08.30 - 16.30 น. พักเที่ยง 12.00 - 13.00 น.)</li>
-                      <li>อยู่ในสถานะพร้อมประชุมงานหรือติดต่องานภายในเวลา 30 นาที เมื่อมีการร้องขอ</li>
-                      <li>บันทึกเวลาปฏิบัติงานให้ผู้บังคับบัญชาทราบทุกวัน (เข้างานภายใน เวลา 08.30 น. และออกงานเวลา เวลา 16.30 น.)</li>
-                      <li>รายงานผลการปฏิบัติงานให้ผู้บังคับบัญชาทราบทุกวัน</li>
-                      <li>พนักงานต้องทำรายงาน Daily Update ทุกวัน       </li>
+                      <li>พนักงานต้องเข้าร่วมกิจกรรมในโครงการ PEA COVID-19 Challenge เป็นประจำทุกวัน</li>
+                      <li>กิจกรรมในโครงการ PEA COVID-19 Challenge ประกอบไปด้วยตรวจสุขภาพประจำวันผ่าน checklist, การถ่ายรูปเพื่อยืนยันการรายงานตัว ผู้ที่เข้าร่วมกิจกรรมตรงตามเงื่อนไข (เข้าร่วมกิจกรรมมากกว่า 80% ขึ้นไป) ลุ้นรับของรางวัลต่างๆ (อยู่ระหว่างพิจารณาของรางวัล)</li>
                       <li>หากมีความจำเป็นต้องออกจากที่พักให้แจ้งผู้บังคับบัญชารับทราบและอนุมัติทุกครั้ง</li>
-                      <li>หลีกเลี่ยงการสัมผัส,ใกล้ชิดกับบุคคลที่มีความเสี่ยงต่อโรค หรือเดินทางไปในพื้นที่เสี่ยงต่างๆ</li>
-                      <li>หากตรวจพบว่า ไม่ปฏิบัติตามเงื่อนไขข้อตกลงจะมีบทลงโทษและมีผลต่อการพิจารณาประเมินผลงานประจำปีตามระเบียบการไฟฟ้าส่วนภูมิภาค</li>
+                      <li>ทำการเพิ่มระยะห่างในการเข้าสังคม (Social Distance)  เช่น เว้นการพูดคุย, สัมผัส หรืออยู่ระยะระหว่างบุคคลที่อยู่ใกล้ชิดกันในระยะ 6 ฟุต หรือในระยะ 2 เมตร เพื่อหลีกเลี่ยงการติดต่อของโรค</li>
+                      <li>ระหว่างที่อยู่ในช่วงกักตัว 14 วัน หากมีอาการไข้ ตัวร้อน ไอ เจ็บคอ หรือเข้าข่ายของโรคอย่างใดอย่างหนึ่ง ให้ไปทำการตรวจคัดกรองโรคที่โรงพยาบาลทันที พร้อมขอใบรับรองแพทย์</li>
+                      <li>หาก กฟภ. ตรวจสอบพบว่า พนักงานไม่ปฏิบัติตามเงื่อนไขข้อตกลงด้านบน จะมีการพิจารณาบทลงโทษและมีผลต่อการพิจารณาประเมินผลงานประจำปีตามระเบียบการไฟฟ้าส่วนภูมิภาคต่อไป</li>
                   </ol>
-                  <!-- <footer>  -->
                     <br>
-
-                    <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" >
-                        <label class="custom-control-label" for="customRadio1">ไม่ยอมรับ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                     </div><br>
-                     <div class="custom-control custom-radio">
-                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadio2">ยอมรับและพร้อมปฏิบัติตามอย่างเคร่งครัด</label>
+                    <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="gridCheck">
+                          <label class="form-check-label" for="gridCheck" style="color: #000000;">
+                            รับทราบและพร้อมปฏิบัติตามอย่างเคร่งครัด
+                          </label>
+                        </div>
                       </div>
 
                    </div>
                    <br>
-
-                  <!-- </footer>-->
-              <!-- </blockquote> -->
             </div><br>
             <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button><br>
-    </form>
-</div>
 
+        </form>
+    </div>
 
 {% endblock %}
-
-
-

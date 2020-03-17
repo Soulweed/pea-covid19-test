@@ -30,12 +30,14 @@ class employee(models.Model):
     employee_ID=models.IntegerField(default=999999)
     employee_line_ID = models.CharField(max_length=255)
     activity_text = models.TextField(default='000')  #
-    quarantined = models.BooleanField(default=False, blank=True, null=True)
+    quarantined = models.BooleanField(default=False, blank=True)
     infected = models.BooleanField(default=False, blank=True)
+    healthy= models.CharField(max_length=255)
 
 
-    # employee_id = models.CharField(max_length= 200,blank=True )
-    # employee_name = models.CharField(max_length= 200,blank=True )
+    employee_id_up_1 = models.CharField(max_length= 200,blank=True )
+    employee_id_up_2 = models.CharField(max_length= 200,blank=True )
+
     employee_age = models.IntegerField (default=0 ,blank= True)
     employee_gender = models.CharField(max_length=6, choices=GENDER_CHOICES,blank= True)
     employee_tel = models.CharField(max_length=10 , blank=True )
