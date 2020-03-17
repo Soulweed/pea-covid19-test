@@ -158,7 +158,7 @@ def checkin(request, id):
 
 
 
-def question(request, id):
+def challenge(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
 
@@ -179,7 +179,7 @@ def question(request, id):
         context['data'].update({'datetime': obj['datetime']})
         return render(request, 'myworkplace/checkinComplete.html', context)
 
-    return render(request, 'myworkplace/question.html', context)
+    return render(request, 'myworkplace/challenge.html', context)
 
 
 
@@ -391,7 +391,7 @@ def handle_text_message(event):
                                                'size': 'full',
                                                'aspectRatio': '20:13',
                                                'aspectMode': 'cover',
-                                               'action': {'type': 'uri', 'uri': 'https://pea-covid19-test.herokuapp.com/question/{}/'.format(
+                                               'action': {'type': 'uri', 'uri': 'https://pea-covid19-test.herokuapp.com/challenge/{}/'.format(
                                                                    user_employee.employee_ID), 'label': 'label'}
                                            }
                                        }

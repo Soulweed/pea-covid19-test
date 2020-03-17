@@ -18,7 +18,7 @@ urlpatterns = [
     path('risk_form/<id>/', views.risk_form, name='risk_form'),
     path('send_question/', views.send_question),
     path('checkin/<id>/', views.checkin, name='checkin'),
-    path('question/<id>/', views.question, name='question'),
+    path('challenge/<id>/', views.challenge, name='challenge'),
     path('confirm_WFH/<id>/', views.confirm, name='confirm_WFH'),
     path('personal_info/<id>/', views.personal_info, name='personal_info'),
     path('callback/', views.callback, name='callback'),
