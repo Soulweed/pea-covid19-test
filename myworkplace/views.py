@@ -108,7 +108,6 @@ def screen(request, id):
         user.employee_age = age
         user.healthy = health
 
-
         obj = {'type': 'first_screen', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
         data = json.loads(user.activity_text)
         # print(data)
@@ -142,7 +141,8 @@ def checkin(request, id):
         longitude = request.POST.get("longitude")
         print('##########-----------##########')
         print('latitute is', latitude)
-        obj = {'type': 'checkin', 'latitude': latitude, 'longitude': longitude, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+        obj = {'type': 'checkin', 'latitude': latitude, 'longitude': longitude,
+               'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
         user = employee.objects.get(employee_ID=id)
         data = json.loads(user.activity_text)
@@ -154,6 +154,32 @@ def checkin(request, id):
         return render(request, 'myworkplace/checkinComplete.html', context)
 
     return render(request, 'myworkplace/checkin.html', context)
+
+
+
+
+def question(request, id):
+    data = employee.objects.get(employee_ID=id).__dict__
+    context = {'data': data}
+
+    if request.method == "POST":
+        latitude = request.POST.get("latitude")
+        longitude = request.POST.get("longitude")
+        print('##########-----------##########')
+        print('latitute is', latitude)
+        obj = {'type': 'question', 'latitude': latitude, 'longitude': longitude,
+               'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+        user = employee.objects.get(employee_ID=id)
+        data = json.loads(user.activity_text)
+        data.append(obj)
+        print(data)
+        user.activity_text = json.dumps(data, ensure_ascii=False)
+        user.save()
+        context['data'].update({'datetime': obj['datetime']})
+        return render(request, 'myworkplace/checkinComplete.html', context)
+
+    return render(request, 'myworkplace/question.html', context)
 
 
 
@@ -174,7 +200,7 @@ def normal_group(request, id):
         print(start_date, end_date, total_date, employee_up1, employee_up2)
 
         ######send email here#########
-        if(customRadio == 'Accept'):
+        if (customRadio == 'Accept'):
             print(id)
             print(employee_up1)
             print(employee_up2)
@@ -183,8 +209,6 @@ def normal_group(request, id):
     print('----------------------')
     print(context)
     return render(request, 'myworkplace/normal_group.html', context)
-
-
 
 
 def medium_group(request, id):
@@ -200,7 +224,6 @@ def medium_group(request, id):
     return render(request, 'myworkplace/medium_group.html', context)
 
 
-
 def risk_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     print('risk group')
@@ -214,17 +237,18 @@ def risk_group(request, id):
     print(context)
     return render(request, 'myworkplace/risk_group.html', context)
 
+
 def confirm(request, id):
     print('link to confirm page')
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
     return render(request, 'myworkplace/confirm.html', context)
 
+
 def confirm_WFH(request, id):
     print('link to work form home confirm page')
 
     return render(request, 'myworkplace/confirm_WFH.html')
-
 
 
 # API
@@ -385,139 +409,139 @@ def handle_text_message(event):
                                        FlexSendMessage(
                                            alt_text='hello',
                                            contents={
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "image",
-                        "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
-                        "size": "full",
-                        "aspectMode": "cover",
-                        "aspectRatio": "1:1",
-                        "gravity": "center"
-                    },
-                    {
-                        "type": "image",
-                        "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
-                        "position": "absolute",
-                        "aspectMode": "fit",
-                        "aspectRatio": "1:1",
-                        "offsetTop": "0px",
-                        "offsetBottom": "0px",
-                        "offsetStart": "0px",
-                        "offsetEnd": "0px",
-                        "size": "full"
-                    },
-                    {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                            {
-                                "type": "text",
-                                "text": "ระดับความเสี่ยง",
-                                "size": "lg"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "เสี่ยงมาก",
-                                        "size": "4xl",
-                                        "align": "center",
-                                        "offsetStart": "20px"
-                                    },
-                                    {
-                                        "type": "image",
-                                        "url": "https://sv1.picz.in.th/images/2020/03/17/Qw4M9N.png",
-                                        "size": "xs"
-                                    }
-                                ],
-                                "margin": "lg"
-                            },
-                            {
-                                "type": "separator",
-                                "color": "#111111",
-                                "margin": "lg"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                    {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "contents": [
-                                            {
-                                                "type": "text",
-                                                "text": "คะแนนความ",
-                                                "size": "xl",
-                                                "weight": "bold"
-                                            },
-                                            {
-                                                "type": "text",
-                                                "text": "ตระหนักโรค",
-                                                "size": "xl",
-                                                "weight": "bold"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "contents": [
-                                            {
-                                                "type": "text",
-                                                "text": "4",
-                                                "size": "4xl",
-                                                "align": "end"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "margin": "md"
-                            },
-                            {
-                                "type": "separator",
-                                "color": "#111111"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "vertical",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "บันทึกสุขภาพประจำวัน",
-                                        "size": "md"
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": "2020-03-06",
-                                        "size": "md"
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": "บันทึกแล้ว",
-                                        "size": "lg",
-                                        "weight": "bold",
-                                        "style": "italic"
-                                    }
-                                ],
-                                "margin": "md"
-                            }
-                        ],
-                        "position": "absolute",
-                        "offsetStart": "20px",
-                        "offsetTop": "10px"
-                    }
-                ],
-                "paddingAll": "0px",
-                "position": "relative"
-            }
-        }
+                                               "type": "bubble",
+                                               "body": {
+                                                   "type": "box",
+                                                   "layout": "vertical",
+                                                   "contents": [
+                                                       {
+                                                           "type": "image",
+                                                           "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
+                                                           "size": "full",
+                                                           "aspectMode": "cover",
+                                                           "aspectRatio": "1:1",
+                                                           "gravity": "center"
+                                                       },
+                                                       {
+                                                           "type": "image",
+                                                           "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
+                                                           "position": "absolute",
+                                                           "aspectMode": "fit",
+                                                           "aspectRatio": "1:1",
+                                                           "offsetTop": "0px",
+                                                           "offsetBottom": "0px",
+                                                           "offsetStart": "0px",
+                                                           "offsetEnd": "0px",
+                                                           "size": "full"
+                                                       },
+                                                       {
+                                                           "type": "box",
+                                                           "layout": "vertical",
+                                                           "contents": [
+                                                               {
+                                                                   "type": "text",
+                                                                   "text": "ระดับความเสี่ยง",
+                                                                   "size": "lg"
+                                                               },
+                                                               {
+                                                                   "type": "box",
+                                                                   "layout": "horizontal",
+                                                                   "contents": [
+                                                                       {
+                                                                           "type": "text",
+                                                                           "text": "เสี่ยงมาก",
+                                                                           "size": "4xl",
+                                                                           "align": "center",
+                                                                           "offsetStart": "20px"
+                                                                       },
+                                                                       {
+                                                                           "type": "image",
+                                                                           "url": "https://sv1.picz.in.th/images/2020/03/17/Qw4M9N.png",
+                                                                           "size": "xs"
+                                                                       }
+                                                                   ],
+                                                                   "margin": "lg"
+                                                               },
+                                                               {
+                                                                   "type": "separator",
+                                                                   "color": "#111111",
+                                                                   "margin": "lg"
+                                                               },
+                                                               {
+                                                                   "type": "box",
+                                                                   "layout": "horizontal",
+                                                                   "contents": [
+                                                                       {
+                                                                           "type": "box",
+                                                                           "layout": "vertical",
+                                                                           "contents": [
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "คะแนนความ",
+                                                                                   "size": "xl",
+                                                                                   "weight": "bold"
+                                                                               },
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "ตระหนักโรค",
+                                                                                   "size": "xl",
+                                                                                   "weight": "bold"
+                                                                               }
+                                                                           ]
+                                                                       },
+                                                                       {
+                                                                           "type": "box",
+                                                                           "layout": "vertical",
+                                                                           "contents": [
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "4",
+                                                                                   "size": "4xl",
+                                                                                   "align": "end"
+                                                                               }
+                                                                           ]
+                                                                       }
+                                                                   ],
+                                                                   "margin": "md"
+                                                               },
+                                                               {
+                                                                   "type": "separator",
+                                                                   "color": "#111111"
+                                                               },
+                                                               {
+                                                                   "type": "box",
+                                                                   "layout": "vertical",
+                                                                   "contents": [
+                                                                       {
+                                                                           "type": "text",
+                                                                           "text": "บันทึกสุขภาพประจำวัน",
+                                                                           "size": "md"
+                                                                       },
+                                                                       {
+                                                                           "type": "text",
+                                                                           "text": "2020-03-06",
+                                                                           "size": "md"
+                                                                       },
+                                                                       {
+                                                                           "type": "text",
+                                                                           "text": "บันทึกแล้ว",
+                                                                           "size": "lg",
+                                                                           "weight": "bold",
+                                                                           "style": "italic"
+                                                                       }
+                                                                   ],
+                                                                   "margin": "md"
+                                                               }
+                                                           ],
+                                                           "position": "absolute",
+                                                           "offsetStart": "20px",
+                                                           "offsetTop": "10px"
+                                                       }
+                                                   ],
+                                                   "paddingAll": "0px",
+                                                   "position": "relative"
+                                               }
+                                           }
                                        )
                                        )
         else:
@@ -532,41 +556,43 @@ def handle_text_message(event):
                                        FlexSendMessage(
                                            alt_text='hello',
                                            contents={
-  "type": "bubble",
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "image",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "2:1",
-        "gravity": "center",
-        "url": "https://www.img.in.th/images/b062328037de6ae13b3843c25c042127.png",
-        "action": {
-          "type": "uri",
-          "label": "action",
-          "uri": "https://pea-covid19-test.herokuapp.com/checkin/{}/".format(user_employee.employee_ID)
-        }
-      },
-      {
-        "type": "image",
-        "url": "https://sv1.picz.in.th/images/2020/03/17/Q1OEMa.png",
-        "gravity": "center",
-        "size": "full",
-        "aspectRatio": "2:1",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "label": "action",
-          "uri": "https://pea-covid19-test.herokuapp.com/"
-        }
-      }
-    ],
-    "paddingAll": "0px"
-  }
-}
+                                               "type": "bubble",
+                                               "body": {
+                                                   "type": "box",
+                                                   "layout": "vertical",
+                                                   "contents": [
+                                                       {
+                                                           "type": "image",
+                                                           "size": "full",
+                                                           "aspectMode": "cover",
+                                                           "aspectRatio": "2:1",
+                                                           "gravity": "center",
+                                                           "url": "https://www.img.in.th/images/b062328037de6ae13b3843c25c042127.png",
+                                                           "action": {
+                                                               "type": "uri",
+                                                               "label": "action",
+                                                               "uri": "https://pea-covid19-test.herokuapp.com/checkin/{}/".format(
+                                                                   user_employee.employee_ID)
+                                                           }
+                                                       },
+                                                       {
+                                                           "type": "image",
+                                                           "url": "https://sv1.picz.in.th/images/2020/03/17/Q1OEMa.png",
+                                                           "gravity": "center",
+                                                           "size": "full",
+                                                           "aspectRatio": "2:1",
+                                                           "aspectMode": "cover",
+                                                           "action": {
+                                                               "type": "uri",
+                                                               "label": "action",
+                                                               "uri": "https://pea-covid19-test.herokuapp.com/question/{}/".format(
+                                                                   user_employee.employee_ID)
+                                                           }
+                                                       }
+                                                   ],
+                                                   "paddingAll": "0px"
+                                               }
+                                           }
                                        )
                                        )
         else:
@@ -582,44 +608,46 @@ def handle_text_message(event):
                                        FlexSendMessage(
                                            alt_text='hello',
                                            contents={
-  "type": "bubble",
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "image",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "2:1",
-        "gravity": "center",
-        "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lrKf.png",
-        "action": {
-          "type": "uri",
-          "label": "action",
-          "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(user_employee.employee_ID)
-        },
-        "offsetStart": "-3px",
-        "offsetTop": "5px"
-      },
-      {
-        "type": "image",
-        "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lX3z.png",
-        "gravity": "center",
-        "aspectRatio": "2:1",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "label": "action",
-          "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(user_employee.employee_ID)
-        },
-        "size": "full",
-        "offsetStart": "-5px"
-      }
-    ],
-    "paddingAll": "0px"
-  }
-}
+                                               "type": "bubble",
+                                               "body": {
+                                                   "type": "box",
+                                                   "layout": "vertical",
+                                                   "contents": [
+                                                       {
+                                                           "type": "image",
+                                                           "size": "full",
+                                                           "aspectMode": "cover",
+                                                           "aspectRatio": "2:1",
+                                                           "gravity": "center",
+                                                           "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lrKf.png",
+                                                           "action": {
+                                                               "type": "uri",
+                                                               "label": "action",
+                                                               "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
+                                                                   user_employee.employee_ID)
+                                                           },
+                                                           "offsetStart": "-3px",
+                                                           "offsetTop": "5px"
+                                                       },
+                                                       {
+                                                           "type": "image",
+                                                           "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lX3z.png",
+                                                           "gravity": "center",
+                                                           "aspectRatio": "2:1",
+                                                           "aspectMode": "cover",
+                                                           "action": {
+                                                               "type": "uri",
+                                                               "label": "action",
+                                                               "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
+                                                                   user_employee.employee_ID)
+                                                           },
+                                                           "size": "full",
+                                                           "offsetStart": "-5px"
+                                                       }
+                                                   ],
+                                                   "paddingAll": "0px"
+                                               }
+                                           }
                                        )
                                        )
         else:
@@ -662,30 +690,21 @@ def handle_text_message(event):
     #                                    TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
 
 
-
-
-
-
-
-
-
-
-
-
-
 def connect(server, email, username, password):
     """
     Get Exchange account cconnection with server
     """
     creds = Credentials(username=username, password=password)
     config = Configuration(server=server, credentials=creds)
-    return Account(primary_smtp_address=email, autodiscover=False, config = config, access_type=DELEGATE)
+    return Account(primary_smtp_address=email, autodiscover=False, config=config, access_type=DELEGATE)
+
 
 def print_tree(account):
     """
     Print folder tree
     """
     print(account.root.tree())
+
 
 def get_recent_emails(account, folder_name, count):
     """
@@ -696,6 +715,7 @@ def get_recent_emails(account, folder_name, count):
     # Get emails
     return folder.all().order_by('-datetime_received')[:count]
 
+
 def count_senders(emails):
     """
     Given emails, provide counts of sender by name
@@ -705,6 +725,7 @@ def count_senders(emails):
         counts[email.sender.name] += 1
     return counts
 
+
 def print_non_replies(emails, agents):
     """
     Print subjects where no agents have replied
@@ -712,7 +733,7 @@ def print_non_replies(emails, agents):
     dealt_with = dict()
     not_dealt_with = dict()
     not_dealt_with_list = list()
-    for email in emails: # newest to oldest
+    for email in emails:  # newest to oldest
         # Simplify subject
         subject = email.subject.lower().replace('re: ', '').replace('fw: ', '')
 
@@ -729,6 +750,7 @@ def print_non_replies(emails, agents):
     print('NOT DEALT WITH:')
     for subject in not_dealt_with_list:
         print(' * ', subject)
+
 
 def send_email(account, subject, body, recipients, attachments=None):
     """
@@ -763,20 +785,13 @@ def send_email(account, subject, body, recipients, attachments=None):
     m.send_and_save()
 
 
-
-
-
-
-
-
-
 def get_user_data(username):
-    n=0
-    while (n<10):
+    n = 0
+    while (n < 10):
         try:
-            url="https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
+            url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
             headers = {'content-type': 'text/xml'}
-            xmltext ='''<?xml version="1.0" encoding="utf-8"?>
+            xmltext = '''<?xml version="1.0" encoding="utf-8"?>
                         <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
                         <soap:Body>
                             <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
@@ -786,11 +801,12 @@ def get_user_data(username):
                         </soap:Body>
                         </soap:Envelope>'''
             wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
-            body = xmltext.format(wsauth,username)
-            res = requests.post(url,data=body,headers=headers, timeout=1, allow_redirects=True)
+            body = xmltext.format(wsauth, username)
+            res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
             o = xmltodict.parse(res.text)
             jsonconvert = dict(o)
-            authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse']['GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
+            authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
+                'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
             break
         except:
             n += 1
@@ -798,7 +814,3 @@ def get_user_data(username):
     print(authData.get('Email'))
 
     return authData
-
-
-
-

@@ -17,6 +17,7 @@ urlpatterns = [
     path('risk_group/<id>/', views.risk_group, name='risk_group'),
 
     path('checkin/<id>/', views.checkin, name='checkin'),
+    path('question/<id>/', views.question, name='question'),
     path('confirm_WFH/<id>/', views.confirm, name='confirm_WFH'),
     path('personal_info/<id>/', views.personal_info, name='personal_info'),
     path('callback/', views.callback, name='callback'),

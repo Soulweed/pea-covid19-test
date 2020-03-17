@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/question.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,217 +29,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="normal_group.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal_group.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="69" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ol#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#3;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#4;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ol#0;n#div#1;n#div#5;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#5650#5656#0#HTML" expanded="true" />
-                <element signature="e#5656#5662#0#HTML" expanded="true" />
-                <element signature="e#5662#5668#0#HTML" expanded="true" />
-                <element signature="e#5668#5674#0#HTML" expanded="true" />
-                <element signature="e#5674#5680#0#HTML" expanded="true" />
-                <element signature="e#5680#5686#0#HTML" expanded="true" />
-                <element signature="e#5686#5692#0#HTML" expanded="true" />
-                <element signature="e#5692#5698#0#HTML" expanded="true" />
-                <element signature="e#5698#5704#0#HTML" expanded="true" />
-                <element signature="e#5704#5710#0#HTML" expanded="true" />
-                <element signature="e#5710#5716#0#HTML" expanded="true" />
-                <element signature="e#5716#5722#0#HTML" expanded="true" />
-                <element signature="e#5722#5728#0#HTML" expanded="true" />
-                <element signature="e#5728#5734#0#HTML" expanded="true" />
-                <element signature="e#5734#5740#0#HTML" expanded="true" />
-                <element signature="e#5740#5746#0#HTML" expanded="true" />
-                <element signature="e#5746#5752#0#HTML" expanded="true" />
-                <element signature="e#5752#5758#0#HTML" expanded="true" />
-                <element signature="e#5758#5764#0#HTML" expanded="true" />
-                <element signature="e#5764#5770#0#HTML" expanded="true" />
-                <element signature="e#5770#5776#0#HTML" expanded="true" />
-                <element signature="e#5776#5782#0#HTML" expanded="true" />
-                <element signature="e#5782#5788#0#HTML" expanded="true" />
-                <element signature="e#5788#5794#0#HTML" expanded="true" />
-                <element signature="e#5794#5800#0#HTML" expanded="true" />
-                <element signature="e#5800#5806#0#HTML" expanded="true" />
-                <element signature="e#5806#5812#0#HTML" expanded="true" />
-                <element signature="e#5812#5818#0#HTML" expanded="true" />
-                <element signature="e#5818#5824#0#HTML" expanded="true" />
-                <element signature="e#5824#5830#0#HTML" expanded="true" />
-                <element signature="e#5830#5836#0#HTML" expanded="true" />
-                <element signature="e#5836#5842#0#HTML" expanded="true" />
-                <element signature="e#5842#5848#0#HTML" expanded="true" />
-                <element signature="e#5848#5854#0#HTML" expanded="true" />
-                <element signature="e#5854#5860#0#HTML" expanded="true" />
-                <element signature="e#5860#5866#0#HTML" expanded="true" />
-                <element signature="e#5866#5872#0#HTML" expanded="true" />
-                <element signature="e#5872#5878#0#HTML" expanded="true" />
-                <element signature="e#5878#5884#0#HTML" expanded="true" />
-                <element signature="e#5884#5890#0#HTML" expanded="true" />
-                <element signature="e#5890#5896#0#HTML" expanded="true" />
-                <element signature="e#5896#5902#0#HTML" expanded="true" />
-                <element signature="e#5902#5908#0#HTML" expanded="true" />
-                <element signature="e#5908#5914#0#HTML" expanded="true" />
-                <element signature="e#5914#5920#0#HTML" expanded="true" />
-                <element signature="e#5920#5926#0#HTML" expanded="true" />
-                <element signature="e#5926#5932#0#HTML" expanded="true" />
-                <element signature="e#5932#5938#0#HTML" expanded="true" />
-                <element signature="e#5938#5944#0#HTML" expanded="true" />
-                <element signature="e#5944#5950#0#HTML" expanded="true" />
-                <element signature="e#5950#5956#0#HTML" expanded="true" />
-                <element signature="e#5956#5962#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="613" column="23" lean-forward="false" selection-start-line="613" selection-start-column="23" selection-end-line="613" selection-end-column="23" />
+            <state relative-caret-position="259">
+              <caret line="588" column="93" lean-forward="false" selection-start-line="588" selection-start-column="93" selection-end-line="588" selection-end-column="93" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#12816#13831#0" expanded="false" />
-                <element signature="e#13887#14511#0" expanded="false" />
-                <element signature="e#14571#21422#0" expanded="false" />
+                <element signature="e#13756#14771#0" expanded="false" />
+                <element signature="e#14827#15451#0" expanded="false" />
+                <element signature="e#15511#27017#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/checkin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="90" column="43" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirm.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="31" column="72" lean-forward="false" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="72" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="medium_group.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/medium_group.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="64" column="119" lean-forward="true" selection-start-line="64" selection-start-column="119" selection-end-line="64" selection-end-column="119" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ol#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#2;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#3;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ol#0;n#div#1;n#div#4;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#5682#5688#0#HTML" expanded="true" />
-                <element signature="e#5688#5694#0#HTML" expanded="true" />
-                <element signature="e#5694#5700#0#HTML" expanded="true" />
-                <element signature="e#5700#5706#0#HTML" expanded="true" />
-                <element signature="e#5706#5712#0#HTML" expanded="true" />
-                <element signature="e#5712#5718#0#HTML" expanded="true" />
-                <element signature="e#5718#5724#0#HTML" expanded="true" />
-                <element signature="e#5724#5730#0#HTML" expanded="true" />
-                <element signature="e#5730#5736#0#HTML" expanded="true" />
-                <element signature="e#5736#5742#0#HTML" expanded="true" />
-                <element signature="e#5742#5748#0#HTML" expanded="true" />
-                <element signature="e#5748#5754#0#HTML" expanded="true" />
-                <element signature="e#5754#5760#0#HTML" expanded="true" />
-                <element signature="e#5760#5766#0#HTML" expanded="true" />
-                <element signature="e#5766#5772#0#HTML" expanded="true" />
-                <element signature="e#5772#5778#0#HTML" expanded="true" />
-                <element signature="e#5778#5784#0#HTML" expanded="true" />
-                <element signature="e#5784#5790#0#HTML" expanded="true" />
-                <element signature="e#5790#5796#0#HTML" expanded="true" />
-                <element signature="e#5796#5802#0#HTML" expanded="true" />
-                <element signature="e#5802#5808#0#HTML" expanded="true" />
-                <element signature="e#5808#5814#0#HTML" expanded="true" />
-                <element signature="e#5814#5820#0#HTML" expanded="true" />
-                <element signature="e#5820#5826#0#HTML" expanded="true" />
-                <element signature="e#5826#5832#0#HTML" expanded="true" />
-                <element signature="e#5832#5838#0#HTML" expanded="true" />
-                <element signature="e#5838#5844#0#HTML" expanded="true" />
-                <element signature="e#5844#5850#0#HTML" expanded="true" />
-                <element signature="e#5850#5856#0#HTML" expanded="true" />
-                <element signature="e#5856#5862#0#HTML" expanded="true" />
-                <element signature="e#5862#5868#0#HTML" expanded="true" />
-                <element signature="e#5868#5874#0#HTML" expanded="true" />
-                <element signature="e#5874#5880#0#HTML" expanded="true" />
-                <element signature="e#5880#5886#0#HTML" expanded="true" />
-                <element signature="e#5886#5892#0#HTML" expanded="true" />
-                <element signature="e#5892#5898#0#HTML" expanded="true" />
-                <element signature="e#5898#5904#0#HTML" expanded="true" />
-                <element signature="e#5904#5910#0#HTML" expanded="true" />
-                <element signature="e#5910#5916#0#HTML" expanded="true" />
-                <element signature="e#5916#5922#0#HTML" expanded="true" />
-                <element signature="e#5922#5928#0#HTML" expanded="true" />
-                <element signature="e#5928#5934#0#HTML" expanded="true" />
-                <element signature="e#5934#5940#0#HTML" expanded="true" />
-                <element signature="e#5940#5946#0#HTML" expanded="true" />
-                <element signature="e#5946#5952#0#HTML" expanded="true" />
-                <element signature="e#5952#5958#0#HTML" expanded="true" />
-                <element signature="e#5958#5964#0#HTML" expanded="true" />
-                <element signature="e#5964#5970#0#HTML" expanded="true" />
-                <element signature="e#5970#5976#0#HTML" expanded="true" />
-                <element signature="e#5976#5982#0#HTML" expanded="true" />
-                <element signature="e#5982#5988#0#HTML" expanded="true" />
-                <element signature="e#5988#5994#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="risk_group.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/risk_group.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="20" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ol#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="screen.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="479">
-              <caret line="166" column="7" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -244,11 +47,21 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="304">
+              <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="question.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/question.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-802">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -294,12 +107,13 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/checkin.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/checkinComplete.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/risk_group.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal_group.html" />
         <option value="$PROJECT_DIR$/myworkplace/models.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/medium_group.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/question.html" />
+        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
       </list>
     </option>
@@ -509,7 +323,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/myworkplace/views.py</url>
-          <line>135</line>
+          <line>134</line>
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="2" />
@@ -729,14 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="166" column="7" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -903,16 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -921,15 +717,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/question.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-802">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="613" column="23" lean-forward="false" selection-start-line="613" selection-start-column="23" selection-end-line="613" selection-end-column="23" />
+        <state relative-caret-position="259">
+          <caret line="588" column="93" lean-forward="false" selection-start-line="588" selection-start-column="93" selection-end-line="588" selection-end-column="93" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#12816#13831#0" expanded="false" />
-            <element signature="e#13887#14511#0" expanded="false" />
-            <element signature="e#14571#21422#0" expanded="false" />
+            <element signature="e#13756#14771#0" expanded="false" />
+            <element signature="e#14827#15451#0" expanded="false" />
+            <element signature="e#15511#27017#0" expanded="false" />
           </folding>
         </state>
       </provider>
