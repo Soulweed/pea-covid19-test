@@ -115,7 +115,7 @@ def screen(request, id):
     print(context)
     return render(request, 'myworkplace/screen.html', context)
 
-def confirm_screen(request):
+def confirm(request):
 
     return render(request, 'myworkplace/confirm.html')
 
@@ -210,7 +210,9 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
     elif dict_message['text']=='test':
-        pass
+        line_bot_api.reply_message(event.reply_token,
+                                   TextSendMessage(text='ทดสอบ'))
+
         # {
         #     "type": "bubble",
         #     "body": {
