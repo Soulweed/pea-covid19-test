@@ -171,7 +171,8 @@ def handle_text_message(event):
                                        TextSendMessage(text='ไม่สามารถลงทะเบียนได้ไลน์ไอดีนี้ได้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
     else:
         line_bot_api.reply_message(event.reply_token,
-                                           TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
+                                           TextSendMessage(text='ระบบยังไม่เสร็จตอนนี้ หากต้องการลงทพเบียน'
+                                                                'กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
 
     # else: # existing customer
     #     if dict_message['text']=='บริการพิเศษ':
