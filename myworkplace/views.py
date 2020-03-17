@@ -140,7 +140,8 @@ def checkin(request, id):
     if request.method == "POST":
         latitude = request.POST.get("latitude")
         longitude = request.POST.get("longitude")
-
+        print('##########-----------##########')
+        print('latitute is', latitude)
         obj = {'type': 'checkin', 'latitude': latitude, 'longitude': longitude, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
         user = employee.objects.get(employee_ID=id)
@@ -375,7 +376,7 @@ def handle_text_message(event):
                                            user_employee.employee_ID)))
 
 
-    elif dict_message['text'] == 'ข้อมูลส่วนตัว':
+    elif dict_message['text'] == 'จัดการข้อมูล':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
         print(user_employee)
