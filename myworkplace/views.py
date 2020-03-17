@@ -18,11 +18,22 @@ def daily_update(request, id):
     context = {'data': data}
     print(context)
     if request.method=="POST":
-        activity = request.POST.get("activity")
-        print(activity)
+        fever = request.POST.get("id_fever")
+        cold = request.POST.get("id_cold")
+        contact_foreigner = request.POST.get("id_contact_foreigner")
+        travel_to_infected_area = request.POST.get("id_travel_to_infected_area")
+        live_with_risk_person = request.POST.get("id_live_with_risk_person")
+        contact_with_risk = request.POST.get("id_contact_with_risk")
 
-        health = activity
 
+        if fever=='FALSE' and cold =='FALSE' and contact_foreigner=='FALSE' and travel_to_infected_area=='FALSE' \
+                and live_with_risk_person=='FALSE' and contact_with_risk=='FALSE':
+            health ="normal ปกติ"
+        elif travel_to_infected_area=='TRUE' or live_with_risk_person=='TRUE' \
+                or contact_with_risk=='TRUE':
+            health = 'High risk เสี่ยงสูง'
+        else:
+            health = 'Risk เสี่ยง'
         user = employee.objects.get(employee_ID=id)
         print(user.__dict__)
         # user.update_activitiy({'data':activity})
@@ -36,6 +47,13 @@ def daily_update(request, id):
         print(data)
         user.activity_text = json.dumps(data)
         user.save()
+        print('######################')
+
+        print(context)
+        return render(request, 'myworkplace/confirm.html', context)
+
+    print('----------------------')
+    print(context)
 
     return render (request, 'myworkplace/daily_update.html', context)
 
@@ -81,7 +99,6 @@ def screen(request, id):
         user.employee_age=age
 
         obj = {'type':'first_screen', 'health':health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
         data = json.loads(user.activity_text)
         # print(data)
 
@@ -93,14 +110,14 @@ def screen(request, id):
         print('######################')
 
         print(context)
-        return render(request, 'myworkplace/confirm_screen.html', context)
+        return render(request, 'myworkplace/confirm.html', context)
     print('----------------------')
     print(context)
     return render(request, 'myworkplace/screen.html', context)
 
 def confirm_screen(request):
 
-    return render(request, 'myworkplace/confirm_screen.html')
+    return render(request, 'myworkplace/confirm.html')
 
 
 # API
@@ -193,141 +210,141 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
     elif dict_message['text']=='test':
-
-        {
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                    {
-                        "type": "image",
-                        "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
-                        "size": "full",
-                        "aspectMode": "cover",
-                        "aspectRatio": "1:1",
-                        "gravity": "center"
-                    },
-                    {
-                        "type": "image",
-                        "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
-                        "position": "absolute",
-                        "aspectMode": "fit",
-                        "aspectRatio": "1:1",
-                        "offsetTop": "0px",
-                        "offsetBottom": "0px",
-                        "offsetStart": "0px",
-                        "offsetEnd": "0px",
-                        "size": "full"
-                    },
-                    {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                            {
-                                "type": "text",
-                                "text": "ระดับความเสี่ยง",
-                                "size": "lg"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "เสี่ยงมาก",
-                                        "size": "4xl",
-                                        "align": "center",
-                                        "offsetStart": "20px"
-                                    },
-                                    {
-                                        "type": "image",
-                                        "url": "https://sv1.picz.in.th/images/2020/03/17/Qw4M9N.png",
-                                        "size": "xs"
-                                    }
-                                ],
-                                "margin": "lg"
-                            },
-                            {
-                                "type": "separator",
-                                "color": "#111111",
-                                "margin": "lg"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "horizontal",
-                                "contents": [
-                                    {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "contents": [
-                                            {
-                                                "type": "text",
-                                                "text": "คะแนนความ",
-                                                "size": "xl",
-                                                "weight": "bold"
-                                            },
-                                            {
-                                                "type": "text",
-                                                "text": "ตระหนักโรค",
-                                                "size": "xl",
-                                                "weight": "bold"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "box",
-                                        "layout": "vertical",
-                                        "contents": [
-                                            {
-                                                "type": "text",
-                                                "text": "4",
-                                                "size": "4xl",
-                                                "align": "end"
-                                            }
-                                        ]
-                                    }
-                                ],
-                                "margin": "md"
-                            },
-                            {
-                                "type": "separator",
-                                "color": "#111111"
-                            },
-                            {
-                                "type": "box",
-                                "layout": "vertical",
-                                "contents": [
-                                    {
-                                        "type": "text",
-                                        "text": "บันทึกสุขภาพประจำวัน",
-                                        "size": "md"
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": "2020-03-06",
-                                        "size": "md"
-                                    },
-                                    {
-                                        "type": "text",
-                                        "text": "บันทึกแล้ว",
-                                        "size": "lg",
-                                        "weight": "bold",
-                                        "style": "italic"
-                                    }
-                                ],
-                                "margin": "md"
-                            }
-                        ],
-                        "position": "absolute",
-                        "offsetStart": "20px",
-                        "offsetTop": "10px"
-                    }
-                ],
-                "paddingAll": "0px",
-                "position": "relative"
-            }
-        }
+        pass
+        # {
+        #     "type": "bubble",
+        #     "body": {
+        #         "type": "box",
+        #         "layout": "vertical",
+        #         "contents": [
+        #             {
+        #                 "type": "image",
+        #                 "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
+        #                 "size": "full",
+        #                 "aspectMode": "cover",
+        #                 "aspectRatio": "1:1",
+        #                 "gravity": "center"
+        #             },
+        #             {
+        #                 "type": "image",
+        #                 "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
+        #                 "position": "absolute",
+        #                 "aspectMode": "fit",
+        #                 "aspectRatio": "1:1",
+        #                 "offsetTop": "0px",
+        #                 "offsetBottom": "0px",
+        #                 "offsetStart": "0px",
+        #                 "offsetEnd": "0px",
+        #                 "size": "full"
+        #             },
+        #             {
+        #                 "type": "box",
+        #                 "layout": "vertical",
+        #                 "contents": [
+        #                     {
+        #                         "type": "text",
+        #                         "text": "ระดับความเสี่ยง",
+        #                         "size": "lg"
+        #                     },
+        #                     {
+        #                         "type": "box",
+        #                         "layout": "horizontal",
+        #                         "contents": [
+        #                             {
+        #                                 "type": "text",
+        #                                 "text": "เสี่ยงมาก",
+        #                                 "size": "4xl",
+        #                                 "align": "center",
+        #                                 "offsetStart": "20px"
+        #                             },
+        #                             {
+        #                                 "type": "image",
+        #                                 "url": "https://sv1.picz.in.th/images/2020/03/17/Qw4M9N.png",
+        #                                 "size": "xs"
+        #                             }
+        #                         ],
+        #                         "margin": "lg"
+        #                     },
+        #                     {
+        #                         "type": "separator",
+        #                         "color": "#111111",
+        #                         "margin": "lg"
+        #                     },
+        #                     {
+        #                         "type": "box",
+        #                         "layout": "horizontal",
+        #                         "contents": [
+        #                             {
+        #                                 "type": "box",
+        #                                 "layout": "vertical",
+        #                                 "contents": [
+        #                                     {
+        #                                         "type": "text",
+        #                                         "text": "คะแนนความ",
+        #                                         "size": "xl",
+        #                                         "weight": "bold"
+        #                                     },
+        #                                     {
+        #                                         "type": "text",
+        #                                         "text": "ตระหนักโรค",
+        #                                         "size": "xl",
+        #                                         "weight": "bold"
+        #                                     }
+        #                                 ]
+        #                             },
+        #                             {
+        #                                 "type": "box",
+        #                                 "layout": "vertical",
+        #                                 "contents": [
+        #                                     {
+        #                                         "type": "text",
+        #                                         "text": "4",
+        #                                         "size": "4xl",
+        #                                         "align": "end"
+        #                                     }
+        #                                 ]
+        #                             }
+        #                         ],
+        #                         "margin": "md"
+        #                     },
+        #                     {
+        #                         "type": "separator",
+        #                         "color": "#111111"
+        #                     },
+        #                     {
+        #                         "type": "box",
+        #                         "layout": "vertical",
+        #                         "contents": [
+        #                             {
+        #                                 "type": "text",
+        #                                 "text": "บันทึกสุขภาพประจำวัน",
+        #                                 "size": "md"
+        #                             },
+        #                             {
+        #                                 "type": "text",
+        #                                 "text": "2020-03-06",
+        #                                 "size": "md"
+        #                             },
+        #                             {
+        #                                 "type": "text",
+        #                                 "text": "บันทึกแล้ว",
+        #                                 "size": "lg",
+        #                                 "weight": "bold",
+        #                                 "style": "italic"
+        #                             }
+        #                         ],
+        #                         "margin": "md"
+        #                     }
+        #                 ],
+        #                 "position": "absolute",
+        #                 "offsetStart": "20px",
+        #                 "offsetTop": "10px"
+        #             }
+        #         ],
+        #         "paddingAll": "0px",
+        #         "position": "relative"
+        #     }
+        # }
 
 
     elif dict_message['text']=='ข้อมูลส่วนตัว':

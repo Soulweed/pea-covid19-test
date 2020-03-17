@@ -10,7 +10,119 @@
 
     <form method="POST">
         {% csrf_token %}
-        กิจกรรม: <input type="text" name = "activity">
+
+        <div class="container" id="heading">
+        <div class="px-5 pt-5 mt-5 row">
+            <div class="col-sm-12">
+                <label for="the_question">
+                    <h1>1. Daily Update </h1>
+                </label>
+                <img src="yellowlady.png" alt="yellowlady" id="yellowlady">
+            </div>
+        </div>
+        <div class="pb-5 container" id="question">
+
+
+
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <h6>เราจะถามคำถามสั้นๆ ใช้เวลาประมาณ 5 นาที และช่วยคุณประเมินว่า คุณมีความเสี่ยงต่อโรคมากน้อยเพียงใด
+                        เข้าเกณฑ์เข้ารับการตรวจตามประกาศกรมควบคุมโรคหรือไม่</h6>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>1. คุณรู้สึกตัวร้อน มีไข้ หรือไม่ (มากกว่า37.5)</legend>
+                        <input type="radio" name="id_fever" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">มี</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="id_fever" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">ไม่มี</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>2. คุณมีอาการต่อไปนี้หรือไม่ (ไอ,เจ็บคอ,น้ำมูกไหล,เหนื่อยหอบ,ปวดเมื่อยตามตัว)</legend>
+                        <input type="radio" name="id_cold" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">มี</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="id_cold" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">ไม่มี</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>3. คุณใกล้ชิดหรือสัมผัส กับชาวต่างชาติ หรือเดินทางมาจากต่างประเทศหรือไม่</legend>
+                        <input type="radio" name="id_contact_foreigner" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ใช่</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="id_contact_foreigner" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>4. คุณเดินทางหรือมีกิจกรรม ในพื้นที่ที่มีรายงานการระบาดของ COVID-19
+โดย "ไม่" สวมหน้ากากและป้องกันตัว หรือไม่</legend>
+                        <input type="radio" name="id_travel_to_infected_area" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ใช่</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="id_travel_to_infected_area" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>5. คุณพักอาศัยร่วมร่วมกับผู้ที่เดินทางกลับมาจากพื้นที่ ที่มีรายงานการระบาดของ COVID-19
+โดย "ไม่" สวมหน้ากากและป้องกันตัว หรือไม่
+                        </legend>
+                        <input type="radio" name="id_live_with_risk_person" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ใช่</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="id_live_with_risk_person" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>6. มีประวัติใกล้ชิดหรือสัมผัส กับผู้ป่วยเข้าข่าย หรือติดเชื้อ COVID-19
+โดย "ไม่" สวมหน้ากากและป้องกันตัว หรือไม่</legend>
+                        <input type="radio" name="id_contact_with_risk" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ใช่</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="id_contact_with_risk" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>7. คุณป้องกันตัวเอง โดยสวมหน้ากากและล้างมือเป็นประจำ</legend>
+                        <input type="radio"  id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ใช่</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">ไม่ใช่</label>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
         <button type="submit"> submit </button>
     </form>
 
