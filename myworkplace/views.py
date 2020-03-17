@@ -313,11 +313,6 @@ def callback(request):
         HttpResponseForbidden()
     return HttpResponse('OK', status=200)
 
-
-def gen_DU_form(request):
-    pass
-
-
 reply_text = 'A whole new world'
 
 
@@ -386,9 +381,6 @@ def handle_text_message(event):
                                        }
                                    )
                                    )
-
-
-
     elif dict_message['text'] == 'checkin':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
@@ -398,8 +390,6 @@ def handle_text_message(event):
                                        TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ '
                                                             'กรุณากรอกแบบฟอร์มคัดกรอง https://pea-covid19-test.herokuapp.com/checkin/{}/'.format(
                                            user_employee.employee_ID)))
-
-
     elif dict_message['text'] == 'จัดการข้อมูล':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
@@ -598,7 +588,6 @@ def handle_text_message(event):
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
-
     elif dict_message['text'] == 'Covid-leave':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
@@ -638,7 +627,7 @@ def handle_text_message(event):
                                                            "action": {
                                                                "type": "uri",
                                                                "label": "action",
-                                                               "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
+                                                               "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
                                                                    user_employee.employee_ID)
                                                            },
                                                            "size": "full",
@@ -653,8 +642,7 @@ def handle_text_message(event):
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
-
-    elif dict_message['text'].isnumeric() and len(dict_message['text']) == 6:  # check is number
+    elif dict_message['text'].isnumeric() and (len(dict_message['text']) == 6 or len(dict_message['text']) == 7) :  # check is number
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
 
         if dict_source['user_id'] not in employee_Line_ID_list:  # check new customer
@@ -677,8 +665,62 @@ def handle_text_message(event):
                                            text='ไม่สามารถลงทะเบียนได้ไลน์ไอดีนี้ได้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
     else:
         line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(text='ระบบยังไม่เสร็จตอนนี้ หากต้องการลงทพเบียน'
+                                   TextSendMessage(text='เรากำลังเรียนรู้อยู่ หากต้องการลงทะเบียน'
                                                         'กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
+
+
+
+
+
+# push message for question quarantile person
+def send_question():
+    to = 'Ud5a85712fadd31a77c26f24b0e73b74d'
+    line_bot_api.push_message(to, TextSendMessage(text='Hello World!'))
+
+# FlexSendMessage(
+#                                            alt_text='hello',
+#                                            contents={
+#                                                "type": "bubble",
+#                                                "body": {
+#                                                    "type": "box",
+#                                                    "layout": "vertical",
+#                                                    "contents": [
+#                                                        {
+#                                                            "type": "image",
+#                                                            "size": "full",
+#                                                            "aspectMode": "cover",
+#                                                            "aspectRatio": "2:1",
+#                                                            "gravity": "center",
+#                                                            "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lrKf.png",
+#                                                            "action": {
+#                                                                "type": "uri",
+#                                                                "label": "action",
+#                                                                "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
+#                                                                    user_employee.employee_ID)
+#                                                            },
+#                                                            "offsetStart": "-3px",
+#                                                            "offsetTop": "5px"
+#                                                        },
+#                                                        {
+#                                                            "type": "image",
+#                                                            "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lX3z.png",
+#                                                            "gravity": "center",
+#                                                            "aspectRatio": "2:1",
+#                                                            "aspectMode": "cover",
+#                                                            "action": {
+#                                                                "type": "uri",
+#                                                                "label": "action",
+#                                                                "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
+#                                                                    user_employee.employee_ID)
+#                                                            },
+#                                                            "size": "full",
+#                                                            "offsetStart": "-5px"
+#                                                        }
+#                                                    ],
+#                                                    "paddingAll": "0px"
+#                                                }
+#                                            }
+#                                        )
 
     # else: # existing customer
     #     if dict_message['text']=='บริการพิเศษ':
