@@ -125,7 +125,7 @@ def screen(request, id):
         elif health == 'Risk เสี่ยง':
             return redirect(medium_group, id)
         else:
-            return redirect(risk_group, id)
+            return redirect(risk_form, id)
         # return render(request, 'myworkplace/confirm.html', context)
     print('----------------------')
     print(context)
@@ -236,6 +236,18 @@ def risk_group(request, id):
     print('----------------------')
     print(context)
     return render(request, 'myworkplace/risk_group.html', context)
+
+def risk_form(request, id):
+    data = employee.objects.get(employee_ID=id).__dict__
+    print('risk form')
+    context = {'data': data}
+    if request.method == "POST":
+        print('here we are')
+        ######send email here#########
+        return redirect(risk_group, id)
+    print('----------------------')
+    print(context)
+    return render(request, 'myworkplace/risk_form.html', context)
 
 
 def confirm(request, id):
@@ -364,6 +376,9 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
     elif dict_message['text'] == 'test':
+        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
+        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
+
         line_bot_api.reply_message(event.reply_token,
                                    FlexSendMessage(
                                        alt_text='hello',
@@ -376,7 +391,8 @@ def handle_text_message(event):
                                                'size': 'full',
                                                'aspectRatio': '20:13',
                                                'aspectMode': 'cover',
-                                               'action': {'type': 'uri', 'uri': 'http://example.com', 'label': 'label'}
+                                               'action': {'type': 'uri', 'uri': 'https://pea-covid19-test.herokuapp.com/question/{}/'.format(
+                                                                   user_employee.employee_ID), 'label': 'label'}
                                            }
                                        }
                                    )

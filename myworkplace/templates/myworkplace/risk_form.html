@@ -1,0 +1,230 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title_bl %} Personal information page{% endblock %}
+{% block body_bl %}
+
+
+        <form method="POST">
+    {% csrf_token %}
+<div class="container" id="heading">
+        <div class="px-5 pt-5 mt-5 row">
+            <div class="col-sm-12">
+                <label for="the_question">
+                    <h1>1. ข้อมูลเพิ่มเติม กลุ่มเสี่ยง </h1>
+                </label>
+                <img src="yellowlady.png" alt="yellowlady" id="yellowlady">
+            </div>
+        </div>
+        <div class="pb-5 container" id="question">
+
+
+
+            <div class="pt-3 px-5 row">
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>
+                            <h2>ข้อมูลส่วนตัว</h2>
+                        </legend>
+                        <input class="form-control" type="text" placeholder="รหัสพนักงาน.. (ตัวเลข 6 หลัก)">
+                        <input class="form-control" type="text" placeholder="ชื่อ..">
+                        <input class="form-control" type="text" placeholder="นามสกุล..">
+                        <input class="form-control" type="text" placeholder="อายุ..">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>เพศ</legend>&nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ชาย</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">หญิง</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>เบอร์โทรส่วนตัว</legend>
+                        <input class="form-control" type="text" placeholder="">&nbsp;
+                        <legend>ที่อยู่</legend>
+                        <input class="form-control" type="text" placeholder="">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>ลักษณะที่อยู่อาศัย</legend>
+                        <input type="radio" name="the_question" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">หอพัก/คอนโด</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">บ้านเดี่ยว/ทาวน์โฮม</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">อื่นๆ</label>
+                        <input type="text" id="other" name="gender" placeholder="ระบุ">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>ลักษณะที่อยู่อาศัย</legend>
+                        <input type="radio" name="the_question" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ที่เดียวกับที่อยู่ปัจจุบัน</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">อื่นๆ</label>
+                        <input type="text" id="other" name="gender" placeholder="ระบุ">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>กรุ๊ปเลือด</legend>
+                        <input type="radio" name="the_question" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">A</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">B</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">AB</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">O</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>มีโรคประจำตัวหรือไม่</legend>
+                        <input type="radio" name="the_question" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ไม่มี</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">มี</label>
+                        <input type="text" id="other" name="gender" placeholder="ระบุ">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>ท่านแพ้ยาอะไร</legend>
+                        <input type="radio" name="the_question" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ไม่แพ้ยา</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">แพ้แต่ไม่ทราบชื่อยา</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">แพ้</label>
+                        <input type="text" id="other" name="gender" placeholder="ระบุ">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>เคยมีประวัติการรักษาเกี่ยวกับโรคระบบทางเดินหายใจหรือไม่</legend>
+                        <input type="radio" name="the_question" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">ไม่มี</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">มี</label>
+                        <input type="text" id="other" name="gender" placeholder="ระบุ">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>ครั้งล่าสุดในการตรวจรักษาที่โรงพยาบาล</legend>
+                        <input class="form-control" type="text" placeholder="โรคที่รักษา">
+                        <input class="form-control" type="text" placeholder="ชื่อโรงพยาบาล">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>เข้ารับการตรวจรักษาที่โรงพยาบาลครั้งล่าสุดเมื่อไร</legend>
+                        <input type="radio" name="the_question" id="the_question_yes" value="TRUE">
+                        <label for="the_question_yes" class="after_radio">น้อยกว่า 1 เดือน</label>
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">1 - 6 เดือน</label>&nbsp; &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="the_question" id="the_question_no" value="FALSE">
+                        <label for="the_question_no" class="after_radio">มากกว่า 6 เดือน</label>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>โรงพยาบาลที่ท่านเข้ารักษาเมื่อเจ็บป่วยเป็นประจำ</legend>
+                        <input class="form-control" type="text" placeholder="ชื่อโรงพยาบาล">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>
+                            <h2>ข้อมูลการทำงาน</h2>
+                        </legend>
+                        <input class="form-control" type="text" placeholder="สังกัด">
+                        <input class="form-control" type="text" placeholder="จังหวัด">
+                        <input class="form-control" type="text" placeholder="เขต">
+                        <input class="form-control" type="text" placeholder="ภาค">
+                        <input class="form-control" type="text" placeholder="เบอร์โทรภายใน">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend>
+                            <h2>ข้อมูลทั่วไป</h2>
+                        </legend>
+                        <legend>ปัจจุบันท่านพักอยู่กับใคร</legend>
+                        <input class="form-control" type="text" placeholder="ระบุรายชื่อ, ความสัมพันธ์, เบอร์โทร">
+                        <legend>ผู้ร่วมงานที่ทำงานใกล้ชิดท่าน</legend>
+                        <input class="form-control" type="text" placeholder="ระบุรายชื่อ, เบอร์โทร">
+                        <legend>บุคคลฉุกเฉินที่สามารถติดต่อได้ 2 คน</legend>
+                        <input class="form-control" type="text" placeholder="1.ชื่อ, เบอร์โทร">
+                        <input class="form-control" type="text" placeholder="2.ชื่อ, เบอร์โทร">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="pt-3 px-5 row">
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend><h2>ข้อมูลการทำงาน</h2></legend>
+                            <h6>เราอยากให้คุณอธิบายการดำเนินชีวิตของคุณที่คิดว่าเสี่ยงต่อการสัมผัสโรค COVID-19 เช่น
+                                เดินทางมาทำงานอย่างไร เพื่อนร่วมงานที่ใกล้ชิดกับท่าน ร้านอาหารหรือสถานที่ที่ไปประจำ
+                                คุณได้มีการไปยังสถานที่ที่คนเยอะที่ไหนมาบ้าง
+                                บุคคลท่านใดที่ท่านคิดว่าน่าจะอยู่ในกลุ่มเสี่ยงเพรามีปฏิสัมพันธ์กับคุณ</h6>
+                        <input class="form-control" type="text" placeholder="โปรดระบุ">
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button><br>
+        </form>
+
+
+{% endblock %}
