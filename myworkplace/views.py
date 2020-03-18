@@ -14,6 +14,10 @@ import requests, xmltodict
 def home(request):
     data1 = employee.objects.all()
     context = {'number_of_employee': len(data1)}
+
+
+
+
     return render(request, 'myworkplace/home.html', context)
 
 
@@ -230,6 +234,9 @@ def risk_group(request, id):
         print('here we are')
         print('send email')  # send email
         ######send email here#########
+        user = employee.objects.get(employee_ID=id).__dict__
+        user.infected==True
+        user.save()
         return redirect(confirm, id)
     print('----------------------')
     print(context)
@@ -360,7 +367,7 @@ def handle_text_message(event):
         "action": {
           "type": "uri",
           "label": "action",
-          "uri": "http://pea-covid19-test.herokuapp.com/"
+          "uri": "http://pea-covid19-test.herokuapp.com/daily_update/{}".format(user_employee.employee_ID)
         }
       }
     ],
