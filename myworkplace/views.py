@@ -229,9 +229,9 @@ def risk_group(request, id):
         print('here we are')
         print('send email')  # send email
         ######send email here#########
-        user = employee.objects.get(employee_ID=id).__dict__
-        user.infected == True
-        user.save()
+        # user = employee.objects.get(employee_ID=id).__dict__
+        # user.infected == True
+        # user.save()
         return redirect(confirm, id)
     print('----------------------')
     print(context)
