@@ -15,9 +15,6 @@ def home(request):
     data1 = employee.objects.all()
     context = {'number_of_employee': len(data1)}
 
-
-
-
     return render(request, 'myworkplace/home.html', context)
 
 
@@ -184,8 +181,6 @@ def challenge(request, id):
     return render(request, 'myworkplace/challenge.html', context)
 
 
-
-
 def normal_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
@@ -235,12 +230,13 @@ def risk_group(request, id):
         print('send email')  # send email
         ######send email here#########
         user = employee.objects.get(employee_ID=id).__dict__
-        user.infected==True
+        user.infected == True
         user.save()
         return redirect(confirm, id)
     print('----------------------')
     print(context)
     return render(request, 'myworkplace/risk_group.html', context)
+
 
 def risk_form(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
@@ -249,6 +245,8 @@ def risk_form(request, id):
     if request.method == "POST":
         print('here we are')
         ######send email here#########
+        print('risk form')
+
         return redirect(risk_group, id)
     print('----------------------')
     print(context)
@@ -330,6 +328,7 @@ def callback(request):
         HttpResponseForbidden()
     return HttpResponse('OK', status=200)
 
+
 reply_text = 'A whole new world'
 
 
@@ -352,28 +351,29 @@ def handle_text_message(event):
                                        FlexSendMessage(
                                            alt_text='hello',
                                            contents={
-  "type": "bubble",
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "image",
-        "url": "https://www.img.in.th/images/392683ee16e9f2ce413bd0031c8410dc.png",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "1:1",
-        "gravity": "center",
-        "action": {
-          "type": "uri",
-          "label": "action",
-          "uri": "http://pea-covid19-test.herokuapp.com/daily_update/{}".format(user_employee.employee_ID)
-        }
-      }
-    ],
-    "paddingAll": "0px"
-  }
-}
+                                               "type": "bubble",
+                                               "body": {
+                                                   "type": "box",
+                                                   "layout": "vertical",
+                                                   "contents": [
+                                                       {
+                                                           "type": "image",
+                                                           "url": "https://www.img.in.th/images/392683ee16e9f2ce413bd0031c8410dc.png",
+                                                           "size": "full",
+                                                           "aspectMode": "cover",
+                                                           "aspectRatio": "1:1",
+                                                           "gravity": "center",
+                                                           "action": {
+                                                               "type": "uri",
+                                                               "label": "action",
+                                                               "uri": "http://pea-covid19-test.herokuapp.com/daily_update/{}".format(
+                                                                   user_employee.employee_ID)
+                                                           }
+                                                       }
+                                                   ],
+                                                   "paddingAll": "0px"
+                                               }
+                                           }
                                        )
                                        )
         else:
@@ -395,8 +395,9 @@ def handle_text_message(event):
                                                'size': 'full',
                                                'aspectRatio': '20:13',
                                                'aspectMode': 'cover',
-                                               'action': {'type': 'uri', 'uri': 'https://pea-covid19-test.herokuapp.com/challenge/{}/'.format(
-                                                                   user_employee.employee_ID), 'label': 'label'}
+                                               'action': {'type': 'uri',
+                                                          'uri': 'https://pea-covid19-test.herokuapp.com/challenge/{}/'.format(
+                                                              user_employee.employee_ID), 'label': 'label'}
                                            }
                                        }
                                    )
@@ -647,7 +648,7 @@ def handle_text_message(event):
                                                            "action": {
                                                                "type": "uri",
                                                                "label": "action",
-                                                               "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
+                                                               "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
                                                                    user_employee.employee_ID)
                                                            },
                                                            "size": "full",
@@ -662,7 +663,8 @@ def handle_text_message(event):
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
-    elif dict_message['text'].isnumeric() and (len(dict_message['text']) == 6 or len(dict_message['text']) == 7) :  # check is number
+    elif dict_message['text'].isnumeric() and (
+            len(dict_message['text']) == 6 or len(dict_message['text']) == 7):  # check is number
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
 
         if dict_source['user_id'] not in employee_Line_ID_list:  # check new customer
@@ -689,14 +691,10 @@ def handle_text_message(event):
                                                         'กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
 
 
-
-
-
 # push message for question quarantile person
 def send_question():
     to = 'Ud5a85712fadd31a77c26f24b0e73b74d'
     line_bot_api.push_message(to, TextSendMessage(text='Hello World!'))
-
 
 
 def connect(server, email, username, password):
