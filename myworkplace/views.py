@@ -345,29 +345,28 @@ def handle_text_message(event):
                                        FlexSendMessage(
                                            alt_text='hello',
                                            contents={
-                                               "type": "bubble",
-                                               "body": {
-                                                   "type": "box",
-                                                   "layout": "vertical",
-                                                   "contents": [
-                                                       {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/17/QwPIx0.png",
-                                                           "size": "full",
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "1:1",
-                                                           "gravity": "center",
-                                                           "action": {
-                                                               "type": "uri",
-                                                               "label": "action",
-                                                               "uri": "https://pea-covid19-test.herokuapp.com/daily_update/{}/".format(
-                                                                   user_employee.employee_ID)
-                                                           }
-                                                       }
-                                                   ],
-                                                   "paddingAll": "0px"
-                                               }
-                                           }
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "url": "https://www.img.in.th/images/392683ee16e9f2ce413bd0031c8410dc.png",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "1:1",
+        "gravity": "center",
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "http://pea-covid19-test.herokuapp.com/"
+        }
+      }
+    ],
+    "paddingAll": "0px"
+  }
+}
                                        )
                                        )
         else:
@@ -686,64 +685,11 @@ def handle_text_message(event):
 
 
 
-# push message for question quarantile person
-def send_question():
-    to = 'Ud5a85712fadd31a77c26f24b0e73b74d'
-    line_bot_api.push_message(to, TextSendMessage(text='Hello World!'))
+# # push message for question quarantile person
+# def send_question():
+#     to = 'Ud5a85712fadd31a77c26f24b0e73b74d'
+#     line_bot_api.push_message(to, TextSendMessage(text='Hello World!'))
 
-# FlexSendMessage(
-#                                            alt_text='hello',
-#                                            contents={
-#                                                "type": "bubble",
-#                                                "body": {
-#                                                    "type": "box",
-#                                                    "layout": "vertical",
-#                                                    "contents": [
-#                                                        {
-#                                                            "type": "image",
-#                                                            "size": "full",
-#                                                            "aspectMode": "cover",
-#                                                            "aspectRatio": "2:1",
-#                                                            "gravity": "center",
-#                                                            "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lrKf.png",
-#                                                            "action": {
-#                                                                "type": "uri",
-#                                                                "label": "action",
-#                                                                "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
-#                                                                    user_employee.employee_ID)
-#                                                            },
-#                                                            "offsetStart": "-3px",
-#                                                            "offsetTop": "5px"
-#                                                        },
-#                                                        {
-#                                                            "type": "image",
-#                                                            "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lX3z.png",
-#                                                            "gravity": "center",
-#                                                            "aspectRatio": "2:1",
-#                                                            "aspectMode": "cover",
-#                                                            "action": {
-#                                                                "type": "uri",
-#                                                                "label": "action",
-#                                                                "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
-#                                                                    user_employee.employee_ID)
-#                                                            },
-#                                                            "size": "full",
-#                                                            "offsetStart": "-5px"
-#                                                        }
-#                                                    ],
-#                                                    "paddingAll": "0px"
-#                                                }
-#                                            }
-#                                        )
-
-    # else: # existing customer
-    #     if dict_message['text']=='บริการพิเศษ':
-    #         line_bot_api.reply_message(event.reply_token,
-    #                                    TextSendMessage(text='working on it บริการพิเศษ'))
-    #
-    #     else:
-    #         line_bot_api.reply_message(event.reply_token,
-    #                                    TextSendMessage(text='กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
 
 
 def connect(server, email, username, password):
