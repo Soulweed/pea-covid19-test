@@ -685,10 +685,10 @@ def handle_text_message(event):
 
 
 
-# # push message for question quarantile person
-# def send_question():
-#     to = 'Ud5a85712fadd31a77c26f24b0e73b74d'
-#     line_bot_api.push_message(to, TextSendMessage(text='Hello World!'))
+# push message for question quarantile person
+def send_question():
+    to = 'Ud5a85712fadd31a77c26f24b0e73b74d'
+    line_bot_api.push_message(to, TextSendMessage(text='Hello World!'))
 
 
 
