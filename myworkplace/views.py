@@ -687,8 +687,7 @@ def handle_text_message(event):
                                            text='ไม่สามารถลงทะเบียนได้ไลน์ไอดีนี้ได้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
     else:
         line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(text='เรากำลังเรียนรู้อยู่ หากต้องการลงทะเบียน'
-                                                        'กรุณากรอกเลขรหัสพนักงาน 6 หลัก'))
+                                   TextSendMessage(text='ส่ง feedback ให้ admin ที่ www.menti.com กรอกรหัส 456368'))
 
 
 # push message for question quarantile person
