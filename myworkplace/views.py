@@ -338,6 +338,7 @@ def handle_text_message(event):
             len(dict_message['text']) == 6 or len(dict_message['text']) == 7):
         ##### function create email กับ content ข้างใน
         try:
+
             employee.objects.get(employee_line_ID=dict_source['user_id'])
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
@@ -345,10 +346,13 @@ def handle_text_message(event):
             email_name =get_user_email(id = dict_message['text'])
             if email_name is not None:
                 print('here we are')
-                send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
-                line_bot_api.reply_message(event.reply_token,
-                                           TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
-
+                try:
+                    send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
+                    line_bot_api.reply_message(event.reply_token,
+                                               TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
+                except:
+                    line_bot_api.reply_message(event.reply_token,
+                                               TextSendMessage(text='ลองอีกครั้ง'))
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
@@ -818,8 +822,8 @@ def send_email_register(id, line_id):
 def confirm_registration(request, id):
     employee_id=id[33:]
     employee_line_id=id[0:33]
+    print('start saving user')
     obj = [{'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
-    new_user = employee(emplyee_name='blank', employee_line_ID=employee_line_id,
-                        employee_ID=employee_id, activity_text=json.dumps(obj))
+    new_user = employee(employee_line_ID=employee_line_id, employee_ID=employee_id, activity_text=json.dumps(obj))
     new_user.save()
     return render(request, 'myworkplace/home.html')
