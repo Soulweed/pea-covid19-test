@@ -340,8 +340,9 @@ def handle_text_message(event):
             print('กรุณายืนยันตัวตนในอีเมลของท่าน www.email.pea.co.th')
 
     else:
+
         try:
-            employee.objects.get(employee_line_ID=dict_source['user_id'])
+            user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
             if dict_message['text'] == 'แจ้งลา 14 วัน':
                 line_bot_api.reply_message(event.reply_token,
                                                FlexSendMessage(
