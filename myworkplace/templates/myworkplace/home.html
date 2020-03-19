@@ -1,194 +1,104 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 {% block title_bl %} homepage{% endblock %}
 {% block body_bl %}
 
-
-        <div class="px-5 py-5 container-fluid" id="bgcovid19">
-        <div class="row">
-            <div class="col-sm-9">
-                <img id="yellowlady" class="pt-2 pb-0 mb-0" src="{% static 'img/yellowlady.png' %}" alt="yellowlady">
-                <h1 id="heading" class="display-5">PEA COVID-19</h1>
-                <div class="dropdown">
-                    <button id="s-btn" type="button" data-toggle="dropdown"><span> &nbsp; ภาพรวมทั้ง
-                            PEA &nbsp; <img src="{% static 'img/caret.png' %}" alt="caret"> &nbsp; </span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a id="n1" href="#">เขต น.1</a></li>
-                        <li><a id="n2" href="#">เขต น.2</a></li>
-                        <li><a id="n3" href="#">เขต น.3</a></li>
-                        <li><a id="ne1" href="#">เขต ฉ.1</a></li>
-                        <li><a id="ne2" href="#">เขต ฉ.2</a></li>
-                        <li><a id="ne3" href="#">เขต ฉ.3</a></li>
-                        <li><a id="c1" href="#">เขต ก.1</a></li>
-                        <li><a id="c2" href="#">เขต ก.2</a></li>
-                        <li><a id="c3" href="#">เขต ก.3</a></li>
-                        <li><a id="s1" href="#">เขต ต.1</a></li>
-                        <li><a id="s2" href="#">เขต ต.2</a></li>
-                        <li><a id="s3" href="#">เขต ต.3</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="py-2 row">
-            <div class="col-sm-12">
-                <div class="container" id="b-card">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1 class="display-3" id="wfhnum">89</h1>
-                            <h6 id="wfh">จำนวนพนักงานทำงานที่บ้าน <br /> (Work from Home)</h6>
-                        </div>
-                        <!-- <canvas id="myChart"></canvas> -->
+<div class="bg">
+    <div class="container">
+        <div class="py-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="py-3 text-center">สรุปสถานะพนักงาน PEA
+                            <br>ตามแบบประเมิน <font color="red">COVID-19</font> ทั่วประเทศ<br></h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="containerflex">
-            <div class="cardme flex-item-1">
-                <!-- <div class="row"> -->
-                <!-- <div class="col-md-4"> -->
-                <h6><small>ผู้ขาดการติดต่อ (คน)</small></h6>
-                <h1 id="missing" class="text-center" style="color: #7047c6;">&nbsp;23&nbsp;</h1>
-                <!-- </div> -->
-                <!-- </div> -->
-            </div>
-            <div class="cardme flex-item-2">
-                <!-- <div class="row"> -->
-                <!-- <div class="col-md-4"> -->
-                <h6><small>ผู้ป่วยยืนยันสะสม (คน)</small></h6>
-                <h1 id="missing" class="text-center" style="color: #061058;">&nbsp;186&nbsp;</h1>
-                <!-- </div> -->
-                <!-- </div> -->
-            </div>
-            <div class="cardme flex-item-3">
-                <!-- <div class="row"> -->
-                <!-- <div class="col-md-4"> -->
-                <h6><small>ผู้ป่วยยืนยันเพิ่ม (คน)</small></h6>
-                <h1 id="missing" class="text-center" style="color: #ee4e66;">&nbsp;12&nbsp;</h1>
-                <!-- </div> -->
-                <!-- </div> -->
-            </div>
-        </div>
-        <!-- saichon end html -->
-        <div class="row">
-            <div class="col-sm-2"><span><hr></span></div>
-            <div class="col-sm-10">
-                <h6>พนักงานเข้าร่วมโครงการ <span> {{ number_of_employee }} <span> คน </span> </span> </h6>
-            </div>
-        </div>
-        <div class="py-2 row">
-            <div class="col-sm-12">
-                <div class="container" id="s-card">
-                    <div class="py-4 row">
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <h5>สถิติย้อนหลัง 7 วัน</h5>
+        <div class="px-0 py-1 mx-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="pr-1 row">
+                            <div class="pt-2 pb-3 card-body" id="seedoc">
+                                <blockquote class="blockquote mb-0 text-center">
+                                    <p> <br> </p>
+                                    <h6 class="text-center text-white"><small>ต้องรีบพบแพทย์</small></h6>
+                                    <p> <br> </p>
+                                    <h1 class="display-4 text-white text-center" style="font-family: Kanit-Bold;">128
+                                    </h1>
+                                    <p> <br> </p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="px-2 pb-2 col-12">
+                                <div class="card-body" id="normalcard">
+                                    <blockquote class="py-2 blockquote mb-0 text-center">
+                                        <h6 class="text-center text-white"><small>ไม่เข้าเกณฑ์+WFH</small></h6>
+                                        <h2 class="text-white text-center">5,000</h2>
+                                    </blockquote>
                                 </div>
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-3 text-center">
-                                    <label class="switch">
-                                        <input type="checkbox" checked>
-                                        <span class="pt-2 pb-3 slider">
-                                            <medium>ผู้ป่วยยืนยัน &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                            </medium><small>ผู้ที่ทำงานอยู่บ้าน</small>
-                                        </span>
-                                    </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="px-2 pb-2 col-12">
+                                <div class="card-body" id="riskwfh">
+                                    <blockquote class="py-2 blockquote mb-0 text-center">
+                                        <h6 class="text-center text-white"><small>เสี่ยง+WFH</small></h6>
+                                        <h2 class="text-white text-center">13,000</h2>
+                                    </blockquote>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <!-- apex chart start -->
-                            <div id="apexchart"></div>
-                            <!-- apex chart end -->
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="px-1 pb-2 col-12">
+                                <div class="card-body" id="workatoffice">
+                                    <blockquote class="py-2 blockquote mb-0 text-center">
+                                        <h6 class="text-center text-white"><small>มาทำงานปกติ</small></h6>
+                                        <h2 class="text-white text-center">9,000</h2>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="px-1 pb-2 col-12">
+                                <div class="px-0 card-body" id="notshow">
+                                    <blockquote class="py-2 blockquote mb-0 text-center">
+                                        <h6 class="text-center text-white"><small>ไม่ประเมินความเสี่ยง</small></h6>
+                                        <h2 class="text-white text-center">2,000</h2>
+                                    </blockquote>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Optional JavaScript -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script>
-        var options = {
-            series: [{
-                name: 'จำนวนพนักงาน',
-                data: [44, 55, 57, 56, 61, 58, 63]
-            }, ],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded',
-                    dataLabels: {
-                        position: 'top'
-                    },
-                },
-            },
-            dataLabels: {
-                enabled: true
-            },
-            stroke: {
-                show: true,
-                width: 1,
-                colors: ['#7047c6']
-            },
-            grid: {
-                show: false,
-            },
-            xaxis: {
-                lines: {
-                    show: false,
-                },
-                categories: ['อ 10', 'พ 11', 'พฤ 12', 'ศ 13', 'ส 14', 'เมื่อวาน', 'วันนี้'],
-            },
-            yaxis: {
-                lines: {
-                    show: false,
-                },
-                categories: [],
-                title: {
-                    text: ''
-                }
-            },
-            fill: {
-                opacity: 1,
-                colors: ['#7047c6']
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return val + " ราย"
-                    }
-                }
-            }
-        };
-
-        var apexchart = new ApexCharts(document.querySelector("#apexchart"), options);
-        apexchart.render();
-    </script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-
+    <div class="py-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h6 class="text-right" id="opentextcf">*ข้อมูลล่าสุด ณ วันที่ 19 มี.ค. 63</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
 
 {% endblock %}
-
-
-

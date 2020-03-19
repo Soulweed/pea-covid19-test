@@ -18,6 +18,7 @@ from django.conf import settings
 def home(request):
     data1 = employee.objects.all()
     context = {'number_of_employee': len(data1)}
+    print(context)
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
@@ -384,7 +385,7 @@ def handle_text_message(event):
     else:
         try:
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-            if dict_message['text'] == 'แจ้งลา 14 วัน':
+            if dict_message['text'] == 'leave':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
@@ -463,7 +464,7 @@ def handle_text_message(event):
                                            TextSendMessage(text='ทดสอบ'))
                 # send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
                 # print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
-            elif dict_message['text'] == 'สิ่งที่ต้องทำ':
+            elif dict_message['text'] == 'check':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
@@ -535,7 +536,7 @@ def handle_text_message(event):
                                                    ]
                                                }
                                            ))
-            elif dict_message['text'] == 'จัดการข้อมูล':
+            elif dict_message['text'] == 'profile':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
@@ -676,9 +677,9 @@ def handle_text_message(event):
 }
                                            )
                                            )
-            elif dict_message['text'] == 'ติดตาม Covid-19Card':
+            elif dict_message['text'] == 'tracking':
                 pass
-            elif dict_message['text'] == 'ใบเซ็นชื่อ':
+            elif dict_message['text'] == 'timestamp':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
@@ -714,7 +715,7 @@ def handle_text_message(event):
 }
                                            )
                                            )
-            elif dict_message['text'] == 'ศูนย์ช่วยเหลือ':
+            elif dict_message['text'] == 'support':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',

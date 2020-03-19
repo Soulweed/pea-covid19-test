@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-<head>
-        <meta charset="UTF-8">
-<script src=" https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="icon" href="{% static 'img/yellowlady.png' %}">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="icon" href="{% static 'img/yellowlady.png' %}">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
 
     <title>PEA COVID-19 {% block title_bl %}{% endblock %}</title>
 
-
     <style>
         /* fonts */
         @font-face {
@@ -37,7 +21,7 @@
 
         @font-face {
             font-family: "Kanit-Bold";
-            src: url('../fonts/Kanit-Black') format("truetype");
+            src: url('../fonts/Kanit-Black.ttf') format("truetype");
         }
 
         @font-face {
@@ -59,440 +43,154 @@
             font-family: "Kanit-SemiBold";
             src: url('../fonts/Kanit-SemiBold.ttf') format("truetype");
         }
-
         /* fonts */
 
         body {
-            font-family: "Kanit-SemiBold";
-            background-color: #F3F5F8;
-        }
-
-        /* body container */
-        .container-fluid {
-            font-family: "Kanit-SemiBold";
-            background-color: #F3F5F8;
-        }
-
-        #bgcovid19 {
-            background-image: url("{% static 'img/bgcovid19.png' %}");
-            background-size: 100%;
-            background-repeat: no-repeat;
-        }
-
-        #heading {
-            color: white;
-        }
-
-        #s-btn {
-            float: left;
-            background-color: #FFFFFF;
-            border-radius: 25px;
-            font-family: "Kanit-Regular";
-            color: #8287AB;
-            text-align: center;
-        }
-
-        #yellowlady {
-            float: right;
-            height: 120%;
-        }
-
-        .dropdown-menu {
-            font-family: "Kanit-Light";
-            text-align: center;
-        }
-
-        li {
-            text-decoration: none;
-            color: #8287AB;
-        }
-
-        li:hover {
-            text-decoration: none;
-        }
-
-        a {
-            text-decoration: none;
-            color: #8287AB;
-        }
-
-        a:hover {
-            text-decoration: none;
-            color: black;
-        }
-
-        #b-card {
-            position: relative;
-            width: man-content;
-            height: min-content;
-            font-family: "Kanit-SemiBold";
-            background-color: #FFFFFF;
-            border-radius: 25px;
-            text-align: center;
-            color: #7248C8;
-        }
-
-        #wfh {
-            font-family: "Kanit-Light";
-            color: #8287AB;
-        }
-
-        /* saichon start*/
-        small {
-            color: #8287ab;
-
-        }
-
-        h6 {
-            margin-top: 5px;
-        }
-
-        h1 {
             font-family: "Kanit-Medium";
         }
 
-        .cardme {
-            height: 100%;
-            /* max-width: 80px; */
-            text-align: center;
-            border: 2px transparent;
-            /* padding: 5px; */
-            background-color: #ffffff;
-            border-radius: 10px;
-
-        }
-
-        .containerflex {
-            display: flex;
-            /* or inline-flex */
-            /* flex-direction: row; */
-            flex-flow: row;
-            /* align-items: stretch; */
-            /* align-content: stretch; */
-            justify-content: center;
-
-        }
-
-        .flex-item-1,
-        .flex-item-2,
-        .flex-item-3 {
-            width: 100%;
-            height: 100px;
-            font-family: "Kanit-Light";
-            background-color: #ffffff;
-            margin: 2%;
-        }
-
-        /* saichon end */
-
-        #s-card {
-            position: relative;
-            width: man-content;
-            height: min-content;
-            font-family: "Kanit-Regular";
-            background-color: #FFFFFF;
-            border-radius: 25px;
-            color: #8287AB;
-        }
-
-        .switch {
-            float: right;
-            position: relative;
-            display: inline-block;
-            width: 240px;
-            height: 34px;
-            font-size: smaller;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 100px;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #F3F5F8;
-            -webkit-transition: .5s;
-            transition: .5s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 90px;
-            left: 144px;
-            bottom: 4px;
-            background-color: #8287ab;
-            /* color: #f3f5f8; */
-            -webkit-transition: .5s;
-            transition: .5s;
-        }
-
-        .slider::after {
-            position: absolute;
-            background-color: transparent;
-            -webkit-transition: .5s;
-            transition: .5s;
-            /* background-color: #f3f5f8; */
-            color: #8287ab;
-        }
-
-        input:checked+.slider {
-            /* background-color: #f3f5f8; */
-            color: #8287ab;
-
-        }
-
-        input:focus+.slider {
-            box-shadow: 0 0 1px #8287ab;
-        }
-
-        input:checked+.slider:before {
-            -webkit-transform: translateX(20px);
-            -ms-transform: translateX(20px);
-            transform: translateX(-140px);
-        }
-
-        /* Rounded sliders */
-        .slider {
-            border-radius: 50px;
-
-        }
-
-        .slider:before {
-            border-radius: 25px;
-        }
-
-        #apexchart {
-            max-width: 650px;
-            margin: 35px auto;
-        }
-    </style>
-
-    <style>
-        /* fonts */
-        @font-face {
-            font-family: "Kanit-Black";
-            src: url('../fonts/Kanit-Black.ttf') format("truetype");
-        }
-
-        @font-face {
-            font-family: "Kanit-Bold";
-            src: url('../fonts/Kanit-Black') format("truetype");
-        }
-
-        @font-face {
-            font-family: "Kanit-Light";
-            src: url('../fonts/Kanit-Light.ttf') format("truetype");
-        }
-
-        @font-face {
-            font-family: "Kanit-Medium";
-            src: url('../fonts/Kanit-Medium.ttf') format("truetype");
-        }
-
-        @font-face {
-            font-family: "Kanit-Regular";
-            src: url('../fonts/Kanit-Regular.ttf') format("truetype");
-        }
-
-        @font-face {
-            font-family: "Kanit-SemiBold";
-            src: url('../fonts/Kanit-SemiBold.ttf') format("truetype");
-        }
-
-        /* fonts */
-
-        body {
-            background-image: url("{% static 'img/bgcovid19.png' %}");
-            background-position: top;
-            background-size: 100%;
+        /* daily_update css start */
+        #headerbg {
+            background-image: url('bgheader.png');
             background-repeat: no-repeat;
-            font-family: "Kanit-Regular";
-            font-size: medium;
-        }
-
-        #heading {
-            font-family: "Kanit-Bold";
+            background-size: cover;
             color: white;
-            text-align: center;
+
         }
 
-        #yellowlady {
-            float: right;
-            width: 20%;
+        .card {
+            background-color: #7248C8;
+            border-radius: 15px;
+            color: white;
         }
 
-        #question {
-            border-radius: 25px;
-            border-color: transparent;
-            background-color: white;
-            color: black;
+        #opentext {
             font-family: "Kanit-Regular";
         }
 
-        fieldset {
-            color: black;
+        hr {
+            border-width: 2px;
+            border-color: rgb(84, 82, 85, 0.4);
+        }
+
+        .question {
+            font-family: "Kanit-Regular";
+            font-weight: 600;
+        }
+
+        .qq {
             font-family: "Kanit-Regular";
         }
 
-        h6 {
-            color: black;
+        .btn {
+            background-color: rgb(84, 82, 85, 0.2);
+            border-radius: 5px;
+            color: rgb(84, 82, 85, 0.8);
+        }
+
+        .btn:hover {
+            background-color: #7248C8;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .btn:active {
+            background-color: #7248C8;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #checks {
             font-family: "Kanit-Regular";
         }
-    </style>
 
-
-<script>
-        $( function() {
-          $( "#datepicker1" ).datepicker();
-        } );
-        $( function() {
-          $( "#datepicker2" ).datepicker();
-        } );
-        function startdate(){
-           var datestart =  document.getElementById("datepicker1").value
-           console.log(datestart)
-           return datestart
-        }
-        function enddate(){
-            datestart = startdate()
-            var dateend =  document.getElementById("datepicker2").value
-            console.log(typeof(dateend))
-            var before = moment(datestart)
-            // var before = moment(datestart,);
-            var end = moment(dateend);
-            var daydiff =end.diff(before,'day')
-            var x = daydiff+1
-            document.getElementById("diffdate").innerHTML = "รวมจำนวนวันที่ Work from home "+ x +" วัน";
-            // console(end.diff(before, 'days'))
-            console.log('dddd',before)
-            console.log(end.diff(before,'day'))
+        .remark {
+            font-family: "Kanit-Regular";
+            color: rgb(84, 82, 85, 0.6)
         }
 
-    </script>
-
-    <style>
-        /* fonts */
-        @font-face {
-            font-family: "Kanit-Black";
-            src: url('../fonts/Kanit-Black.ttf') format("truetype");
+        #submit {
+            background-color: rgb(84, 82, 85, 0.2);
+            border-radius: 5px;
+            color: rgb(84, 82, 85, 0.8);
         }
 
-        @font-face {
-            font-family: "Kanit-Bold";
-            src: url('../fonts/Kanit-Black') format("truetype");
+        #submit:hover {
+            background-color: #0BB07B;
+            border-radius: 5px;
+            color: white;
         }
 
-        @font-face {
+        #submit:active {
+            background-color: #0BB07B;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #hrcheckbox {
+            border-width: 2px;
+            border-color: rgb(84, 82, 85, 0.2);
+        }
+        /* daily_update css end */
+
+        /* dashboard css start*/
+        .bg {
+            background-image: url('bg.png');
+        }
+
+        #opentext {
+            font-weight: bold;
+        }
+
+        #opentextcf {
             font-family: "Kanit-Light";
-            src: url('../fonts/Kanit-Light.ttf') format("truetype");
+            color: #6B6070;
         }
 
-        @font-face {
-            font-family: "Kanit-Medium";
-            src: url('../fonts/Kanit-Medium.ttf') format("truetype");
+        #normalcard {
+            background-color: #0BB07B;
+            border-radius: 15px;
         }
 
-        @font-face {
-            font-family: "Kanit-Regular";
-            src: url('../fonts/Kanit-Regular.ttf') format("truetype");
+        #riskwfh {
+            background-color: #FFC107;
+            border-radius: 15px;
         }
 
-        @font-face {
-            font-family: "Kanit-SemiBold";
-            src: url('../fonts/Kanit-SemiBold.ttf') format("truetype");
+        #seedoc {
+            background-color: #F03D3D;
+            border-radius: 15px;
         }
 
-        /* fonts */
-
-        body {
-            background-image: url("{% static 'img/bgcovid19.png' %}");
-            background-position: top;
-            background-size: 100%;
-            background-repeat: no-repeat;
-            font-family: "Kanit-Regular";
-            font-size: medium;
+        #notrisk {
+            background-color: #550C75;
+            border-radius: 15px;
         }
 
-        #heading {
-            font-family: "Kanit-Bold";
-            color: white;
-            text-align: center;
+        #workatoffice {
+            background-color: #7248C8;
+            border-radius: 15px;
         }
 
-        #yellowlady {
-            float: right;
-            width: 20%;
+        #notshow {
+            background-color: #1F1722;
+            border-radius: 15px;
         }
-
-        #question {
-            border-radius: 25px;
-            border-color: transparent;
-            background-color: white;
-            color: black;
-            font-family: "Kanit-Regular";
-        }
-
-        fieldset {
-            color: black;
-            font-family: "Kanit-Regular";
-        }
-
-        h6 {
-            color: black;
-            font-family: "Kanit-Regular";
-        }
-
-        /* saichon */
-        .containerflex {
-            display: flex; /* or inline-flex */
-             /* flex-direction: row; */
-            flex-flow: row wrap;
-            /* align-items: stretch; */
-            align-content: center;
-            justify-content:center;
-
-     }
-  .flex-item-1 ,.flex-item-2{
-    width: 150px;
-    height: 150px;
-    background: salmon;
-    margin: 10px;
-}
-ol{
-    font-size: 15px;
-    color: #000000;
-}
-.card-header{
-    color: #000000;
-}
-.custom-control-label {
-    font-size: 15px;
-    color: #000000;
-}
-/* saichon end */
+        /* dashboard css end */
     </style>
-
-
 </head>
-<body>
-{% block body_bl %}
-{% endblock %}
 
-<div class="container-fluid" id="footer">
-    <p id="credit">
-        <small>Created by PEA Innovation Hub<br>MARCH 16 2020</small>
-    </p>
-</div>
+<body>
+    {% block body_bl %}
+    {% endblock %}
+
+    <div class="container-fluid" id="footer">
+        <p id="credit">
+            <small>Created by PEA Innovation Hub<br>MARCH 16 2020</small>
+        </p>
+    </div>
 
 
 </body>
+
 </html>
