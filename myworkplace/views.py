@@ -342,13 +342,25 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
         except:
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
+            email_name =get_user_email(id = dict_message['text'])
+            if email_name is not None:
+                try:
+                    send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
 
-            send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
+                    line_bot_api.reply_message(event.reply_token,
+                                               TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
+                except:
+                    line_bot_api.reply_message(event.reply_token,
+                                               TextSendMessage(text='ลองอีกครั้งหนึ่ง'))
+            else:
+
+                line_bot_api.reply_message(event.reply_token,
+                                           TextSendMessage(
+                                               text='ไปกรอกอีเมล์ใน IDM ด้วย'))
+
+
 
     else:
-
         try:
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
             if dict_message['text'] == 'แจ้งลา 14 วัน':
@@ -399,11 +411,11 @@ def handle_text_message(event):
                                                )
                                            )
             elif dict_message['text'] == 'test':
-                print('ทดสอบ ส่งอีเมล')
+                # print('ทดสอบ ส่งอีเมล')
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(text='ทดสอบ ส่งอีเมล'))
-                send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
-                print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
+                # send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
+                # print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
 
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
                 line_bot_api.reply_message(event.reply_token,
@@ -773,9 +785,7 @@ def print_non_replies(emails, agents):
 #     return dict_data[id]['email']
 
 
-def send_email_register(id, line_id):
-    # user_data = emailboss(id)
-    # recipient_list = [user_data.get('Email')]
+def get_user_email(id):
 
     url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
     headers = {'content-type': 'text/xml'}
@@ -796,10 +806,13 @@ def send_email_register(id, line_id):
     authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
         'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
 
+    return authData.get("Email")
 
-    recipient_list = [authData.get("Email")]
+def send_email_register(id, line_id):
+    recipient_list = [id]
 
     print('receipient list', recipient_list)
+
     subject = 'ยืนยันการสมัคร'
     message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id,id)
     email_from = settings.EMAIL_HOST_USER
@@ -809,15 +822,8 @@ def send_email_register(id, line_id):
 def confirm_registration(request, id):
     employee_id=id[33:]
     employee_line_id=id[0:33]
-
     obj = [{'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
     new_user = employee(emplyee_name='blank', employee_line_ID=employee_line_id,
                         employee_ID=employee_id, activity_text=json.dumps(obj))
     new_user.save()
-
-
-
-
-
-
     return render(request, 'myworkplace/home.html')
