@@ -563,6 +563,14 @@ def handle_text_message(event):
         "size": "xl",
         "align": "center"
       },
+
+        {
+            "type": "text",
+            "text": "{}".format(user_employee.employee_ID),
+            "align": "center",
+            "size": "xl",
+            "weight": "bold"
+        },
       {
         "type": "box",
         "layout": "horizontal",
@@ -676,35 +684,35 @@ def handle_text_message(event):
                                            FlexSendMessage(
                                                alt_text='hello',
                                                contents={
-                                                   "type": "bubble",
-                                                   "body": {
-                                                       "type": "box",
-                                                       "layout": "vertical",
-                                                       "contents": [
-                                                           {
-                                                               "type": "image",
-                                                               "size": "full",
-                                                               "aspectMode": "cover",
-                                                               "gravity": "center",
-                                                               "url": "https://www.img.in.th/images/54dccf2b8c4a3925405b0f84fb2ca91b.png",
-                                                               "aspectRatio": "1:1"
-                                                           },
-                                                           {
-                                                               "type": "image",
-                                                               "url": "https://sv1.picz.in.th/images/2020/03/19/QidsP2.png",
-                                                               "aspectMode": "cover",
-                                                               "size": "full",
-                                                               "aspectRatio": "1040:174",
-                                                               "action": {
-                                                                   "type": "uri",
-                                                                   "label": "action",
-                                                                   "uri": "https://pea-covid19-test.herokuapp.com/checkin/{}/".format(
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "cover",
+        "gravity": "center",
+        "url": "https://sv1.picz.in.th/images/2020/03/20/QiD33J.png",
+        "aspectRatio": "1:1"
+      },
+      {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/20/QiAZfS.png",
+        "aspectMode": "cover",
+        "size": "full",
+        "aspectRatio": "1040:174",
+        "action": {
+          "type": "uri",
+          "label": "action",
+          "uri": "https://pea-covid19-test.herokuapp.com/checkin/{}/".format(
                                                                        user_employee.employee_ID)}
-                                                           }
-                                                       ],
-                                                       "paddingAll": "0px"
-                                                   }
-                                               }
+      }
+    ],
+    "paddingAll": "0px"
+  }
+}
                                            )
                                            )
             elif dict_message['text'] == 'ศูนย์ช่วยเหลือ':
