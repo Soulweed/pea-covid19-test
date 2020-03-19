@@ -345,7 +345,7 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
 
-            send_email_register("499959")
+            send_email_register(id = "499959", line_id=dict_source['user_id'])
 
     else:
 
@@ -777,20 +777,39 @@ def get_user_data(id):
     return dict_data[id]['email']
 
 
-
-
-
-
-
-def send_email_register(id):
+def send_email_register(id, line_id):
     # user_data = emailboss(id)
     # recipient_list = [user_data.get('Email')]
-    recipient_list = [get_user_data(id)]
-    subject = 'ขออนุญาติลา'
-    message = ' ลาวันที่ xx - xx จำนวนกี่วัน '
+
+    url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
+    headers = {'content-type': 'text/xml'}
+    xmltext = '''<?xml version="1.0" encoding="utf-8"?>
+                <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                <soap:Body>
+                    <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
+                    <WSAuthenKey>{0}</WSAuthenKey>
+                    <EmployeeId>{1}</EmployeeId>
+                    </GetEmployeeInfoByEmployeeId_SI>
+                </soap:Body>
+                </soap:Envelope>'''
+    wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
+    body = xmltext.format(wsauth, "{}".format(id))
+    res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
+    o = xmltodict.parse(res.text)
+    jsonconvert = dict(o)
+    authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
+        'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
+
+
+    recipient_list = [authData.get("Email")]
+
+    print('receipient list', recipient_list)
+    subject = 'ยืนยันการสมัคร'
+    message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}'.format(line_id)
     email_from = settings.EMAIL_HOST_USER
     send_mail(subject, message, email_from, recipient_list)
 
 
 def confirm_registration(request, line_id):
-    pass
+    print('line id is', line_id)
+    return render(request, 'myworkplace/home.html')
