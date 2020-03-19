@@ -19,7 +19,6 @@ from django.conf import settings
 def home(request):
     data1 = employee.objects.all()
     context = {'number_of_employee': len(data1)}
-
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
@@ -266,11 +265,9 @@ from rest_framework import viewsets
 from .serializers import QuestionSerializer
 from .models import question
 
-
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = question.objects.all().order_by('question_text')
     serializer_class = QuestionSerializer
-
 
 ####line bot#####
 
@@ -289,10 +286,9 @@ from linebot.models import (
     TextMessage,
     TextSendMessage,
     FlexSendMessage,
-
 )
-import os
 
+import os
 # YOUR_CHANNEL_ACCESS_TOKEN = os.environ["Ga+IdjcgPa032XLB5IaBPG2Fk+1VLs1+Lc+KFmbSjJXLZK+9RTT3+oyxqd9dG0dejJQ0a8LHz8dk8uXj6WJ/XjXpZzWRz9qRYyQNiOXwPbi7qa16vCYm1UwgL5mHF3j/Rk7ca5oxnKshQIyUizbQlwdB04t89/1O/w1cDnyilFU="]
 # YOUR_CHANNEL_SECRET = os.environ["ada0193e1d7e79a4aa93a938b9300246"]
 
@@ -323,9 +319,9 @@ def callback(request):
     return HttpResponse('OK', status=200)
 
 
+
+
 reply_text = 'A whole new world'
-
-
 # # オウム返し
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
@@ -359,8 +355,6 @@ def handle_text_message(event):
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
                                                text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'))
-
-
 
     else:
         try:
@@ -497,139 +491,133 @@ def handle_text_message(event):
                                            FlexSendMessage(
                                                alt_text='hello',
                                                contents={
-                                                   "type": "bubble",
-                                                   "body": {
-                                                       "type": "box",
-                                                       "layout": "vertical",
-                                                       "contents": [
-                                                           {
-                                                               "type": "image",
-                                                               "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
-                                                               "size": "full",
-                                                               "aspectMode": "cover",
-                                                               "aspectRatio": "1:1",
-                                                               "gravity": "center"
-                                                           },
-                                                           {
-                                                               "type": "image",
-                                                               "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
-                                                               "position": "absolute",
-                                                               "aspectMode": "fit",
-                                                               "aspectRatio": "1:1",
-                                                               "offsetTop": "0px",
-                                                               "offsetBottom": "0px",
-                                                               "offsetStart": "0px",
-                                                               "offsetEnd": "0px",
-                                                               "size": "full"
-                                                           },
-                                                           {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "ระดับความเสี่ยง",
-                                                                       "size": "lg"
-                                                                   },
-                                                                   {
-                                                                       "type": "box",
-                                                                       "layout": "horizontal",
-                                                                       "contents": [
-                                                                           {
-                                                                               "type": "text",
-                                                                               "text": "เสี่ยงมาก",
-                                                                               "size": "4xl",
-                                                                               "align": "center",
-                                                                               "offsetStart": "20px"
-                                                                           },
-                                                                           {
-                                                                               "type": "image",
-                                                                               "url": "https://sv1.picz.in.th/images/2020/03/17/Qw4M9N.png",
-                                                                               "size": "xs"
-                                                                           }
-                                                                       ],
-                                                                       "margin": "lg"
-                                                                   },
-                                                                   {
-                                                                       "type": "separator",
-                                                                       "color": "#111111",
-                                                                       "margin": "lg"
-                                                                   },
-                                                                   {
-                                                                       "type": "box",
-                                                                       "layout": "horizontal",
-                                                                       "contents": [
-                                                                           {
-                                                                               "type": "box",
-                                                                               "layout": "vertical",
-                                                                               "contents": [
-                                                                                   {
-                                                                                       "type": "text",
-                                                                                       "text": "คะแนนความ",
-                                                                                       "size": "xl",
-                                                                                       "weight": "bold"
-                                                                                   },
-                                                                                   {
-                                                                                       "type": "text",
-                                                                                       "text": "ตระหนักโรค",
-                                                                                       "size": "xl",
-                                                                                       "weight": "bold"
-                                                                                   }
-                                                                               ]
-                                                                           },
-                                                                           {
-                                                                               "type": "box",
-                                                                               "layout": "vertical",
-                                                                               "contents": [
-                                                                                   {
-                                                                                       "type": "text",
-                                                                                       "text": "4",
-                                                                                       "size": "4xl",
-                                                                                       "align": "end"
-                                                                                   }
-                                                                               ]
-                                                                           }
-                                                                       ],
-                                                                       "margin": "md"
-                                                                   },
-                                                                   {
-                                                                       "type": "separator",
-                                                                       "color": "#111111"
-                                                                   },
-                                                                   {
-                                                                       "type": "box",
-                                                                       "layout": "vertical",
-                                                                       "contents": [
-                                                                           {
-                                                                               "type": "text",
-                                                                               "text": "บันทึกสุขภาพประจำวัน",
-                                                                               "size": "md"
-                                                                           },
-                                                                           {
-                                                                               "type": "text",
-                                                                               "text": "2020-03-06",
-                                                                               "size": "md"
-                                                                           },
-                                                                           {
-                                                                               "type": "text",
-                                                                               "text": "บันทึกแล้ว",
-                                                                               "size": "lg",
-                                                                               "weight": "bold",
-                                                                               "style": "italic"
-                                                                           }
-                                                                       ],
-                                                                       "margin": "md"
-                                                                   }
-                                                               ],
-                                                               "position": "absolute",
-                                                               "offsetStart": "20px",
-                                                               "offsetTop": "10px"
-                                                           }
-                                                       ],
-                                                       "paddingAll": "0px",
-                                                       "position": "relative"
-                                                   }
-                                               }
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://sv1.picz.in.th/images/2020/03/19/QiOkcu.png",
+    "size": "full",
+    "action": {
+      "type": "uri",
+      "uri": "http://linecorp.com/"
+    },
+    "aspectMode": "cover",
+    "aspectRatio": "1040:677"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "นายภาคภูมิ ประเสริฐ",
+        "weight": "bold",
+        "size": "xxl",
+        "align": "center"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ความเสี่ยง :",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "แยกตัว",
+            "size": "xl"
+          }
+        ],
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "สถานะ :",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "เฝ้าระวัง",
+            "size": "xl"
+          }
+        ],
+        "margin": "sm"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ประเมินล่าสุด :",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "19 มี.ค. 63",
+            "size": "xl"
+          }
+        ],
+        "margin": "sm"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "เวลา",
+            "size": "xl",
+            "align": "start"
+          },
+          {
+            "type": "text",
+            "text": "10:30 น.",
+            "size": "xl"
+          }
+        ],
+        "margin": "sm"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "เหลือเวลา",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "12 วัน",
+            "size": "xl"
+          }
+        ],
+        "margin": "sm"
+      },
+      {
+        "type": "separator",
+        "margin": "xl"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "uri",
+          "label": "รายละเอียดเพิ่มเติม",
+          "uri": "http://pea-covid19-test.herokuapp.com/"
+        },
+        "margin": "xl"
+      }
+    ],
+    "offsetTop": "-10px"
+  },
+  "size": "giga"
+}
                                            )
                                            )
 
