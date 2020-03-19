@@ -400,9 +400,12 @@ def handle_text_message(event):
                                            )
 
             elif dict_message['text'] == 'test':
+                print('ทดสอบ ส่งอีเมล')
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(text='ทดสอบ ส่งอีเมล'))
                 send_email_register("499959")
+                print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
+
 
 
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
@@ -772,6 +775,9 @@ def get_user_data(id):
     with open('idm.json') as f:
         dict_data = json.load(f)
     return dict_data[id]['email']
+
+
+
 
 
 
