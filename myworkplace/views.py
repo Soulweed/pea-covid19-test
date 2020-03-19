@@ -14,16 +14,15 @@ import requests, xmltodict
 def home(request):
     data1 = employee.objects.all()
     context = {'number_of_employee': len(data1)}
-
     return render(request, 'myworkplace/home.html', context)
-
 
 def daily_update(request, id):
     print('access daily update')
     data = employee.objects.get(employee_ID=id).__dict__
     print(type(data))
     print(data)
-    context = {'data': data}
+    context = {'data': data
+               }
     print(context)
     if request.method == "POST":
         fever = request.POST.get("id_fever")
@@ -32,6 +31,7 @@ def daily_update(request, id):
         travel_to_infected_area = request.POST.get("id_travel_to_infected_area")
         live_with_risk_person = request.POST.get("id_live_with_risk_person")
         contact_with_risk = request.POST.get("id_contact_with_risk")
+
 
         if fever == 'FALSE' and cold == 'FALSE' and contact_foreigner == 'FALSE' and travel_to_infected_area == 'FALSE' \
                 and live_with_risk_person == 'FALSE' and contact_with_risk == 'FALSE':
@@ -73,7 +73,6 @@ def personal_info(request, id):
     context = {'data': data}
     print(context)
     return render(request, 'myworkplace/personal_info.html', context)
-
 
 def screen(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
@@ -132,7 +131,6 @@ def screen(request, id):
     print(context)
     return render(request, 'myworkplace/screen.html', context)
 
-
 def checkin(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
@@ -156,7 +154,6 @@ def checkin(request, id):
 
     return render(request, 'myworkplace/checkin.html', context)
 
-
 def challenge(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
@@ -179,7 +176,6 @@ def challenge(request, id):
         return render(request, 'myworkplace/checkinComplete.html', context)
 
     return render(request, 'myworkplace/challenge.html', context)
-
 
 def normal_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
@@ -207,7 +203,6 @@ def normal_group(request, id):
     print(context)
     return render(request, 'myworkplace/normal_group.html', context)
 
-
 def medium_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
@@ -219,7 +214,6 @@ def medium_group(request, id):
     print('----------------------')
     print(context)
     return render(request, 'myworkplace/medium_group.html', context)
-
 
 def risk_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
@@ -237,7 +231,6 @@ def risk_group(request, id):
     print(context)
     return render(request, 'myworkplace/risk_group.html', context)
 
-
 def risk_form(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     print('risk form')
@@ -252,23 +245,18 @@ def risk_form(request, id):
     print(context)
     return render(request, 'myworkplace/risk_form.html', context)
 
-
 def confirm(request, id):
     print('link to confirm page')
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
     return render(request, 'myworkplace/confirm.html', context)
 
-
 def confirm_WFH(request, id):
     print('link to work form home confirm page')
-
     return render(request, 'myworkplace/confirm_WFH.html')
-
 
 # API
 from rest_framework import viewsets
-
 from .serializers import QuestionSerializer
 from .models import question
 
@@ -343,14 +331,10 @@ def handle_text_message(event):
     # print(dict_message['text'])
 
     if dict_message['text'] == 'บันทึกสุขภาพ':
-        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
-        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-        print(user_employee)
-        if dict_source['user_id'] in employee_Line_ID_list:
+        try:
+            user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
             line_bot_api.reply_message(event.reply_token,
-                                       FlexSendMessage(
-                                           alt_text='hello',
-                                           contents={
+                                       FlexSendMessage(alt_text='hello',contents={
                                                "type": "bubble",
                                                "body": {
                                                    "type": "box",
@@ -373,12 +357,11 @@ def handle_text_message(event):
                                                    ],
                                                    "paddingAll": "0px"
                                                }
-                                           }
-                                       )
-                                       )
-        else:
+                                           }))
+        except:
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
+                                       TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดกรอกรหัสพนักงาน 6 ตัว'))
+
     elif dict_message['text'] == 'test':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
@@ -411,6 +394,7 @@ def handle_text_message(event):
                                        TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ '
                                                             'กรุณากรอกแบบฟอร์มคัดกรอง https://pea-covid19-test.herokuapp.com/checkin/{}/'.format(
                                            user_employee.employee_ID)))
+
     elif dict_message['text'] == 'จัดการข้อมูล':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
@@ -609,7 +593,7 @@ def handle_text_message(event):
         else:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
-    elif dict_message['text'] == 'Covid-leave':
+    elif dict_message['text'] == 'แจ้งลา 14 วัน':
         employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
         user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
         print(user_employee)
