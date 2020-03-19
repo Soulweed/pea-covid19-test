@@ -344,16 +344,12 @@ def handle_text_message(event):
         except:
             email_name =get_user_email(id = dict_message['text'])
             if email_name is not None:
-                try:
-                    send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
+                print('here we are')
+                send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
+                line_bot_api.reply_message(event.reply_token,
+                                           TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
 
-                    line_bot_api.reply_message(event.reply_token,
-                                               TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
-                except:
-                    line_bot_api.reply_message(event.reply_token,
-                                               TextSendMessage(text='ลองอีกครั้งหนึ่ง'))
             else:
-
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
                                                text='ไปกรอกอีเมล์ใน IDM ด้วย'))
