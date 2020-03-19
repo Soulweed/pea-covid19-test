@@ -343,8 +343,9 @@ def handle_text_message(event):
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
         except:
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน www.email.pea.co.th'))
-            # send('pornchai.cha@pea.co.th')
+                                       TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
+
+            send_email_register("499959")
 
     else:
 
@@ -400,8 +401,9 @@ def handle_text_message(event):
 
             elif dict_message['text'] == 'test':
                 line_bot_api.reply_message(event.reply_token,
-                                           TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน www.email.pea.co.th'))
-                send('pornchai.cha@pea.co.th')
+                                           TextSendMessage(text='ทดสอบ ส่งอีเมล'))
+                send_email_register("499959")
+
 
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
                 line_bot_api.reply_message(event.reply_token,
@@ -764,79 +766,26 @@ def print_non_replies(emails, agents):
         print(' * ', subject)
 
 
-def send_email(account, subject, body, recipients, attachments=None):
-    """
-    Send an email.
-    Parameters
-    ----------
-    account : Account object
-    subject : str
-    body : str
-    recipients : list of str
-        Each str is and email adress
-    attachments : list of tuples or None
-        (filename, binary contents)
-    Examples
-    --------
-    send_email(account, 'Subject line', 'Hello!', ['info@example.com'])
-    """
-    to_recipients = []
-    for recipient in recipients:
-        to_recipients.append(Mailbox(email_address=recipient))
-    # Create message
-    m = Message(account=account,
-                folder=account.sent,
-                subject=subject,
-                body=body,
-                to_recipients=to_recipients)
-
-    # attach files
-    for attachment_name, attachment_content in attachments or []:
-        file = FileAttachment(name=attachment_name, content=attachment_content)
-        m.attach(file)
-    m.send_and_save()
 
 
-def get_user_data(username):
-    n = 0
-    while (n < 10):
-        try:
-            url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
-            headers = {'content-type': 'text/xml'}
-            xmltext = '''<?xml version="1.0" encoding="utf-8"?>
-                        <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-                        <soap:Body>
-                            <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
-                            <WSAuthenKey>{0}</WSAuthenKey>
-                            <EmployeeId>{1}</EmployeeId>
-                            </GetEmployeeInfoByEmployeeId_SI>
-                        </soap:Body>
-                        </soap:Envelope>'''
-            wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
-            body = xmltext.format(wsauth, username)
-            res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
-            o = xmltodict.parse(res.text)
-            jsonconvert = dict(o)
-            authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
-                'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
-            break
-        except:
-            n += 1
-            authData = 'error'
-    print(authData.get('Email'))
-
-    return authData
+def get_user_data(id):
+    with open('idm.json') as f:
+        dict_data = json.load(f)
+    return dict_data[id]['email']
 
 
 
 
-def send(id):
+def send_email_register(id):
 
     # user_data = emailboss(id)
     # recipient_list = [user_data.get('Email')]
-    recipient_list = [id]
+    recipient_list = [get_user_data(id)]
     subject = 'ขออนุญาติลา'
     message = ' ลาวันที่ xx - xx จำนวนกี่วัน '
     email_from = settings.EMAIL_HOST_USER
     send_mail(subject, message, email_from, recipient_list)
 
+
+def confirm_registration(request, line_id):
+    pass
