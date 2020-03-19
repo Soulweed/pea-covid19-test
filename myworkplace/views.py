@@ -10,6 +10,11 @@ import base64
 import requests, xmltodict
 
 
+
+# importing email library
+from django.core.mail import send_mail
+from django.conf import settings
+
 # Create your views here.
 def home(request):
     data1 = employee.objects.all()
@@ -334,10 +339,12 @@ def handle_text_message(event):
         ##### function create email กับ content ข้างใน
         try:
             employee.objects.get(employee_line_ID=dict_source['user_id'])
-            print('ท่านได้ลงทะเบียนแล้ว')
-
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
         except:
-            print('กรุณายืนยันตัวตนในอีเมลของท่าน www.email.pea.co.th')
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน www.email.pea.co.th'))
+            # send('pornchai.cha@pea.co.th')
 
     else:
 
@@ -391,8 +398,11 @@ def handle_text_message(event):
                                                )
                                            )
 
-            # elif dict_message['text'] == 'ศูนย์ช่วยเหลือ':
-            #     pass
+            elif dict_message['text'] == 'test':
+                line_bot_api.reply_message(event.reply_token,
+                                           TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน www.email.pea.co.th'))
+                send('pornchai.cha@pea.co.th')
+
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
@@ -643,7 +653,7 @@ def handle_text_message(event):
         "size": "full",
         "aspectMode": "cover",
         "gravity": "center",
-        "url": "https://sv1.picz.in.th/images/2020/03/19/Qidnp9.png",
+        "url": "https://www.img.in.th/images/54dccf2b8c4a3925405b0f84fb2ca91b.png",
         "aspectRatio": "1:1"
       },
       {
@@ -816,3 +826,17 @@ def get_user_data(username):
     print(authData.get('Email'))
 
     return authData
+
+
+
+
+def send(id):
+
+    # user_data = emailboss(id)
+    # recipient_list = [user_data.get('Email')]
+    recipient_list = [id]
+    subject = 'ขออนุญาติลา'
+    message = ' ลาวันที่ xx - xx จำนวนกี่วัน '
+    email_from = settings.EMAIL_HOST_USER
+    send_mail(subject, message, email_from, recipient_list)
+
