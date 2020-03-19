@@ -20,7 +20,6 @@ def home(request):
     context = {'number_of_employee': len(data1)}
     return render(request, 'myworkplace/home.html', context)
 
-
 def daily_update(request, id):
     print('access daily update')
     data = employee.objects.get(employee_ID=id).__dict__
@@ -67,7 +66,6 @@ def daily_update(request, id):
     print(context)
 
     return render(request, 'myworkplace/daily_update.html', context)
-
 
 def personal_info(request, id):
     print('access personal info')
@@ -542,133 +540,133 @@ def handle_text_message(event):
                                            FlexSendMessage(
                                                alt_text='hello',
                                                contents={
-                                                   "type": "bubble",
-                                                   "hero": {
-                                                       "type": "image",
-                                                       "url": "https://sv1.picz.in.th/images/2020/03/19/QiOkcu.png",
-                                                       "size": "full",
-                                                       "action": {
-                                                           "type": "uri",
-                                                           "uri": "http://linecorp.com/"
-                                                       },
-                                                       "aspectMode": "cover",
-                                                       "aspectRatio": "1040:677"
-                                                   },
-                                                   "body": {
-                                                       "type": "box",
-                                                       "layout": "vertical",
-                                                       "contents": [
-                                                           {
-                                                               "type": "text",
-                                                               "text": "นายภาคภูมิ ประเสริฐ",
-                                                               "weight": "bold",
-                                                               "size": "xxl",
-                                                               "align": "center"
-                                                           },
-                                                           {
-                                                               "type": "box",
-                                                               "layout": "horizontal",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "ความเสี่ยง :",
-                                                                       "size": "xl"
-                                                                   },
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "แยกตัว",
-                                                                       "size": "xl"
-                                                                   }
-                                                               ],
-                                                               "margin": "md"
-                                                           },
-                                                           {
-                                                               "type": "box",
-                                                               "layout": "horizontal",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "สถานะ :",
-                                                                       "size": "xl"
-                                                                   },
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "เฝ้าระวัง",
-                                                                       "size": "xl"
-                                                                   }
-                                                               ],
-                                                               "margin": "sm"
-                                                           },
-                                                           {
-                                                               "type": "box",
-                                                               "layout": "horizontal",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "ประเมินล่าสุด :",
-                                                                       "size": "xl"
-                                                                   },
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "19 มี.ค. 63",
-                                                                       "size": "xl"
-                                                                   }
-                                                               ],
-                                                               "margin": "sm"
-                                                           },
-                                                           {
-                                                               "type": "box",
-                                                               "layout": "horizontal",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "เวลา",
-                                                                       "size": "xl",
-                                                                       "align": "start"
-                                                                   },
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "10:30 น.",
-                                                                       "size": "xl"
-                                                                   }
-                                                               ],
-                                                               "margin": "sm"
-                                                           },
-                                                           {
-                                                               "type": "box",
-                                                               "layout": "horizontal",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "เหลือเวลา",
-                                                                       "size": "xl"
-                                                                   },
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "12 วัน",
-                                                                       "size": "xl"
-                                                                   }
-                                                               ],
-                                                               "margin": "sm"
-                                                           },
-                                                           {
-                                                               "type": "separator",
-                                                               "margin": "xl"
-                                                           },
-                                                           {
-                                                               "type": "button",
-                                                               "action": {
-                                                                   "type": "uri",
-                                                                   "label": "รายละเอียดเพิ่มเติม",
-                                                                   "uri": "http://pea-covid19-test.herokuapp.com/"
-                                                               },
-                                                               "margin": "xl"
-                                                           }
-                                                       ],
-                                                       "offsetTop": "-10px"
-                                                   },
-                                                   "size": "giga"
-                                               }
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://sv1.picz.in.th/images/2020/03/19/QiOkcu.png",
+    "size": "full",
+    "action": {
+      "type": "uri",
+      "uri": "http://linecorp.com/"
+    },
+    "aspectMode": "cover",
+    "aspectRatio": "1040:677"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "นายภาคภูมิ ประเสริฐ",
+        "weight": "bold",
+        "size": "xl",
+        "align": "center"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ความเสี่ยง :",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "แยกตัว",
+            "size": "xl"
+          }
+        ],
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "สถานะ :",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "เฝ้าระวัง",
+            "size": "xl"
+          }
+        ],
+        "margin": "sm"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "วันที่ประเมิน :",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "19 มี.ค. 63",
+            "size": "xl"
+          }
+        ],
+        "margin": "sm"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "เวลา",
+            "size": "xl",
+            "align": "start"
+          },
+          {
+            "type": "text",
+            "text": "10:30 น.",
+            "size": "xl"
+          }
+        ],
+        "margin": "sm"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "เหลือเวลา",
+            "size": "xl"
+          },
+          {
+            "type": "text",
+            "text": "12 วัน",
+            "size": "xl"
+          }
+        ],
+        "margin": "sm"
+      },
+      {
+        "type": "separator",
+        "margin": "xl"
+      },
+      {
+        "type": "button",
+        "action": {
+          "type": "uri",
+          "label": "รายละเอียดเพิ่มเติม",
+          "uri": "http://pea-covid19-test.herokuapp.com/"
+        },
+        "margin": "xxl"
+      }
+    ],
+    "offsetTop": "-10px"
+  },
+  "size": "mega"
+}
                                            )
                                            )
             elif dict_message['text'] == 'ติดตาม Covid-19Card':
