@@ -83,6 +83,6 @@ class question(models.Model):
     correct_answer = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
-        return "{}".format(self.question_text)
+        return "{}-{}".format(self.question_text, self.correct_answer)
 
 
