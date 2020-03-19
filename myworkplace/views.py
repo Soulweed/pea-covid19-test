@@ -809,8 +809,15 @@ def send_email_register(id, line_id):
 def confirm_registration(request, id):
     employee_id=id[33:]
     employee_line_id=id[0:33]
+
     obj = [{'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
-    new_user = employee(employee_name='blank', employee_line_ID=employee_line_id,
+    new_user = employee(emplyee_name='blank', employee_line_ID=employee_line_id,
                         employee_ID=employee_id, activity_text=json.dumps(obj))
     new_user.save()
+
+
+
+
+
+
     return render(request, 'myworkplace/home.html')
