@@ -364,46 +364,72 @@ def handle_text_message(event):
                                                FlexSendMessage(
                                                    alt_text='hello',
                                                    contents={
-                                                       "type": "bubble",
-                                                       "body": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "image",
-                                                                   "size": "full",
-                                                                   "aspectMode": "cover",
-                                                                   "aspectRatio": "2:1",
-                                                                   "gravity": "center",
-                                                                   "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lrKf.png",
-                                                                   "action": {
-                                                                       "type": "uri",
-                                                                       "label": "action",
-                                                                       "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "center",
+            "aspectRatio": "1:1",
+            "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9EIN.png"
+          },
+          {
+            "type": "image",
+            "url": "https://www.img9.in.th/images/2020/03/19/-WFHb1.png",
+            "aspectMode": "cover",
+            "size": "full",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
                                                                            user_employee.employee_ID)
-                                                                   },
-                                                                   "offsetStart": "-3px",
-                                                                   "offsetTop": "5px"
-                                                               },
-                                                               {
-                                                                   "type": "image",
-                                                                   "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lX3z.png",
-                                                                   "gravity": "center",
-                                                                   "aspectRatio": "2:1",
-                                                                   "aspectMode": "cover",
-                                                                   "action": {
-                                                                       "type": "uri",
-                                                                       "label": "action",
-                                                                       "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
+            },
+            "aspectRatio": "1040:174"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "center",
+            "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9wFu.png",
+            "aspectRatio": "1:1"
+          },
+          {
+            "type": "image",
+            "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9Rqe.png",
+            "aspectMode": "cover",
+            "size": "full",
+            "aspectRatio": "1040:174",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
                                                                            user_employee.employee_ID)
-                                                                   },
-                                                                   "size": "full",
-                                                                   "offsetStart": "-5px"
-                                                               }
-                                                           ],
-                                                           "paddingAll": "0px"
-                                                       }
-                                                   }
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    }
+  ]
+}
                                                )
                                            )
             elif dict_message['text'] == 'test':
@@ -412,7 +438,6 @@ def handle_text_message(event):
                                            TextSendMessage(text='ทดสอบ ส่งอีเมล'))
                 # send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
                 # print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
-
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
@@ -485,7 +510,6 @@ def handle_text_message(event):
                                                ]
                                            }
                                            ))
-
             elif dict_message['text'] == 'จัดการข้อมูล':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
@@ -620,8 +644,7 @@ def handle_text_message(event):
 }
                                            )
                                            )
-
-            elif dict_message['text'] == 'ติดตามCovid':
+            elif dict_message['text'] == 'ติดตามCovid-19Card':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
@@ -641,7 +664,6 @@ def handle_text_message(event):
                                                }
                                            )
                                            )
-
             elif dict_message['text'] == 'ใบเซ็นชื่อ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
@@ -678,6 +700,8 @@ def handle_text_message(event):
 }
                                            )
                                            )
+            elif  dict_message['text'] == 'ศูนย์ช่วยเหลือ':
+                pass
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
@@ -812,8 +836,14 @@ def send_email_register(email, line_id, id):
 def confirm_registration(request, id):
     employee_id=id[33:]
     employee_line_id=id[0:33]
-    print('start saving user')
-    obj = [{'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
-    new_user = employee(employee_line_ID=employee_line_id, employee_ID=employee_id, activity_text=json.dumps(obj))
-    new_user.save()
-    return render(request, 'myworkplace/home.html')
+    try:
+        employee.objects.get(employee_line_ID=employee_line_id)
+        print('ท่านได้ลงทะเบียนซ้ำซ้อนน')
+        return render(request, 'myworkplace/home.html')
+    except:
+        print('start saving user')
+        obj = [{'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
+        new_user = employee(employee_line_ID=employee_line_id, employee_ID=employee_id, activity_text=json.dumps(obj))
+        new_user.save()
+        print('ลงทะเบียนใหม่')
+        return render(request, 'myworkplace/home.html')
