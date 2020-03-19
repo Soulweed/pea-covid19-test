@@ -563,7 +563,6 @@ def handle_text_message(event):
         "size": "xl",
         "align": "center"
       },
-
         {
             "type": "text",
             "text": "{}".format(user_employee.employee_ID),
@@ -717,7 +716,9 @@ def handle_text_message(event):
                                            )
             elif dict_message['text'] == 'ศูนย์ช่วยเหลือ':
                 line_bot_api.reply_message(event.reply_token,
-                                           {
+                                           FlexSendMessage(
+                                               alt_text='hello',
+                                               contents={
                                                "type": "carousel",
                                                "contents": [
                                                    {
