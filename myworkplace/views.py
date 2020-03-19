@@ -777,7 +777,6 @@ def get_user_data(id):
 
 
 def send_email_register(id):
-
     # user_data = emailboss(id)
     # recipient_list = [user_data.get('Email')]
     recipient_list = [get_user_data(id)]

@@ -25,5 +25,5 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
-    path('confirm_registration/<line_id>/', views.)
+    path('confirm_registration/<line_id>/', views.confirm_registration, name='confirm_registration')
 ]
