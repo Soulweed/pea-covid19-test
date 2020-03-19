@@ -348,7 +348,8 @@ def handle_text_message(event):
                 print('-----------------')
                 print('here we are')
                 try:
-                    send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
+
+                    send_email_register(email = email_name, line_id=dict_source['user_id'], id=dict_message['text'])
                     line_bot_api.reply_message(event.reply_token,
                                                TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
                 except:
@@ -809,8 +810,8 @@ def get_user_email(id):
 
     return authData.get("Email")
 
-def send_email_register(id, line_id):
-    recipient_list = [id]
+def send_email_register(email, line_id, id):
+    recipient_list = [email]
 
     print('receipient list', recipient_list)
 
