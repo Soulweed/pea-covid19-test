@@ -403,10 +403,8 @@ def handle_text_message(event):
                 print('ทดสอบ ส่งอีเมล')
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(text='ทดสอบ ส่งอีเมล'))
-                send_email_register("499959")
+                send_email_register(id = "499959", line_id=dict_source['user_id'])
                 print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
-
-
 
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
                 line_bot_api.reply_message(event.reply_token,
@@ -771,10 +769,10 @@ def print_non_replies(emails, agents):
 
 
 
-def get_user_data(id):
-    with open('idm.json') as f:
-        dict_data = json.load(f)
-    return dict_data[id]['email']
+# def get_user_data(id):
+#     with open('idm.json') as f:
+#         dict_data = json.load(f)
+#     return dict_data[id]['email']
 
 
 def send_email_register(id, line_id):
