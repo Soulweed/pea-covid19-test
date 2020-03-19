@@ -345,7 +345,7 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
 
-            send_email_register(id = "499959", line_id=dict_source['user_id'])
+            send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
 
     else:
 
@@ -402,8 +402,9 @@ def handle_text_message(event):
                 print('ทดสอบ ส่งอีเมล')
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(text='ทดสอบ ส่งอีเมล'))
-                send_email_register(id = "499959", line_id=dict_source['user_id'])
+                send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
                 print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
+
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
