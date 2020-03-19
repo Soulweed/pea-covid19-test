@@ -740,7 +740,7 @@ def handle_text_message(event):
                                                                    "text": "PEA Support",
                                                                    "weight": "bold",
                                                                    "size": "xl",
-                                                                   "wrap": true
+                                                                   "wrap": "true"
                                                                },
                                                                {
                                                                    "type": "box",
@@ -754,7 +754,7 @@ def handle_text_message(event):
                                                                                {
                                                                                    "type": "text",
                                                                                    "text": "คู่มือปฏิบัติตัว COVID-19",
-                                                                                   "wrap": true,
+                                                                                   "wrap": "true",
                                                                                    "color": "#8c8c8c",
                                                                                    "size": "md",
                                                                                    "flex": 5
@@ -801,7 +801,7 @@ def handle_text_message(event):
                                                                    "text": "วิธีการใช้งาน",
                                                                    "weight": "bold",
                                                                    "size": "xl",
-                                                                   "wrap": true
+                                                                   "wrap": "true"
                                                                },
                                                                {
                                                                    "type": "box",
@@ -815,7 +815,7 @@ def handle_text_message(event):
                                                                                {
                                                                                    "type": "text",
                                                                                    "text": "PEA COVID-19 LINE Official Account",
-                                                                                   "wrap": true,
+                                                                                   "wrap": "true",
                                                                                    "color": "#8c8c8c",
                                                                                    "size": "md",
                                                                                    "flex": 5
@@ -862,7 +862,7 @@ def handle_text_message(event):
                                                                    "text": "สายด่วน PEA",
                                                                    "weight": "bold",
                                                                    "size": "xl",
-                                                                   "wrap": true
+                                                                   "wrap": "true"
                                                                },
                                                                {
                                                                    "type": "box",
@@ -876,7 +876,7 @@ def handle_text_message(event):
                                                                                {
                                                                                    "type": "text",
                                                                                    "text": "ติดต่อฉุกเฉิน โทร",
-                                                                                   "wrap": true,
+                                                                                   "wrap": "true",
                                                                                    "color": "#8c8c8c",
                                                                                    "size": "md",
                                                                                    "flex": 5
@@ -923,7 +923,7 @@ def handle_text_message(event):
                                                                    "text": "กรมควบคุมโรค",
                                                                    "weight": "bold",
                                                                    "size": "xl",
-                                                                   "wrap": true
+                                                                   "wrap": "true"
                                                                },
                                                                {
                                                                    "type": "box",
@@ -937,7 +937,7 @@ def handle_text_message(event):
                                                                                {
                                                                                    "type": "text",
                                                                                    "text": "สายด่วน 1442",
-                                                                                   "wrap": true,
+                                                                                   "wrap": "true",
                                                                                    "color": "#8c8c8c",
                                                                                    "size": "md",
                                                                                    "flex": 5
@@ -966,7 +966,8 @@ def handle_text_message(event):
                                                        }
                                                    }
                                                ]
-                                           })
+                                           }
+                                           )
                                            )
             else:
                 line_bot_api.reply_message(event.reply_token,
