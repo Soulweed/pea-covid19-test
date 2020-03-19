@@ -719,254 +719,254 @@ def handle_text_message(event):
                                            FlexSendMessage(
                                                alt_text='hello',
                                                contents={
-                                               "type": "carousel",
-                                               "contents": [
-                                                   {
-                                                       "type": "bubble",
-                                                       "size": "kilo",
-                                                       "hero": {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/20/QijTae.png",
-                                                           "size": "full",
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "320:213"
-                                                       },
-                                                       "body": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "text",
-                                                                   "text": "PEA Support",
-                                                                   "weight": "bold",
-                                                                   "size": "xl",
-                                                                   "wrap": "true"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "vertical",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "box",
-                                                                           "layout": "baseline",
-                                                                           "spacing": "sm",
-                                                                           "contents": [
-                                                                               {
-                                                                                   "type": "text",
-                                                                                   "text": "คู่มือปฏิบัติตัว COVID-19",
-                                                                                   "wrap": "true",
-                                                                                   "color": "#8c8c8c",
-                                                                                   "size": "md",
-                                                                                   "flex": 5
-                                                                               }
-                                                                           ]
-                                                                       }
-                                                                   ]
-                                                               }
-                                                           ],
-                                                           "spacing": "sm",
-                                                           "paddingAll": "13px"
-                                                       },
-                                                       "footer": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "button",
-                                                                   "action": {
-                                                                       "type": "message",
-                                                                       "label": "อ่านเลย",
-                                                                       "text": "guidecovid"
-                                                                   }
-                                                               }
-                                                           ]
-                                                       }
-                                                   },
-                                                   {
-                                                       "type": "bubble",
-                                                       "size": "kilo",
-                                                       "hero": {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/20/QijcdE.png",
-                                                           "size": "full",
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "320:213"
-                                                       },
-                                                       "body": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "text",
-                                                                   "text": "วิธีการใช้งาน",
-                                                                   "weight": "bold",
-                                                                   "size": "xl",
-                                                                   "wrap": "true"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "vertical",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "box",
-                                                                           "layout": "baseline",
-                                                                           "spacing": "sm",
-                                                                           "contents": [
-                                                                               {
-                                                                                   "type": "text",
-                                                                                   "text": "PEA COVID-19 LINE Official Account",
-                                                                                   "wrap": "true",
-                                                                                   "color": "#8c8c8c",
-                                                                                   "size": "md",
-                                                                                   "flex": 5
-                                                                               }
-                                                                           ]
-                                                                       }
-                                                                   ]
-                                                               }
-                                                           ],
-                                                           "spacing": "sm",
-                                                           "paddingAll": "13px"
-                                                       },
-                                                       "footer": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "button",
-                                                                   "action": {
-                                                                       "type": "message",
-                                                                       "label": "อ่านเลย",
-                                                                       "text": "guideline"
-                                                                   }
-                                                               }
-                                                           ]
-                                                       }
-                                                   },
-                                                   {
-                                                       "type": "bubble",
-                                                       "size": "kilo",
-                                                       "hero": {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/20/Qijv9I.png",
-                                                           "size": "full",
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "320:213"
-                                                       },
-                                                       "body": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "text",
-                                                                   "text": "สายด่วน PEA",
-                                                                   "weight": "bold",
-                                                                   "size": "xl",
-                                                                   "wrap": "true"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "vertical",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "box",
-                                                                           "layout": "baseline",
-                                                                           "spacing": "sm",
-                                                                           "contents": [
-                                                                               {
-                                                                                   "type": "text",
-                                                                                   "text": "ติดต่อฉุกเฉิน โทร",
-                                                                                   "wrap": "true",
-                                                                                   "color": "#8c8c8c",
-                                                                                   "size": "md",
-                                                                                   "flex": 5
-                                                                               }
-                                                                           ]
-                                                                       }
-                                                                   ]
-                                                               }
-                                                           ],
-                                                           "spacing": "sm",
-                                                           "paddingAll": "13px"
-                                                       },
-                                                       "footer": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "button",
-                                                                   "action": {
-                                                                       "type": "uri",
-                                                                       "label": "ติดต่อฉุกเฉิน",
-                                                                       "uri": "tel:1129"
-                                                                   }
-                                                               }
-                                                           ]
-                                                       }
-                                                   },
-                                                   {
-                                                       "type": "bubble",
-                                                       "size": "kilo",
-                                                       "hero": {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/20/Qil2IN.png",
-                                                           "size": "full",
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "320:213"
-                                                       },
-                                                       "body": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "text",
-                                                                   "text": "กรมควบคุมโรค",
-                                                                   "weight": "bold",
-                                                                   "size": "xl",
-                                                                   "wrap": "true"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "vertical",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "box",
-                                                                           "layout": "baseline",
-                                                                           "spacing": "sm",
-                                                                           "contents": [
-                                                                               {
-                                                                                   "type": "text",
-                                                                                   "text": "สายด่วน 1442",
-                                                                                   "wrap": "true",
-                                                                                   "color": "#8c8c8c",
-                                                                                   "size": "md",
-                                                                                   "flex": 5
-                                                                               }
-                                                                           ]
-                                                                       }
-                                                                   ]
-                                                               }
-                                                           ],
-                                                           "spacing": "sm",
-                                                           "paddingAll": "13px"
-                                                       },
-                                                       "footer": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "button",
-                                                                   "action": {
-                                                                       "type": "uri",
-                                                                       "label": "ติดต่อฉุกเฉิน",
-                                                                       "uri": "tel:1442"
-                                                                   }
-                                                               }
-                                                           ]
-                                                       }
-                                                   }
-                                               ]
-                                           }
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/20/QijTae.png",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "PEA Support",
+            "weight": "bold",
+            "size": "xl",
+            "wrap": true
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "คู่มือปฏิบัติตัว COVID-19",
+                    "wrap": true,
+                    "color": "#8c8c8c",
+                    "size": "md",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "อ่านเลย",
+              "text": "guidecovid"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/20/QijcdE.png",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "วิธีการใช้งาน",
+            "weight": "bold",
+            "size": "xl",
+            "wrap": true
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "PEA COVID-19 LINE Official Account",
+                    "wrap": true,
+                    "color": "#8c8c8c",
+                    "size": "md",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "อ่านเลย",
+              "text": "guideline"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/20/Qijv9I.png",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "สายด่วน PEA",
+            "weight": "bold",
+            "size": "xl",
+            "wrap": true
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "ติดต่อฉุกเฉิน โทร",
+                    "wrap": true,
+                    "color": "#8c8c8c",
+                    "size": "md",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "ติดต่อฉุกเฉิน",
+              "uri": "tel:1129"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/20/Qil2IN.png",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "กรมควบคุมโรค",
+            "weight": "bold",
+            "size": "xl",
+            "wrap": true
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "สายด่วน 1442",
+                    "wrap": true,
+                    "color": "#8c8c8c",
+                    "size": "md",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "ติดต่อฉุกเฉิน",
+              "uri": "tel:1442"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
                                            )
                                            )
             else:
