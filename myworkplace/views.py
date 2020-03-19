@@ -435,7 +435,9 @@ def handle_text_message(event):
             elif dict_message['text'] == 'test':
                 # print('ทดสอบ ส่งอีเมล')
                 line_bot_api.reply_message(event.reply_token,
-                                           TextSendMessage(text='ทดสอบ ส่งอีเมล'))
+                                           [TextSendMessage(
+                                               text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'),(TextSendMessage(
+                                               text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'))])
                 # send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
                 # print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
@@ -644,7 +646,7 @@ def handle_text_message(event):
 }
                                            )
                                            )
-            elif dict_message['text'] == 'ติดตามCovid-19Card':
+            elif dict_message['text'] == 'ติดตาม Covid-19Card':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
