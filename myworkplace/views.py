@@ -360,8 +360,20 @@ def handle_text_message(event):
                 try:
                     send_email_register(email=email_name, line_id=dict_source['user_id'], id=dict_message['text'])
                     line_bot_api.reply_message(event.reply_token,
-                                               TextSendMessage(
-                                                   text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'))
+                                               [TextSendMessage(
+                                                   text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'),
+                                                   ImageSendMessage(
+                                                   original_content_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg',
+                                                   preview_image_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg'
+                                                   ),
+                                                ImageSendMessage(
+                                                    original_content_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg',
+                                                    preview_image_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg'
+                                                    ),
+                                                ImageSendMessage(
+                                                    original_content_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg',
+                                                    preview_image_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
+                                                    )])
                 except:
                     line_bot_api.reply_message(event.reply_token,
                                                TextSendMessage(text='ลองอีกครั้ง'))
@@ -369,7 +381,6 @@ def handle_text_message(event):
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
                                                text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'))
-
     else:
         try:
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
@@ -449,15 +460,7 @@ def handle_text_message(event):
             elif dict_message['text'] == 'test':
                 # print('ทดสอบ ส่งอีเมล')
                 line_bot_api.reply_message(event.reply_token,
-                                           [ImageSendMessage(original_content_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg',
-                                                             preview_image_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg'
-                                                             ),
-                                            ImageSendMessage(original_content_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg',
-                                                             preview_image_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg'
-                                                             ),
-                                            ImageSendMessage(original_content_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg',
-                                                             preview_image_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
-                                                             )])
+                                           TextSendMessage(text='ทดสอบ'))
                 # send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
                 # print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
@@ -667,25 +670,7 @@ def handle_text_message(event):
                                            )
                                            )
             elif dict_message['text'] == 'ติดตาม Covid-19Card':
-                line_bot_api.reply_message(event.reply_token,
-                                           FlexSendMessage(
-                                               alt_text='hello',
-                                               contents={
-                                                   'type': 'bubble',
-                                                   'direction': 'ltr',
-                                                   'hero': {
-                                                       'type': 'image',
-                                                       'url': 'https://example.com/cafe.jpg',
-                                                       'size': 'full',
-                                                       'aspectRatio': '20:13',
-                                                       'aspectMode': 'cover',
-                                                       'action': {'type': 'uri',
-                                                                  'uri': 'https://pea-covid19-test.herokuapp.com/challenge/{}/'.format(
-                                                                      user_employee.employee_ID), 'label': 'label'}
-                                                   }
-                                               }
-                                           )
-                                           )
+                pass
             elif dict_message['text'] == 'ใบเซ็นชื่อ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
