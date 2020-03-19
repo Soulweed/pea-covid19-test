@@ -370,16 +370,16 @@ def handle_text_message(event):
                                            [TextSendMessage(
                                                text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'),
                                                ImageSendMessage(
-                                                   original_content_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg',
-                                                   preview_image_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg'
+                                                   original_content_url='https://www.images.in.th/images/600a10b547eb587a9d42525edcce704f.jpg',
+                                                   preview_image_url='https://www.images.in.th/images/600a10b547eb587a9d42525edcce704f.jpg'
                                                ),
                                                ImageSendMessage(
-                                                   original_content_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg',
-                                                   preview_image_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg'
+                                                   original_content_url='https://www.images.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg',
+                                                   preview_image_url='https://www.images.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg'
                                                ),
                                                ImageSendMessage(
-                                                   original_content_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg',
-                                                   preview_image_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
+                                                   original_content_url='https://www.images.in.th/images/031525e6dce37aa260bac21483c11522.jpg',
+                                                   preview_image_url='https://www.images.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
                                                )
                                            ])
     else:
