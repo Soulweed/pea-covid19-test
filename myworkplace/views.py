@@ -89,6 +89,7 @@ def screen(request, id):
         workplace = request.POST.get("input_workplace")
         gender = request.POST.get("input_gender")
         age = request.POST.get("input_age")
+
         fever = request.POST.get("input_fever")
         cold = request.POST.get("input_cold")
         travel = request.POST.get("input_travel")
@@ -96,8 +97,6 @@ def screen(request, id):
         home_dangerous = request.POST.get("input_home_dangerous")
         meet_foreigner = request.POST.get("input_meet_foreigner")
         contact = request.POST.get("input_contact")
-
-
 
         if fever == 'FALSE' and cold == 'FALSE' and travel == 'FALSE' and travel_dangerous_area == 'FALSE' \
                 and home_dangerous == 'FALSE' and meet_foreigner == 'FALSE' and contact == 'FALSE':
@@ -359,7 +358,7 @@ def handle_text_message(event):
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
-                                               text='ไปกรอกอีเมล์ใน IDM ด้วย'))
+                                               text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'))
 
 
 
