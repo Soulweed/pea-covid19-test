@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +30,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="404" column="59" lean-forward="true" selection-start-line="404" selection-start-column="59" selection-end-line="404" selection-end-column="59" />
+            <state relative-caret-position="167">
+              <caret line="350" column="0" lean-forward="true" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#2464#2711#0" expanded="false" />
@@ -48,14 +49,14 @@
                 <element signature="e#9437#9540#0" expanded="false" />
                 <element signature="e#9709#9810#0" expanded="false" />
                 <element signature="e#12686#16429#0" expanded="false" />
-                <element signature="e#16872#22332#0" expanded="false" />
-                <element signature="e#22407#34015#0" expanded="false" />
-                <element signature="e#34089#35437#0" expanded="false" />
-                <element signature="e#35510#36606#0" expanded="false" />
-                <element signature="e#38423#38487#0" expanded="false" />
-                <element signature="e#38546#38778#0" expanded="false" />
-                <element signature="e#38812#38986#0" expanded="false" />
-                <element signature="e#39032#39839#0" expanded="false" />
+                <element signature="e#16870#22330#0" expanded="false" />
+                <element signature="e#22405#34013#0" expanded="false" />
+                <element signature="e#34087#35435#0" expanded="false" />
+                <element signature="e#35508#36604#0" expanded="false" />
+                <element signature="e#38420#38484#0" expanded="false" />
+                <element signature="e#38543#38775#0" expanded="false" />
+                <element signature="e#38809#38983#0" expanded="false" />
+                <element signature="e#39029#39836#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -95,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="281">
-              <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="39" />
+              <caret line="26" column="34" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -458,14 +459,14 @@
             <element signature="e#9437#9540#0" expanded="false" />
             <element signature="e#9709#9810#0" expanded="false" />
             <element signature="e#12686#16429#0" expanded="false" />
-            <element signature="e#16872#22332#0" expanded="false" />
-            <element signature="e#22407#34015#0" expanded="false" />
-            <element signature="e#34089#35437#0" expanded="false" />
-            <element signature="e#35510#36606#0" expanded="false" />
-            <element signature="e#38423#38487#0" expanded="false" />
-            <element signature="e#38546#38778#0" expanded="false" />
-            <element signature="e#38812#38986#0" expanded="false" />
-            <element signature="e#39032#39839#0" expanded="false" />
+            <element signature="e#16870#22330#0" expanded="false" />
+            <element signature="e#22405#34013#0" expanded="false" />
+            <element signature="e#34087#35435#0" expanded="false" />
+            <element signature="e#35508#36604#0" expanded="false" />
+            <element signature="e#38420#38484#0" expanded="false" />
+            <element signature="e#38543#38775#0" expanded="false" />
+            <element signature="e#38809#38983#0" expanded="false" />
+            <element signature="e#39029#39836#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -499,14 +500,14 @@
             <element signature="e#9437#9540#0" expanded="false" />
             <element signature="e#9709#9810#0" expanded="false" />
             <element signature="e#12686#16429#0" expanded="false" />
-            <element signature="e#16872#22332#0" expanded="false" />
-            <element signature="e#22407#34015#0" expanded="false" />
-            <element signature="e#34089#35437#0" expanded="false" />
-            <element signature="e#35510#36606#0" expanded="false" />
-            <element signature="e#38423#38487#0" expanded="false" />
-            <element signature="e#38546#38778#0" expanded="false" />
-            <element signature="e#38812#38986#0" expanded="false" />
-            <element signature="e#39032#39839#0" expanded="false" />
+            <element signature="e#16870#22330#0" expanded="false" />
+            <element signature="e#22405#34013#0" expanded="false" />
+            <element signature="e#34087#35435#0" expanded="false" />
+            <element signature="e#35508#36604#0" expanded="false" />
+            <element signature="e#38420#38484#0" expanded="false" />
+            <element signature="e#38543#38775#0" expanded="false" />
+            <element signature="e#38809#38983#0" expanded="false" />
+            <element signature="e#39029#39836#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -590,14 +591,14 @@
             <element signature="e#9437#9540#0" expanded="false" />
             <element signature="e#9709#9810#0" expanded="false" />
             <element signature="e#12686#16429#0" expanded="false" />
-            <element signature="e#16872#22332#0" expanded="false" />
-            <element signature="e#22407#34015#0" expanded="false" />
-            <element signature="e#34089#35437#0" expanded="false" />
-            <element signature="e#35510#36606#0" expanded="false" />
-            <element signature="e#38423#38487#0" expanded="false" />
-            <element signature="e#38546#38778#0" expanded="false" />
-            <element signature="e#38812#38986#0" expanded="false" />
-            <element signature="e#39032#39839#0" expanded="false" />
+            <element signature="e#16870#22330#0" expanded="false" />
+            <element signature="e#22405#34013#0" expanded="false" />
+            <element signature="e#34087#35435#0" expanded="false" />
+            <element signature="e#35508#36604#0" expanded="false" />
+            <element signature="e#38420#38484#0" expanded="false" />
+            <element signature="e#38543#38775#0" expanded="false" />
+            <element signature="e#38809#38983#0" expanded="false" />
+            <element signature="e#39029#39836#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1076,7 +1077,7 @@
     <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
-          <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="39" />
+          <caret line="26" column="34" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -1085,8 +1086,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="404" column="59" lean-forward="true" selection-start-line="404" selection-start-column="59" selection-end-line="404" selection-end-column="59" />
+        <state relative-caret-position="167">
+          <caret line="350" column="0" lean-forward="true" selection-start-line="350" selection-start-column="0" selection-end-line="350" selection-end-column="0" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#2464#2711#0" expanded="false" />
@@ -1104,14 +1105,14 @@
             <element signature="e#9437#9540#0" expanded="false" />
             <element signature="e#9709#9810#0" expanded="false" />
             <element signature="e#12686#16429#0" expanded="false" />
-            <element signature="e#16872#22332#0" expanded="false" />
-            <element signature="e#22407#34015#0" expanded="false" />
-            <element signature="e#34089#35437#0" expanded="false" />
-            <element signature="e#35510#36606#0" expanded="false" />
-            <element signature="e#38423#38487#0" expanded="false" />
-            <element signature="e#38546#38778#0" expanded="false" />
-            <element signature="e#38812#38986#0" expanded="false" />
-            <element signature="e#39032#39839#0" expanded="false" />
+            <element signature="e#16870#22330#0" expanded="false" />
+            <element signature="e#22405#34013#0" expanded="false" />
+            <element signature="e#34087#35435#0" expanded="false" />
+            <element signature="e#35508#36604#0" expanded="false" />
+            <element signature="e#38420#38484#0" expanded="false" />
+            <element signature="e#38543#38775#0" expanded="false" />
+            <element signature="e#38809#38983#0" expanded="false" />
+            <element signature="e#39029#39836#0" expanded="false" />
           </folding>
         </state>
       </provider>

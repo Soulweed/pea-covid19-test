@@ -398,14 +398,12 @@ def handle_text_message(event):
                                                    }
                                                )
                                            )
-
             elif dict_message['text'] == 'test':
                 print('ทดสอบ ส่งอีเมล')
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(text='ทดสอบ ส่งอีเมล'))
                 send_email_register(id = "499959", line_id=dict_source['user_id'])
                 print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
-
             elif dict_message['text'] == 'สิ่งที่ต้องทำ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
@@ -677,7 +675,6 @@ def handle_text_message(event):
 }
                                            )
                                            )
-
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
@@ -803,11 +800,16 @@ def send_email_register(id, line_id):
 
     print('receipient list', recipient_list)
     subject = 'ยืนยันการสมัคร'
-    message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}'.format(line_id)
+    message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id,id)
     email_from = settings.EMAIL_HOST_USER
     send_mail(subject, message, email_from, recipient_list)
 
 
-def confirm_registration(request, line_id):
-    print('line id is', line_id)
+def confirm_registration(request, id):
+    employee_id=id[33:]
+    employee_line_id=id[0:33]
+    obj = [{'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
+    new_user = employee(employee_name='blank', employee_line_ID=employee_line_id,
+                        employee_ID=employee_id, activity_text=json.dumps(obj))
+    new_user.save()
     return render(request, 'myworkplace/home.html')
