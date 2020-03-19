@@ -329,349 +329,360 @@ def handle_text_message(event):
     dict_source = dict_event['source'].__dict__
     dict_message = dict_event['message'].__dict__
     # print(dict_message['text'])
-
-    if dict_message['text'] == 'บันทึกสุขภาพ':
+    if dict_message['text'].isnumeric() and (
+            len(dict_message['text']) == 6 or len(dict_message['text']) == 7):
+        ##### function create email กับ content ข้างใน
         try:
-            user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-            line_bot_api.reply_message(event.reply_token,
-                                       FlexSendMessage(alt_text='hello',contents={
-                                               "type": "bubble",
-                                               "body": {
-                                                   "type": "box",
-                                                   "layout": "vertical",
-                                                   "contents": [
-                                                       {
-                                                           "type": "image",
-                                                           "url": "https://www.img.in.th/images/392683ee16e9f2ce413bd0031c8410dc.png",
-                                                           "size": "full",
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "1:1",
-                                                           "gravity": "center",
-                                                           "action": {
-                                                               "type": "uri",
-                                                               "label": "action",
-                                                               "uri": "http://pea-covid19-test.herokuapp.com/daily_update/{}".format(
-                                                                   user_employee.employee_ID)
-                                                           }
-                                                       }
-                                                   ],
-                                                   "paddingAll": "0px"
-                                               }
-                                           }))
+            employee.objects.get(employee_line_ID=dict_source['user_id'])
+            print('ท่านได้ลงทะเบียนแล้ว')
+
         except:
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดกรอกรหัสพนักงาน 6 ตัว'))
+            print('กรุณายืนยันตัวตนในอีเมลของท่าน www.email.pea.co.th')
 
-    elif dict_message['text'] == 'test':
-        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
-        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-
-        line_bot_api.reply_message(event.reply_token,
-                                   FlexSendMessage(
-                                       alt_text='hello',
-                                       contents={
-                                           'type': 'bubble',
-                                           'direction': 'ltr',
-                                           'hero': {
-                                               'type': 'image',
-                                               'url': 'https://example.com/cafe.jpg',
-                                               'size': 'full',
-                                               'aspectRatio': '20:13',
-                                               'aspectMode': 'cover',
-                                               'action': {'type': 'uri',
-                                                          'uri': 'https://pea-covid19-test.herokuapp.com/challenge/{}/'.format(
-                                                              user_employee.employee_ID), 'label': 'label'}
-                                           }
-                                       }
-                                   )
-                                   )
-    elif dict_message['text'] == 'checkin':
-        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
-        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-        print(user_employee)
-        if dict_source['user_id'] in employee_Line_ID_list:
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ '
-                                                            'กรุณากรอกแบบฟอร์มคัดกรอง https://pea-covid19-test.herokuapp.com/checkin/{}/'.format(
-                                           user_employee.employee_ID)))
-
-    elif dict_message['text'] == 'จัดการข้อมูล':
-        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
-        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-        print(user_employee)
-        if dict_source['user_id'] in employee_Line_ID_list:
-            line_bot_api.reply_message(event.reply_token,
-                                       FlexSendMessage(
-                                           alt_text='hello',
-                                           contents={
-                                               "type": "bubble",
-                                               "body": {
-                                                   "type": "box",
-                                                   "layout": "vertical",
-                                                   "contents": [
-                                                       {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
-                                                           "size": "full",
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "1:1",
-                                                           "gravity": "center"
-                                                       },
-                                                       {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
-                                                           "position": "absolute",
-                                                           "aspectMode": "fit",
-                                                           "aspectRatio": "1:1",
-                                                           "offsetTop": "0px",
-                                                           "offsetBottom": "0px",
-                                                           "offsetStart": "0px",
-                                                           "offsetEnd": "0px",
-                                                           "size": "full"
-                                                       },
-                                                       {
+    else:
+        try:
+            employee.objects.get(employee_line_ID=dict_source['user_id'])
+            if dict_message['text'] == 'แจ้งลา 14 วัน':
+                line_bot_api.reply_message(event.reply_token,
+                                               FlexSendMessage(
+                                                   alt_text='hello',
+                                                   contents={
+                                                       "type": "bubble",
+                                                       "body": {
                                                            "type": "box",
                                                            "layout": "vertical",
                                                            "contents": [
                                                                {
-                                                                   "type": "text",
-                                                                   "text": "ระดับความเสี่ยง",
-                                                                   "size": "lg"
+                                                                   "type": "image",
+                                                                   "size": "full",
+                                                                   "aspectMode": "cover",
+                                                                   "aspectRatio": "2:1",
+                                                                   "gravity": "center",
+                                                                   "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lrKf.png",
+                                                                   "action": {
+                                                                       "type": "uri",
+                                                                       "label": "action",
+                                                                       "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
+                                                                           user_employee.employee_ID)
+                                                                   },
+                                                                   "offsetStart": "-3px",
+                                                                   "offsetTop": "5px"
                                                                },
                                                                {
-                                                                   "type": "box",
-                                                                   "layout": "horizontal",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "เสี่ยงมาก",
-                                                                           "size": "4xl",
-                                                                           "align": "center",
-                                                                           "offsetStart": "20px"
-                                                                       },
-                                                                       {
-                                                                           "type": "image",
-                                                                           "url": "https://sv1.picz.in.th/images/2020/03/17/Qw4M9N.png",
-                                                                           "size": "xs"
-                                                                       }
-                                                                   ],
-                                                                   "margin": "lg"
-                                                               },
-                                                               {
-                                                                   "type": "separator",
-                                                                   "color": "#111111",
-                                                                   "margin": "lg"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "horizontal",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "box",
-                                                                           "layout": "vertical",
-                                                                           "contents": [
-                                                                               {
-                                                                                   "type": "text",
-                                                                                   "text": "คะแนนความ",
-                                                                                   "size": "xl",
-                                                                                   "weight": "bold"
-                                                                               },
-                                                                               {
-                                                                                   "type": "text",
-                                                                                   "text": "ตระหนักโรค",
-                                                                                   "size": "xl",
-                                                                                   "weight": "bold"
-                                                                               }
-                                                                           ]
-                                                                       },
-                                                                       {
-                                                                           "type": "box",
-                                                                           "layout": "vertical",
-                                                                           "contents": [
-                                                                               {
-                                                                                   "type": "text",
-                                                                                   "text": "4",
-                                                                                   "size": "4xl",
-                                                                                   "align": "end"
-                                                                               }
-                                                                           ]
-                                                                       }
-                                                                   ],
-                                                                   "margin": "md"
-                                                               },
-                                                               {
-                                                                   "type": "separator",
-                                                                   "color": "#111111"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "vertical",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "บันทึกสุขภาพประจำวัน",
-                                                                           "size": "md"
-                                                                       },
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "2020-03-06",
-                                                                           "size": "md"
-                                                                       },
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "บันทึกแล้ว",
-                                                                           "size": "lg",
-                                                                           "weight": "bold",
-                                                                           "style": "italic"
-                                                                       }
-                                                                   ],
-                                                                   "margin": "md"
+                                                                   "type": "image",
+                                                                   "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lX3z.png",
+                                                                   "gravity": "center",
+                                                                   "aspectRatio": "2:1",
+                                                                   "aspectMode": "cover",
+                                                                   "action": {
+                                                                       "type": "uri",
+                                                                       "label": "action",
+                                                                       "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
+                                                                           user_employee.employee_ID)
+                                                                   },
+                                                                   "size": "full",
+                                                                   "offsetStart": "-5px"
                                                                }
                                                            ],
-                                                           "position": "absolute",
-                                                           "offsetStart": "20px",
-                                                           "offsetTop": "10px"
+                                                           "paddingAll": "0px"
                                                        }
-                                                   ],
-                                                   "paddingAll": "0px",
-                                                   "position": "relative"
-                                               }
-                                           }
-                                       )
-                                       )
-        else:
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
-    elif dict_message['text'] == 'time-stamp':
-        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
-        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-        print(user_employee)
-        if dict_source['user_id'] in employee_Line_ID_list:
-            line_bot_api.reply_message(event.reply_token,
-                                       FlexSendMessage(
-                                           alt_text='hello',
-                                           contents={
-                                               "type": "bubble",
-                                               "body": {
-                                                   "type": "box",
-                                                   "layout": "vertical",
-                                                   "contents": [
-                                                       {
-                                                           "type": "image",
-                                                           "size": "full",
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "2:1",
-                                                           "gravity": "center",
-                                                           "url": "https://www.img.in.th/images/b062328037de6ae13b3843c25c042127.png",
-                                                           "action": {
-                                                               "type": "uri",
-                                                               "label": "action",
-                                                               "uri": "https://pea-covid19-test.herokuapp.com/checkin/{}/".format(
-                                                                   user_employee.employee_ID)
-                                                           }
-                                                       },
-                                                       {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/17/Q1OEMa.png",
-                                                           "gravity": "center",
-                                                           "size": "full",
-                                                           "aspectRatio": "2:1",
-                                                           "aspectMode": "cover",
-                                                           "action": {
-                                                               "type": "uri",
-                                                               "label": "action",
-                                                               "uri": "https://pea-covid19-test.herokuapp.com/question/{}/".format(
-                                                                   user_employee.employee_ID)
-                                                           }
-                                                       }
-                                                   ],
-                                                   "paddingAll": "0px"
-                                               }
-                                           }
-                                       )
-                                       )
-        else:
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
-    elif dict_message['text'] == 'แจ้งลา 14 วัน':
-        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
-        user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-        print(user_employee)
-        if dict_source['user_id'] in employee_Line_ID_list:
-            line_bot_api.reply_message(event.reply_token,
-                                       FlexSendMessage(
-                                           alt_text='hello',
-                                           contents={
-                                               "type": "bubble",
-                                               "body": {
-                                                   "type": "box",
-                                                   "layout": "vertical",
-                                                   "contents": [
-                                                       {
-                                                           "type": "image",
-                                                           "size": "full",
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "2:1",
-                                                           "gravity": "center",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lrKf.png",
-                                                           "action": {
-                                                               "type": "uri",
-                                                               "label": "action",
-                                                               "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
-                                                                   user_employee.employee_ID)
-                                                           },
-                                                           "offsetStart": "-3px",
-                                                           "offsetTop": "5px"
-                                                       },
-                                                       {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/17/Q1lX3z.png",
-                                                           "gravity": "center",
-                                                           "aspectRatio": "2:1",
-                                                           "aspectMode": "cover",
-                                                           "action": {
-                                                               "type": "uri",
-                                                               "label": "action",
-                                                               "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
-                                                                   user_employee.employee_ID)
-                                                           },
-                                                           "size": "full",
-                                                           "offsetStart": "-5px"
-                                                       }
-                                                   ],
-                                                   "paddingAll": "0px"
-                                               }
-                                           }
-                                       )
-                                       )
-        else:
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='คุณยังไม่ได้ลงทะเบียน กรุณาป้อนรหัสพนักงาน 6 หลัก'))
-    elif dict_message['text'].isnumeric() and (
-            len(dict_message['text']) == 6 or len(dict_message['text']) == 7):  # check is number
-        employee_Line_ID_list = [x.employee_line_ID for x in employee.objects.all()]
+                                                   }
+                                               )
+                                           )
 
-        if dict_source['user_id'] not in employee_Line_ID_list:  # check new customer
-            obj = [{'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
+            # elif dict_message['text'] == 'ศูนย์ช่วยเหลือ':
+            #     pass
+            elif dict_message['text'] == 'สิ่งที่ต้องทำ':
+                line_bot_api.reply_message(event.reply_token,
+                                           FlexSendMessage(
+                                               alt_text='hello',
+                                               contents={
+                                               "type": "carousel",
+                                               "contents": [
+                                                   {
+                                                       "type": "bubble",
+                                                       "body": {
+                                                           "type": "box",
+                                                           "layout": "vertical",
+                                                           "contents": [
+                                                               {
+                                                                   "type": "image",
+                                                                   "size": "full",
+                                                                   "aspectMode": "cover",
+                                                                   "gravity": "center",
+                                                                   "url": "https://sv1.picz.in.th/images/2020/03/19/QgvtPI.png",
+                                                                   "aspectRatio": "1:1"
+                                                               },
+                                                               {
+                                                                   "type": "image",
+                                                                   "url": "https://sv1.picz.in.th/images/2020/03/19/QgvxrE.png",
+                                                                   "aspectMode": "cover",
+                                                                   "size": "full",
+                                                                   "aspectRatio": "1040:174",
+                                                                   "action": {
+                                                                       "type": "uri",
+                                                                       "label": "action",
+                                                                       "uri": "https://pea-covid19-test.herokuapp.com/daily_update/{}".format(
+                user_employee.employee_ID)
+                                                                   }
+                                                               }
+                                                           ],
+                                                           "paddingAll": "0px"
+                                                       }
+                                                   },
+                                                   {
+                                                       "type": "bubble",
+                                                       "body": {
+                                                           "type": "box",
+                                                           "layout": "vertical",
+                                                           "contents": [
+                                                               {
+                                                                   "type": "image",
+                                                                   "size": "full",
+                                                                   "aspectMode": "cover",
+                                                                   "gravity": "center",
+                                                                   "url": "https://sv1.picz.in.th/images/2020/03/19/QgLwmJ.png",
+                                                                   "aspectRatio": "1:1"
+                                                               },
+                                                               {
+                                                                   "type": "image",
+                                                                   "url": "https://sv1.picz.in.th/images/2020/03/19/QgLts9.png",
+                                                                   "aspectMode": "cover",
+                                                                   "size": "full",
+                                                                   "aspectRatio": "1040:174",
+                                                                   "action": {
+                                                                       "type": "uri",
+                                                                       "label": "action",
+                                                                       "uri": "https://pea-covid19-test.herokuapp.com/challenge/{}".format(
+                user_employee.employee_ID)
+                                                                   }
+                                                               }
+                                                           ],
+                                                           "paddingAll": "0px"
+                                                       }
+                                                   }
+                                               ]
+                                           }
+                                           ))
 
-            new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
-                                employee_ID=dict_message['text'], activity_text=json.dumps(obj), quarantined=False,
-                                infected=False)
-            new_user.save()
+            elif dict_message['text'] == 'จัดการข้อมูล':
+                line_bot_api.reply_message(event.reply_token,
+                                           FlexSendMessage(
+                                               alt_text='hello',
+                                               contents={
+                                                   "type": "bubble",
+                                                   "body": {
+                                                       "type": "box",
+                                                       "layout": "vertical",
+                                                       "contents": [
+                                                           {
+                                                               "type": "image",
+                                                               "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
+                                                               "size": "full",
+                                                               "aspectMode": "cover",
+                                                               "aspectRatio": "1:1",
+                                                               "gravity": "center"
+                                                           },
+                                                           {
+                                                               "type": "image",
+                                                               "url": "https://sv1.picz.in.th/images/2020/03/16/Qt1zb2.png",
+                                                               "position": "absolute",
+                                                               "aspectMode": "fit",
+                                                               "aspectRatio": "1:1",
+                                                               "offsetTop": "0px",
+                                                               "offsetBottom": "0px",
+                                                               "offsetStart": "0px",
+                                                               "offsetEnd": "0px",
+                                                               "size": "full"
+                                                           },
+                                                           {
+                                                               "type": "box",
+                                                               "layout": "vertical",
+                                                               "contents": [
+                                                                   {
+                                                                       "type": "text",
+                                                                       "text": "ระดับความเสี่ยง",
+                                                                       "size": "lg"
+                                                                   },
+                                                                   {
+                                                                       "type": "box",
+                                                                       "layout": "horizontal",
+                                                                       "contents": [
+                                                                           {
+                                                                               "type": "text",
+                                                                               "text": "เสี่ยงมาก",
+                                                                               "size": "4xl",
+                                                                               "align": "center",
+                                                                               "offsetStart": "20px"
+                                                                           },
+                                                                           {
+                                                                               "type": "image",
+                                                                               "url": "https://sv1.picz.in.th/images/2020/03/17/Qw4M9N.png",
+                                                                               "size": "xs"
+                                                                           }
+                                                                       ],
+                                                                       "margin": "lg"
+                                                                   },
+                                                                   {
+                                                                       "type": "separator",
+                                                                       "color": "#111111",
+                                                                       "margin": "lg"
+                                                                   },
+                                                                   {
+                                                                       "type": "box",
+                                                                       "layout": "horizontal",
+                                                                       "contents": [
+                                                                           {
+                                                                               "type": "box",
+                                                                               "layout": "vertical",
+                                                                               "contents": [
+                                                                                   {
+                                                                                       "type": "text",
+                                                                                       "text": "คะแนนความ",
+                                                                                       "size": "xl",
+                                                                                       "weight": "bold"
+                                                                                   },
+                                                                                   {
+                                                                                       "type": "text",
+                                                                                       "text": "ตระหนักโรค",
+                                                                                       "size": "xl",
+                                                                                       "weight": "bold"
+                                                                                   }
+                                                                               ]
+                                                                           },
+                                                                           {
+                                                                               "type": "box",
+                                                                               "layout": "vertical",
+                                                                               "contents": [
+                                                                                   {
+                                                                                       "type": "text",
+                                                                                       "text": "4",
+                                                                                       "size": "4xl",
+                                                                                       "align": "end"
+                                                                                   }
+                                                                               ]
+                                                                           }
+                                                                       ],
+                                                                       "margin": "md"
+                                                                   },
+                                                                   {
+                                                                       "type": "separator",
+                                                                       "color": "#111111"
+                                                                   },
+                                                                   {
+                                                                       "type": "box",
+                                                                       "layout": "vertical",
+                                                                       "contents": [
+                                                                           {
+                                                                               "type": "text",
+                                                                               "text": "บันทึกสุขภาพประจำวัน",
+                                                                               "size": "md"
+                                                                           },
+                                                                           {
+                                                                               "type": "text",
+                                                                               "text": "2020-03-06",
+                                                                               "size": "md"
+                                                                           },
+                                                                           {
+                                                                               "type": "text",
+                                                                               "text": "บันทึกแล้ว",
+                                                                               "size": "lg",
+                                                                               "weight": "bold",
+                                                                               "style": "italic"
+                                                                           }
+                                                                       ],
+                                                                       "margin": "md"
+                                                                   }
+                                                               ],
+                                                               "position": "absolute",
+                                                               "offsetStart": "20px",
+                                                               "offsetTop": "10px"
+                                                           }
+                                                       ],
+                                                       "paddingAll": "0px",
+                                                       "position": "relative"
+                                                   }
+                                               }
+                                           )
+                                           )
+
+            elif dict_message['text'] == 'ติดตามCovid':
+                line_bot_api.reply_message(event.reply_token,
+                                           FlexSendMessage(
+                                               alt_text='hello',
+                                               contents={
+                                                   'type': 'bubble',
+                                                   'direction': 'ltr',
+                                                   'hero': {
+                                                       'type': 'image',
+                                                       'url': 'https://example.com/cafe.jpg',
+                                                       'size': 'full',
+                                                       'aspectRatio': '20:13',
+                                                       'aspectMode': 'cover',
+                                                       'action': {'type': 'uri',
+                                                                  'uri': 'https://pea-covid19-test.herokuapp.com/challenge/{}/'.format(
+                                                                      user_employee.employee_ID), 'label': 'label'}
+                                                   }
+                                               }
+                                           )
+                                           )
+
+            elif dict_message['text'] == 'ใบเซ็นชื่อ':
+                line_bot_api.reply_message(event.reply_token,
+                                           FlexSendMessage(
+                                               alt_text='hello',
+                                               contents={
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "image",
+        "size": "full",
+        "aspectMode": "cover",
+        "gravity": "center",
+        "url": "https://sv1.picz.in.th/images/2020/03/19/Qidnp9.png",
+        "aspectRatio": "1:1"
+      },
+      {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/19/QidsP2.png",
+        "aspectMode": "cover",
+        "size": "full",
+        "aspectRatio": "1040:174",
+        "action": {
+          "type": "uri",
+          "label": "action",
+            "uri": "https://pea-covid19-test.herokuapp.com/checkin/{}/".format(
+                user_employee.employee_ID)        }
+      }
+    ],
+    "paddingAll": "0px"
+  }
+}
+                                           )
+                                           )
+
+            else:
+                line_bot_api.reply_message(event.reply_token,
+                                           TextSendMessage(
+                                               text='ส่ง feedback ให้ admin ที่ www.menti.com กรอกรหัส 456368'))
+        except:
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ '
-                                                            'กรุณากรอกแบบฟอร์มคัดกรอง www.https://pea-covid19-test.herokuapp.com/screen/{}/'.format(
-                                           new_user.employee_ID)))
+                                       TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดกรอกรหัสพนักงาน 6 ตัว'))
+
+            # obj = [{'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
+            # new_user = employee(emplyee_name='blank', employee_line_ID=dict_source['user_id'],
+            #                     employee_ID=dict_message['text'], activity_text=json.dumps(obj), quarantined=False,
+            #                     infected=False)
+            # new_user.save()
+            # line_bot_api.reply_message(event.reply_token,
+            #                            TextSendMessage(text='ระบบได้ลงทะเบียนรหัสพนักงานสำเร็จ '
+            #                                                 'กรุณากรอกแบบฟอร์มคัดกรอง www.https://pea-covid19-test.herokuapp.com/screen/{}/'.format(
+            #                                new_user.employee_ID)))
 
             # ส่งคำถามคัดกรอง
-
-        else:  # existing customer
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(
-                                           text='ไม่สามารถลงทะเบียนได้ไลน์ไอดีนี้ได้ลงทะเบียนแล้ว หากสงสัยติดต่อ admin'))
-    else:
-        line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(text='ส่ง feedback ให้ admin ที่ www.menti.com กรอกรหัส 456368'))
 
 
 # push message for question quarantile person
