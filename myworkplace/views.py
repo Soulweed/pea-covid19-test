@@ -360,27 +360,29 @@ def handle_text_message(event):
                 try:
                     send_email_register(email=email_name, line_id=dict_source['user_id'], id=dict_message['text'])
                     line_bot_api.reply_message(event.reply_token,
-                                               [TextSendMessage(
+                                               TextSendMessage(
                                                    text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'),
-                                                   ImageSendMessage(
-                                                   original_content_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg',
-                                                   preview_image_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg'
-                                                   ),
-                                                ImageSendMessage(
-                                                    original_content_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg',
-                                                    preview_image_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg'
-                                                    ),
-                                                ImageSendMessage(
-                                                    original_content_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg',
-                                                    preview_image_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
-                                                    )])
+                                                   )
                 except:
                     line_bot_api.reply_message(event.reply_token,
                                                TextSendMessage(text='ลองอีกครั้ง'))
             else:
                 line_bot_api.reply_message(event.reply_token,
-                                           TextSendMessage(
-                                               text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'))
+                                           [TextSendMessage(
+                                               text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'),
+                                               ImageSendMessage(
+                                                   original_content_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg',
+                                                   preview_image_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg'
+                                               ),
+                                               ImageSendMessage(
+                                                   original_content_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg',
+                                                   preview_image_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg'
+                                               ),
+                                               ImageSendMessage(
+                                                   original_content_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg',
+                                                   preview_image_url='https://www.img.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
+                                               )
+                                           ])
     else:
         try:
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
