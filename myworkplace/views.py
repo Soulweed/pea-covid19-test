@@ -363,16 +363,16 @@ def handle_text_message(event):
                                            [TextSendMessage(
                                                text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'),
                                                ImageSendMessage(
-                                                   original_content_url='https://www.images.in.th/images/600a10b547eb587a9d42525edcce704f.jpg',
-                                                   preview_image_url='https://www.images.in.th/images/600a10b547eb587a9d42525edcce704f.jpg'
+                                                   original_content_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg',
+                                                   preview_image_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg'
                                                ),
                                                ImageSendMessage(
-                                                   original_content_url='https://www.images.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg',
-                                                   preview_image_url='https://www.images.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg'
+                                                   original_content_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg',
+                                                   preview_image_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg'
                                                ),
                                                ImageSendMessage(
-                                                   original_content_url='https://www.images.in.th/images/031525e6dce37aa260bac21483c11522.jpg',
-                                                   preview_image_url='https://www.images.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
+                                                   original_content_url='https://www.imag.in.th/images/031525e6dce37aa260bac21483c11522.jpg',
+                                                   preview_image_url='https://www.imag.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
                                                )
                                            ])
     else:
@@ -1222,53 +1222,53 @@ def register(request, id):
 
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-            # user_data = employee(
-                # employee_ID=int(emp_id),
-                # employee_line_ID=line_id,
-                # activity_text=json.dumps([obj], ensure_ascii=False),
-                # sex=sex,
-                # age=age,
-                # tel=tel,
-                # work_place=work_place,
-                # work_building=work_building,
-                # work_floor=work_floor,
-                #
-                # address_no=address_no,
-                # address_tumbol=address_tumbol,
-                # address_amphur=address_amphur,
-                # address_province=address_province,
-                # address_type=address_type,
-                # address_to_live=address_to_live,
-                # detention_place=detention_place,
-                #
-                # blood=blood,
-                # congenital_disease_status=congenital_disease_status,
-                # congenital_disease=congenital_disease,
-                # drug_allergy_history_status=drug_allergy_history_status,
-                # drug_allergy_history=drug_allergy_history,
-                # respiratory_disease_status=respiratory_disease_status,
-                # respiratory_disease=respiratory_disease,
-                # last_disease=last_disease,
-                # last_hospital=last_hospital,
-                # last_time_status=last_time_status,
-                # favorite_hospital=favorite_hospital,
-                #
-                # close_person_first_name=close_person_first_name,
-                # close_person_last_name=close_person_last_name,
-                # close_person_tel=close_person_tel,
-                # close_person_relationship=close_person_relationship,
-                # workmate_first_name=workmate_first_name,
-                # workmate_last_name=workmate_last_name,
-                # workmate_tel=workmate_tel,
-                # emergency_one_first_name=emergency_one_first_name,
-                # emergency_one_last_name=emergency_one_last_name,
-                # emergency_one_tel=emergency_one_tel,
-                # emergency_two_first_name=emergency_two_first_name,
-                # emergency_two_last_name=emergency_two_last_name,
-                # emergency_two_tel=emergency_two_tel
-            # )
-            #
-            # user_data.save()
+            user_data = employee(
+                employee_ID=int(emp_id),
+                employee_line_ID=line_id,
+                activity_text=json.dumps([obj], ensure_ascii=False),
+                sex=sex,
+                age=age,
+                tel=tel,
+                work_place=work_place,
+                work_building=work_building,
+                work_floor=work_floor,
+
+                address_no=address_no,
+                address_tumbol=address_tumbol,
+                address_amphur=address_amphur,
+                address_province=address_province,
+                address_type=address_type,
+                address_to_live=address_to_live,
+                detention_place=detention_place,
+
+                blood=blood,
+                congenital_disease_status=congenital_disease_status,
+                congenital_disease=congenital_disease,
+                drug_allergy_history_status=drug_allergy_history_status,
+                drug_allergy_history=drug_allergy_history,
+                respiratory_disease_status=respiratory_disease_status,
+                respiratory_disease=respiratory_disease,
+                last_disease=last_disease,
+                last_hospital=last_hospital,
+                last_time_status=last_time_status,
+                favorite_hospital=favorite_hospital,
+
+                close_person_first_name=close_person_first_name,
+                close_person_last_name=close_person_last_name,
+                close_person_tel=close_person_tel,
+                close_person_relationship=close_person_relationship,
+                workmate_first_name=workmate_first_name,
+                workmate_last_name=workmate_last_name,
+                workmate_tel=workmate_tel,
+                emergency_one_first_name=emergency_one_first_name,
+                emergency_one_last_name=emergency_one_last_name,
+                emergency_one_tel=emergency_one_tel,
+                emergency_two_first_name=emergency_two_first_name,
+                emergency_two_last_name=emergency_two_last_name,
+                emergency_two_tel=emergency_two_tel
+            )
+
+            user_data.save()
 
             return render(request, 'myworkplace/register_finish.html', context)
 
