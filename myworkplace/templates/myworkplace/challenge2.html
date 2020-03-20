@@ -62,6 +62,34 @@
         </div>
       </div>
   </form>
+
+     <input id="lat" name="latitude" hidden="true">
+        <input id="lng" name="longitude" hidden="true">
+    </div>
+
+
+   <script>
+    document.onload = getLocation();
+    var checkinForm = document.getElementById("checkin");
+    var statusInput = document.getElementById("status");
+    var latInput = document.getElementById("lat");
+    var lngInput = document.getElementById("lng");
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        statusInput.innerHTML = "เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง";
+      }
+    }
+    function showPosition(position) {
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+        latInput.value = position.coords.latitude;
+        lngInput.value = position.coords.longitude;
+        checkinForm.submit();
+    }
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
   </script>

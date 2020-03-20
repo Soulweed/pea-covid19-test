@@ -518,8 +518,7 @@ def handle_text_message(event):
                                                                        "action": {
                                                                            "type": "uri",
                                                                            "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/challenge/{}".format(
-                                                                               user_employee.employee_ID)
+                                                                           "uri": "https://pea-covid19-test.herokuapp.com/challenge2/"
                                                                        }
                                                                    }
                                                                ],
@@ -711,7 +710,6 @@ def handle_text_message(event):
             elif dict_message['text'] == 'support':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
-
                                                alt_text='hello',
                                                contents={
   "type": "carousel",
@@ -838,128 +836,128 @@ def handle_text_message(event):
         ]
       }
     },
-    # {
-    #   "type": "bubble",
-    #   "size": "kilo",
-    #   "hero": {
-    #     "type": "image",
-    #     "url": "https://sv1.picz.in.th/images/2020/03/20/Qijv9I.png",
-    #     "size": "full",
-    #     "aspectMode": "cover",
-    #     "aspectRatio": "320:213"
-    #   },
-    #   "body": {
-    #     "type": "box",
-    #     "layout": "vertical",
-    #     "contents": [
-    #       {
-    #         "type": "text",
-    #         "text": "สายด่วน PEA",
-    #         "weight": "bold",
-    #         "size": "xl",
-    #         "wrap": true
-    #       },
-    #       {
-    #         "type": "box",
-    #         "layout": "vertical",
-    #         "contents": [
-    #           {
-    #             "type": "box",
-    #             "layout": "baseline",
-    #             "spacing": "sm",
-    #             "contents": [
-    #               {
-    #                 "type": "text",
-    #                 "text": "ติดต่อฉุกเฉิน โทร",
-    #                 "wrap": true,
-    #                 "color": "#8c8c8c",
-    #                 "size": "md",
-    #                 "flex": 5
-    #               }
-    #             ]
-    #           }
-    #         ]
-    #       }
-    #     ],
-    #     "spacing": "sm",
-    #     "paddingAll": "13px"
-    #   },
-    #   "footer": {
-    #     "type": "box",
-    #     "layout": "vertical",
-    #     "contents": [
-    #       {
-    #         "type": "button",
-    #         "action": {
-    #           "type": "uri",
-    #           "label": "ติดต่อฉุกเฉิน",
-    #           "uri": "tel:1129"
-    #         }
-    #       }
-    #     ]
-    #   }
-    # },
-    # {
-    #   "type": "bubble",
-    #   "size": "kilo",
-    #   "hero": {
-    #     "type": "image",
-    #     "url": "https://sv1.picz.in.th/images/2020/03/20/Qil2IN.png",
-    #     "size": "full",
-    #     "aspectMode": "cover",
-    #     "aspectRatio": "320:213"
-    #   },
-    #   "body": {
-    #     "type": "box",
-    #     "layout": "vertical",
-    #     "contents": [
-    #       {
-    #         "type": "text",
-    #         "text": "กรมควบคุมโรค",
-    #         "weight": "bold",
-    #         "size": "xl",
-    #         "wrap": true
-    #       },
-    #       {
-    #         "type": "box",
-    #         "layout": "vertical",
-    #         "contents": [
-    #           {
-    #             "type": "box",
-    #             "layout": "baseline",
-    #             "spacing": "sm",
-    #             "contents": [
-    #               {
-    #                 "type": "text",
-    #                 "text": "สายด่วน 1442",
-    #                 "wrap": true,
-    #                 "color": "#8c8c8c",
-    #                 "size": "md",
-    #                 "flex": 5
-    #               }
-    #             ]
-    #           }
-    #         ]
-    #       }
-    #     ],
-    #     "spacing": "sm",
-    #     "paddingAll": "13px"
-    #   },
-    #   "footer": {
-    #     "type": "box",
-    #     "layout": "vertical",
-    #     "contents": [
-    #       {
-    #         "type": "button",
-    #         "action": {
-    #           "type": "uri",
-    #           "label": "ติดต่อฉุกเฉิน",
-    #           "uri": "tel:1442"
-    #         }
-    #       }
-    #     ]
-    #   }
-    # }
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/20/Qijv9I.png",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "สายด่วน PEA",
+            "weight": "bold",
+            "size": "xl",
+            "wrap": true
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "ติดต่อฉุกเฉิน โทร",
+                    "wrap": true,
+                    "color": "#8c8c8c",
+                    "size": "md",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "ติดต่อฉุกเฉิน",
+              "uri": "tel:1129"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://sv1.picz.in.th/images/2020/03/20/Qil2IN.png",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "กรมควบคุมโรค",
+            "weight": "bold",
+            "size": "xl",
+            "wrap": true
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "สายด่วน 1442",
+                    "wrap": true,
+                    "color": "#8c8c8c",
+                    "size": "md",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "ติดต่อฉุกเฉิน",
+              "uri": "tel:1442"
+            }
+          }
+        ]
+      }
+    }
   ]
 }
                                            )
@@ -1084,18 +1082,13 @@ def get_user_email(id):
 #### สมัคร
 def send_email_register(email, line_id, id):
     recipient_list = [email]
-
     print('receipient list', recipient_list)
-
     # subject = 'ยืนยันการสมัคร'
     # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
-
-
     server = 'email.pea.co.th'
     email = 'chakkrit.ben@pea.co.th'
     username = '507192'
     password = 'l2eleaser+'
-    # boss = boss + '@pea.co.th'
     account = connect(server, email, username, password)
     subject = 'ยืนยันการสมัคร'
     body = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
@@ -1134,7 +1127,7 @@ def confirm_registration(request, id):
 
 ######## challenge
 
-def randomquestions(request):
+def randomquestions(request, id):
     n = random.randint(0, len(question.objects.all()) - 1)
     ranquestions = question.objects.get(pk=n)
 
@@ -1143,8 +1136,16 @@ def randomquestions(request):
     if request.method == "POST":
         answer = request.POST.get("exampleRadios")
         correct = request.POST.get("correct")
-        print(answer)
-        print(correct)
+        latitude = request.POST.get("latitude")
+        longitude = request.POST.get("longitude")
+        obj = {'type': 'question', 'answer':answer==correct, 'latitude': latitude, 'longitude': longitude,
+               'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+        user = employee.objects.get(employee_ID=id)
+        data = json.loads(user.activity_text)
+        data.append(obj)
+        print(data)
+        user.activity_text = json.dumps(data, ensure_ascii=False)
+        user.save()
 
         if (answer == correct):
             print('Correct')
@@ -1154,6 +1155,31 @@ def randomquestions(request):
             return render(request, 'myworkplace/wrong.html')
 
     return render(request, 'myworkplace/challenge2.html', context)
+
+
+# def challenge(request, id):
+#     data = employee.objects.get(employee_ID=id).__dict__
+#     context = {'data': data}
+#
+#     if request.method == "POST":
+#         latitude = request.POST.get("latitude")
+#         longitude = request.POST.get("longitude")
+#         print('##########-----------##########')
+#         print('latitute is', latitude)
+#         obj = {'type': 'question', 'latitude': latitude, 'longitude': longitude,
+#                'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#
+#         user = employee.objects.get(employee_ID=id)
+#         data = json.loads(user.activity_text)
+#         data.append(obj)
+#         print(data)
+#         user.activity_text = json.dumps(data, ensure_ascii=False)
+#         user.save()
+#         context['data'].update({'datetime': obj['datetime']})
+#         return render(request, 'myworkplace/checkinComplete.html', context)
+#
+#     return render(request, 'myworkplace/challenge.html', context)
+
 
 def wrong(request):
     return render(request, 'myworkplace/wrong.html')
@@ -1350,7 +1376,6 @@ def confirm_leave_WFH_2(request, id, boss):
     user.activity_text = json.dumps(data, ensure_ascii=False)
     user.save()
     return render(request, 'myworkplace/confirm_WFH.html')
-
 
 def confirm_leave_WFH_1(request, id, boss, day):
     obj = {'type': 'leave_WFH_1', 'approved_by': boss,
