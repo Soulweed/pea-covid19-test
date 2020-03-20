@@ -711,6 +711,7 @@ def handle_text_message(event):
             elif dict_message['text'] == 'support':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
+
                                                alt_text='hello',
                                                contents={
   "type": "carousel",
@@ -1086,10 +1087,30 @@ def send_email_register(email, line_id, id):
 
     print('receipient list', recipient_list)
 
+    # subject = 'ยืนยันการสมัคร'
+    # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
+
+
+    server = 'email.pea.co.th'
+    email = 'chakkrit.ben@pea.co.th'
+    username = '507192'
+    password = 'l2eleaser+'
+    # boss = boss + '@pea.co.th'
+    account = connect(server, email, username, password)
     subject = 'ยืนยันการสมัคร'
-    message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
-    email_from = settings.EMAIL_HOST_USER
-    send_mail(subject, message, email_from, recipient_list)
+    body = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
+    m = Message(account=account,
+                subject=subject,
+                body=body,
+                to_recipients=recipient_list)
+    print('message created')
+    m.send_and_save()
+    print(m)
+    print('email send')
+
+
+    # email_from = settings.EMAIL_HOST_USER
+    # send_mail(subject, message, email_from, recipient_list)
 
 
 def confirm_registration(request, id):
