@@ -407,7 +407,8 @@ def handle_text_message(event):
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "https://pea-covid19-test.herokuapp.com/"
+              "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
+                                                                               user_employee.employee_ID)
             },
             "aspectRatio": "1040:174"
           }
@@ -438,7 +439,8 @@ def handle_text_message(event):
             "action": {
               "type": "uri",
               "label": "action",
-              "uri": "https://pea-covid19-test.herokuapp.com/"
+              "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
+                                                                               user_employee.employee_ID)
             }
           }
         ],
@@ -735,7 +737,7 @@ def handle_text_message(event):
 }
                                            )
                                            )
-            elif dict_message['text'] == 'support':
+            elif dict_message['text'] == 'ssss':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
