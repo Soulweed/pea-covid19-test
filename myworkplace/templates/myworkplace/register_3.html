@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">-->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <!--<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>-->
+
+    <title>คัดกรอง</title>
+
+    <style>
+        .kanit-font {
+            font-family: 'Kanit', sans-serif;
+        }
+
+        #headerbg {
+            background-image: url('https://github.com/Pumphuek/mts/blob/master/bgheader.png?raw=true');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            height: 100px;
+        }
+
+        .steps {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            color: #929292;
+            height: 1.25rem;
+        }
+
+        .steps>.step {
+            position: relative;
+            display: table-cell;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6D6875;
+        }
+
+        .steps>.step:before {
+            content: attr(data-step);
+            display: block;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 2px solid #e6e6e6;
+            color: #e6e6e6;
+            width: 1rem;
+            height: 1rem;
+            text-align: center;
+            margin-bottom: -4.2rem;
+            line-height: 1.9rem;
+            border-radius: 100%;
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .steps>.step:after {
+            content: '';
+            position: absolute;
+            display: block;
+            background: #e6e6e6;
+            width: 100%;
+            height: 0.125rem;
+            top: 0.5rem;
+            left: 50%;
+        }
+
+        .steps>.step:last-child:after {
+            display: none;
+        }
+
+        .steps>.step.is-complete {
+            color: #6D6875;
+        }
+
+        .steps>.step.is-complete:before {
+            color: #8448FF;
+            background: #8448FF;
+            border: 2px solid #8448FF;
+        }
+
+        .steps>.step.is-complete:after {
+            background: #8448FF;
+        }
+
+        .steps>.step.is-active {
+            font-size: 1.5rem;
+        }
+
+        .steps>.step.is-active:before {
+            color: #FFF;
+            border: 2px solid #8448FF;
+            background: #8448FF;
+            margin-bottom: -4.9rem;
+        }
+
+        .form-control:focus {
+            border-color: #8448FF;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #8448FF;
+        }
+
+        .btn-default {
+            background-color: #e6e6e6;
+            color: #FFF;
+            border-color: #e6e6e6;
+        }
+
+        .btn-default:hover,
+        .btn-default:focus,
+        .btn-default:active,
+        .btn-default.active,
+        .open .dropdown-toggle.btn-default {
+            background-color: #8448FF;
+            color: #FFF;
+            border-color: #8448FF;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="w3-row">
+        <div class="w3-col s12">
+            <div id="headerbg" class="w3-display-container">
+                <div class="w3-display-middle" align="center" style="width: 100%;">
+                    <span class="w3-medium kanit-font">ลงทะเบียนผู้เข้าร่วมโครงการ<br>STOP COVID-19
+                        CHALLENGE<br></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col s12">
+            <div class="w3-padding" align="center">
+                <span class="w3-small kanit-font"
+                    style="font-weight: bold;">กรุณากรอกข้อมูลเพื่อยืนยันเข้าสู่ระบบ</span>
+            </div>
+        </div>
+    </div>
+    <div class="w3-row">
+        <div class="w3-col s12">
+            <ol class="steps">
+                <li class="step is-complete">
+                </li>
+                <li class="step is-complete">
+                </li>
+                <li class="step is-active">
+                </li>
+                <li class="step">
+                </li>
+            </ol>
+        </div>
+    </div>    
+    <form method="POST" class="w3-animate-right">
+        {% csrf_token %}
+        <div class="w3-row">
+            <div class="w3-col s12">
+                <div class="w3-padding">
+                    <span class="w3-small kanit-font" style="font-weight: bold;">3. ข้อมูลทางการแพทย์</span>
+                </div>
+            </div>
+            <div class="w3-col s12">
+                <div class="w3-container">
+                    <span class="w3-small kanit-font">3.1 กรุ๊ปเลือด</span><br>
+                    <div class="btn-group btn-group-lg btn-group-toggle" data-toggle="buttons"
+                        style="width: 100%; margin: 8px 0 16px 0;">
+                        <label class="btn btn-default active kanit-font w3-small">
+                            <input type="radio" name="options" id="a" onclick="aClick()" autocomplete="off" checked> A
+                        </label>
+                        <label class="btn btn-default kanit-font w3-small">
+                            <input type="radio" name="options" id="b" onclick="bClick()" autocomplete="off"> B
+                        </label>
+                        <label class="btn btn-default kanit-font w3-small">
+                            <input type="radio" name="options" id="ab" onclick="abClick()" autocomplete="off"> AB
+                        </label>
+                        <label class="btn btn-default kanit-font w3-small">
+                            <input type="radio" name="options" id="o" onclick="oClick()" autocomplete="off"> O
+                        </label>
+                    </div>
+                    <input name="blood" id="bloodd" hidden="true">
+                </div>
+            </div>
+            <div class="w3-col s12">
+                <div class="w3-container">
+                    <span class="w3-small kanit-font">3.2 ท่านมีโรคประจำตัวหรือไม่</span><br>
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="congenital_disease_no" onchange="congenital_disease_no_click()" type="checkbox" class="form-check-input" value="">ไม่มี
+                            </label>
+                          </div>
+                    </div>                    
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="congenital_disease_yes" onchange="congenital_disease_yes_click()" type="checkbox" class="form-check-input" value="">มี
+                            </label>
+                          </div>
+                    </div>
+                    <input name="congenital_disease_status" id="congenital_disease_status_input" hidden="true">
+                    <input name="congenital_disease" id="congenital_disease_input" class="form-control form-control-lg w3-small" type="text" style="margin: 8px 0 16px 0;">
+                </div>
+            </div>
+            <div class="w3-col s12">
+                <div class="w3-container">
+                    <span class="w3-small kanit-font">3.3 ท่านมีประวัติแพ้ยาหรือไม่</span><br>
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="drug_allergy_history_no" onchange="drug_allergy_history_no_click()" type="checkbox" class="form-check-input" value="">ไม่แพ้
+                            </label>
+                          </div>
+                    </div>                    
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="drug_allergy_history_dont_know" onchange="drug_allergy_history_dont_know_click()" type="checkbox" class="form-check-input" value="">แพ้แต่ไม่ทราบชื่อ
+                            </label>
+                          </div>
+                    </div>
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="drug_allergy_history_yes" onchange="drug_allergy_history_yes_click()" type="checkbox" class="form-check-input" value="">แพ้ (โปรดระบุให้ชัดเจน)
+                            </label>
+                          </div>
+                    </div>
+                    <input name="drug_allergy_history_status" id="drug_allergy_history_status_input" hidden="true">
+                    <input name="drug_allergy_history" id="drug_allergy_history_input" class="form-control form-control-lg w3-small" type="text" style="margin: 8px 0 16px 0;">
+                </div>
+            </div>
+            <div class="w3-col s12">
+                <div class="w3-container">
+                    <span class="w3-small kanit-font">3.2 ท่านมีโรคประจำตัวหรือไม่</span><br>
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="respiratory_disease_no" onchange="respiratory_disease_no_click()" type="checkbox" class="form-check-input" value="">ไม่เคย
+                            </label>
+                          </div>
+                    </div>                    
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="respiratory_disease_yes" onchange="respiratory_disease_yes_click()" type="checkbox" class="form-check-input" value="">เคย (โปรดระบุให้ชัดเจน)
+                            </label>
+                          </div>
+                    </div>
+                    <input name="respiratory_disease_status" id="respiratory_disease_status_input" hidden="true">
+                    <input name="respiratory_disease" id="respiratory_disease_input" class="form-control form-control-lg w3-small" type="text" style="margin: 8px 0 16px 0;">
+                </div>
+            </div>
+            <div class="w3-col s12">
+                <div class="w3-container">
+                    <span class="w3-small kanit-font">3.5.1 ครั้งล่าสุดในการเข้ารับตรวจรักษาด้วยโรคใด </span><br>
+                    <input name="last_disease" class="form-control form-control-lg w3-small" type="text" style="margin: 8px 0 16px 0;" required>
+                </div>
+            </div>
+            <div class="w3-col s12">
+                <div class="w3-container">
+                    <span class="w3-small kanit-font">3.5.2 ครั้งล่าสุดในการเข้ารับตรวจรักษาที่โรงพยาบาลใด </span><br>
+                    <input name="last_hospital" class="form-control form-control-lg w3-small" type="text" style="margin: 8px 0 16px 0;" required>
+                </div>
+            </div>
+            <div class="w3-col s12">
+                <div class="w3-container">
+                    <span class="w3-small kanit-font">3.5.3 ครั้งล่าสุดในการเข้ารับตรวจรักษาเมื่อไหร</span><br>
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="little_than_one_month" onchange="little_than_1_month_click()" type="checkbox" class="form-check-input" value="">น้อยกว่า 1 เดือน
+                            </label>
+                          </div>
+                    </div>                    
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="one_to_six_month" onchange="one_to_six_month_click()" type="checkbox" class="form-check-input" value="">1 ถึง 6 เดือน
+                            </label>
+                          </div>
+                    </div>
+                    <div class="w3-container" style="margin: 8px 0 8px 0;">
+                        <div class="form-check">
+                            <label class="form-check-label kanit-font w3-small">
+                              <input id="greater_than_six_month" onchange="greater_than_six_month_click()" type="checkbox" class="form-check-input" value="">มากกว่า 6 เดือนขึ้นไป
+                            </label>
+                          </div>
+                    </div>
+                    <input name="last_time_status" id="last_time_status_input" hidden="true">
+                </div>
+            </div>
+            <div class="w3-col s12">
+                <div class="w3-container">
+                    <span class="w3-small kanit-font">3.6 โรงพยาบาลประจำที่ท่านเข้ารักษาเมื่อเจ็บป่วย </span><br>
+                    <input name="favorite_hospital" class="form-control form-control-lg w3-small" type="text" style="margin: 8px 0 16px 0;" required>
+                </div>
+            </div>
+            <div class="w3-col s12">
+                <div class="w3-container">
+                    <div class="w3-border-top" style="padding: 16px 0;">
+                        <input name="page" id="page_input" hidden="true">
+                        <button type="submit" class="btn btn-success" style="width: 100%;">ดำเนินการต่อไป</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+<script>
+    window.onload = function(){
+        document.getElementById("bloodd").value = "a";
+
+        document.getElementById("congenital_disease_status_input").value = "no";
+        document.getElementById("congenital_disease_no").checked = true;
+        document.getElementById("congenital_disease_input").disabled = true;
+        document.getElementById("congenital_disease_input").required = false;
+
+        document.getElementById("drug_allergy_history_status_input").value = "no";
+        document.getElementById("drug_allergy_history_no").checked = true;
+        document.getElementById("drug_allergy_history_input").disabled = true;
+        document.getElementById("drug_allergy_history_input").required = false;
+
+        document.getElementById("respiratory_disease_status_input").value = "no";
+        document.getElementById("respiratory_disease_no").checked = true;
+        document.getElementById("respiratory_disease_input").disabled = true;
+        document.getElementById("respiratory_disease_input").required = false;
+
+        document.getElementById("last_time_status_input").value = "little_than_one_month";
+        document.getElementById("little_than_one_month").checked = true;
+
+        document.getElementById("page_input").value = "3";
+    };
+
+    function aClick() {
+        document.getElementById("bloodd").value = "a";
+    };
+
+    function bClick() {
+        document.getElementById("bloodd").value = "b";
+    };
+
+    function abClick() {
+        document.getElementById("bloodd").value = "ab";
+    };
+
+    function oClick() {
+        document.getElementById("bloodd").value = "o";
+    };
+
+    function congenital_disease_no_click() {
+        document.getElementById("congenital_disease_status_input").value = "no";
+        document.getElementById("congenital_disease_no").checked = true;
+        document.getElementById("congenital_disease_yes").checked = false;
+        document.getElementById("congenital_disease_input").disabled = true;
+        document.getElementById("congenital_disease_input").required = false;
+        document.getElementById("congenital_disease_input").value = '';
+    };
+
+    function congenital_disease_yes_click() {
+        document.getElementById("congenital_disease_status_input").value = "yes";
+        document.getElementById("congenital_disease_no").checked = false;
+        document.getElementById("congenital_disease_yes").checked = true;
+        document.getElementById("congenital_disease_input").disabled = false;
+        document.getElementById("congenital_disease_input").required = true;
+    };
+
+    function drug_allergy_history_no_click() {
+        document.getElementById("drug_allergy_history_status_input").value = "no";
+        document.getElementById("drug_allergy_history_no").checked = true;
+        document.getElementById("drug_allergy_history_dont_know").checked = false;
+        document.getElementById("drug_allergy_history_yes").checked = false;
+        document.getElementById("drug_allergy_history_input").disabled = true;
+        document.getElementById("drug_allergy_history_input").required = false;
+        document.getElementById("drug_allergy_history_input").value = '';
+    };
+
+    function drug_allergy_history_dont_know_click() {
+        document.getElementById("drug_allergy_history_status_input").value = "dont_know";
+        document.getElementById("drug_allergy_history_no").checked = false;
+        document.getElementById("drug_allergy_history_dont_know").checked = true;
+        document.getElementById("drug_allergy_history_yes").checked = false;
+        document.getElementById("drug_allergy_history_input").disabled = true;
+        document.getElementById("drug_allergy_history_input").required = false;
+        document.getElementById("drug_allergy_history_input").value = '';
+    };
+
+    function drug_allergy_history_yes_click() {
+        document.getElementById("drug_allergy_history_status_input").value = "yes";
+        document.getElementById("drug_allergy_history_no").checked = false;
+        document.getElementById("drug_allergy_history_dont_know").checked = false;
+        document.getElementById("drug_allergy_history_yes").checked = true;
+        document.getElementById("drug_allergy_history_input").disabled = false;
+        document.getElementById("drug_allergy_history_input").required = true;
+    };
+
+    function respiratory_disease_no_click() {
+        document.getElementById("respiratory_disease_status_input").value = "no";
+        document.getElementById("respiratory_disease_no").checked = true;
+        document.getElementById("respiratory_disease_yes").checked = false;
+        document.getElementById("respiratory_disease_input").disabled = true;
+        document.getElementById("respiratory_disease_input").required = false;
+        document.getElementById("respiratory_disease_input").value = '';
+    };
+
+    function respiratory_disease_yes_click() {
+        document.getElementById("respiratory_disease_status_input").value = "yes";
+        document.getElementById("respiratory_disease_no").checked = false;
+        document.getElementById("respiratory_disease_yes").checked = true;
+        document.getElementById("respiratory_disease_input").disabled = false;
+        document.getElementById("respiratory_disease_input").required = true;
+    };
+
+    function little_than_one_month_click() {
+        document.getElementById("respiratory_disease_status_input").value = "little_than_one_month";
+        document.getElementById("little_than_one_month").checked = true;
+        document.getElementById("one_to_six_month").checked = false;
+        document.getElementById("greater_than_six_month").checked = false;
+    };
+
+    function greater_than_six_month_click() {
+        document.getElementById("respiratory_disease_status_input").value = "greater_than_six_month";
+        document.getElementById("little_than_one_month").checked = false;
+        document.getElementById("one_to_six_month").checked = false;
+        document.getElementById("greater_than_six_month").checked = true;
+    };
+
+    function one_to_six_month_click() {
+        document.getElementById("respiratory_disease_status_input").value = "one_to_six_month";
+        document.getElementById("little_than_one_month").checked = false;
+        document.getElementById("one_to_six_month").checked = true;
+        document.getElementById("greater_than_six_month").checked = false;
+    };
+
+</script>
+
+</html>

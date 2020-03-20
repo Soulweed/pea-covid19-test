@@ -518,7 +518,7 @@ def handle_text_message(event):
                                                                        "action": {
                                                                            "type": "uri",
                                                                            "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/challenge2/"
+                                                                           "uri": "https://pea-covid19-test.herokuapp.com/challenge2/{}/".format(user_employee.employee_ID)
                                                                        }
                                                                    }
                                                                ],
@@ -1091,7 +1091,7 @@ def send_email_register(email, line_id, id):
     password = 'l2eleaser+'
     account = connect(server, email, username, password)
     subject = 'ยืนยันการสมัคร'
-    body = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
+    body = ' กดที่ link  https://pea-covid19-test.herokuapp.com/register/{}{}'.format(line_id, id)
     m = Message(account=account,
                 subject=subject,
                 body=body,
@@ -1105,6 +1105,174 @@ def send_email_register(email, line_id, id):
     # email_from = settings.EMAIL_HOST_USER
     # send_mail(subject, message, email_from, recipient_list)
 
+def register(request, id):
+    # data = employee.objects.get(employee_ID=id).__dict__
+
+    emp_id = id[33:]
+    line_id = id[0:33]
+
+    try:
+        employee.objects.get(employee_line_ID=line_id)
+        return redirect(home)
+    except:
+        pass
+
+    context = {'data': {'id': emp_id}}
+
+    emp_id = ''
+    sex = ''
+    age = ''
+    tel = ''
+    work_place = ''
+    work_building = ''
+    work_floor = ''
+
+    address_no = ''
+    address_tumbol = ''
+    address_amphur = ''
+    address_province = ''
+    address_type = ''
+    address_to_live = ''
+    detention_place = ''
+
+    blood = ''
+    congenital_disease_status = ''
+    congenital_disease = ''
+    drug_allergy_history_status = ''
+    drug_allergy_history = ''
+    respiratory_disease_status = ''
+    respiratory_disease = ''
+    last_disease = ''
+    last_hospital = ''
+    last_time_status = ''
+    favorite_hospital = ''
+
+    close_person_first_name = ''
+    close_person_last_name = ''
+    close_person_tel = ''
+    close_person_relationship = ''
+    workmate_first_name = ''
+    workmate_last_name = ''
+    workmate_tel = ''
+    emergency_one_first_name = ''
+    emergency_one_last_name = ''
+    emergency_one_tel = ''
+    emergency_two_first_name = ''
+    emergency_two_last_name = ''
+    emergency_two_tel = ''
+
+    if request.method == "POST":
+        page = request.POST.get("page")
+        print(page)
+        if (page == "1"):
+            print("OK1")
+            emp_id = request.POST.get("emp_id")
+            sex = request.POST.get("sex")
+            age = request.POST.get("age")
+            tel = request.POST.get("tel")
+            work_place = request.POST.get("work_place")
+            work_building = request.POST.get("work_building")
+            work_floor = request.POST.get("work_floor")
+
+            return render(request, 'myworkplace/register_2.html', context)
+
+        if (page == "2"):
+            print("OK2")
+            address_no = request.POST.get("address_no")
+            address_tumbol = request.POST.get("address_tumbol")
+            address_amphur = request.POST.get("address_amphur")
+            address_province = request.POST.get("address_province")
+            address_type = request.POST.get("address_type")
+            address_to_live = request.POST.get("address_to_live")
+            detention_place = request.POST.get("detention_place")
+
+            return render(request, 'myworkplace/register_3.html', context)
+
+        if (page == "3"):
+            print("OK3")
+            blood = request.POST.get("blood")
+            congenital_disease_status = request.POST.get("congenital_disease_status")
+            congenital_disease = request.POST.get("congenital_disease")
+            drug_allergy_history_status = request.POST.get("drug_allergy_history_status")
+            drug_allergy_history = request.POST.get("drug_allergy_history")
+            respiratory_disease_status = request.POST.get("respiratory_disease_status")
+            respiratory_disease = request.POST.get("respiratory_disease")
+            last_disease = request.POST.get("last_disease")
+            last_hospital = request.POST.get("last_hospital")
+            last_time_status = request.POST.get("last_time_status")
+            favorite_hospital = request.POST.get("favorite_hospital")
+
+            return render(request, 'myworkplace/register_4.html', context)
+
+        if (page == "4"):
+            print("OK4")
+            close_person_first_name = request.POST.get("close_person_first_name")
+            close_person_last_name = request.POST.get("close_person_last_name")
+            close_person_tel = request.POST.get("close_person_tel")
+            close_person_relationship = request.POST.get("close_person_relationship")
+            workmate_first_name = request.POST.get("workmate_first_name")
+            workmate_last_name = request.POST.get("workmate_last_name")
+            workmate_tel = request.POST.get("workmate_tel")
+            emergency_one_first_name = request.POST.get("emergency_one_first_name")
+            emergency_one_last_name = request.POST.get("emergency_one_last_name")
+            emergency_one_tel = request.POST.get("emergency_one_tel")
+            emergency_two_first_name = request.POST.get("emergency_two_first_name")
+            emergency_two_last_name = request.POST.get("emergency_two_last_name")
+            emergency_two_tel = request.POST.get("emergency_two_tel")
+
+            obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+            # user_data = employee(
+                # employee_ID=int(emp_id),
+                # employee_line_ID=line_id,
+                # activity_text=json.dumps([obj], ensure_ascii=False),
+                # sex=sex,
+                # age=age,
+                # tel=tel,
+                # work_place=work_place,
+                # work_building=work_building,
+                # work_floor=work_floor,
+                #
+                # address_no=address_no,
+                # address_tumbol=address_tumbol,
+                # address_amphur=address_amphur,
+                # address_province=address_province,
+                # address_type=address_type,
+                # address_to_live=address_to_live,
+                # detention_place=detention_place,
+                #
+                # blood=blood,
+                # congenital_disease_status=congenital_disease_status,
+                # congenital_disease=congenital_disease,
+                # drug_allergy_history_status=drug_allergy_history_status,
+                # drug_allergy_history=drug_allergy_history,
+                # respiratory_disease_status=respiratory_disease_status,
+                # respiratory_disease=respiratory_disease,
+                # last_disease=last_disease,
+                # last_hospital=last_hospital,
+                # last_time_status=last_time_status,
+                # favorite_hospital=favorite_hospital,
+                #
+                # close_person_first_name=close_person_first_name,
+                # close_person_last_name=close_person_last_name,
+                # close_person_tel=close_person_tel,
+                # close_person_relationship=close_person_relationship,
+                # workmate_first_name=workmate_first_name,
+                # workmate_last_name=workmate_last_name,
+                # workmate_tel=workmate_tel,
+                # emergency_one_first_name=emergency_one_first_name,
+                # emergency_one_last_name=emergency_one_last_name,
+                # emergency_one_tel=emergency_one_tel,
+                # emergency_two_first_name=emergency_two_first_name,
+                # emergency_two_last_name=emergency_two_last_name,
+                # emergency_two_tel=emergency_two_tel
+            # )
+            #
+            # user_data.save()
+
+            return render(request, 'myworkplace/register_finish.html', context)
+
+    return render(request, 'myworkplace/register_1.html', context)
 
 def confirm_registration(request, id):
     employee_id = id[33:]
@@ -1390,5 +1558,4 @@ def confirm_leave_WFH_1(request, id, boss, day):
     user.activity_text = json.dumps(data, ensure_ascii=False)
     user.save()
     return render(request, 'myworkplace/confirm_WFH.html')
-
 

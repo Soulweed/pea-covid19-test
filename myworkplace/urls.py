@@ -26,6 +26,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('confirm_registration/<id>/', views.confirm_registration, name='confirm_registration'),
     path('challenge2/<id>/', views.randomquestions, name='challenge'),
+
     path('correct/', views.correct, name='correct'),
     path('wrong/', views.wrong, name='wrong'),
     path('send_email_leave_covid/<id>/<boss>/', views.send_email_leave_covid, name='send_email_leave_covid'),
@@ -35,5 +36,6 @@ urlpatterns = [
     path('confirm_leave_WFH_1/<id>/<boss>/<day>', views.confirm_leave_WFH_1, name='confirm_leave_WFH1'),
     path('miss3d_du/<id>/', views.miss3d_du, name='miss3d_du'),
     path('miss3d_ts/<id>/', views.miss3d_ts, name='miss3d_ts'),
+    path('register/<id>/', views.register, name='register'),
 
 ]

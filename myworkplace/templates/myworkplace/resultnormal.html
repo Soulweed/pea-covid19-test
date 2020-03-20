@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %} resultnormal{% endblock %}
+{% block body_bl %}
+
+  <div class="px-0 py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="px-0 py-3" id="headerbg">
+            <h4 class="py-3 text-center">ผลการประเมินความเสี่ยง<br>ติดไวรัส COVID-19<br></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <img src="LV1.png" alt="lv1" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="px-1 col-12">
+          <h1 id="bigtext" class="display-4 text-center">ไม่เข้าเกณฑ์</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-3 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h6 class="text-left"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; จากการประเมินของคุณ คุณไม่มีความเสี่ยงต่อโรค <br> &nbsp; &nbsp; COVID-19 ทั้งนี้ขอให้คุณดูแลสุขภาพร่างกายของคุณให้ <br> &nbsp; &nbsp; แข็งแรง ขอบคุณที่ร่วมเป็นส่วนหนึ่งในการประเมิน <br> &nbsp; &nbsp; ความเสี่ยง COVID-19  
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <hr>
+          <h3 class="py-3 text-center">คุณมีความประสงค์ ที่จะปฏิบัติงานที่ใด ?  
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+  <div class="pt-4 pb-5">
+    <div class="px-5 container">
+      <div class="row">
+        <div class="pb-4 col-12 text-center"><input id="normalbtn" class="w-75 btn" type="submit" value="เข้าปฏิบัติงานตามปกติ"></div>
+        <div class="col-12 text-center"><input id="join" class="w-75 btn" type="button" value="เข้าร่วมโครงการ Work from home"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+{% endblock %}

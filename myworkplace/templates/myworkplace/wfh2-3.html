@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %} wfh2-3{% endblock %}
+{% block body_bl %}
+
+  <div class="px-0 py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="px-0 py-3" id="headerbg">
+            <h4 class="py-3 text-center">2 / 3<br>คุณเลือกปฏิบัติงาน<br></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="py-2 display-4 text-center">ทํางานที่บ้าน</h1>
+          <h2 class="py-0 text-center">( Work from home )</h2>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="px-3 headtc">ลงทะเบียน Work from home</h3>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h5 class="px-3 text-left"> รหัสพนักงาน </h5>
+          <input class="mx-3" type="text" placename="Input number" name="employeenum" id="employeenum">
+        </div>
+      </div>
+      <div class="pt-4 pb-2 row">
+        <div class="col-12">
+          <h5 class="px-3 text-left"> รหัสผู้บังคับบัญชาต้นสังกัด </h5>
+          <input class="mx-3" type="text" placename="Input number" name="bossnum" id="bossnum">
+        </div>
+      </div>
+      <div class="pt-4 pb-2 row">
+        <div class="col-6">
+          <h5 class="px-3 text-left"> วันที่ เริ่มต้น </h5>
+          <input class="mx-3" type="text" placename="Input number" name="datestart" id="datestart">
+        </div>
+        <div class="col-6">
+          <h5 class="px-3 text-left"> วันที่ สิ้นสุด </h5>
+          <input class="mx-3" type="text" placename="Input number" name="dateend" id="dateend">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="px-4 py-2">รวมจํานวนวันที่ Work from home <font color="#7248C8" style="font-size: 50px;">8</font> วัน</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h6 class="remark">*การอนุมัติเป็นดุลยพินิจของผู้บังคับบัญชาต้นสังกัด</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-4 pb-5">
+    <div class="px-5 container">
+      <div class="row">
+        <div class="col-6 text-center"><input id="submit" class="w-75 btn" type="submit" value="ยืนยัน"></div>
+        <div class="col-6 text-center"><input id="edit" class="w-75 btn" type="button" value="กลับไปแก้ไข"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+{% endblock %}

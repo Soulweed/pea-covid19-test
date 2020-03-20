@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %} wfh2{% endblock %}
+{% block body_bl %}
+ 
+  <div class="px-0 py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="px-0 py-3" id="headerbg">
+            <h4 class="py-3 text-center">คุณเลือกปฏิบัติงาน<br></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="py-2 display-4 text-center">ที่สำนักงาน</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-3 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h6 class="text-left"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            กรุณายืนยันที่จะปฏิบัติงานที่สํานักงานของคุณตาม <br> &nbsp; &nbsp; ปกติ ดูแลสุขภาพของคุณให้แข็งแรงและ
+            ประเมินติดตาม <br> &nbsp; &nbsp; ความเสี่ยงของท่านได้ทุกวัน ผ่านข่องทาง LINE PEA <br> &nbsp; &nbsp; COVID-19
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h6 class="remark">* กรุณาตรวจสอบข้อมูลความถูกต้องก่อนยืนยันการส่ง</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+  <div class="pt-4 pb-5">
+    <div class="px-5 container">
+      <div class="row">
+        <div class="col-6 text-center"><input id="submit" class="w-75 btn" type="submit" value="ยืนยัน"></div>
+        <div class="col-6 text-center"><input id="edit" class="w-75 btn" type="button" value="กลับไปแก้ไข"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+{% endblock %}

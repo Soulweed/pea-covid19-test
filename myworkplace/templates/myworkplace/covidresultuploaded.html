@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %} covidresultuploaded{% endblock %}
+{% block body_bl %}
+
+  <div class="px-5 py-5 text-center" id="covidresultbg">
+    <div class="px-5 py-5 container">
+      <div class="px-5 py-5 row">
+        <h1> &nbsp; </h1>
+      </div>
+    </div>
+  </div>
+  <div class="py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h6 class="">ผลการตรวจเชื้อ COVID-19</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="py-0 container">
+      <div class="py-0 row">
+        <div class="col-12 text-center">
+          <h3 class="">นาย อรรถพล วัฒนสาคร</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-4 py-1">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-2"></div>
+        <div class="col-4 text-center">
+          <h6>รหัสพนักงาน</h6>
+        </div>
+        <div class="col-4 text-center">
+          <h6>409930</h6>
+        </div>
+        <div class="col-2"></div>
+      </div>
+    </div>
+  </div>
+  <div class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h4 class="purpletext">เริ่มลาป่วย </h4>
+          <h6 class="purpletext">ตั้งแต่วันที่ 12 มีนาคม 2563 ถึง วันที่ 25 มีนาคม 2563 <br> รวมระยะเวลารวม 14 วัน</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-4 py-1">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-12 text-center">
+          <h6>ใบรับรองแพทย์</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="py-3 px-5 mx-3">
+      <div class="px-5 container">
+        <div class="px-5 row">
+            <h6 id="uploadedfile" class="px-2 py-2 w-100">ABC.jpg &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img clasa="text-right" src="check.png" alt="check"></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-2 px-5 mx-1">
+      <div class="px-5 container">
+        <div class="px-5 row">
+          <h5 class="text-center">ผลการตรวจเชื้อ COVID-19</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center"><input id="resultnormal" class="w-75 btn" type="submit" value="ผลตรวจปกติ">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-2 pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center"><input id="resultinfected" class="w-75 btn" type="submit" value="ยืนยันการติดเชื้อ">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+{% endblock %}

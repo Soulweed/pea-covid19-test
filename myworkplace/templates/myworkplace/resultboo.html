@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %} resultboo{% endblock %}
+{% block body_bl %}
+
+  <div class="px-0 py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="px-0 py-3" id="headerbg">
+            <h4 class="py-3 text-center">ผลการประเมินความเสี่ยง<br>ติดไวรัส COVID-19<br></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <img src="LV3.png" alt="lv3" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="px-1 col-12">
+          <h1 id="bigtext3" class="display-4 text-center">พบแพทย์</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-3 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h6 class="text-left"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; จากการประเมินของคุณ คุณมีความเสียงสูง <br> &nbsp; &nbsp; แนะนําให้พบแพทย์ทันที เพื่อตรวจไวรัส COVID-19 <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; PEA COVID-19 จะทําการลาป่วย 14 วันให้ท่าน <br> &nbsp; &nbsp; กรุณาอ่านรายละเอียดเงื่อนไข และแจ้งให้ต้นสังกัดทราบ <br> &nbsp; &nbsp; โดยกรอกรหัสผู้บังคับบัญชาต้นสังกัด ในขั้นตอนต่อไป
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+  <div class="py-5">
+    <div class="px-5 container">
+      <div class="row">
+        <div class="py-3 col-12 text-center"><input id="continuebtn" class="w-100 btn" type="submit" value="ดำเนินการต่อ"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+{% endblock %}
