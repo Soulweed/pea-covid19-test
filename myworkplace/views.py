@@ -79,7 +79,6 @@ def personal_info(request, id):
     print(context)
     return render(request, 'myworkplace/personal_info.html', context)
 
-
 def screen(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
@@ -137,7 +136,6 @@ def screen(request, id):
     print(context)
     return render(request, 'myworkplace/screen.html', context)
 
-
 def checkin(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
@@ -161,7 +159,6 @@ def checkin(request, id):
 
     return render(request, 'myworkplace/checkin.html', context)
 
-
 def challenge(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
@@ -184,7 +181,6 @@ def challenge(request, id):
         return render(request, 'myworkplace/checkinComplete.html', context)
 
     return render(request, 'myworkplace/challenge.html', context)
-
 
 def normal_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
@@ -212,7 +208,6 @@ def normal_group(request, id):
     print(context)
     return render(request, 'myworkplace/normal_group.html', context)
 
-
 def medium_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
@@ -224,7 +219,6 @@ def medium_group(request, id):
     print('----------------------')
     print(context)
     return render(request, 'myworkplace/medium_group.html', context)
-
 
 def risk_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
@@ -242,7 +236,6 @@ def risk_group(request, id):
     print(context)
     return render(request, 'myworkplace/risk_group.html', context)
 
-
 def risk_form(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     print('risk form')
@@ -257,13 +250,11 @@ def risk_form(request, id):
     print(context)
     return render(request, 'myworkplace/risk_form.html', context)
 
-
 def confirm(request, id):
     print('link to confirm page')
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
     return render(request, 'myworkplace/confirm.html', context)
-
 
 def confirm_WFH(request, id):
     print('link to work form home confirm page')
@@ -846,128 +837,128 @@ def handle_text_message(event):
         ]
       }
     },
-    {
-      "type": "bubble",
-      "size": "kilo",
-      "hero": {
-        "type": "image",
-        "url": "https://sv1.picz.in.th/images/2020/03/20/Qijv9I.png",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "320:213"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "สายด่วน PEA",
-            "weight": "bold",
-            "size": "xl",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "ติดต่อฉุกเฉิน โทร",
-                    "wrap": true,
-                    "color": "#8c8c8c",
-                    "size": "md",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "spacing": "sm",
-        "paddingAll": "13px"
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "uri",
-              "label": "ติดต่อฉุกเฉิน",
-              "uri": "tel:1129"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "kilo",
-      "hero": {
-        "type": "image",
-        "url": "https://sv1.picz.in.th/images/2020/03/20/Qil2IN.png",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "320:213"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "กรมควบคุมโรค",
-            "weight": "bold",
-            "size": "xl",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "สายด่วน 1442",
-                    "wrap": true,
-                    "color": "#8c8c8c",
-                    "size": "md",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "spacing": "sm",
-        "paddingAll": "13px"
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "uri",
-              "label": "ติดต่อฉุกเฉิน",
-              "uri": "tel:1442"
-            }
-          }
-        ]
-      }
-    }
+    # {
+    #   "type": "bubble",
+    #   "size": "kilo",
+    #   "hero": {
+    #     "type": "image",
+    #     "url": "https://sv1.picz.in.th/images/2020/03/20/Qijv9I.png",
+    #     "size": "full",
+    #     "aspectMode": "cover",
+    #     "aspectRatio": "320:213"
+    #   },
+    #   "body": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "text",
+    #         "text": "สายด่วน PEA",
+    #         "weight": "bold",
+    #         "size": "xl",
+    #         "wrap": true
+    #       },
+    #       {
+    #         "type": "box",
+    #         "layout": "vertical",
+    #         "contents": [
+    #           {
+    #             "type": "box",
+    #             "layout": "baseline",
+    #             "spacing": "sm",
+    #             "contents": [
+    #               {
+    #                 "type": "text",
+    #                 "text": "ติดต่อฉุกเฉิน โทร",
+    #                 "wrap": true,
+    #                 "color": "#8c8c8c",
+    #                 "size": "md",
+    #                 "flex": 5
+    #               }
+    #             ]
+    #           }
+    #         ]
+    #       }
+    #     ],
+    #     "spacing": "sm",
+    #     "paddingAll": "13px"
+    #   },
+    #   "footer": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "button",
+    #         "action": {
+    #           "type": "uri",
+    #           "label": "ติดต่อฉุกเฉิน",
+    #           "uri": "tel:1129"
+    #         }
+    #       }
+    #     ]
+    #   }
+    # },
+    # {
+    #   "type": "bubble",
+    #   "size": "kilo",
+    #   "hero": {
+    #     "type": "image",
+    #     "url": "https://sv1.picz.in.th/images/2020/03/20/Qil2IN.png",
+    #     "size": "full",
+    #     "aspectMode": "cover",
+    #     "aspectRatio": "320:213"
+    #   },
+    #   "body": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "text",
+    #         "text": "กรมควบคุมโรค",
+    #         "weight": "bold",
+    #         "size": "xl",
+    #         "wrap": true
+    #       },
+    #       {
+    #         "type": "box",
+    #         "layout": "vertical",
+    #         "contents": [
+    #           {
+    #             "type": "box",
+    #             "layout": "baseline",
+    #             "spacing": "sm",
+    #             "contents": [
+    #               {
+    #                 "type": "text",
+    #                 "text": "สายด่วน 1442",
+    #                 "wrap": true,
+    #                 "color": "#8c8c8c",
+    #                 "size": "md",
+    #                 "flex": 5
+    #               }
+    #             ]
+    #           }
+    #         ]
+    #       }
+    #     ],
+    #     "spacing": "sm",
+    #     "paddingAll": "13px"
+    #   },
+    #   "footer": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "button",
+    #         "action": {
+    #           "type": "uri",
+    #           "label": "ติดต่อฉุกเฉิน",
+    #           "uri": "tel:1442"
+    #         }
+    #       }
+    #     ]
+    #   }
+    # }
   ]
 }
                                            )
