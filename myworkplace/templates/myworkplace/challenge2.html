@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %} Challenge{% endblock %}
+{% block body_bl %}
+
+  <div class="px-5 py-5 text-center" id="missingbg">
+    <div class="px-5 py-5 container">
+      <div class="px-5 py-5 row">
+        <h1> &nbsp; </h1>
+      </div>
+    </div>
+  </div>
+  <div class="py-1">
+    <div class="container">
+      <div class="row">
+        <div class="px-5 col-12 text-center">
+          <h5 id="headerquiz" class="px-1 py-1 w-25 rounded">คำถาม</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="px-5 col-12">
+          <h5 class="">{{data.question_text}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="">
+      <div class="px-5 container">
+        <div class="py-2 form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="{{data.answer_1}}" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            <h5> &nbsp; {{data.answer_1}}</h5>
+          </label>
+        </div>
+        <div class="py-2 form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="{{data.answer_2}}">
+          <label class="form-check-label" for="exampleRadios2">
+            <h5> &nbsp; {{data.answer_2}}</h5>
+          </label>
+        </div>
+        <div class="py-2 form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="{{data.answer_3}}">
+          <label class="form-check-label" for="exampleRadios3">
+            <h5> &nbsp; {{data.answer_3}}</h5>
+          </label>
+        </div>
+        <input name="correct"  value="{{data.correct_answer}}" hidden = 'true'>
+      </div>
+      <div class="py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center"><input id="submitchallenge" class="w-75 btn" type="submit" value="ส่งคำตอบ">
+            </div>
+          </div>
+        </div>
+      </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+{% endblock %}

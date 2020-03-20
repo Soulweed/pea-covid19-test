@@ -16,32 +16,44 @@
         /* fonts */
         @font-face {
             font-family: "Kanit-Black";
-            src: url('../fonts/Kanit-Black.ttf') format("truetype");
+            {#src: url('../fonts/Kanit-Black.ttf') format("truetype");#}
+            src: url("{% static 'fonts/Kanit-Black.ttf' %}") format("truetype");
+
         }
 
         @font-face {
             font-family: "Kanit-Bold";
-            src: url('../fonts/Kanit-Black.ttf') format("truetype");
+            {#src: url('../fonts/Kanit-Black.ttf') format("truetype");#}
+            src: url("{% static 'fonts/Kanit-Black.ttf' %}") format("truetype");
+
         }
 
         @font-face {
             font-family: "Kanit-Light";
-            src: url('../fonts/Kanit-Light.ttf') format("truetype");
+            {#src: url('../fonts/Kanit-Light.ttf') format("truetype");#}
+            src: url("{% static 'fonts/Kanit-Light.ttf' %}") format("truetype");
+
         }
 
         @font-face {
             font-family: "Kanit-Medium";
-            src: url('../fonts/Kanit-Medium.ttf') format("truetype");
+            {#src: url('../fonts/Kanit-Medium.ttf') format("truetype");#}
+            src: url("{% static 'fonts/Kanit-Medium.ttf' %}") format("truetype");
+
         }
 
         @font-face {
             font-family: "Kanit-Regular";
-            src: url('../fonts/Kanit-Regular.ttf') format("truetype");
+            {#src: url('../fonts/Kanit-Regular.ttf') format("truetype");#}
+            src: url("{% static 'fonts/Kanit-Regular.ttf' %}") format("truetype");
+
         }
 
         @font-face {
             font-family: "Kanit-SemiBold";
-            src: url('../fonts/Kanit-SemiBold.ttf') format("truetype");
+            {#src: url('../fonts/Kanit-SemiBold.ttf') format("truetype");#}
+            src: url("{% static 'fonts/Kanit-SemiBold.ttf' %}") format("truetype");
+
         }
         /* fonts */
 
@@ -51,7 +63,9 @@
 
         /* daily_update css start */
         #headerbg {
-            background-image: url('bgheader.png');
+            {#background-image: url('bgheader.png');#}
+            background-image: url("{% static 'images/bgheader.png' %}");
+
             background-repeat: no-repeat;
             background-size: cover;
             color: white;
@@ -135,7 +149,9 @@
 
         /* dashboard css start*/
         .bg {
-            background-image: url('bg.png');
+            {#background-image: url('bg.png');#}
+            background-image: url("{% static 'images/bg.png' %}");
+
         }
 
         #opentext {
@@ -177,6 +193,101 @@
             border-radius: 15px;
         }
         /* dashboard css end */
+
+
+        /* challenge css start */
+        #missingbg {
+            background-image: url("{% static 'images/challengebg.png' %}");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        #headerquiz {
+            background-color: #8448FF;
+            color: white;
+        }
+
+        #submitchallenge {
+            background-color: #8448FF;
+            border-radius: 5px;
+            color: white;
+        }
+        /* challenge css end */
+
+        /* correct css start */
+        #missingbg {
+      background-image: url("{% static 'images/challengebg.png' %}");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    #correcttext {
+      color: #8448FF;
+    }
+    /* correct css end */
+
+    /* wrong css start */
+    #missingbg {
+      background-image: url("{% static 'images/challengebg.png' %}");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    #correcttext {
+      color: #8448FF;
+    }
+    /* wrong css end */
+
+    /* miss3days_du_id css start*/
+    #missingbg {
+      background-image: url("{% static 'images/missingbg.png' %}");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .brightpurpletext {
+      color: #8448FF;
+    }
+
+    #submitit {
+      background-color: #8448FF;
+      border-radius: 5px;
+      color: white;
+    }
+
+    #submitmit {
+      background-color: white;
+      border-color: #8448FF;
+      border-radius: 5px;
+      color: #8448FF;
+    }
+    /* miss3day_du_id css end*/
+
+    /* miss3day_ts_id css start */
+    #missingbg {
+      background-image:  url("{% static 'images/missingbg.png' %}");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .brightpurpletext {
+      color: #8448FF;
+    }
+
+    #submitit {
+      background-color: #8448FF;
+      border-radius: 5px;
+      color: white;
+    }
+
+    #submitmit {
+      background-color: white;
+      border-color: #8448FF;
+      border-radius: 5px;
+      color: #8448FF;
+    }
+    /* miss3day_ts_id css end */
+
     </style>
 </head>
 
