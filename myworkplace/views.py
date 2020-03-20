@@ -25,7 +25,7 @@ def home(request):
 
 def daily_update(request, id):
     print('access daily update')
-    data = employee.objects.get(employee_ID=id).__dict__
+    data = employee.objects.get(employee_ID=str(id)).__dict__
     print(type(data))
     print(data)
     context = {'data': data
@@ -80,7 +80,7 @@ def personal_info(request, id):
     return render(request, 'myworkplace/personal_info.html', context)
 
 def screen(request, id):
-    data = employee.objects.get(employee_ID=id).__dict__
+    data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data}
 
     if request.method == "POST":
@@ -137,7 +137,7 @@ def screen(request, id):
     return render(request, 'myworkplace/screen.html', context)
 
 def checkin(request, id):
-    data = employee.objects.get(employee_ID=id).__dict__
+    data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data}
 
     if request.method == "POST":
@@ -148,7 +148,7 @@ def checkin(request, id):
         obj = {'type': 'checkin', 'latitude': latitude, 'longitude': longitude,
                'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-        user = employee.objects.get(employee_ID=id)
+        user = employee.objects.get(employee_ID=str(id))
         data = json.loads(user.activity_text)
         data.append(obj)
         print(data)
@@ -171,7 +171,7 @@ def challenge(request, id):
         obj = {'type': 'question', 'latitude': latitude, 'longitude': longitude,
                'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-        user = employee.objects.get(employee_ID=id)
+        user = employee.objects.get(employee_ID=str(id))
         data = json.loads(user.activity_text)
         data.append(obj)
         print(data)
@@ -323,9 +323,7 @@ def callback(request):
         HttpResponseForbidden()
     return HttpResponse('OK', status=200)
 
-
 reply_text = 'A whole new world'
-
 
 # # オウム返し
 @handler.add(MessageEvent, message=TextMessage)
@@ -744,189 +742,189 @@ def handle_text_message(event):
                                                contents={
   "type": "carousel",
   "contents": [
-    {
-      "type": "bubble",
-      "size": "kilo",
-      "hero": {
-        "type": "image",
-        "url": "https://sv1.picz.in.th/images/2020/03/20/QijTae.png",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "320:213"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "PEA Support",
-            "weight": "bold",
-            "size": "xl",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "คู่มือปฏิบัติตัว COVID-19",
-                    "wrap": true,
-                    "color": "#8c8c8c",
-                    "size": "md",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "spacing": "sm",
-        "paddingAll": "13px"
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "อ่านเลย",
-              "text": "guidecovid"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "kilo",
-      "hero": {
-        "type": "image",
-        "url": "https://sv1.picz.in.th/images/2020/03/20/QijcdE.png",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "320:213"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "วิธีการใช้งาน",
-            "weight": "bold",
-            "size": "xl",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "PEA COVID-19 LINE Official Account",
-                    "wrap": true,
-                    "color": "#8c8c8c",
-                    "size": "md",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "spacing": "sm",
-        "paddingAll": "13px"
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "อ่านเลย",
-              "text": "guideline"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "kilo",
-      "hero": {
-        "type": "image",
-        "url": "https://sv1.picz.in.th/images/2020/03/20/Qijv9I.png",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "320:213"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "สายด่วน PEA",
-            "weight": "bold",
-            "size": "xl",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "ติดต่อฉุกเฉิน โทร",
-                    "wrap": true,
-                    "color": "#8c8c8c",
-                    "size": "md",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "spacing": "sm",
-        "paddingAll": "13px"
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "uri",
-              "label": "ติดต่อฉุกเฉิน",
-              "uri": "tel:1129"
-            }
-          }
-        ]
-      }
-    },
+    # {
+    #   "type": "bubble",
+    #   "size": "kilo",
+    #   "hero": {
+    #     "type": "image",
+    #     "url": "https://sv1.picz.in.th/images/2020/03/20/QijTae.png",
+    #     "size": "full",
+    #     "aspectMode": "cover",
+    #     "aspectRatio": "320:213"
+    #   },
+    #   "body": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "text",
+    #         "text": "PEA Support",
+    #         "weight": "bold",
+    #         "size": "xl",
+    #         "wrap": true
+    #       },
+    #       {
+    #         "type": "box",
+    #         "layout": "vertical",
+    #         "contents": [
+    #           {
+    #             "type": "box",
+    #             "layout": "baseline",
+    #             "spacing": "sm",
+    #             "contents": [
+    #               {
+    #                 "type": "text",
+    #                 "text": "คู่มือปฏิบัติตัว COVID-19",
+    #                 "wrap": true,
+    #                 "color": "#8c8c8c",
+    #                 "size": "md",
+    #                 "flex": 5
+    #               }
+    #             ]
+    #           }
+    #         ]
+    #       }
+    #     ],
+    #     "spacing": "sm",
+    #     "paddingAll": "13px"
+    #   },
+    #   "footer": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "button",
+    #         "action": {
+    #           "type": "message",
+    #           "label": "อ่านเลย",
+    #           "text": "guidecovid"
+    #         }
+    #       }
+    #     ]
+    #   }
+    # },
+    # {
+    #   "type": "bubble",
+    #   "size": "kilo",
+    #   "hero": {
+    #     "type": "image",
+    #     "url": "https://sv1.picz.in.th/images/2020/03/20/QijcdE.png",
+    #     "size": "full",
+    #     "aspectMode": "cover",
+    #     "aspectRatio": "320:213"
+    #   },
+    #   "body": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "text",
+    #         "text": "วิธีการใช้งาน",
+    #         "weight": "bold",
+    #         "size": "xl",
+    #         "wrap": true
+    #       },
+    #       {
+    #         "type": "box",
+    #         "layout": "vertical",
+    #         "contents": [
+    #           {
+    #             "type": "box",
+    #             "layout": "baseline",
+    #             "spacing": "sm",
+    #             "contents": [
+    #               {
+    #                 "type": "text",
+    #                 "text": "PEA COVID-19 LINE Official Account",
+    #                 "wrap": true,
+    #                 "color": "#8c8c8c",
+    #                 "size": "md",
+    #                 "flex": 5
+    #               }
+    #             ]
+    #           }
+    #         ]
+    #       }
+    #     ],
+    #     "spacing": "sm",
+    #     "paddingAll": "13px"
+    #   },
+    #   "footer": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "button",
+    #         "action": {
+    #           "type": "message",
+    #           "label": "อ่านเลย",
+    #           "text": "guideline"
+    #         }
+    #       }
+    #     ]
+    #   }
+    # },
+    # {
+    #   "type": "bubble",
+    #   "size": "kilo",
+    #   "hero": {
+    #     "type": "image",
+    #     "url": "https://sv1.picz.in.th/images/2020/03/20/Qijv9I.png",
+    #     "size": "full",
+    #     "aspectMode": "cover",
+    #     "aspectRatio": "320:213"
+    #   },
+    #   "body": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "text",
+    #         "text": "สายด่วน PEA",
+    #         "weight": "bold",
+    #         "size": "xl",
+    #         "wrap": true
+    #       },
+    #       {
+    #         "type": "box",
+    #         "layout": "vertical",
+    #         "contents": [
+    #           {
+    #             "type": "box",
+    #             "layout": "baseline",
+    #             "spacing": "sm",
+    #             "contents": [
+    #               {
+    #                 "type": "text",
+    #                 "text": "ติดต่อฉุกเฉิน โทร",
+    #                 "wrap": true,
+    #                 "color": "#8c8c8c",
+    #                 "size": "md",
+    #                 "flex": 5
+    #               }
+    #             ]
+    #           }
+    #         ]
+    #       }
+    #     ],
+    #     "spacing": "sm",
+    #     "paddingAll": "13px"
+    #   },
+    #   "footer": {
+    #     "type": "box",
+    #     "layout": "vertical",
+    #     "contents": [
+    #       {
+    #         "type": "button",
+    #         "action": {
+    #           "type": "uri",
+    #           "label": "ติดต่อฉุกเฉิน",
+    #           "uri": "tel:1129"
+    #         }
+    #       }
+    #     ]
+    #   }
+    # },
     {
       "type": "bubble",
       "size": "kilo",
@@ -1012,12 +1010,10 @@ def handle_text_message(event):
 
             # ส่งคำถามคัดกรอง
 
-
 # push message for question quarantile person
 def send_question():
     to = 'Ud5a85712fadd31a77c26f24b0e73b74d'
     line_bot_api.push_message(to, TextSendMessage(text='Hello World!'))
-
 
 def connect(server, email, username, password):
     """
@@ -1033,7 +1029,6 @@ def print_tree(account):
     Print folder tree
     """
     print(account.root.tree())
-
 
 def get_recent_emails(account, folder_name, count):
     """
@@ -1134,6 +1129,7 @@ def send_email_register(email, line_id, id):
 
     # email_from = settings.EMAIL_HOST_USER
     # send_mail(subject, message, email_from, recipient_list)
+
 
 def register(request, id):
     # data = employee.objects.get(employee_ID=id).__dict__
@@ -1306,6 +1302,7 @@ def register(request, id):
 
     return render(request, 'myworkplace/register_1.html', context)
 
+
 def confirm_registration(request, id):
     employee_id = id[33:]
     employee_line_id = id[0:33]
@@ -1336,7 +1333,7 @@ def randomquestions(request, id):
         longitude = request.POST.get("longitude")
         obj = {'type': 'question', 'answer':answer==correct, 'latitude': latitude, 'longitude': longitude,
                'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        user = employee.objects.get(employee_ID=id)
+        user = employee.objects.get(employee_ID=str(id))
         data = json.loads(user.activity_text)
         data.append(obj)
         print(data)
@@ -1385,14 +1382,14 @@ def correct(request):
 
 
 def miss3d_du(request, id):
-    data = employee.objects.get(employee_ID=id).__dict__
+    data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data}
 
     return render(request, 'myworkplace/miss3d_du_id.html', context)
 
 
 def miss3d_ts(request, id):
-    data = employee.objects.get(employee_ID=id).__dict__
+    data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data}
     return render(request, 'myworkplace/miss3d_ts_id.html', context)
 
@@ -1564,7 +1561,7 @@ def confirm_leave_WFH_2(request, id, boss):
            'finish_date': (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d"),
            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-    user = employee.objects.get(employee_ID=id)
+    user = employee.objects.get(employee_ID=str(id))
     print(user)
     data = json.loads(user.activity_text)
     data.append(obj)
@@ -1578,7 +1575,7 @@ def confirm_leave_WFH_1(request, id, boss, day):
            'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-    user = employee.objects.get(employee_ID=id)
+    user = employee.objects.get(employee_ID=str(id))
     print(user)
     data = json.loads(user.activity_text)
     data.append(obj)
