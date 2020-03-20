@@ -27,7 +27,7 @@ TRUE_FALSE_CHOICES = (
 # Create your models here.
 class employee(models.Model):
     emplyee_name=models.CharField(max_length=255)
-    employee_ID=models.IntegerField(default=999999)
+    employee_ID=models.CharField(max_length=255)
     employee_line_ID = models.CharField(max_length=255)
     activity_text = models.TextField(default='000')  #
     quarantined = models.BooleanField(default=False, blank=True)

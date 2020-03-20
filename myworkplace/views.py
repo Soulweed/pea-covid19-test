@@ -383,72 +383,100 @@ def handle_text_message(event):
                                            FlexSendMessage(
                                                alt_text='hello',
                                                contents={
-                                                   "type": "carousel",
-                                                   "contents": [
-                                                       {
-                                                           "type": "bubble",
-                                                           "body": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "image",
-                                                                       "size": "full",
-                                                                       "aspectMode": "cover",
-                                                                       "gravity": "center",
-                                                                       "aspectRatio": "1:1",
-                                                                       "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9EIN.png"
-                                                                   },
-                                                                   {
-                                                                       "type": "image",
-                                                                       "url": "https://www.img9.in.th/images/2020/03/19/-WFHb1.png",
-                                                                       "aspectMode": "cover",
-                                                                       "size": "full",
-                                                                       "action": {
-                                                                           "type": "uri",
-                                                                           "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
-                                                                               user_employee.employee_ID)
-                                                                       },
-                                                                       "aspectRatio": "1040:174"
-                                                                   }
-                                                               ],
-                                                               "paddingAll": "0px"
-                                                           }
-                                                       },
-                                                       {
-                                                           "type": "bubble",
-                                                           "body": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "image",
-                                                                       "size": "full",
-                                                                       "aspectMode": "cover",
-                                                                       "gravity": "center",
-                                                                       "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9wFu.png",
-                                                                       "aspectRatio": "1:1"
-                                                                   },
-                                                                   {
-                                                                       "type": "image",
-                                                                       "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9Rqe.png",
-                                                                       "aspectMode": "cover",
-                                                                       "size": "full",
-                                                                       "aspectRatio": "1040:174",
-                                                                       "action": {
-                                                                           "type": "uri",
-                                                                           "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
-                                                                               user_employee.employee_ID)
-                                                                       }
-                                                                   }
-                                                               ],
-                                                               "paddingAll": "0px"
-                                                           }
-                                                       }
-                                                   ]
-                                               }
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "center",
+            "aspectRatio": "1:1",
+            "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9EIN.png"
+          },
+          {
+            "type": "image",
+            "url": "https://www.img9.in.th/images/2020/03/19/-WFHb1.png",
+            "aspectMode": "cover",
+            "size": "full",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://pea-covid19-test.herokuapp.com/"
+            },
+            "aspectRatio": "1040:174"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "center",
+            "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9wFu.png",
+            "aspectRatio": "1:1"
+          },
+          {
+            "type": "image",
+            "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9Rqe.png",
+            "aspectMode": "cover",
+            "size": "full",
+            "aspectRatio": "1040:174",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://pea-covid19-test.herokuapp.com/"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "center",
+            "aspectRatio": "1:1",
+            "url": "https://sv1.picz.in.th/images/2020/03/20/Qi6eD2.png"
+          },
+          {
+            "type": "image",
+            "url": "https://sv1.picz.in.th/images/2020/03/20/Qi6IED.png",
+            "aspectMode": "cover",
+            "size": "full",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://pea-covid19-test.herokuapp.com/"
+            },
+            "aspectRatio": "1040:174"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    }
+  ]
+}
                                            )
                                            )
             elif dict_message['text'] == 'test':
@@ -1222,8 +1250,10 @@ def register(request, id):
 
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
+            print(emp_id)
+
             user_data = employee(
-                employee_ID=int(emp_id),
+                employee_ID=emp_id,
                 employee_line_ID=line_id,
                 activity_text=json.dumps([obj], ensure_ascii=False),
                 sex=sex,
@@ -1288,10 +1318,6 @@ def confirm_registration(request, id):
         new_user.save()
         print('ลงทะเบียนใหม่')
         return render(request, 'myworkplace/home.html')
-
-
-
-
 
 ######## challenge
 
@@ -1505,7 +1531,6 @@ def send_email_leave_wfh_2(request, id, boss):
     m.send_and_save()
     print(m)
     print('email send')
-
     return render(request, 'myworkplace/confirm_WFH.html')
 
 
