@@ -163,7 +163,7 @@ def challenge(request, id):
         context['data'].update({'datetime': obj['datetime']})
         return render(request, 'myworkplace/checkinComplete.html', context)
 
-    return render(request, 'myworkplace/challenge.html', context)
+    return render(request, 'myworkplace/challenge2.html', context)
 
 def normal_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
@@ -1305,6 +1305,7 @@ def randomquestions(request, id):
     ranquestions = question.objects.get(pk=n)
 
     context = {'data': ranquestions}
+    user = employee.objects.get(employee_ID=str(id))
 
     if request.method == "POST":
         answer = request.POST.get("exampleRadios")
@@ -1313,13 +1314,10 @@ def randomquestions(request, id):
         longitude = request.POST.get("longitude")
         obj = {'type': 'question', 'answer':answer==correct, 'latitude': latitude, 'longitude': longitude,
                'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        user = employee.objects.get(employee_ID=str(id))
         data = json.loads(user.activity_text)
         data.append(obj)
-        print(data)
         user.activity_text = json.dumps(data, ensure_ascii=False)
         user.save()
-
         if (answer == correct):
             print('Correct')
             return render(request, 'myworkplace/correct.html')
