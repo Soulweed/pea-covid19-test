@@ -23,8 +23,8 @@ def home(request):
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
-    data = employee.objects.get(employee_ID=str(id)).__dict__
-    context = {'data': data
+    user = employee.objects.get(employee_ID=str(id)).__dict__
+    context = {'data': user
                }
     if request.method == "POST":
         fever = request.POST.get("id_fever")
@@ -42,11 +42,13 @@ def daily_update(request, id):
             health = 'High risk เสี่ยงสูง'
         else:
             health = 'Risk เสี่ยง'
-        user = employee.objects.get(employee_ID=id)
+        # user = employee.objects.get(employee_ID=id)
+
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
         data = json.loads(user.activity_text)
         data.append(obj)
         user.activity_text = json.dumps(data)
+        user.healthy=health
         user.save()
         return redirect(confirm, id)
 
