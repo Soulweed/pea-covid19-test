@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Count
 from .models import employee
 import json
 from datetime import datetime, timedelta
@@ -18,8 +19,12 @@ from django.conf import settings
 
 # Create your views here.
 def home(request):
-    data1 = employee.objects.all()
-    context = {'number_of_employee': len(data1)}
+    context = {'number_of_employee': employee.objects.count(),
+               'infected':20,
+               }
+
+
+    print(context)
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
@@ -1301,8 +1306,7 @@ def confirm_registration(request, id):
 ######## challenge
 
 def randomquestions(request, id):
-    n = random.randint(0, len(question.objects.all()) - 1)
-    ranquestions = question.objects.get(pk=n)
+    ranquestions = question.objects.get(pk=random.randint(0, len(question.objects.all()) - 1))
 
     context = {'data': ranquestions}
     user = employee.objects.get(employee_ID=str(id))
@@ -1319,10 +1323,8 @@ def randomquestions(request, id):
         user.activity_text = json.dumps(data, ensure_ascii=False)
         user.save()
         if (answer == correct):
-            print('Correct')
             return render(request, 'myworkplace/correct.html')
         else:
-            print('No correct')
             return render(request, 'myworkplace/wrong.html')
 
     return render(request, 'myworkplace/challenge2.html', context)
