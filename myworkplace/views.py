@@ -54,7 +54,8 @@ def daily_update(request, id):
         print(data)
         user.activity_text = json.dumps(data)
         user.save()
-        return redirect(request, confirm, id, health)
+        return redirect(confirm, id, health)
+
     return render(request, 'myworkplace/daily_update.html', context)
 
 def personal_info(request, id):
