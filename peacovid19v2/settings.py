@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myworkplace',
     'rest_framework',
+    'line_bot'
 ]
 
 MIDDLEWARE = [

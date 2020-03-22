@@ -21,12 +21,11 @@ urlpatterns = [
     # path('challenge/<id>/', views.challenge, name='challenge'),
     path('confirm_WFH/<id>/', views.confirm, name='confirm_WFH'),
     path('personal_info/<id>/', views.personal_info, name='personal_info'),
-    path('callback/', views.callback, name='callback'),
+    # path('callback/', views.callback, name='callback'),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('confirm_registration/<id>/', views.confirm_registration, name='confirm_registration'),
     path('challenge2/<id>/', views.randomquestions, name='challenge'),
-
     path('correct/', views.correct, name='correct'),
     path('wrong/', views.wrong, name='wrong'),
     path('send_email_leave_covid/<id>/<boss>/', views.send_email_leave_covid, name='send_email_leave_covid'),
