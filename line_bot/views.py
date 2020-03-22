@@ -709,7 +709,8 @@ def handle_text_message(event):
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
-                                               text='ส่ง feedback ให้ admin ที่ www.menti.com กรอกรหัส 456368'))
+                                               text='ฟังก์ชั่นนี้กำลังปรับปรุง ส่ง feedback ให้ admin ที่ www.menti.com กรอกรหัส 456368'))
+
         except:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดกรอกรหัสพนักงาน 6 ตัว'))
