@@ -43,15 +43,9 @@ def daily_update(request, id):
         else:
             health = 'Risk เสี่ยง'
         user = employee.objects.get(employee_ID=id)
-        # user.update_activitiy({'data':activity})
-
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
         data = json.loads(user.activity_text)
-        print(data)
-
         data.append(obj)
-        print(data)
         user.activity_text = json.dumps(data)
         user.save()
         return redirect(confirm, id)
@@ -238,7 +232,7 @@ def risk_form(request, id):
     print(context)
     return render(request, 'myworkplace/risk_form.html', context)
 
-def confirm(request, id, health):
+def confirm(request, id):
     user = employee.objects.get(employee_ID=id)
     context = {'id': user.employee_ID, 'health': user.healthy}
     return render(request, 'myworkplace/confirm.html', context)
