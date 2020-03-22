@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.db.models import Count
 from .models import employee
 import json
 from datetime import datetime, timedelta
@@ -19,11 +18,9 @@ from django.conf import settings
 
 # Create your views here.
 def home(request):
+
     context = {'number_of_employee': employee.objects.count(),
-               'infected':20,
-               }
-
-
+               'high_risk':20, 'normal_wfh':30, 'risk_wfh':10, 'pea_office':30, 'no_daily_update':40}
     print(context)
     return render(request, 'myworkplace/home.html', context)
 

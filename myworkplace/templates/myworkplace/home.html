@@ -26,7 +26,7 @@
                                     <p> <br> </p>
                                     <h6 class="text-center text-white"><small>ต้องรีบพบแพทย์</small></h6>
                                     <p> <br> </p>
-                                    <h1 class="display-4 text-white text-center" style="font-family: Kanit-Bold;">{{ infected }}
+                                    <h1 class="display-4 text-white text-center" style="font-family: Kanit-Bold;">{{ high_risk }}
                                     </h1>
                                     <p> <br> </p>
                                 </blockquote>
@@ -39,7 +39,7 @@
                                 <div class="card-body" id="normalcard">
                                     <blockquote class="py-2 blockquote mb-0 text-center">
                                         <h6 class="text-center text-white"><small>ไม่เข้าเกณฑ์+WFH</small></h6>
-                                        <h2 class="text-white text-center">5,000</h2>
+                                        <h2 class="text-white text-center">{{ normal_wfh }}</h2>
                                     </blockquote>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                                 <div class="card-body" id="riskwfh">
                                     <blockquote class="py-2 blockquote mb-0 text-center">
                                         <h6 class="text-center text-white"><small>เสี่ยง+WFH</small></h6>
-                                        <h2 class="text-white text-center">13,000</h2>
+                                        <h2 class="text-white text-center">{{ risk_wfh }}</h2>
                                     </blockquote>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                 <div class="card-body" id="workatoffice">
                                     <blockquote class="py-2 blockquote mb-0 text-center">
                                         <h6 class="text-center text-white"><small>มาทำงานปกติ</small></h6>
-                                        <h2 class="text-white text-center">9,000</h2>
+                                        <h2 class="text-white text-center">{{ pea_office }}</h2>
                                     </blockquote>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                                 <div class="px-0 card-body" id="notshow">
                                     <blockquote class="py-2 blockquote mb-0 text-center">
                                         <h6 class="text-center text-white"><small>ไม่ประเมินความเสี่ยง</small></h6>
-                                        <h2 class="text-white text-center">2,000</h2>
+                                        <h2 class="text-white text-center">{{ no_daily_update }}</h2>
                                     </blockquote>
                                 </div>
                             </div>
