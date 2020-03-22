@@ -1561,3 +1561,4 @@ def confirm_leave_WFH_1(request, id, boss, day):
     user.save()
     return render(request, 'myworkplace/confirm_WFH.html')
 
+
