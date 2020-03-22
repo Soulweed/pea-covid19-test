@@ -54,7 +54,7 @@ def daily_update(request, id):
         print(data)
         user.activity_text = json.dumps(data)
         user.save()
-        return redirect(confirm, id, health)
+        return redirect(confirm, id)
 
     return render(request, 'myworkplace/daily_update.html', context)
 
@@ -239,7 +239,8 @@ def risk_form(request, id):
     return render(request, 'myworkplace/risk_form.html', context)
 
 def confirm(request, id, health):
-    context = {'id': id, 'health': health}
+    user = employee.objects.get(employee_ID=id)
+    context = {'id': user.employee_ID, 'health': user.healthy}
     return render(request, 'myworkplace/confirm.html', context)
 
 def confirm_WFH(request, id):
