@@ -20,17 +20,12 @@ from django.conf import settings
 def home(request):
     data1 = employee.objects.all()
     context = {'number_of_employee': len(data1)}
-    print(context)
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
-    print('access daily update')
     data = employee.objects.get(employee_ID=str(id)).__dict__
-    print(type(data))
-    print(data)
     context = {'data': data
                }
-    print(context)
     if request.method == "POST":
         fever = request.POST.get("id_fever")
         cold = request.POST.get("id_cold")
@@ -48,7 +43,6 @@ def daily_update(request, id):
         else:
             health = 'Risk เสี่ยง'
         user = employee.objects.get(employee_ID=id)
-        print(user.__dict__)
         # user.update_activitiy({'data':activity})
 
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
@@ -60,14 +54,7 @@ def daily_update(request, id):
         print(data)
         user.activity_text = json.dumps(data)
         user.save()
-        print('######################')
-
-        print(context)
-        return render(request, 'myworkplace/confirm.html', context)
-
-    print('----------------------')
-    print(context)
-
+        return redirect(request, confirm, id, health)
     return render(request, 'myworkplace/daily_update.html', context)
 
 def personal_info(request, id):
@@ -250,10 +237,8 @@ def risk_form(request, id):
     print(context)
     return render(request, 'myworkplace/risk_form.html', context)
 
-def confirm(request, id):
-    print('link to confirm page')
-    data = employee.objects.get(employee_ID=id).__dict__
-    context = {'data': data}
+def confirm(request, id, health):
+    context = {'id': id, 'health': health}
     return render(request, 'myworkplace/confirm.html', context)
 
 def confirm_WFH(request, id):
@@ -1039,7 +1024,6 @@ def get_recent_emails(account, folder_name, count):
     # Get emails
     return folder.all().order_by('-datetime_received')[:count]
 
-
 def count_senders(emails):
     """
     Given emails, provide counts of sender by name
@@ -1048,7 +1032,6 @@ def count_senders(emails):
     for email in emails:
         counts[email.sender.name] += 1
     return counts
-
 
 def print_non_replies(emails, agents):
     """
@@ -1390,7 +1373,8 @@ def miss3d_du(request, id):
 
 def miss3d_ts(request, id):
     data = employee.objects.get(employee_ID=str(id)).__dict__
-    context = {'data': data}
+    context = {'data': data, 'number':40}
+
     return render(request, 'myworkplace/miss3d_ts_id.html', context)
 
 

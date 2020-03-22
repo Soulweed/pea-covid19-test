@@ -7,21 +7,7 @@
 
 {% block body_bl %}
 
-{#                <div class="px-5 pt-5 mt-5 row">#}
-{#                    <div class="col-sm-12">#}
-{#                        <label for="the_question">#}
-{#                            <h1>1. ยืนยันการคัดกรอง PEA Covid-19</h1>#}
-{#                        </label>#}
-{#                        <images src="{% static 'images/yellowlady.png' %}" alt="yellowlady" id="yellowlady">#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#<p>รหัสพนักงาน{{ data.employee_ID }}</p>#}
-{#<p>ความเสี่ยง {{ health }}</p>#}
-{#    #}
-{#    #}
-{#    #}
-{#{% block body_bl %}            #}
+
 
 
     <div class="container" style="background-color: white;padding:20px" >
@@ -29,10 +15,10 @@
                 <center>
                 <h1>1. ยืนยันการคัดกรอง PEA Covid-19</h1>
                 <br>
-                <h1><p>รหัสพนักงาน : {{ data.employee_ID }}</p></h1>
+                <h1><p>รหัสพนักงาน : {{ data.id }}</p></h1>
                 <h1><p>ความเสี่ยง</p></h1>
                 <br>
-                <h1 class="display-1" style = "color : red" ><p>{{ data.healthy }}</p></h1>
+                <h1 class="display-1" style = "color : red" ><p>{{ data.health }}</p></h1>
                  </center>
         </div>
 
