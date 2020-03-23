@@ -165,8 +165,8 @@ def personal_info(request, id):
 #     return render(request, 'myworkplace/screen.html', context)
 
 def checkin(request, id):
-    data = employee.objects.get(employee_ID=str(id))
-    context = {'data': data.__dict__}
+    user = employee.objects.get(employee_ID=str(id))
+    context = {'data': user.__dict__}
 
     if request.method == "POST":
         action_type = request.POST.get("type")
@@ -174,7 +174,8 @@ def checkin(request, id):
         longitude = request.POST.get("longitude")
         obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
             'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        save_log(data,obj)
+
+        save_log(user,obj)
         context['data'].update({'datetime': obj['datetime']})
 
         if(action_type == "checkin"):
@@ -184,11 +185,11 @@ def checkin(request, id):
 
     return render(request, 'myworkplace/timestamp.html', context)
 
-def save_log(data, obj):
-    data = json.loads(data.activity_checkin)
+def save_log(user, obj):
+    data = json.loads(user.activity_checkin)
     data.append(obj)
-    data.activity_text = json.dumps(data, ensure_ascii=False)
-    data.save()
+    user.activity_text = json.dumps(data, ensure_ascii=False)
+    user.save()
     connection.close()
 
 def tscheckin(request, id):    return render(request, 'myworkplace/tscheckin.html')
@@ -291,7 +292,7 @@ def register(request, id):
 
     # context = {'data': {'id': emp_id}}
 
-    emp_id = ''
+
     sex = ''
     age = ''
     tel = ''
@@ -338,48 +339,28 @@ def register(request, id):
         print(page)
         if (page == "1"):
             print("OK1")
-            # emp_id = request.POST.get("emp_id")
-            # sex = request.POST.get("sex")
-            # age = request.POST.get("age")
-            # tel = request.POST.get("tel")
-            # work_place = request.POST.get("work_place")
-            # work_building = request.POST.get("work_building")
-            # work_floor = request.POST.get("work_floor")
+
+            emp_name=request.POST.get("first-last name")
             ext = request.POST.get("ext") #หมายเลขโทรศัพท์ภายใน
             mobile_phone = request.POST.get("mobile_phone") #หมายเลขโทรศัพท์มือถือ
             building = request.POST.get("building") #อาคาร
             floor = request.POST.get("floor") #ชั้น
+            context.update({'ext':ext, 'mobile_phone':mobile_phone, 'floor':floor, 'building':building})
 
             return render(request, 'myworkplace/formregister2.html', context)
 
         if (page == "2"):
             print("OK2")
-            # address_no = request.POST.get("address_no")
-            # address_tumbol = request.POST.get("address_tumbol")
-            # address_amphur = request.POST.get("address_amphur")
-            # address_province = request.POST.get("address_province")
-            # address_type = request.POST.get("address_type")
-            # address_to_live = request.POST.get("address_to_live")
-            # detention_place = request.POST.get("detention_place")
+
             address = request.POST.get("address")
             selector = request.POST.get("selector")
             addition_address = request.POST.get("addition_address")
-
+            context.update({'address':address, 'selector':selector,'addition_address':addition_address})
             return render(request, 'myworkplace/formregister3.html', context)
 
         if (page == "3"):
             print("OK3")
-            # blood = request.POST.get("blood")
-            # congenital_disease_status = request.POST.get("congenital_disease_status")
-            # congenital_disease = request.POST.get("congenital_disease")
-            # drug_allergy_history_status = request.POST.get("drug_allergy_history_status")
-            # drug_allergy_history = request.POST.get("drug_allergy_history")
-            # respiratory_disease_status = request.POST.get("respiratory_disease_status")
-            # respiratory_disease = request.POST.get("respiratory_disease")
-            # last_disease = request.POST.get("last_disease")
-            # last_hospital = request.POST.get("last_hospital")
-            # last_time_status = request.POST.get("last_time_status")
-            # favorite_hospital = request.POST.get("favorite_hospital")
+
             firstname_ref_1 = request.POST.get("firstname_ref_1")
             lastname_ref_1 = request.POST.get("lastname_ref_1")
             mobile_ref_1 = request.POST.get("mobile_ref_1")
@@ -392,30 +373,34 @@ def register(request, id):
             lastname_ref_3 = request.POST.get("lastname_ref_3")
             mobile_ref_3 = request.POST.get("mobile_ref_3")
             relation_ref_3 = request.POST.get("relation_ref_3")
+            context.update({'firstname_ref_1':firstname_ref_1, 'lastname_ref_1':lastname_ref_1,
+                            'mobile_ref_1':mobile_ref_1, 'firstname_ref_2':firstname_ref_2, 'lastname_ref_2':lastname_ref_2,
+                            'mobile_ref_2':mobile_ref_2, 'firstname_ref_3':firstname_ref_3, 'lastname_ref_3':lastname_ref_3,
+                            'mobile_ref_3':mobile_ref_3 })
 
             return render(request, 'myworkplace/register_4.html', context)
 
         if (page == "4"):
             print("OK4")
-            close_person_first_name = request.POST.get("close_person_first_name")
-            close_person_last_name = request.POST.get("close_person_last_name")
-            close_person_tel = request.POST.get("close_person_tel")
-            close_person_relationship = request.POST.get("close_person_relationship")
-            workmate_first_name = request.POST.get("workmate_first_name")
-            workmate_last_name = request.POST.get("workmate_last_name")
-            workmate_tel = request.POST.get("workmate_tel")
-            emergency_one_first_name = request.POST.get("emergency_one_first_name")
-            emergency_one_last_name = request.POST.get("emergency_one_last_name")
-            emergency_one_tel = request.POST.get("emergency_one_tel")
-            emergency_two_first_name = request.POST.get("emergency_two_first_name")
-            emergency_two_last_name = request.POST.get("emergency_two_last_name")
-            emergency_two_tel = request.POST.get("emergency_two_tel")
+            # close_person_first_name = request.POST.get("close_person_first_name")
+            # close_person_last_name = request.POST.get("close_person_last_name")
+            # close_person_tel = request.POST.get("close_person_tel")
+            # close_person_relationship = request.POST.get("close_person_relationship")
+            # workmate_first_name = request.POST.get("workmate_first_name")
+            # workmate_last_name = request.POST.get("workmate_last_name")
+            # workmate_tel = request.POST.get("workmate_tel")
+            # emergency_one_first_name = request.POST.get("emergency_one_first_name")
+            # emergency_one_last_name = request.POST.get("emergency_one_last_name")
+            # emergency_one_tel = request.POST.get("emergency_one_tel")
+            # emergency_two_first_name = request.POST.get("emergency_two_first_name")
+            # emergency_two_last_name = request.POST.get("emergency_two_last_name")
+            # emergency_two_tel = request.POST.get("emergency_two_tel")
 
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-            print(emp_id)
 
             user_data = employee(
+                emplyee_name=FirstName,
                 employee_ID=emp_id,
                 employee_line_ID=line_id,
                 activity_text=json.dumps([obj], ensure_ascii=False),
@@ -425,7 +410,6 @@ def register(request, id):
                 work_place=work_place,
                 work_building=work_building,
                 work_floor=work_floor,
-
                 address_no=address_no,
                 address_tumbol=address_tumbol,
                 address_amphur=address_amphur,
@@ -433,7 +417,6 @@ def register(request, id):
                 address_type=address_type,
                 address_to_live=address_to_live,
                 detention_place=detention_place,
-
                 blood=blood,
                 congenital_disease_status=congenital_disease_status,
                 congenital_disease=congenital_disease,
