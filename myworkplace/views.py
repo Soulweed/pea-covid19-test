@@ -33,14 +33,23 @@ class CheckoutForm(forms.Form):
 def home(request):
 
     context = {'number_of_employee': employee.objects.count(),
-               'high_risk':20, 'normal_wfh':30, 'risk_wfh':10, 'pea_office':30, 'no_daily_update':40}
+               'high_risk':employee.objects.filter(active_status='COVID').count(),
+               'normal_wfh':employee.objects.filter(active_status='WFH').count(),
+               'risk_wfh':employee.objects.filter(active_status='Leave').count(),
+               'pea_office':employee.objects.filter(active_status='PEA').count(),
+               'no_daily_update':employee.objects.filter(daily_update=False).count()}
     print(context)
     return render(request, 'myworkplace/home.html', context)
 
+
+
+
 def daily_update(request, id):
     user = employee.objects.get(employee_ID=str(id))
-    context = {'data': user.__dict__
-               }
+    FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc=get_employee_profile(id)
+    context = {'FirstName': FirstName, 'LastName':LastName, 'DepartmentShort': DepartmentShort, 'PositionDescShort':PositionDescShort,
+               'LevelDesc':LevelDesc}
+
     if request.method == "POST":
         fever = request.POST.get("id_fever")
         cold = request.POST.get("id_cold")
@@ -49,19 +58,39 @@ def daily_update(request, id):
         live_with_risk_person = request.POST.get("id_live_with_risk_person")
         contact_with_risk = request.POST.get("id_contact_with_risk")
 
-        if fever == 'FALSE' and cold == 'FALSE' and contact_foreigner == 'FALSE' and travel_to_infected_area == 'FALSE' \
-                and live_with_risk_person == 'FALSE' and contact_with_risk == 'FALSE':
-            health = "normal ปกติ"
-        elif travel_to_infected_area == 'TRUE' or live_with_risk_person == 'TRUE' \
-                or contact_with_risk == 'TRUE':
-            health = 'High risk เสี่ยงสูง'
-        else:
-            health = 'Risk เสี่ยง'
+        dangerous_area = 'FALSE'
+        working_with_foreigner = 'FALSE'
+        contact_with_infected = 'FALSE'
+        doctor = 'FALSE'
+        stay_in_infected_place = 'FALSE'
+
+        fever = 'FALSE'
+        cough = 'FALSE'
+        cold = 'FALSE'
+        sore_throat = 'FALSE'
+        tried = 'FALSE'
+
+        list_group_1 = [dangerous_area, working_with_foreigner, contact_with_infected, doctor, stay_in_infected_place]
+        list_group_2 = [fever, cough, cold, sore_throat, tried]
+        group1 = list_group_1.count('TRUE')
+        group2 = list_group_2.count('TRUE')
+
+        if group1 == 0 and group2 == 0:
+            health = 'normal'
+        elif (group1 > 0 and group2 == 0) or (group1 > 1 and group2 == 1):
+            health = 'quarantine'
+        elif (group1 == 0 and group2 == 1):
+            health = 'flu'
+        elif (group1 == 1 and group2 > 1) and (group1 > 1 and group2 > 1):
+            health = 'hospital'
+        print(health)
+
+
         # user = employee.objects.get(employee_ID=id)
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        data = json.loads(user.activity_text)
+        data = json.loads(user.activity_daily_update)
         data.append(obj)
-        user.activity_text = json.dumps(data)
+        user.activity_daily_update = json.dumps(data)
         user.healthy=health
         user.save()
         return redirect(confirm, id)
@@ -300,11 +329,6 @@ class EmailViewSet(viewsets.ModelViewSet):
     serializer_class = EmailSerializer
 
 
-
-
-
-
-
 from django.http import HttpResponseForbidden, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
@@ -480,7 +504,6 @@ def register(request, id):
 
     return render(request, 'myworkplace/register_1.html', context)
 
-
 def confirm_registration(request, id):
     employee_id = id[33:]
     employee_line_id = id[0:33]
@@ -553,20 +576,16 @@ def wrong(request):
 def correct(request):
     return render(request, 'myworkplace/correct.html')
 
-
 def miss3d_du(request, id):
     data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data}
-
     return render(request, 'myworkplace/miss3d_du_id.html', context)
 
 
 def miss3d_ts(request, id):
     data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data, 'number':40}
-
     return render(request, 'myworkplace/miss3d_ts_id.html', context)
-
 
 
 def confirm_leave_WFH_2(request, id, boss):
@@ -596,3 +615,27 @@ def confirm_leave_WFH_1(request, id, boss, day):
     user.activity_text = json.dumps(data, ensure_ascii=False)
     user.save()
     return render(request, 'myworkplace/confirm_WFH.html')
+
+
+def get_employee_profile(id):
+    url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
+    headers = {'content-type': 'text/xml'}
+    xmltext = '''<?xml version="1.0" encoding="utf-8"?>
+                <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+                <soap:Body>
+                    <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
+                    <WSAuthenKey>{0}</WSAuthenKey>
+                    <EmployeeId>{1}</EmployeeId>
+                    </GetEmployeeInfoByEmployeeId_SI>
+                </soap:Body>
+                </soap:Envelope>'''
+    wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
+    body = xmltext.format(wsauth, "{}".format(id))
+    res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
+    o = xmltodict.parse(res.text)
+    jsonconvert = dict(o)
+    authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
+        'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
+
+    return authData.get("FirstName"), authData.get("LastName"), authData.get("DepartmentShort"), \
+           authData.get("'PositionDescShort"), authData.get("'LevelDesc")

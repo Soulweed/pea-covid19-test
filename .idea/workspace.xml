@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/myworkplace/models.py" afterPath="$PROJECT_DIR$/myworkplace/models.py" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
-      <change beforePath="$PROJECT_DIR$/send_email/views.py" afterPath="$PROJECT_DIR$/send_email/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,86 +24,47 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="585" column="23" lean-forward="false" selection-start-line="585" selection-start-column="4" selection-end-line="585" selection-end-column="23" />
+            <state relative-caret-position="654">
+              <caret line="514" column="20" lean-forward="false" selection-start-line="514" selection-start-column="15" selection-end-line="514" selection-end-column="20" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#1067#2498#0" expanded="false" />
-                <element signature="e#2536#2783#0" expanded="false" />
-                <element signature="e#7255#8153#0" expanded="false" />
-                <element signature="e#8190#9111#0" expanded="false" />
-                <element signature="e#9148#9495#0" expanded="false" />
-                <element signature="e#9530#10054#0" expanded="false" />
-                <element signature="e#10088#10482#0" expanded="false" />
-                <element signature="e#10514#10684#0" expanded="false" />
-                <element signature="e#10720#10823#0" expanded="false" />
-                <element signature="e#11385#18145#0" expanded="false" />
-                <element signature="e#12676#18077#0" expanded="false" />
-                <element signature="e#12766#13202#0" expanded="false" />
-                <element signature="e#13242#13774#0" expanded="false" />
-                <element signature="e#13814#14694#0" expanded="false" />
-                <element signature="e#14734#18077#0" expanded="false" />
-                <element signature="e#18191#18789#0" expanded="false" />
-                <element signature="e#18849#19836#0" expanded="false" />
-                <element signature="e#19839#19868#0" expanded="false" />
+                <element signature="e#790#1343#0" expanded="false" />
+                <element signature="e#3560#3807#0" expanded="false" />
+                <element signature="e#3838#6115#0" expanded="false" />
+                <element signature="e#6147#8066#0" expanded="false" />
+                <element signature="e#8279#9177#0" expanded="false" />
+                <element signature="e#9214#10135#0" expanded="false" />
+                <element signature="e#10172#10519#0" expanded="false" />
+                <element signature="e#10554#11078#0" expanded="false" />
+                <element signature="e#11112#11506#0" expanded="false" />
+                <element signature="e#11538#11708#0" expanded="false" />
+                <element signature="e#11744#11847#0" expanded="false" />
+                <element signature="e#14261#14793#0" expanded="false" />
+                <element signature="e#14833#15713#0" expanded="false" />
+                <element signature="e#15753#19096#0" expanded="false" />
+                <element signature="e#19867#20854#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="daily_update.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="5" column="68" lean-forward="false" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="53" column="13" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="13" />
+            <state relative-caret-position="184">
+              <caret line="52" column="25" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="25" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="910" column="29" lean-forward="false" selection-start-line="910" selection-start-column="29" selection-end-line="910" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="timestamp.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="83" column="12" lean-forward="false" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/send_email/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="123" column="58" lean-forward="true" selection-start-line="123" selection-start-column="58" selection-end-line="123" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#1073#1247#0" expanded="false" />
-                <element signature="e#1293#2100#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -121,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dail</find>
       <find>send_email_register</find>
       <find>get_user_data</find>
       <find>receipient list</find>
@@ -151,6 +111,7 @@
       <find>confirm</find>
       <find>confirm_leave_WF</find>
       <find>confirm_leave_WFH_1</find>
+      <find>register</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,7 +125,6 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/personal_info.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/test.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm_screen.html" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm_WFH.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/screen.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/checkin.html" />
@@ -199,6 +159,7 @@
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/models.py" />
       </list>
@@ -244,6 +205,24 @@
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
+              <item name="line_bot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
+              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
+              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
+              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -376,7 +355,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="965" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="6" side_tool="false" content_ui="tabs" />
@@ -385,7 +364,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38709676" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24821173" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2383532" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -620,14 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="54" column="83" lean-forward="false" selection-start-line="54" selection-start-column="79" selection-end-line="54" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -759,7 +730,7 @@
         <state relative-caret-position="190">
           <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="21" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -772,52 +743,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/send_email/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="117" column="49" lean-forward="false" selection-start-line="117" selection-start-column="49" selection-end-line="117" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#1073#1247#0" expanded="false" />
+            <element signature="e#1293#2100#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="68" lean-forward="false" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="585" column="23" lean-forward="false" selection-start-line="585" selection-start-column="4" selection-end-line="585" selection-end-column="23" />
+        <state relative-caret-position="654">
+          <caret line="514" column="20" lean-forward="false" selection-start-line="514" selection-start-column="15" selection-end-line="514" selection-end-column="20" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#1067#2498#0" expanded="false" />
-            <element signature="e#2536#2783#0" expanded="false" />
-            <element signature="e#7255#8153#0" expanded="false" />
-            <element signature="e#8190#9111#0" expanded="false" />
-            <element signature="e#9148#9495#0" expanded="false" />
-            <element signature="e#9530#10054#0" expanded="false" />
-            <element signature="e#10088#10482#0" expanded="false" />
-            <element signature="e#10514#10684#0" expanded="false" />
-            <element signature="e#10720#10823#0" expanded="false" />
-            <element signature="e#11385#18145#0" expanded="false" />
-            <element signature="e#12676#18077#0" expanded="false" />
-            <element signature="e#12766#13202#0" expanded="false" />
-            <element signature="e#13242#13774#0" expanded="false" />
-            <element signature="e#13814#14694#0" expanded="false" />
-            <element signature="e#14734#18077#0" expanded="false" />
-            <element signature="e#18191#18789#0" expanded="false" />
-            <element signature="e#18849#19836#0" expanded="false" />
-            <element signature="e#19839#19868#0" expanded="false" />
+            <element signature="e#790#1343#0" expanded="false" />
+            <element signature="e#3560#3807#0" expanded="false" />
+            <element signature="e#3838#6115#0" expanded="false" />
+            <element signature="e#6147#8066#0" expanded="false" />
+            <element signature="e#8279#9177#0" expanded="false" />
+            <element signature="e#9214#10135#0" expanded="false" />
+            <element signature="e#10172#10519#0" expanded="false" />
+            <element signature="e#10554#11078#0" expanded="false" />
+            <element signature="e#11112#11506#0" expanded="false" />
+            <element signature="e#11538#11708#0" expanded="false" />
+            <element signature="e#11744#11847#0" expanded="false" />
+            <element signature="e#14261#14793#0" expanded="false" />
+            <element signature="e#14833#15713#0" expanded="false" />
+            <element signature="e#15753#19096#0" expanded="false" />
+            <element signature="e#19867#20854#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="53" column="13" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="13" />
+        <state relative-caret-position="184">
+          <caret line="52" column="25" lean-forward="false" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="25" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/send_email/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="123" column="58" lean-forward="true" selection-start-line="123" selection-start-column="58" selection-end-line="123" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#1073#1247#0" expanded="false" />
-            <element signature="e#1293#2100#0" expanded="false" />
           </folding>
         </state>
       </provider>
