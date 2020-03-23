@@ -567,3 +567,32 @@ def miss3d_ts(request, id):
 
     return render(request, 'myworkplace/miss3d_ts_id.html', context)
 
+
+
+def confirm_leave_WFH_2(request, id, boss):
+    obj = {'type': 'leave_WFH_2', 'approved_by': boss,
+           'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
+           'finish_date': (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d"),
+           'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+    user = employee.objects.get(employee_ID=str(id))
+    print(user)
+    data = json.loads(user.activity_text)
+    data.append(obj)
+    user.activity_text = json.dumps(data, ensure_ascii=False)
+    user.save()
+    return render(request, 'myworkplace/confirm_WFH.html')
+
+def confirm_leave_WFH_1(request, id, boss, day):
+    obj = {'type': 'leave_WFH_1', 'approved_by': boss,
+           'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
+           'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
+           'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+    user = employee.objects.get(employee_ID=str(id))
+    print(user)
+    data = json.loads(user.activity_text)
+    data.append(obj)
+    user.activity_text = json.dumps(data, ensure_ascii=False)
+    user.save()
+    return render(request, 'myworkplace/confirm_WFH.html')
