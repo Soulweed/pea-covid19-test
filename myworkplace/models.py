@@ -23,16 +23,45 @@ TRUE_FALSE_CHOICES = (
 
 )
 
+ACTIVE_STATUS_CHOICES=(
+    ('PEA', 'PEA'),
+    ('WFH', 'WFH'),
+    ('LEAVE', 'Leave'),
+    ('COVID', 'COVID')
+)
+
+APPROVED_STATUS = (
+    ('Idle', 'Idle'),
+    ('WFH', 'WFH'),
+    ('LEAVE', 'Leave'),
+    ('COVID', 'COVID')
+)
 
 # Create your models here.
 class employee(models.Model):
     emplyee_name=models.CharField(max_length=255)
     employee_ID=models.CharField(max_length=255)
     employee_line_ID = models.CharField(max_length=255)
+
+
+
     activity_text = models.TextField(default='000')  #
+    active_status = models.CharField(max_length=6, choices=ACTIVE_STATUS_CHOICES,blank= True)
+    approved_status = models.CharField(max_length=6, choices=APPROVED_STATUS,blank= True)
+
+    WFH_start_date = models.CharField(max_length=255)
+    WFH_end_date = models.CharField(max_length=255)
+    LEAVE_start_date =models.CharField(max_length=255)
+    LEAVE_end_date = models.CharField(max_length=255)
+    healthy= models.CharField(max_length=255)
+    daily_update=models.BooleanField(default=False)
+    challenge=models.BooleanField(default=False)
+
+
+
+
     quarantined = models.BooleanField(default=False, blank=True)
     infected = models.BooleanField(default=False, blank=True)
-    healthy= models.CharField(max_length=255)
 
 
     employee_id_up_1 = models.CharField(max_length= 200,blank=True )

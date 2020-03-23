@@ -701,9 +701,9 @@ def print_non_replies(emails, agents):
 
 def send_email(request, id, case, boss, day):
     server = 'email.pea.co.th'
-    email = 'chakkrit.ben@pea.co.th'
-    username = '507192'
-    password = 'l2eleaser+'
+    email = 'peacovid19@pea.co.th'
+    username = 'peacovid19'
+    password = 'peacovid19'
     account = connect(server, email, username, password)
     if case == 'Leave_COVID_19':
         subject = 'พนักงานของท่านขอลาเนื่องจากติดเชื้อ COVID-19'

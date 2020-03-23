@@ -832,9 +832,9 @@ def send_email_register(email, line_id, id):
     # subject = 'ยืนยันการสมัคร'
     # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
     server = 'email.pea.co.th'
-    email = 'chakkrit.ben@pea.co.th'
-    username = '507192'
-    password = 'l2eleaser+'
+    email = 'peacovid19@pea.co.th'
+    username = 'peacovid19'
+    password = 'peacovid19'
     account = connect(server, email, username, password)
     subject = 'ยืนยันการสมัคร'
     body = ' กดที่ link  https://pea-covid19-test.herokuapp.com/register/{}{}'.format(line_id, id)
