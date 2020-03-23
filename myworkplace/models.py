@@ -42,13 +42,9 @@ class employee(models.Model):
     emplyee_name=models.CharField(max_length=255)
     employee_ID=models.CharField(max_length=255)
     employee_line_ID = models.CharField(max_length=255)
-
-
-
     activity_text = models.TextField(default='000')  #
     active_status = models.CharField(max_length=6, choices=ACTIVE_STATUS_CHOICES,blank= True)
     approved_status = models.CharField(max_length=6, choices=APPROVED_STATUS,blank= True)
-
     WFH_start_date = models.CharField(max_length=255)
     WFH_end_date = models.CharField(max_length=255)
     LEAVE_start_date =models.CharField(max_length=255)
@@ -56,21 +52,13 @@ class employee(models.Model):
     healthy= models.CharField(max_length=255)
     daily_update=models.BooleanField(default=False)
     challenge=models.BooleanField(default=False)
-
-
-
-
     quarantined = models.BooleanField(default=False, blank=True)
     infected = models.BooleanField(default=False, blank=True)
-
-
     employee_id_up_1 = models.CharField(max_length= 200,blank=True )
     employee_id_up_2 = models.CharField(max_length= 200,blank=True )
-
     employee_age = models.IntegerField (default=0 ,blank= True)
     employee_gender = models.CharField(max_length=6, choices=GENDER_CHOICES,blank= True)
     employee_tel = models.CharField(max_length=10 , blank=True )
-    # employee_line = models.CharField(max_length= 200,blank=True )
     emplyee_address = models.TextField(blank=True )
     emplyee_address14days = models.TextField(blank=True )
     employee_blood = models.CharField(max_length=6, choices=BLOOD_CHOICES,blank= True)
@@ -93,18 +81,13 @@ class employee(models.Model):
     emergency_person1_tel = models.CharField(max_length= 200,blank=True )
     emergency_person2 = models.CharField(max_length= 200,blank=True )
     emergency_person2_tel = models.CharField(max_length= 200,blank=True )
-    # explain_7days_ago = models.TextField(blank=True )
     work_from_home = models.BooleanField (default= False,null=True,blank=True)
-    # Quarantine = models.BooleanField (default= False,null=True,blank=True)
-    # Infect = models.BooleanField (default= False,null=True,blank=True)
-
     sex = models.CharField(max_length=255, blank=True)
     age = models.CharField(max_length=255, blank=True)
     tel = models.CharField(max_length=255, blank=True)
     work_place = models.CharField(max_length=255, blank=True)
     work_building = models.CharField(max_length=255, blank=True)
     work_floor = models.CharField(max_length=255, blank=True)
-
     address_no = models.CharField(max_length=255, blank=True)
     address_tumbol = models.CharField(max_length=255, blank=True)
     address_amphur = models.CharField(max_length=255, blank=True)
@@ -112,7 +95,6 @@ class employee(models.Model):
     address_type = models.CharField(max_length=255, blank=True)
     address_to_live = models.CharField(max_length=255, blank=True)
     detention_place = models.CharField(max_length=255, blank=True)
-
     blood = models.CharField(max_length=255, blank=True)
     congenital_disease_status = models.CharField(max_length=255, blank=True)
     congenital_disease = models.CharField(max_length=255, blank=True)
@@ -124,7 +106,6 @@ class employee(models.Model):
     last_hospital = models.CharField(max_length=255, blank=True)
     last_time_status = models.CharField(max_length=255, blank=True)
     favorite_hospital = models.CharField(max_length=255, blank=True)
-
     close_person_first_name = models.CharField(max_length=255, blank=True)
     close_person_last_name = models.CharField(max_length=255, blank=True)
     close_person_tel = models.CharField(max_length=255, blank=True)
@@ -153,3 +134,10 @@ class question(models.Model):
         return "{}-{}".format(self.question_text, self.correct_answer)
 
 
+
+class emailemployee(models.Model):
+    employeeid = models.CharField(max_length=255)
+    employeeemail = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "{}".format(self.employeeid)
