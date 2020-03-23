@@ -39,7 +39,7 @@
       <div class="row">
         <div class="col-12">
           <h6 id="unedited">รหัสพนักงาน</h6>
-          <input class="w-100 unedited" type="text" value={{ Employee_ID }} disabled="disabled">
+          <input class="w-100 unedited" type="text" value={{ EmployeeID }} disabled="disabled">
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
       <div class="row">
         <div class="col-12">
           <h6 id="unedited">ชื่อ-นามสกุล</h6>
-          <input class="w-100 unedited" type="text" name="first-last name" value="xxx" disabled="disabled">
+          <input class="w-100 unedited" type="text" name="first-last name" value={{  FirstName }} {{ "  " }} {{ LastName }} disabled="disabled">
         </div>
       </div>
     </div>
@@ -59,7 +59,7 @@
       <div class="row">
         <div class="col-12">
           <h6 id="unedited">สังกัด</h6>
-          <input class="w-100 unedited" type="text" name="division" value="xxx" disabled="disabled">
+          <input class="w-100 unedited" type="text" name="division" value= {{ DepartmentShort }} disabled="disabled">
         </div>
       </div>
     </div>
@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-12">
           <h6 id="unedited">ตำแหน่ง</h6>
-          <input class="w-100 unedited" type="text" name="position" value="xxx" disabled="disabled">
+          <input class="w-100 unedited" type="text" name="position" value={{ PositionDescShort }} disabled="disabled">
         </div>
       </div>
     </div>
@@ -141,11 +141,19 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
+                                    <input name="page" id="page_input" hidden="true">
+
           <input id="checkin" class="w-100 btn" type="submit" value="ถัดไป">
         </div>
       </div>
     </div>
   </div>
   </form>
+    <script>
+    window.onload = function(){
+        document.getElementById("page_input").value = "1";
+    };
+
+</script>
 
   {% endblock %}

@@ -132,7 +132,7 @@ class employee(models.Model):
     emergency_two_tel = models.CharField(max_length=255, blank=True)
 
     def __str__(self):
-        return "{}".format(self.employee_ID)
+        return "{}-{}".format(self.employee_ID, self.emplyee_name)
 
 class question(models.Model):
     question_text = models.CharField(max_length=200, blank=True)

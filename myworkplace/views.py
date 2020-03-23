@@ -197,67 +197,6 @@ def tscheckout(request, id):    return render(request, 'myworkplace/tscheckout.h
 
 
 
-# def checkin(request, id):
-#     data = employee.objects.get(employee_ID=str(id))
-#     context = {'data': data.__dict__}
-#     if request.method == "POST":
-#         if request.POST.get('check_indummy'):
-#             # do something for checkin
-#             print('checkin')
-#             latitude = request.POST.get("latitude")
-#             longitude = request.POST.get("longitude")
-#             print('##########-----------##########')
-#             print('latitute is', latitude)
-#             return render(request, 'myworkplace/tscheckin.html')
-#         else :
-#             # do something for checkout
-#             print('checkout')
-#             latitude = request.POST.get("latitude")
-#             longitude = request.POST.get("longitude")
-#             print('##########-----------##########')
-#             print('latitute is', latitude)
-#             return render(request, 'myworkplace/tscheckout.html')
-#
-#
-#     # if request.method == "POST":
-#     #     latitude = request.POST.get("latitude")
-#     #     longitude = request.POST.get("longitude")
-#     #     print('##########-----------##########')
-#     #     print('latitute is', latitude)
-#     #     obj = {'type': 'checkin', 'latitude': latitude, 'longitude': longitude,
-#     #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-#     #     obj = {'type': 'checkin',
-#     #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-#     #
-#     #     user = employee.objects.get(employee_ID=str(id))
-#     #     data = json.loads(user.activity_text)
-#     #     data.append(obj)
-#     #     print(data)
-#     #     user.activity_text = json.dumps(data, ensure_ascii=False)
-#     #     user.save()
-#     #     context['data'].update({'datetime': obj['datetime']})
-#     #     return render(request, 'myworkplace/tscheckin.html')
-#     #
-#     # elif request.method == "POST":
-#     #     latitude = request.POST.get("latitude")
-#     #     longitude = request.POST.get("longitude")
-#     #     print('##########-----------##########')
-#     #     print('latitute is', latitude)
-#     #     obj = {'type': 'checkout', 'latitude': latitude, 'longitude': longitude,
-#     #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-#     #     obj = {'type': 'checkout',
-#     #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-#     #     user = employee.objects.get(employee_ID=str(id))
-#     #     data = json.loads(user.activity_text)
-#     #     data.append(obj)
-#     #     print(data)
-#     #     user.activity_text = json.dumps(data, ensure_ascii=False)
-#     #     user.save()
-#     #     context['data'].update({'datetime': obj['datetime']})
-#     #     return render(request, 'myworkplace/tscheckout.html')
-#
-#     return render(request, 'myworkplace/timestamp.html', context)
-
 def challenge(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
     context = {'data': data}
@@ -282,31 +221,6 @@ def challenge(request, id):
 
     return render(request, 'myworkplace/challenge2.html', context)
 
-# def normal_group(request, id):
-#     data = employee.objects.get(employee_ID=id).__dict__
-#     context = {'data': data}
-#     if request.method == "POST":
-#         print('here we are')
-#         print('send email')  # send email
-#         start_date = request.POST.get("id_start_date")
-#         end_date = request.POST.get("id_end_date")
-#         total_date = request.POST.get("id_total_date")
-#         employee_up1 = request.POST.get("id_employee_up1")
-#         employee_up2 = request.POST.get("id_employee_up2")
-#         customRadio = request.POST.get("customRadio")
-#
-#         print(start_date, end_date, total_date, employee_up1, employee_up2)
-#
-#         ######send email here#########
-#         if (customRadio == 'Accept'):
-#             print(id)
-#             print(employee_up1)
-#             print(employee_up2)
-#
-#         return redirect(confirm, id)
-#     print('----------------------')
-#     print(context)
-#     return render(request, 'myworkplace/normal_group.html', context)
 
 
 
@@ -339,56 +253,6 @@ def see_doctor(request, id):
 
     return render(request, 'myworkplace/see_doctor.html', context)
 
-# def medium_group(request, id):
-#     data = employee.objects.get(employee_ID=id).__dict__
-#     context = {'data': data}
-#     if request.method == "POST":
-#         print('here we are')
-#         print('send email')  # send email
-#
-#         return redirect(confirm, id)
-#     print('----------------------')
-#     print(context)
-#     return render(request, 'myworkplace/medium_group.html', context)
-
-# def risk_group(request, id):
-#     data = employee.objects.get(employee_ID=id).__dict__
-#     print('risk group')
-#     context = {'data': data}
-#     if request.method == "POST":
-#         print('here we are')
-#         print('send email')  # send email
-#         ######send email here#########
-#         # user = employee.objects.get(employee_ID=id).__dict__
-#         # user.infected == True
-#         # user.save()
-#         return redirect(confirm, id)
-#     print('----------------------')
-#     print(context)
-#     return render(request, 'myworkplace/risk_group.html', context)
-
-# def risk_form(request, id):
-#     data = employee.objects.get(employee_ID=id).__dict__
-#     print('risk form')
-#     context = {'data': data}
-#     if request.method == "POST":
-#         print('here we are')
-#         ######send email here#########
-#         print('risk form')
-#
-#         return redirect(risk_group, id)
-#     print('----------------------')
-#     print(context)
-#     return render(request, 'myworkplace/risk_form.html', context)
-
-# def confirm(request, id):
-#     user = employee.objects.get(employee_ID=id)
-#     context = {'id': user.employee_ID, 'health': user.healthy}
-#     return render(request, 'myworkplace/confirm.html', context)
-#
-# def confirm_WFH(request, id):
-#     print('link to work form home confirm page')
-#     return render(request, 'myworkplace/confirm_WFH.html')
 
 
 # API
@@ -409,12 +273,16 @@ from django.http import HttpResponseForbidden, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 
+
 def register(request, id):
+    # data = employee.objects.get(employee_ID=id).__dict__
+
     emp_id = id[33:]
     line_id = id[0:33]
-    FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc=get_employee_profile(emp_id)
-    context = {'Employee_ID': emp_id, 'FirstName': FirstName, 'LastName':LastName, 'DepartmentShort': DepartmentShort, 'PositionDescShort':PositionDescShort,
-               'LevelDesc':LevelDesc}
+    FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
+
+    context ={'EmployeeID': emp_id, 'FirstName':FirstName, 'LastName':LastName, 'DepartmentShort':DepartmentShort,
+              'PositionDescShort':PositionDescShort, 'LevelDesc':LevelDesc}
     try:
         employee.objects.get(employee_line_ID=line_id)
         return redirect(home)
@@ -594,6 +462,7 @@ def register(request, id):
             )
 
             user_data.save()
+            print('model save')
             connection.close()
             return render(request, 'myworkplace/register_finish.html', context)
     print(context)
@@ -688,7 +557,6 @@ def miss3d_du(request, id):
 def miss3d_ts(request, id):
     data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data, 'number':40}
-    connection.close()
 
     return render(request, 'myworkplace/miss3d_ts_id.html', context)
 
@@ -747,7 +615,7 @@ def LEAVE_request(request, id, boss):
     user.activity_text = json.dumps(data, ensure_ascii=False)
     user.active_status = 'LEAVE'
     user.save()
-    connection.close()
+    user.close()
     context={'data': 'Leave request'}
     return render(request, 'myworkplace/test.html',context )
 
@@ -787,8 +655,10 @@ def get_employee_profile(id):
     res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
     o = xmltodict.parse(res.text)
     jsonconvert = dict(o)
+
     authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
         'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
+    print(authData)
 
     return authData.get("FirstName"), authData.get("LastName"), authData.get("DepartmentShort"), \
            authData.get("'PositionDescShort"), authData.get("'LevelDesc")

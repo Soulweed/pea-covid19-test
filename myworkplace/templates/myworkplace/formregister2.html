@@ -118,11 +118,18 @@
         <div class="container">
           <div class="row">
             <div class="col-12 text-center">
+                                                    <input name="page" id="page_input" hidden="true">
+
               <input id="checkin" class="w-100 btn" type="submit" value="ถัดไป">
             </div>
           </div>
         </div>
       </div>
   </form>
+
+    <script>
+    window.onload = function(){
+        document.getElementById("page_input").value = "2";
+    };</script>
 
   {% endblock %}
