@@ -59,11 +59,7 @@ def daily_update(request, id):
         list_group_2 = [fever, cough, cold, sore_throat, tried]
         group1 = list_group_1.count('TRUE')
         group2 = list_group_2.count('on')
-        print(list_group_1)
-        print(group1)
 
-        print(list_group_2)
-        print(group2)
 
         if group1 == 0 and group2 == 0:
             health = 'normal'
@@ -73,10 +69,9 @@ def daily_update(request, id):
             health = 'flu'
         elif (group1 == 1 and group2 > 1) or (group1 > 1 and group2 > 1):
             health = 'hospital'
-        print(health)
         # user = employee.objects.get(employee_ID=id)
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        print(obj)
+
         data = json.loads(user.activity_daily_update)
         data.append(obj)
         user.activity_daily_update = json.dumps(data)
@@ -97,72 +92,12 @@ def daily_update(request, id):
     return render(request, 'myworkplace/daily_update.html')
 
 def personal_info(request, id):
-    print('access personal info')
     data = employee.objects.get(employee_line_ID=id).__dict__
-    print(type(data))
-    print(data)
     context = {'data': data}
-    print(context)
     connection.close()
 
     return render(request, 'myworkplace/personal_info.html', context)
 
-# def screen(request, id):
-#     data = employee.objects.get(employee_ID=str(id)).__dict__
-#     context = {'data': data}
-#
-#     if request.method == "POST":
-#         name = request.POST.get("input_name")
-#         workplace = request.POST.get("input_workplace")
-#         gender = request.POST.get("input_gender")
-#         age = request.POST.get("input_age")
-#
-#         fever = request.POST.get("input_fever")
-#         cold = request.POST.get("input_cold")
-#         travel = request.POST.get("input_travel")
-#         travel_dangerous_area = request.POST.get("input_travel_dangerous_area")
-#         home_dangerous = request.POST.get("input_home_dangerous")
-#         meet_foreigner = request.POST.get("input_meet_foreigner")
-#         contact = request.POST.get("input_contact")
-#
-#         if fever == 'FALSE' and cold == 'FALSE' and travel == 'FALSE' and travel_dangerous_area == 'FALSE' \
-#                 and home_dangerous == 'FALSE' and meet_foreigner == 'FALSE' and contact == 'FALSE':
-#             health = "normal ปกติ"
-#         elif travel == 'TRUE' or travel_dangerous_area == 'TRUE' \
-#                 or home_dangerous == 'TRUE' or meet_foreigner == 'TRUE' or contact == 'TRUE':
-#             health = 'High risk เสี่ยงสูง'
-#         else:
-#             health = 'Risk เสี่ยง'
-#
-#         user = employee.objects.get(employee_ID=id)
-#         user.emplyee_name = name
-#         user.work = workplace
-#         user.employee_gender = gender
-#         user.employee_age = age
-#         user.healthy = health
-#
-#         obj = {'type': 'first_screen', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-#         data = json.loads(user.activity_text)
-#         # print(data)
-#
-#         data.append(obj)
-#         # print(data)
-#         user.activity_text = json.dumps(data, ensure_ascii=False)
-#         user.save()
-#         context.update({'health': health})
-#         print('######################')
-#
-#         print(context)
-#         if health == "normal ปกติ":
-#             return redirect(normal_group, id)
-#         elif health == 'Risk เสี่ยง':
-#             return redirect(medium_group, id)
-#         else:
-#             return redirect(risk_form, id)
-#         # return render(request, 'myworkplace/confirm.html', context)
-#     print('----------------------')
-#     print(context)
-#     return render(request, 'myworkplace/screen.html', context)
 
 def checkin(request, id):
     user = employee.objects.get(employee_ID=str(id))
@@ -176,10 +111,8 @@ def checkin(request, id):
             'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
         data = json.loads(user.activity_checkin)
-        print(data)
         data.append(obj)
         user.activity_checkin = json.dumps(data, ensure_ascii=False)
-        print(user.activity_checkin)
         user.save()
         connection.close()
 
@@ -213,10 +146,10 @@ def challenge(request, id):
                'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
         user = employee.objects.get(employee_ID=str(id))
-        data = json.loads(user.activity_text)
+        data = json.loads(user.activity_challenge)
         data.append(obj)
         print(data)
-        user.activity_text = json.dumps(data, ensure_ascii=False)
+        user.activity_challenge = json.dumps(data, ensure_ascii=False)
         user.save()
         connection.close()
         context['data'].update({'datetime': obj['datetime']})
@@ -291,9 +224,6 @@ def register(request, id):
         return redirect(home)
     except:
         pass
-
-    # context = {'data': {'id': emp_id}}
-
 
     sex = ''
     age = ''
@@ -380,10 +310,10 @@ def register(request, id):
                             'mobile_ref_2':mobile_ref_2, 'firstname_ref_3':firstname_ref_3, 'lastname_ref_3':lastname_ref_3,
                             'mobile_ref_3':mobile_ref_3 })
 
-            return render(request, 'myworkplace/register_4.html', context)
-
-        if (page == "4"):
-            print("OK4")
+        #     return render(request, 'myworkplace/register_4.html', context)
+        #
+        # if (page == "4"):
+        #     print("OK4")
             # close_person_first_name = request.POST.get("close_person_first_name")
             # close_person_last_name = request.POST.get("close_person_last_name")
             # close_person_tel = request.POST.get("close_person_tel")
