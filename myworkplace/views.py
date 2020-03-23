@@ -408,7 +408,6 @@ from django.views.decorators.csrf import csrf_exempt
 def register(request, id):
     emp_id = id[33:]
     line_id = id[0:33]
-    user = employee.objects.get(employee_ID=str(emp_id))
     FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc=get_employee_profile(emp_id)
     context = {'Employee_ID': emp_id, 'FirstName': FirstName, 'LastName':LastName, 'DepartmentShort': DepartmentShort, 'PositionDescShort':PositionDescShort,
                'LevelDesc':LevelDesc}
@@ -418,7 +417,7 @@ def register(request, id):
     except:
         pass
 
-    context = {'data': {'id': emp_id}}
+    # context = {'data': {'id': emp_id}}
 
     emp_id = ''
     sex = ''
