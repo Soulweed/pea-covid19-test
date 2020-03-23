@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import employee, question, emailemployee
+from send_email.views import send_email_wfh_request
 import json
 from datetime import datetime, timedelta
 import getpass
@@ -38,10 +39,7 @@ def home(request):
                'risk_wfh':employee.objects.filter(active_status='Leave').count(),
                'pea_office':employee.objects.filter(active_status='PEA').count(),
                'no_daily_update':employee.objects.filter(daily_update=False).count()}
-    print(context)
     return render(request, 'myworkplace/home.html', context)
-
-
 
 
 def daily_update(request, id):
@@ -167,52 +165,103 @@ def checkin(request, id):
     data = employee.objects.get(employee_ID=str(id))
     context = {'data': data.__dict__}
 
-    # if request.method == "POST":
-    #     latitude = request.POST.get("latitude")
-    #     longitude = request.POST.get("longitude")
-    #     print('##########-----------##########')
-    #     print('latitute is', latitude)
-    #     obj = {'type': 'checkin', 'latitude': latitude, 'longitude': longitude,
-    #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-    #     obj = {'type': 'checkin',
-    #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-    #
-    #     user = employee.objects.get(employee_ID=str(id))
-    #     data = json.loads(user.activity_text)
-    #     data.append(obj)
-    #     print(data)
-    #     user.activity_text = json.dumps(data, ensure_ascii=False)
-    #     user.save()
-    #     context['data'].update({'datetime': obj['datetime']})
-    #     return render(request, 'myworkplace/tscheckin.html')
-    #
-    # elif request.method == "POST":
-    #     latitude = request.POST.get("latitude")
-    #     longitude = request.POST.get("longitude")
-    #     print('##########-----------##########')
-    #     print('latitute is', latitude)
-    #     obj = {'type': 'checkout', 'latitude': latitude, 'longitude': longitude,
-    #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-    #     obj = {'type': 'checkout',
-    #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-    #     user = employee.objects.get(employee_ID=str(id))
-    #     data = json.loads(user.activity_text)
-    #     data.append(obj)
-    #     print(data)
-    #     user.activity_text = json.dumps(data, ensure_ascii=False)
-    #     user.save()
-    #     context['data'].update({'datetime': obj['datetime']})
-    #     return render(request, 'myworkplace/tscheckout.html')
+    if request.method == "POST":
+        action_type = request.POST.get("type")
+        latitude = request.POST.get("latitude")
+        longitude = request.POST.get("longitude")
+        obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
+            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+        save_log(id,obj)
+        context['data'].update({'datetime': obj['datetime']})
+
+        if(action_type == "checkin"):
+            return redirect(tscheckin, id)
+        elif(action_type == "checkout"):
+            return redirect(tscheckout, id)
 
     return render(request, 'myworkplace/timestamp.html', context)
 
-# def tscheckin(request):
+def save_log(id, obj):
+    user = employee.objects.get(employee_ID=str(id))
+    print(user.activity_checkin)
+    data = json.loads(user.activity_checkin)
+    data.append(obj)
+    print(data)
+    user.activity_checkin = json.dumps(data, ensure_ascii=False)
+    user.save()
+
+def tscheckin(request, id):
+    data = employee.objects.get(employee_ID=str(id))
+    context = {'data': data.__dict__}
+    return render(request, 'myworkplace/tscheckin.html', context)
+
+def tscheckout(request, id):
+    data = employee.objects.get(employee_ID=str(id))
+    context = {'data': data.__dict__}
+    return render(request, 'myworkplace/tscheckout.html', context)
+
+
+
+# def checkin(request, id):
+#     data = employee.objects.get(employee_ID=str(id))
+#     context = {'data': data.__dict__}
+#     if request.method == "POST":
+#         if request.POST.get('check_indummy'):
+#             # do something for checkin
+#             print('checkin')
+#             latitude = request.POST.get("latitude")
+#             longitude = request.POST.get("longitude")
+#             print('##########-----------##########')
+#             print('latitute is', latitude)
+#             return render(request, 'myworkplace/tscheckin.html')
+#         else :
+#             # do something for checkout
+#             print('checkout')
+#             latitude = request.POST.get("latitude")
+#             longitude = request.POST.get("longitude")
+#             print('##########-----------##########')
+#             print('latitute is', latitude)
+#             return render(request, 'myworkplace/tscheckout.html')
 #
-#     return render(request, 'myworkplace/tscheckin.html')
 #
-# def tscheckout(request):
+#     # if request.method == "POST":
+#     #     latitude = request.POST.get("latitude")
+#     #     longitude = request.POST.get("longitude")
+#     #     print('##########-----------##########')
+#     #     print('latitute is', latitude)
+#     #     obj = {'type': 'checkin', 'latitude': latitude, 'longitude': longitude,
+#     #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#     #     obj = {'type': 'checkin',
+#     #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#     #
+#     #     user = employee.objects.get(employee_ID=str(id))
+#     #     data = json.loads(user.activity_text)
+#     #     data.append(obj)
+#     #     print(data)
+#     #     user.activity_text = json.dumps(data, ensure_ascii=False)
+#     #     user.save()
+#     #     context['data'].update({'datetime': obj['datetime']})
+#     #     return render(request, 'myworkplace/tscheckin.html')
+#     #
+#     # elif request.method == "POST":
+#     #     latitude = request.POST.get("latitude")
+#     #     longitude = request.POST.get("longitude")
+#     #     print('##########-----------##########')
+#     #     print('latitute is', latitude)
+#     #     obj = {'type': 'checkout', 'latitude': latitude, 'longitude': longitude,
+#     #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#     #     obj = {'type': 'checkout',
+#     #            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#     #     user = employee.objects.get(employee_ID=str(id))
+#     #     data = json.loads(user.activity_text)
+#     #     data.append(obj)
+#     #     print(data)
+#     #     user.activity_text = json.dumps(data, ensure_ascii=False)
+#     #     user.save()
+#     #     context['data'].update({'datetime': obj['datetime']})
+#     #     return render(request, 'myworkplace/tscheckout.html')
 #
-#     return render(request, 'myworkplace/tscheckout.html')
+#     return render(request, 'myworkplace/timestamp.html', context)
 
 def challenge(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
@@ -519,6 +568,7 @@ def confirm_registration(request, id):
         print('ลงทะเบียนใหม่')
         return render(request, 'myworkplace/home.html')
 
+
 ######## challenge
 
 def randomquestions(request, id):
@@ -588,33 +638,77 @@ def miss3d_ts(request, id):
     return render(request, 'myworkplace/miss3d_ts_id.html', context)
 
 
-def confirm_leave_WFH_2(request, id, boss):
-    obj = {'type': 'leave_WFH_2', 'approved_by': boss,
+
+def WFH_request(request, id, boss):
+    day=10
+    obj = {'type': 'WFH_request', 'approved_by': boss,
            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
-           'finish_date': (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d"),
+           'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
+    send_email_wfh_request(id=id, boss=boss)
     user = employee.objects.get(employee_ID=str(id))
-    print(user)
     data = json.loads(user.activity_text)
     data.append(obj)
     user.activity_text = json.dumps(data, ensure_ascii=False)
+    user.approved_status = 'WFH'
     user.save()
-    return render(request, 'myworkplace/confirm_WFH.html')
+    context = {'data': 'WFH request'}
+    return render(request, 'myworkplace/test.html', context)
 
-def confirm_leave_WFH_1(request, id, boss, day):
-    obj = {'type': 'leave_WFH_1', 'approved_by': boss,
+
+
+def WFH_approve(request, id, boss):
+    day=10
+    obj = {'type': 'WFH_approved', 'approved_by': boss,
            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
            'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
     user = employee.objects.get(employee_ID=str(id))
-    print(user)
     data = json.loads(user.activity_text)
     data.append(obj)
     user.activity_text = json.dumps(data, ensure_ascii=False)
+    user.active_status='WFH'
+    user.approved_status='Idle'
     user.save()
-    return render(request, 'myworkplace/confirm_WFH.html')
+    context = {'data': 'WFH approve'}
+    return render(request, 'myworkplace/test.html', context)
+
+
+def LEAVE_request(request, id, boss):
+    day=14
+    obj = {'type': 'LEAVE_request', 'approved_by': boss,
+           'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
+           'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
+           'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+    # send_email_LEAVE(email=, line_id=, id=)
+    user = employee.objects.get(employee_ID=str(id))
+    data = json.loads(user.activity_text)
+    data.append(obj)
+    user.activity_text = json.dumps(data, ensure_ascii=False)
+    user.active_status = 'LEAVE'
+    user.save()
+    context={'data': 'Leave request'}
+    return render(request, 'myworkplace/test.html',context )
+
+
+# def LEAVE_approve(request, id, boss):
+#     obj = {'type': 'LEAVE_approved', 'approved_by': boss,
+#            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
+#            'finish_date': (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d"),
+#            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#
+#     user = employee.objects.get(employee_ID=str(id))
+#     print(user)
+#     data = json.loads(user.activity_text)
+#     data.append(obj)
+#     user.activity_text = json.dumps(data, ensure_ascii=False)
+#     user.active_status='LEAVE'
+#     user.approved_status='Idle'
+#     user.save()
+#     context = {'data': 'Leave approve'}
+#     return render(request, 'myworkplace/test.html', context)
 
 
 def get_employee_profile(id):

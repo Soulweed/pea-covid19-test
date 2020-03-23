@@ -1,71 +1,69 @@
-
 {% extends 'base.html' %}
 {% load static %}
 
 {% block title_bl %} Timestamp | ระบบลงเวลาเข้า-ออกงาน{% endblock %}
 {% block body_bl %}
 
-    <div class="py-5 timestampbg">
-        <div class="py-4 container">
-            <div class="row">
-                <div class="col-12">
-                    <h1> &nbsp; </h1>
-                    <h1> &nbsp; </h1>
-                </div>
+<div class="py-5 timestampbg">
+    <div class="py-4 container">
+        <div class="row">
+            <div class="col-12">
+                <h1> &nbsp; </h1>
+                <h1> &nbsp; </h1>
             </div>
         </div>
     </div>
-    <div class="pt-4">
+</div>
+<div class="pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 class="">ระบบลงเวลาเข้า-ออกงาน</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h6 class="">สำหรับพนักงานที่ร่วมโครงการ</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 class="">Work From Home</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h6 class="">เพื่อสู้วิกฤต COVID-19</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<form method="POST" id="timestamp">
+    {% csrf_token %}
+    <input id="lat" name="latitude" hidden="true">
+    <input id="lng" name="longitude" hidden="true">
+    <input id="action" name="type" hidden="true">
+    <div class="py-3">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h3 class="">ระบบลงเวลาเข้า-ออกงาน</h3>
+                    <input id="checkin" class="w-75 btn" type="button" value="ลงเวลาเข้างาน" disabled="true" onclick="checkinclick()">
                 </div>
             </div>
         </div>
     </div>
-    <div class="py-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h6 class="">สำหรับพนักงานที่ร่วมโครงการ</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="py-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h3 class="">Work From Home</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="py-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <h6 class="">เพื่อสู้วิกฤต COVID-19</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-      <form method="POST">
-    <form  method="POST">
-        {% csrf_token %}
-        <div class="py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <input name="checkin" id="checkin" class="w-75 btn" type="submit" value="ลงเวลาเข้างาน">
-                    </div>
-                    <input id="lat" name="latitude" hidden="true">
-                    <input id="lng" name="longitude" hidden="true">
-                </div>
-            </div>
-        </div>
-    </form>
     <div class="py-1">
         <div class="container">
             <div class="row">
@@ -74,71 +72,230 @@
                     </h6>
                     <h6>ตั้งแต่เวลา 7:00น.- 8:30 น.</h6>
                     <div class="px-4 pt-1">
-
                         <hr>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-      <form method="POST">
-        {% csrf_token %}
-        <div class="py-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <input name="checkout" id="checkout" class="w-75 btn" type="submit" value="ลงเวลาเลิกงาน">
-                    </div>
-                    <input id="lat" name="latitude" hidden="true">
-                    <input id="lng" name="longitude" hidden="true">
-                </div>
-            </div>
-        </div>
-    </form>
-    <div class="pt-4 pb-5">
+    {% csrf_token %}
+    <div class="py-0">
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h6 class="">*ระบบเปิดให้ลงเวลา<font color="#cd87eb">เลิกงาน</font>
-                    </h6>
-                    <h6>ตั้งแต่เวลา 16:30น. - 24:00 น.</h6>
-
+                    <input id="checkout" class="w-75 btn" type="button" value="ลงเวลาเลิกงาน" disabled="true" onclick="checkoutclick()">
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</form>
+<div class="pt-4 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h6 class="">*ระบบเปิดให้ลงเวลา<font color="#cd87eb">เลิกงาน</font>
+                </h6>
+                <h6>ตั้งแต่เวลา 16:30น. - 24:00 น.</h6>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
-    <script>
-        document.onload = getLocation();
-        var checkinForm = document.getElementById("checkin");
-        var statusInput = document.getElementById("status");
-        var latInput = document.getElementById("lat");
-        var lngInput = document.getElementById("lng");
+<script>
+    document.onload = getLocation();
 
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                statusInput.innerHTML = "เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง";
-            }
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+
         }
+    }
 
-        function showPosition(position) {
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
-            latInput.value = position.coords.latitude;
-            lngInput.value = position.coords.longitude;
-            checkinForm.submit();
-        }
-    </script>
+    function showPosition(position) {
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+        document.getElementById("lat").value = position.coords.latitude;
+        document.getElementById("lng").value = position.coords.longitude;
+        document.getElementById("checkin").disabled = false;
+        document.getElementById("checkout").disabled = false;
+    }
+
+    function checkinclick() {
+        document.getElementById("action").value = "checkin";
+        document.getElementById("timestamp").submit();
+    }
+
+    function checkoutclick() {
+        document.getElementById("action").value = "checkout";
+        document.getElementById("timestamp").submit();
+    }
+
+</script>
 
 {% endblock %}
+
+
+
+{#{% extends 'base.html' %}#}
+{#{% load static %}#}
+{##}
+{#{% block title_bl %} Timestamp | ระบบลงเวลาเข้า-ออกงาน{% endblock %}#}
+{#{% block body_bl %}#}
+{##}
+{#  <div class="py-5 timestampbg">#}
+{#    <div class="py-4 container">#}
+{#      <div class="row">#}
+{#        <div class="col-12">#}
+{#          <h1> &nbsp; </h1>#}
+{#          <h1> &nbsp; </h1>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <div class="pt-4">#}
+{#    <div class="container">#}
+{#      <div class="row">#}
+{#        <div class="col-12 text-center">#}
+{#          <h3 class="">ระบบลงเวลาเข้า-ออกงาน</h3>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <div class="py-0">#}
+{#    <div class="container">#}
+{#      <div class="row">#}
+{#        <div class="col-12 text-center">#}
+{#          <h6 class="">สำหรับพนักงานที่ร่วมโครงการ</h6>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <div class="py-1">#}
+{#    <div class="container">#}
+{#      <div class="row">#}
+{#        <div class="col-12 text-center">#}
+{#          <h3 class="">Work From Home</h3>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <div class="py-0">#}
+{#    <div class="container">#}
+{#      <div class="row">#}
+{#        <div class="col-12 text-center">#}
+{#          <h6 class="">เพื่อสู้วิกฤต COVID-19</h6>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <form id="checkin_form" method="POST">#}
+{#    {% csrf_token %}#}
+{#    <input type="hidden" name="check_indummy" value=1>#}
+{#    <input id="lat" name="latitude" hidden="true">#}
+{#    <input id="lng" name="longitude" hidden="true">#}
+{#  <div class="py-3">#}
+{#    <div class="container">#}
+{#      <div class="row">#}
+{#        <div class="col-12 text-center">#}
+{#          <input id="checkin" class="w-75 btn" type="submit" value="ลงเวลาเข้างาน">#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  </form>#}
+{#  <div class="py-1">#}
+{#    <div class="container">#}
+{#      <div class="row">#}
+{#        <div class="col-12 text-center">#}
+{#          <h6 class="">*ระบบเปิดให้ลงเวลา<font color="#25d895">เข้างาน</font>#}
+{#          </h6>#}
+{#          <h6>ตั้งแต่เวลา 7:00น.- 8:30 น.</h6>#}
+{#          <div class="px-4 pt-1">#}
+{#            <hr>#}
+{#          </div>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  <form id="checkout_form" method="POST">#}
+{#    {% csrf_token %}#}
+{#    <input type="hidden" name="check_outdummy" value=1>#}
+{#      <input id="lat" name="latitude" hidden="true">#}
+{##}
+{#    <input id="lng" name="longitude" hidden="true">#}
+{#  <div class="py-0">#}
+{#    <div class="container">#}
+{#      <div class="row">#}
+{#        <div class="col-12 text-center">#}
+{#          <input id="checkout" class="w-75 btn" type="submit" value="ลงเวลาเลิกงาน">#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  </form>#}
+{#  <div class="pt-4 pb-5">#}
+{#    <div class="container">#}
+{#      <div class="row">#}
+{#        <div class="col-12 text-center">#}
+{#          <h6 class="">*ระบบเปิดให้ลงเวลา<font color="#cd87eb">เลิกงาน</font>#}
+{#          </h6>#}
+{#          <h6>ตั้งแต่เวลา 16:30น. - 24:00 น.</h6>#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </div>#}
+{#  </form>#}
+{#  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"#}
+{#    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">#}
+{#  </script>#}
+{#  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"#}
+{#    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">#}
+{#  </script>#}
+{#  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"#}
+{#    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">#}
+{#  </script>#}
+{##}
+{##}
+{#    <script>#}
+{#    document.onload = getLocation();#}
+{##}
+{#    function getLocation() {#}
+{#        if (navigator.geolocation) {#}
+{#            navigator.geolocation.getCurrentPosition(showPosition);#}
+{#        } else {#}
+{##}
+{#        }#}
+{#    }#}
+{##}
+{#    function showPosition(position) {#}
+{#        console.log(position.coords.latitude);#}
+{#        console.log(position.coords.longitude);#}
+{#        document.getElementById("lat").value = position.coords.latitude;#}
+{#        document.getElementById("lng").value = position.coords.longitude;#}
+{#        document.getElementById("checkin").disabled = false;#}
+{#        document.getElementById("checkout").disabled = false;#}
+{#    }#}
+{##}
+{#    function checkinclick() {#}
+{#        document.getElementById("action").value = "checkin";#}
+{#        document.getElementById("timestamp").submit();#}
+{#    }#}
+{##}
+{#    function checkoutclick() {#}
+{#        document.getElementById("action").value = "checkout";#}
+{#        document.getElementById("timestamp").submit();#}
+{#    }#}
+{##}
+{#</script>#}
+{#{% endblock %}#}

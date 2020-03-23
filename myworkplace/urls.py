@@ -19,9 +19,8 @@ urlpatterns = [
     path('risk_group/<id>/', views.risk_group, name='risk_group'),
     path('risk_form/<id>/', views.risk_form, name='risk_form'),
     path('checkin/<id>/', views.checkin, name='checkin'),
-
-    # path('tscheckin/', views.tscheckin, name='tscheckin'),
-    # path('tscheckout/', views.tscheckout, name='tscheckin'),
+    path('tscheckin/', views.tscheckin, name='tscheckin'),
+    path('tscheckout/', views.tscheckout, name='tscheckin'),
     path('confirm_WFH/<id>/', views.confirm_WFH, name='confirm_WFH'),
     path('personal_info/<id>/', views.personal_info, name='personal_info'),
     path('api/', include(router.urls)),
@@ -31,8 +30,13 @@ urlpatterns = [
     path('challenge2/<id>/', views.randomquestions, name='challenge'),
     path('correct/', views.correct, name='correct'),
     path('wrong/', views.wrong, name='wrong'),
-
     path('miss3d_du/<id>/', views.miss3d_du, name='miss3d_du'),
     path('miss3d_ts/<id>/', views.miss3d_ts, name='miss3d_ts'),
     path('register/<id>/', views.register, name='register'),
+    path('WFH_request/<id>/<boss>/', views.WFH_request, name='WFH_request'),
+    path('LEAVE_request/<id>/<boss>/', views.LEAVE_request, name='LEAVE_request'),
+    path('WFH_approve/<id>/<boss>/', views.WFH_approve, name='WFH_approve'),
+    # path('LEAVE_approve/<id>/<boss>/', views.LEAVE_approve, name='LEAVE_approve'),
+
+
 ]
