@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import employee, question,emailemployee
+from .models import employee, question, emailemployee
 
 # Register your models here.
 

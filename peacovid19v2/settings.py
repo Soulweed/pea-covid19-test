@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myworkplace',
     'rest_framework',
-    'line_bot'
+    'line_bot',
+    'send_email'
 ]
 
 MIDDLEWARE = [
