@@ -175,7 +175,14 @@ def checkin(request, id):
         obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
             'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-        save_log(user,obj)
+        data = json.loads(user.activity_checkin)
+        print(data)
+        data.append(obj)
+        user.activity_checkin = json.dumps(data, ensure_ascii=False)
+        print(user.activity_checkin)
+        user.save()
+        connection.close()
+
         context['data'].update({'datetime': obj['datetime']})
 
         if(action_type == "checkin"):
@@ -185,12 +192,7 @@ def checkin(request, id):
 
     return render(request, 'myworkplace/timestamp.html', context)
 
-def save_log(user, obj):
-    data = json.loads(user.activity_checkin)
-    data.append(obj)
-    user.activity_text = json.dumps(data, ensure_ascii=False)
-    user.save()
-    connection.close()
+
 
 def tscheckin(request, id):    return render(request, 'myworkplace/tscheckin.html')
 
