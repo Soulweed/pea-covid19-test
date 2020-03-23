@@ -295,12 +295,12 @@ def handle_text_message(event):
                                                                "contents": [
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "ความเสี่ยง : {}".format(user_employee.healthy),
+                                                                       "text": "ความเสี่ยง :",
                                                                        "size": "xl"
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "{}".format(user_employee.active_status),
+                                                                       "text": "{}".format(user_employee.healthy),
                                                                        "size": "xl"
                                                                    }
                                                                ],
@@ -317,7 +317,7 @@ def handle_text_message(event):
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "เฝ้าระวัง",
+                                                                       "text": "{}".format(user_employee.active_status),
                                                                        "size": "xl"
                                                                    }
                                                                ],
