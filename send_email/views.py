@@ -2,9 +2,9 @@ from django.shortcuts import render
 from exchangelib import Configuration, Account, DELEGATE, Credentials
 from exchangelib import Message, Mailbox, FileAttachment
 import requests, xmltodict
-
+from datetime import datetime, timedelta
+from myworkplace.models import employee, emailemployee
 # Create your views here.
-
 
 def connect(server, email, username, password):
     """
@@ -75,26 +75,30 @@ def print_non_replies(emails, agents):
 
 
 def get_user_email(id):
-    url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
-    headers = {'content-type': 'text/xml'}
-    xmltext = '''<?xml version="1.0" encoding="utf-8"?>
-                <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-                <soap:Body>
-                    <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
-                    <WSAuthenKey>{0}</WSAuthenKey>
-                    <EmployeeId>{1}</EmployeeId>
-                    </GetEmployeeInfoByEmployeeId_SI>
-                </soap:Body>
-                </soap:Envelope>'''
-    wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
-    body = xmltext.format(wsauth, "{}".format(id))
-    res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
-    o = xmltodict.parse(res.text)
-    jsonconvert = dict(o)
-    authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
-        'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
+    # url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
+    # headers = {'content-type': 'text/xml'}
+    # xmltext = '''<?xml version="1.0" encoding="utf-8"?>
+    #             <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    #             <soap:Body>
+    #                 <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
+    #                 <WSAuthenKey>{0}</WSAuthenKey>
+    #                 <EmployeeId>{1}</EmployeeId>
+    #                 </GetEmployeeInfoByEmployeeId_SI>
+    #             </soap:Body>
+    #             </soap:Envelope>'''
+    # wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
+    # body = xmltext.format(wsauth, "{}".format(id))
+    # res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
+    # o = xmltodict.parse(res.text)
+    # jsonconvert = dict(o)
+    # authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
+    #     'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
+    #
+    # return authData.get("Email")
 
-    return authData.get("Email")
+    user = emailemployee.objects.get(employeeid=id)
+    print(user.employeeemail)
+    return user.employeeemail
 
 
 #### สมัคร
@@ -108,8 +112,16 @@ def send_email_register(email, line_id, id):
     username = 'peacovid19'
     password = 'peacovid19'
     account = connect(server, email, username, password)
-    subject = 'ยืนยันการสมัคร'
-    body = ' กดที่ link  https://pea-covid19-test.herokuapp.com/register/{}{}'.format(line_id, id)
+    subject = 'ยืนยันการลงทะเบียน'
+    body = ' รหัสพนักงานของท่าน {} ได้มีการลงทะเบียนกับ PEA COVID-19 ' \
+           'กรุณาเริ่มต้นการใช้งาน โดยยืนยันตัวตนของท่านผ่านข้อความฉบับนี้โดยคลิกตาม link ด้านล่างนี้ ' \
+           'https://pea-covid19-test.herokuapp.com/register/{}{} ' \
+           'เพื่อกรอกข้อมูลส่วนตัว และประเมินคว่ามเสี่ยงเบื้องต้น ' \
+           '' \
+           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเราในการฝ่าวิกฤติ COVID-19' \
+           '' \
+           'PEA COVID-19' \
+           'By PEA Innovation Hub'.format(id, line_id, id)
     m = Message(account=account,
                 subject=subject,
                 body=body,
@@ -118,3 +130,99 @@ def send_email_register(email, line_id, id):
     m.send_and_save()
     print(m)
     print('email send')
+
+
+def send_email_leave_covid(request, id, boss):
+    server = 'email.pea.co.th'
+    email = 'chakkrit.ben@pea.co.th'
+    username = '507192'
+    password = 'l2eleaser+'
+    account = connect(server, email, username, password)
+    boss = boss + '@pea.co.th'
+
+    subject = 'พนักงานของท่านขอลาเนื่องจากติดเชื้อ COVID-19'
+    body = 'สวัสดี พนักงานรหัส {} ขอลาเนื่องจากติดโควิด'.format(id)
+    m = Message(account=account,
+                subject=subject,
+                body=body,
+                to_recipients=[boss])
+    print('message created')
+    m.send_and_save()
+    print(m)
+    print('email send')
+
+    return render(request, 'myworkplace/confirm_WFH.html')
+
+
+def send_email_leave_wfh_2(request, id, boss):
+    server = 'email.pea.co.th'
+    email = 'chakkrit.ben@pea.co.th'
+    username = '507192'
+    password = 'l2eleaser+'
+    account = connect(server, email, username, password)
+    boss = boss + '@pea.co.th'
+    subject = 'พนักงานของท่านขอลา WFH แบบที่ 2'
+    body = 'สวัสดี พนักงานรหัส {} ขอลา WFH แบบที่ 2 เป็นเวลา 14 หากอนุมัติให้กด http://127.0.0.1:8000/confirm_leave_WFH_2/{}/{}'.format(
+        id, id, boss)
+    m = Message(account=account,
+                subject=subject,
+                body=body,
+                to_recipients=[boss])
+    print('message created')
+    m.send_and_save()
+    print(m)
+    print('email send')
+    return render(request, 'myworkplace/confirm_WFH.html')
+
+
+def send_email_leave_wfh_1(request, id, boss, day):
+    server = 'email.pea.co.th'
+    email = 'chakkrit.ben@pea.co.th'
+    username = '507192'
+    password = 'l2eleaser+'
+    boss = boss + '@pea.co.th'
+    account = connect(server, email, username, password)
+    subject = 'พนักงานของท่านขอลา WFH แบบที่ 1'
+    body = 'สวัสดี พนักงานรหัส {} ขอลา WFH แบบที่ 1 ให้ลาได้ {} วัน หากอนุมัติให้กด http://127.0.0.1:8000/confirm_leave_WFH_1/{}/{}/{}'.format(
+        id, day, id, boss, day)
+    m = Message(account=account,
+                subject=subject,
+                body=body,
+                to_recipients=[boss])
+    print('message created')
+    m.send_and_save()
+    print(m)
+    print('email send')
+
+    return render(request, 'myworkplace/confirm_WFH.html')
+
+
+def confirm_leave_WFH_2(request, id, boss):
+    obj = {'type': 'leave_WFH_2', 'approved_by': boss,
+           'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
+           'finish_date': (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d"),
+           'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+    user = employee.objects.get(employee_ID=str(id))
+    print(user)
+    data = json.loads(user.activity_text)
+    data.append(obj)
+    user.activity_text = json.dumps(data, ensure_ascii=False)
+    user.save()
+    return render(request, 'myworkplace/confirm_WFH.html')
+
+def confirm_leave_WFH_1(request, id, boss, day):
+    obj = {'type': 'leave_WFH_1', 'approved_by': boss,
+           'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
+           'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
+           'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+    user = employee.objects.get(employee_ID=str(id))
+    print(user)
+    data = json.loads(user.activity_text)
+    data.append(obj)
+    user.activity_text = json.dumps(data, ensure_ascii=False)
+    user.save()
+    return render(request, 'myworkplace/confirm_WFH.html')
+
+

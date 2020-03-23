@@ -81,7 +81,8 @@ def handle_text_message(event):
                     send_email_register(email=email_name, line_id=dict_source['user_id'], id=dict_message['text'])
                     line_bot_api.reply_message(event.reply_token,
                                                TextSendMessage(
-                                                   text='กรุณายืนยันตัวตนในอีเมลของท่าน https://email.pea.co.th'),
+                                                   text='โปรดทำงานยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
+                                                        '(username คือรหัสพนักงาน 6 หลัก)'),
                                                )
                 except:
                     line_bot_api.reply_message(event.reply_token,
@@ -111,102 +112,70 @@ def handle_text_message(event):
                                            FlexSendMessage(
                                                alt_text='hello',
                                                contents={
-                                                   "type": "carousel",
-                                                   "contents": [
-                                                       {
-                                                           "type": "bubble",
-                                                           "body": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "image",
-                                                                       "size": "full",
-                                                                       "aspectMode": "cover",
-                                                                       "gravity": "center",
-                                                                       "aspectRatio": "1:1",
-                                                                       "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9EIN.png"
-                                                                   },
-                                                                   {
-                                                                       "type": "image",
-                                                                       "url": "https://www.img9.in.th/images/2020/03/19/-WFHb1.png",
-                                                                       "aspectMode": "cover",
-                                                                       "size": "full",
-                                                                       "action": {
-                                                                           "type": "uri",
-                                                                           "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/normal_group/{}/".format(
-                                                                               user_employee.employee_ID)
-                                                                       },
-                                                                       "aspectRatio": "1040:174"
-                                                                   }
-                                                               ],
-                                                               "paddingAll": "0px"
-                                                           }
-                                                       },
-                                                       {
-                                                           "type": "bubble",
-                                                           "body": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "image",
-                                                                       "size": "full",
-                                                                       "aspectMode": "cover",
-                                                                       "gravity": "center",
-                                                                       "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9wFu.png",
-                                                                       "aspectRatio": "1:1"
-                                                                   },
-                                                                   {
-                                                                       "type": "image",
-                                                                       "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9Rqe.png",
-                                                                       "aspectMode": "cover",
-                                                                       "size": "full",
-                                                                       "aspectRatio": "1040:174",
-                                                                       "action": {
-                                                                           "type": "uri",
-                                                                           "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/risk_group/{}/".format(
-                                                                               user_employee.employee_ID)
-                                                                       }
-                                                                   }
-                                                               ],
-                                                               "paddingAll": "0px"
-                                                           }
-                                                       },
-                                                       {
-                                                           "type": "bubble",
-                                                           "body": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "image",
-                                                                       "size": "full",
-                                                                       "aspectMode": "cover",
-                                                                       "gravity": "center",
-                                                                       "aspectRatio": "1:1",
-                                                                       "url": "https://sv1.picz.in.th/images/2020/03/20/Qi6eD2.png"
-                                                                   },
-                                                                   {
-                                                                       "type": "image",
-                                                                       "url": "https://sv1.picz.in.th/images/2020/03/20/Qi6IED.png",
-                                                                       "aspectMode": "cover",
-                                                                       "size": "full",
-                                                                       "action": {
-                                                                           "type": "uri",
-                                                                           "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/"
-                                                                       },
-                                                                       "aspectRatio": "1040:174"
-                                                                   }
-                                                               ],
-                                                               "paddingAll": "0px"
-                                                           }
-                                                       }
-                                                   ]
-                                               }
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "center",
+            "aspectRatio": "1:1",
+            "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9EIN.png"
+          },
+          {
+            "type": "image",
+            "url": "https://www.img9.in.th/images/2020/03/19/-WFHb1.png",
+            "aspectMode": "cover",
+            "size": "full",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://pea-covid19-test.herokuapp.com/"
+            },
+            "aspectRatio": "1040:174"
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "image",
+            "size": "full",
+            "aspectMode": "cover",
+            "gravity": "center",
+            "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9wFu.png",
+            "aspectRatio": "1:1"
+          },
+          {
+            "type": "image",
+            "url": "https://sv1.picz.in.th/images/2020/03/19/Qi9Rqe.png",
+            "aspectMode": "cover",
+            "size": "full",
+            "aspectRatio": "1040:174",
+            "action": {
+              "type": "uri",
+              "label": "action",
+              "uri": "https://pea-covid19-test.herokuapp.com/"
+            }
+          }
+        ],
+        "paddingAll": "0px"
+      }
+    }
+  ]
+}
                                            )
                                            )
             elif dict_message['text'] == 'test':
