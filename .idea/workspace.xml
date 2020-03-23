@@ -2,27 +2,44 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/doctor.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal2.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/form.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/form@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/form@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-discrete-1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-discrete-1@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-discrete-1@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-discrete-with-icons-and-value-indicator.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-discrete-with-icons-and-value-indicator@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-discrete-with-icons-and-value-indicator@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-seperate.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-seperate@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-seperate@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister1.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister2.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister3.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/challenge@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/challenge@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/covid-leave@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/covid-leave@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/form@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/group-4@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/header_form.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/inform@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/inform@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/mask-rectangle-rectangle-group-16-mask@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/mask-rectangle-rectangle-group-16-mask@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/oval-copy@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/register@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/register@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/report-covid@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/report-covid@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/shape@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/shape@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-discrete-1@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/slider-discrete-with-icons-and-value-indicator@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/track1@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/track1@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/track2@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/track2@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/track3@3x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/wfh@3x copy.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/images/wfh@3x.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/doctor.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/see_doctor.html" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal2.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal2.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
+      <change beforePath="$PROJECT_DIR$/static/images/form@3x.png" afterPath="$PROJECT_DIR$/static/images/form@3x.png" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,60 +56,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="wfh1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/wfh1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="94" column="35" lean-forward="false" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="35" />
+            <state relative-caret-position="100">
+              <caret line="412" column="27" lean-forward="false" selection-start-line="412" selection-start-column="16" selection-end-line="412" selection-end-column="27" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#4063#4310#0" expanded="false" />
-                <element signature="e#4341#6618#0" expanded="false" />
-                <element signature="e#6650#7452#0" expanded="false" />
-                <element signature="e#7481#7719#0" expanded="false" />
-                <element signature="e#8097#8124#0" expanded="false" />
-                <element signature="e#10965#11863#0" expanded="false" />
-                <element signature="e#13573#13920#0" expanded="false" />
-                <element signature="e#13955#14479#0" expanded="false" />
-                <element signature="e#14513#14907#0" expanded="false" />
-                <element signature="e#14939#15109#0" expanded="false" />
-                <element signature="e#15145#15248#0" expanded="false" />
-                <element signature="e#15805#22565#0" expanded="false" />
-                <element signature="e#17662#18194#0" expanded="false" />
-                <element signature="e#18234#19114#0" expanded="false" />
-                <element signature="e#19154#22497#0" expanded="false" />
-                <element signature="e#22610#23208#0" expanded="false" />
-                <element signature="e#23269#24256#0" expanded="false" />
+                <element signature="e#3518#3765#0" expanded="false" />
+                <element signature="e#3796#6073#0" expanded="false" />
+                <element signature="e#6105#6907#0" expanded="false" />
+                <element signature="e#6936#7174#0" expanded="false" />
+                <element signature="e#7552#7579#0" expanded="false" />
+                <element signature="e#10420#11318#0" expanded="false" />
+                <element signature="e#13036#13383#0" expanded="false" />
+                <element signature="e#13418#13942#0" expanded="false" />
+                <element signature="e#13976#14370#0" expanded="false" />
+                <element signature="e#14402#14572#0" expanded="false" />
+                <element signature="e#14608#14711#0" expanded="false" />
+                <element signature="e#23634#24232#0" expanded="false" />
+                <element signature="e#24293#25280#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="normal1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html">
+      <file leaf-file-name="formregister1.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-122">
-              <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="normal2.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="46" column="10" lean-forward="false" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+            <state relative-caret-position="139">
+              <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -101,25 +94,19 @@
       <file leaf-file-name="daily_update.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="157" column="102" lean-forward="false" selection-start-line="157" selection-start-column="97" selection-end-line="157" selection-end-column="102" />
-              <folding>
-                <element signature="e#2496#2502#0#HTML" expanded="true" />
-                <element signature="e#2883#2889#0#HTML" expanded="true" />
-                <element signature="e#3719#3725#0#HTML" expanded="true" />
-                <element signature="e#4106#4112#0#HTML" expanded="true" />
-                <element signature="e#4940#4946#0#HTML" expanded="true" />
-                <element signature="e#5327#5333#0#HTML" expanded="true" />
-                <element signature="e#6007#6013#0#HTML" expanded="true" />
-                <element signature="e#6394#6400#0#HTML" expanded="true" />
-                <element signature="e#7237#7243#0#HTML" expanded="true" />
-                <element signature="e#7624#7630#0#HTML" expanded="true" />
-                <element signature="e#8182#8188#0#HTML" expanded="true" />
-                <element signature="e#8488#8494#0#HTML" expanded="true" />
-                <element signature="e#8803#8809#0#HTML" expanded="true" />
-                <element signature="e#9127#9133#0#HTML" expanded="true" />
-                <element signature="e#9434#9440#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="999">
+              <caret line="70" column="122" lean-forward="false" selection-start-line="70" selection-start-column="118" selection-end-line="70" selection-end-column="122" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="normal1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-214">
+              <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -136,9 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>receipient list</find>
-      <find>emply</find>
-      <find>employee_name</find>
       <find>carousel</find>
       <find>def challe</find>
       <find>rand</find>
@@ -163,9 +147,12 @@
       <find>confirm</find>
       <find>confirm_leave_WF</find>
       <find>confirm_leave_WFH_1</find>
-      <find>register</find>
       <find>send</find>
       <find>boss</find>
+      <find>doctor</find>
+      <find>TRUE</find>
+      <find>register</find>
+      <find>regis</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -207,7 +194,6 @@
         <option value="$PROJECT_DIR$/peacovid19v2/settings.py" />
         <option value="$PROJECT_DIR$/send_email/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/form.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/myworkplace/models.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/test.html" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
@@ -218,10 +204,12 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/doctor.html" />
-        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" />
-        <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal2.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" />
+        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
+        <option value="$PROJECT_DIR$/myworkplace/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister1.html" />
       </list>
     </option>
   </component>
@@ -288,7 +276,8 @@
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -309,8 +298,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/images" />
       <recent name="$PROJECT_DIR$/myworkplace/templates/myworkplace" />
+      <recent name="$PROJECT_DIR$/static/images" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/peacovid19v2" />
       <recent name="$PROJECT_DIR$/peacovid19v2/template" />
@@ -412,15 +401,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4079602" sideWeight="0.50572246" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.8927039" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48759305" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19384836" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50992554" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23247497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -473,14 +461,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/wrong.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/challenge.html" />
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/miss3d_ts_id.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -621,14 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -715,14 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="910" column="29" lean-forward="false" selection-start-line="910" selection-start-column="29" selection-end-line="910" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -771,7 +735,7 @@
         <state relative-caret-position="499">
           <caret line="51" column="29" lean-forward="false" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -781,7 +745,7 @@
         <state relative-caret-position="-548">
           <caret line="111" column="57" lean-forward="true" selection-start-line="111" selection-start-column="57" selection-end-line="111" selection-end-column="57" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="false" />
             <element signature="e#10753#11062#0" expanded="false" />
             <element signature="e#11129#16973#0" expanded="false" />
             <element signature="e#17042#27651#0" expanded="false" />
@@ -825,103 +789,107 @@
         <state relative-caret-position="266">
           <caret line="49" column="18" lean-forward="true" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
           <folding>
-            <element signature="n#style#0;n#font#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#font#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/doctor.html">
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/see_doctor.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="106">
           <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
           <folding>
-            <element signature="n#style#0;n#font#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="e#1101#1107#0#HTML" expanded="true" />
-            <element signature="e#1108#1114#0#HTML" expanded="true" />
-            <element signature="e#1115#1121#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#font#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="false" />
+            <element signature="e#1101#1107#0#HTML" expanded="false" />
+            <element signature="e#1108#1114#0#HTML" expanded="false" />
+            <element signature="e#1115#1121#0#HTML" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/wfh1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="157" column="102" lean-forward="false" selection-start-line="157" selection-start-column="97" selection-end-line="157" selection-end-column="102" />
-          <folding>
-            <element signature="e#2496#2502#0#HTML" expanded="true" />
-            <element signature="e#2883#2889#0#HTML" expanded="true" />
-            <element signature="e#3719#3725#0#HTML" expanded="true" />
-            <element signature="e#4106#4112#0#HTML" expanded="true" />
-            <element signature="e#4940#4946#0#HTML" expanded="true" />
-            <element signature="e#5327#5333#0#HTML" expanded="true" />
-            <element signature="e#6007#6013#0#HTML" expanded="true" />
-            <element signature="e#6394#6400#0#HTML" expanded="true" />
-            <element signature="e#7237#7243#0#HTML" expanded="true" />
-            <element signature="e#7624#7630#0#HTML" expanded="true" />
-            <element signature="e#8182#8188#0#HTML" expanded="true" />
-            <element signature="e#8488#8494#0#HTML" expanded="true" />
-            <element signature="e#8803#8809#0#HTML" expanded="true" />
-            <element signature="e#9127#9133#0#HTML" expanded="true" />
-            <element signature="e#9434#9440#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="94" column="35" lean-forward="false" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#4063#4310#0" expanded="false" />
-            <element signature="e#4341#6618#0" expanded="false" />
-            <element signature="e#6650#7452#0" expanded="false" />
-            <element signature="e#7481#7719#0" expanded="false" />
-            <element signature="e#8097#8124#0" expanded="false" />
-            <element signature="e#10965#11863#0" expanded="false" />
-            <element signature="e#13573#13920#0" expanded="false" />
-            <element signature="e#13955#14479#0" expanded="false" />
-            <element signature="e#14513#14907#0" expanded="false" />
-            <element signature="e#14939#15109#0" expanded="false" />
-            <element signature="e#15145#15248#0" expanded="false" />
-            <element signature="e#15805#22565#0" expanded="false" />
-            <element signature="e#17662#18194#0" expanded="false" />
-            <element signature="e#18234#19114#0" expanded="false" />
-            <element signature="e#19154#22497#0" expanded="false" />
-            <element signature="e#22610#23208#0" expanded="false" />
-            <element signature="e#23269#24256#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-122">
-          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="46" column="10" lean-forward="false" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+          <caret line="45" column="10" lean-forward="true" selection-start-line="45" selection-start-column="10" selection-end-line="45" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/wfh1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="58" column="9" lean-forward="false" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1498">
+          <caret line="962" column="17" lean-forward="false" selection-start-line="962" selection-start-column="9" selection-end-line="962" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-687">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="35" column="33" lean-forward="true" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-214">
+          <caret line="21" column="26" lean-forward="false" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="412" column="27" lean-forward="false" selection-start-line="412" selection-start-column="16" selection-end-line="412" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#3518#3765#0" expanded="false" />
+            <element signature="e#3796#6073#0" expanded="false" />
+            <element signature="e#6105#6907#0" expanded="false" />
+            <element signature="e#6936#7174#0" expanded="false" />
+            <element signature="e#7552#7579#0" expanded="false" />
+            <element signature="e#10420#11318#0" expanded="false" />
+            <element signature="e#13036#13383#0" expanded="false" />
+            <element signature="e#13418#13942#0" expanded="false" />
+            <element signature="e#13976#14370#0" expanded="false" />
+            <element signature="e#14402#14572#0" expanded="false" />
+            <element signature="e#14608#14711#0" expanded="false" />
+            <element signature="e#23634#24232#0" expanded="false" />
+            <element signature="e#24293#25280#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="70" column="122" lean-forward="false" selection-start-line="70" selection-start-column="118" selection-end-line="70" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
           <folding />
         </state>
       </provider>

@@ -5,193 +5,173 @@
 {% block body_bl %}
 
     <div class="px-0 py-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="px-0 py-4" id="headerbg">
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="px-0 py-4" id="headerbg">
+          </div>
         </div>
+      </div>
     </div>
-    <div class="py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="bold_font text-center">กรุณาให้ข้อมูลตามความเป็นจริงเพื่อประโยชน์ของท่าน</h1>
-                    <p class="normal_font text-center">แบบสอบถามนี้สำหรับพนักงานการไฟฟ้าส่วนภูมิภาค<br/>เพื่อการคัดกรองตนเองให้ปลอดภัย<br/>และลดความเสี่ยงการระบาดของเชื้อไวรัส
-                        COVID -19 <br/>อ้างอิงจาก กรมควบคุมโรคและโรงพยาบาลราชวิถี</p>
-                    <p class="bold_font text-center">ประเทศที่มีรายงานการระบาดต่อเนื่อง<br/>ของโรคติดเชื้อไวรัส COVID-19
-                    </p>
-                    <p class="big_font text-center">สาธารณรัฐประชาชนจีน ฮ่องกง มาเก๊า เกาหลีใต้ อิตาลี อิหร่าน ฝรั่งเศส
-                        สเปน สหรัฐอเมริกา สวิตเซอร์แลนด์ นอร์เวย์ ญี่ปุ่น เดนมาร์ก เนเธอร์แลนด์ สวีเดน อังกฤษ
-                        เยอรมนี</p>
-                    <hr>
-                </div>
-            </div>
+  </div>
+  <div class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="bold_font text-center">กรุณาให้ข้อมูลตามความเป็นจริงเพื่อประโยชน์ของท่าน</h1>
+          <p class="normal_font text-center">แบบสอบถามนี้สำหรับพนักงานการไฟฟ้าส่วนภูมิภาค<br/>เพื่อการคัดกรองตนเองให้ปลอดภัย<br/>และลดความเสี่ยงการระบาดของเชื้อไวรัส COVID -19 <br />อ้างอิงจาก กรมควบคุมโรคและโรงพยาบาลราชวิถี</p>
+          <p class="bold_font text-center">ประเทศที่มีรายงานการระบาดต่อเนื่อง<br/>ของโรคติดเชื้อไวรัส COVID-19</p>
+          <p class="big_font text-center">สาธารณรัฐประชาชนจีน ฮ่องกง มาเก๊า เกาหลีใต้ อิตาลี อิหร่าน ฝรั่งเศส สเปน สหรัฐอเมริกา สวิตเซอร์แลนด์ นอร์เวย์ ญี่ปุ่น เดนมาร์ก เนเธอร์แลนด์ สวีเดน อังกฤษ เยอรมนี</p>
+          <hr>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+            <h1 class="bold_font">ในช่วง 14 วันก่อนหน้า ท่านมีประวัติเสี่ยงต่อการติดเชื้อ หรือไม่ดังนี้</h1>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <form method="POST">
+    {% csrf_token %}
     <div class="">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="bold_font">ในช่วง 14 วันก่อนหน้า ท่านมีประวัติเสี่ยงต่อการติดเชื้อ หรือไม่ดังนี้</h1>
+                    <h6 class="question">คำถามข้อที่ 1</h6>
+                    <h6 class="qq">ท่านเดินทางหรืออยู่อาศัยในประเทศที่ที่มีรายงานการระบาดต่อเนื่องของโรค COVID-19 ใน 14 วันที่ผ่านมา (ประเทศที่มีเชื้อระบาดระบุไว้ด้านบน )</h6>
 
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio_q1" name="question1" value="FALSE" checked>
+                        <label class="custom-control-label qq" for="customRadio_q1">&nbsp;ไม่ใช่</label>
+                      </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio2_q1" name="question1" value="TRUE">
+                        <label class="custom-control-label qq" for="customRadio2_q1">&nbsp;ใช่</label>
+                    </div>
                 </div>
-            </div>
 
+                <div class="col-12">
+                    <h6 class="question">คำถามข้อที่ 2</h6>
+                    <h6 class="qq">ท่านเป็นผู้ที่ประกอบอาชีพที่สัมผัสใกล้ชิดกับนักท่องเที่ยวต่างชาติ</h6>
+                    <h6 class="qq_light">สัมผัสใกล้ชิด หมายถึง ได้สนทนากันในระยะน้อยกว่า 1 เมตร และนานมากกว่า 5 นาที หรือถูกไอ/จามใส่โดยไม่มีการป้องกันเช่นใส่ mask</h6>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio_q2" name="question2" value="FALSE" checked>
+                        <label class="custom-control-label qq" for="customRadio_q2">&nbsp;ไม่ใช่</label>
+                      </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio2_q2" name="question2" value="TRUE">
+                        <label class="custom-control-label qq" for="customRadio2_q2">&nbsp;ใช่</label>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h6 class="question">คำถามข้อที่ 3</h6>
+                    <h6 class="qq">มีประวัติสัมผัสใกล้ชิดกับผู้ป่วยยืนยันโรคติดเชื้อไวรัส COVID-19</h6>
+                    <h6 class="qq_light">สัมผัสใกล้ชิด หมายถึง ได้สนทนากันในระยะน้อยกว่า 1 เมตร และนานมากกว่า 5 นาที หรือถูกไอ/จามใส่โดยไม่มีการป้องกันเช่นใส่ mask</h6>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio_q3" name="question3" value="FALSE" checked>
+                        <label class="custom-control-label qq" for="customRadio_q3">&nbsp;ไม่ใช่</label>
+                      </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio2_q3" name="question3" value="TRUE">
+                        <label class="custom-control-label qq" for="customRadio2_q3">&nbsp;ใช่</label>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h6 class="question">คำถามข้อที่ 4</h6>
+                    <h6 class="qq">เป็นบุคลากรทางการแพทย์หรือสาธารณสุข ที่สัมผัสกับผู้ป่วยเข้าเกณฑ์สอบสวนโรค COVID-19</h6>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio_q4" name="question4" value="FALSE" checked>
+                        <label class="custom-control-label qq" for="customRadio_q4">&nbsp;ไม่ใช่</label>
+                      </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio2_q4" name="question4" value="TRUE">
+                        <label class="custom-control-label qq" for="customRadio2_q4">&nbsp;ใช่</label>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h6 class="question">คำถามข้อที่ 5</h6>
+                    <h6 class="qq">มีประวัติไปในสถานที่ประชาชนหนาแน่น ช่วงเวลาที่มีคนติดเชื้อ เช่น สนามมวยลุมพินี สนามมวยราชดำเนิน และสถานบันเทิง หรือสถานที่ที่มีรายงานคนติดเชื้อ COVID-19 ( สามารถดูได้จากประกาศของคณะกรรมการโรคติดต่อประจำจังหวัดของท่าน )</h6>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio_q5" name="question5" value="FALSE" checked>
+                        <label class="custom-control-label qq" for="customRadio_q5">&nbsp;ไม่ใช่</label>
+                      </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="customRadio2_q5" name="question5" value="TRUE">
+                        <label class="custom-control-label qq" for="customRadio2_q5">&nbsp;ใช่</label>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h6 class="question">คำถามข้อที่ 6</h6>
+                    <h6 class="qq">ท่านมีอาการดังต่อไปนี้หรือไม่<br/>( หากไม่มีอาการไม่ต้องกดทำเครื่องหมายใดๆ )</h6>
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="fever" name="fever">
+                        <label class="custom-control-label" for="fever">&nbsp;มีไข้</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="cough" name="cough">
+                        <label class="custom-control-label" for="cough">&nbsp;ไอ</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="runnynose" name="runnynose">
+                        <label class="custom-control-label" for="runnynose">&nbsp;มีน้ำมูก</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="throatache" name="throatache">
+                        <label class="custom-control-label" for="throatache">&nbsp;เจ็บคอ</label>
+                    </div>
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="tired" name="tired">
+                        <label class="custom-control-label" for="tired">&nbsp;หายใจลำบาก หอบเหนื่อย</label>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
-    <form method="POST">
-        {% csrf_token %}
-        <div class="">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h6 class="question">คำถามข้อที่ 1</h6>
-                        <h6 class="qq">ท่านเดินทางหรืออยู่อาศัยในประเทศที่ที่มีรายงานการระบาดต่อเนื่องของโรค COVID-19 ใน
-                            14 วันที่ผ่านมา (ประเทศที่มีเชื้อระบาดระบุไว้ด้านบน )</h6>
-
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio" name="question1"
-                                   value="FALSE" checked>
-                            <label class="custom-control-label qq" for="customRadio">&nbsp;ไม่ใช่</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio2" name="question1"
-                                   value="TRUE">
-                            <label class="custom-control-label qq" for="customRadio2">&nbsp;ใช่</label>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <h6 class="question">คำถามข้อที่ 2</h6>
-                        <h6 class="qq">ท่านเป็นผู้ที่ประกอบอาชีพที่สัมผัสใกล้ชิดกับนักท่องเที่ยวต่างชาติ</h6>
-                        <h6 class="qq_light">สัมผัสใกล้ชิด หมายถึง ได้สนทนากันในระยะน้อยกว่า 1 เมตร และนานมากกว่า 5 นาที
-                            หรือถูกไอ/จามใส่โดยไม่มีการป้องกันเช่นใส่ mask</h6>
-
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio" name="question2"
-                                   value="FALSE" checked>
-                            <label class="custom-control-label qq" for="customRadio">&nbsp;ไม่ใช่</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio2" name="question2"
-                                   value="TRUE">
-                            <label class="custom-control-label qq" for="customRadio2">&nbsp;ใช่</label>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <h6 class="question">คำถามข้อที่ 3</h6>
-                        <h6 class="qq">มีประวัติสัมผัสใกล้ชิดกับผู้ป่วยยืนยันโรคติดเชื้อไวรัส COVID-19</h6>
-                        <h6 class="qq_light">สัมผัสใกล้ชิด หมายถึง ได้สนทนากันในระยะน้อยกว่า 1 เมตร และนานมากกว่า 5 นาที
-                            หรือถูกไอ/จามใส่โดยไม่มีการป้องกันเช่นใส่ mask</h6>
-
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio" name="question3"
-                                   value="FALSE" checked>
-                            <label class="custom-control-label qq" for="customRadio">&nbsp;ไม่ใช่</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio2" name="question3"
-                                   value="TRUE">
-                            <label class="custom-control-label qq" for="customRadio2">&nbsp;ใช่</label>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <h6 class="question">คำถามข้อที่ 4</h6>
-                        <h6 class="qq">เป็นบุคลากรทางการแพทย์หรือสาธารณสุข ที่สัมผัสกับผู้ป่วยเข้าเกณฑ์สอบสวนโรค
-                            COVID-19</h6>
-
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio" name="question4"
-                                   value="FALSE" checked>
-                            <label class="custom-control-label qq" for="customRadio">&nbsp;ไม่ใช่</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio2" name="question4"
-                                   value="TRUE">
-                            <label class="custom-control-label qq" for="customRadio2">&nbsp;ใช่</label>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <h6 class="question">คำถามข้อที่ 5</h6>
-                        <h6 class="qq">มีประวัติไปในสถานที่ประชาชนหนาแน่น ช่วงเวลาที่มีคนติดเชื้อ เช่น สนามมวยลุมพินี
-                            สนามมวยราชดำเนิน และสถานบันเทิง หรือสถานที่ที่มีรายงานคนติดเชื้อ COVID-19 (
-                            สามารถดูได้จากประกาศของคณะกรรมการโรคติดต่อประจำจังหวัดของท่าน )</h6>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio" name="question5"
-                                   value="FALSE" checked>
-                            <label class="custom-control-label qq" for="customRadio">&nbsp;ไม่ใช่</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="customRadio2" name="question5"
-                                   value="TRUE">
-                            <label class="custom-control-label qq" for="customRadio2">&nbsp;ใช่</label>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <h6 class="question">คำถามข้อที่ 6</h6>
-                        <h6 class="qq">ท่านมีอาการดังต่อไปนี้หรือไม่<br/>( หากไม่มีอาการไม่ต้องกดทำเครื่องหมายใดๆ )</h6>
-                        <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="fever" name="fever">
-                            <label class="custom-control-label" for="fever">&nbsp;มีไข้</label>
-                        </div>
-                        <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="cough" name="cough">
-                            <label class="custom-control-label" for="cough">&nbsp;ไอ</label>
-                        </div>
-                        <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="runnynose" name="runnynose">
-                            <label class="custom-control-label" for="runnynose">&nbsp;มีน้ำมูก</label>
-                        </div>
-                        <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="throatache" name="throatache">
-                            <label class="custom-control-label" for="throatache">&nbsp;เจ็บคอ</label>
-                        </div>
-                        <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="tired" name="tired">
-                            <label class="custom-control-label" for="tired">&nbsp;หายใจลำบาก หอบเหนื่อย</label>
-                        </div>
-                    </div>
-
+    <div class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h6 class="remark">* กรุณาตรวจสอบข้อมูลความถูกต้องก่อนประเมิน</h6>
                 </div>
             </div>
         </div>
-
-        <div class="py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <h6 class="remark">* กรุณาตรวจสอบข้อมูลความถูกต้องก่อนประเมิน</h6>
-                    </div>
+    </div>
+    <div class="pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center"><input id="submit" class="w-100 btn" type="submit"
+                        value="ประเมินความเสี่ยง">
                 </div>
             </div>
         </div>
-        <div class="pb-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center"><input id="submit" class="w-100 btn" type="submit"
-                                                           value="ประเมินความเสี่ยง">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
+    </div>
+</form>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
 
 {% endblock %}

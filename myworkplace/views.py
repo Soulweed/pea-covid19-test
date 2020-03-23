@@ -29,10 +29,8 @@ class CheckoutForm(forms.Form):
     content = forms.CharField(max_length=150)
 
 
-
 # Create your views here.
 def home(request):
-
     context = {'number_of_employee': employee.objects.count(),
                'high_risk':employee.objects.filter(active_status='COVID').count(),
                'normal_wfh':employee.objects.filter(active_status='WFH').count(),
@@ -43,19 +41,9 @@ def home(request):
 
 
 def daily_update(request, id):
-    user = employee.objects.get(employee_ID=str(id))
-    FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc=get_employee_profile(id)
-    context = {'FirstName': FirstName, 'LastName':LastName, 'DepartmentShort': DepartmentShort, 'PositionDescShort':PositionDescShort,
-               'LevelDesc':LevelDesc}
+
 
     if request.method == "POST":
-        # fever = request.POST.get("id_fever")
-        # cold = request.POST.get("id_cold")
-        # contact_foreigner = request.POST.get("id_contact_foreigner")
-        # travel_to_infected_area = request.POST.get("id_travel_to_infected_area")
-        # live_with_risk_person = request.POST.get("id_live_with_risk_person")
-        # contact_with_risk = request.POST.get("id_contact_with_risk")
-
         dangerous_area = request.POST.get("question1")
         working_with_foreigner = request.POST.get("question2")
         contact_with_infected = request.POST.get("question3")
@@ -72,6 +60,11 @@ def daily_update(request, id):
         list_group_2 = [fever, cough, cold, sore_throat, tried]
         group1 = list_group_1.count('TRUE')
         group2 = list_group_2.count('on')
+        print(list_group_1)
+        print(group1)
+
+        print(list_group_2)
+        print(group2)
 
         if group1 == 0 and group2 == 0:
             health = 'normal'
@@ -79,15 +72,17 @@ def daily_update(request, id):
             health = 'quarantine'
         elif (group1 == 0 and group2 > 0 ):
             health = 'flu'
-        elif (group1 == 1 and group2 > 1) and (group1 > 1 and group2 > 1):
+        elif (group1 == 1 and group2 > 1) or (group1 > 1 and group2 > 1):
             health = 'hospital'
-
+        print(health)
         # user = employee.objects.get(employee_ID=id)
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+        print(obj)
         data = json.loads(user.activity_daily_update)
         data.append(obj)
         user.activity_daily_update = json.dumps(data)
         user.healthy=health
+        user.daily_update=True
         user.save()
         if health == 'normal':
             return redirect(normal1, id)
@@ -96,7 +91,7 @@ def daily_update(request, id):
         elif health =='quarantine':
             return redirect(quarantine, id)
         elif health =='hospital':
-            return redirect(doctor, id)
+            return redirect(see_doctor, id)
 
     return render(request, 'myworkplace/daily_update.html', context)
 
@@ -335,10 +330,10 @@ def quarantine(request, id):
     context = {'data': data.__dict__}
     return render(request, 'myworkplace/quarantine.html', context)
 
-def doctor(request, id):
+def see_doctor(request, id):
     data = employee.objects.get(employee_ID=id)
     context = {'data': data.__dict__}
-    return render(request, 'myworkplace/doctor.html', context)
+    return render(request, 'myworkplace/see_doctor.html', context)
 
 def medium_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
@@ -411,11 +406,12 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 def register(request, id):
-    # data = employee.objects.get(employee_ID=id).__dict__
-
     emp_id = id[33:]
     line_id = id[0:33]
-
+    user = employee.objects.get(employee_ID=str(emp_id))
+    FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc=get_employee_profile(emp_id)
+    context = {'Employee_ID': emp_id, 'FirstName': FirstName, 'LastName':LastName, 'DepartmentShort': DepartmentShort, 'PositionDescShort':PositionDescShort,
+               'LevelDesc':LevelDesc}
     try:
         employee.objects.get(employee_line_ID=line_id)
         return redirect(home)
@@ -471,41 +467,60 @@ def register(request, id):
         print(page)
         if (page == "1"):
             print("OK1")
-            emp_id = request.POST.get("emp_id")
-            sex = request.POST.get("sex")
-            age = request.POST.get("age")
-            tel = request.POST.get("tel")
-            work_place = request.POST.get("work_place")
-            work_building = request.POST.get("work_building")
-            work_floor = request.POST.get("work_floor")
+            # emp_id = request.POST.get("emp_id")
+            # sex = request.POST.get("sex")
+            # age = request.POST.get("age")
+            # tel = request.POST.get("tel")
+            # work_place = request.POST.get("work_place")
+            # work_building = request.POST.get("work_building")
+            # work_floor = request.POST.get("work_floor")
+            ext = request.POST.get("ext") #หมายเลขโทรศัพท์ภายใน
+            mobile_phone = request.POST.get("mobile_phone") #หมายเลขโทรศัพท์มือถือ
+            building = request.POST.get("building") #อาคาร
+            floor = request.POST.get("floor") #ชั้น
 
-            return render(request, 'myworkplace/register_2.html', context)
+            return render(request, 'myworkplace/formregister2.html', context)
 
         if (page == "2"):
             print("OK2")
-            address_no = request.POST.get("address_no")
-            address_tumbol = request.POST.get("address_tumbol")
-            address_amphur = request.POST.get("address_amphur")
-            address_province = request.POST.get("address_province")
-            address_type = request.POST.get("address_type")
-            address_to_live = request.POST.get("address_to_live")
-            detention_place = request.POST.get("detention_place")
+            # address_no = request.POST.get("address_no")
+            # address_tumbol = request.POST.get("address_tumbol")
+            # address_amphur = request.POST.get("address_amphur")
+            # address_province = request.POST.get("address_province")
+            # address_type = request.POST.get("address_type")
+            # address_to_live = request.POST.get("address_to_live")
+            # detention_place = request.POST.get("detention_place")
+            address = request.POST.get("address")
+            selector = request.POST.get("selector")
+            addition_address = request.POST.get("addition_address")
 
-            return render(request, 'myworkplace/register_3.html', context)
+            return render(request, 'myworkplace/formregister3.html', context)
 
         if (page == "3"):
             print("OK3")
-            blood = request.POST.get("blood")
-            congenital_disease_status = request.POST.get("congenital_disease_status")
-            congenital_disease = request.POST.get("congenital_disease")
-            drug_allergy_history_status = request.POST.get("drug_allergy_history_status")
-            drug_allergy_history = request.POST.get("drug_allergy_history")
-            respiratory_disease_status = request.POST.get("respiratory_disease_status")
-            respiratory_disease = request.POST.get("respiratory_disease")
-            last_disease = request.POST.get("last_disease")
-            last_hospital = request.POST.get("last_hospital")
-            last_time_status = request.POST.get("last_time_status")
-            favorite_hospital = request.POST.get("favorite_hospital")
+            # blood = request.POST.get("blood")
+            # congenital_disease_status = request.POST.get("congenital_disease_status")
+            # congenital_disease = request.POST.get("congenital_disease")
+            # drug_allergy_history_status = request.POST.get("drug_allergy_history_status")
+            # drug_allergy_history = request.POST.get("drug_allergy_history")
+            # respiratory_disease_status = request.POST.get("respiratory_disease_status")
+            # respiratory_disease = request.POST.get("respiratory_disease")
+            # last_disease = request.POST.get("last_disease")
+            # last_hospital = request.POST.get("last_hospital")
+            # last_time_status = request.POST.get("last_time_status")
+            # favorite_hospital = request.POST.get("favorite_hospital")
+            firstname_ref_1 = request.POST.get("firstname_ref_1")
+            lastname_ref_1 = request.POST.get("lastname_ref_1")
+            mobile_ref_1 = request.POST.get("mobile_ref_1")
+            relation_ref_1 = request.POST.get("relation_ref_1")
+            firstname_ref_2 = request.POST.get("firstname_ref_2")
+            lastname_ref_2 = request.POST.get("lastname_ref_2")
+            mobile_ref_2 = request.POST.get("mobile_ref_2")
+            relation_ref_2 = request.POST.get("relation_ref_2")
+            firstname_ref_3 = request.POST.get("firstname_ref_3")
+            lastname_ref_3 = request.POST.get("lastname_ref_3")
+            mobile_ref_3 = request.POST.get("mobile_ref_3")
+            relation_ref_3 = request.POST.get("relation_ref_3")
 
             return render(request, 'myworkplace/register_4.html', context)
 
@@ -578,8 +593,10 @@ def register(request, id):
             user_data.save()
 
             return render(request, 'myworkplace/register_finish.html', context)
+    print(context)
+    return render(request, 'myworkplace/formregister1.html', context)
 
-    return render(request, 'myworkplace/register_1.html', context)
+
 
 def confirm_registration(request, id):
     employee_id = id[33:]
