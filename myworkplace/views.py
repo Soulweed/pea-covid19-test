@@ -49,40 +49,38 @@ def daily_update(request, id):
                'LevelDesc':LevelDesc}
 
     if request.method == "POST":
-        fever = request.POST.get("id_fever")
-        cold = request.POST.get("id_cold")
-        contact_foreigner = request.POST.get("id_contact_foreigner")
-        travel_to_infected_area = request.POST.get("id_travel_to_infected_area")
-        live_with_risk_person = request.POST.get("id_live_with_risk_person")
-        contact_with_risk = request.POST.get("id_contact_with_risk")
+        # fever = request.POST.get("id_fever")
+        # cold = request.POST.get("id_cold")
+        # contact_foreigner = request.POST.get("id_contact_foreigner")
+        # travel_to_infected_area = request.POST.get("id_travel_to_infected_area")
+        # live_with_risk_person = request.POST.get("id_live_with_risk_person")
+        # contact_with_risk = request.POST.get("id_contact_with_risk")
 
-        dangerous_area = 'FALSE'
-        working_with_foreigner = 'FALSE'
-        contact_with_infected = 'FALSE'
-        doctor = 'FALSE'
-        stay_in_infected_place = 'FALSE'
+        dangerous_area = request.POST.get("question1")
+        working_with_foreigner = request.POST.get("question2")
+        contact_with_infected = request.POST.get("question3")
+        doctor = request.POST.get("question4")
+        stay_in_infected_place = request.POST.get("question5")
 
-        fever = 'FALSE'
-        cough = 'FALSE'
-        cold = 'FALSE'
-        sore_throat = 'FALSE'
-        tried = 'FALSE'
+        fever = request.POST.get("fever")
+        cough = request.POST.get("cough")
+        cold = request.POST.get("runnynose")
+        sore_throat = request.POST.get("throatache")
+        tried = request.POST.get("tired")
 
         list_group_1 = [dangerous_area, working_with_foreigner, contact_with_infected, doctor, stay_in_infected_place]
         list_group_2 = [fever, cough, cold, sore_throat, tried]
         group1 = list_group_1.count('TRUE')
-        group2 = list_group_2.count('TRUE')
+        group2 = list_group_2.count('on')
 
         if group1 == 0 and group2 == 0:
             health = 'normal'
         elif (group1 > 0 and group2 == 0) or (group1 > 1 and group2 == 1):
             health = 'quarantine'
-        elif (group1 == 0 and group2 == 1):
+        elif (group1 == 0 and group2 > 0 ):
             health = 'flu'
         elif (group1 == 1 and group2 > 1) and (group1 > 1 and group2 > 1):
             health = 'hospital'
-        print(health)
-
 
         # user = employee.objects.get(employee_ID=id)
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
@@ -91,7 +89,14 @@ def daily_update(request, id):
         user.activity_daily_update = json.dumps(data)
         user.healthy=health
         user.save()
-        return redirect(confirm, id)
+        if health == 'normal':
+            return redirect(normal1, id)
+        elif health == 'flu':
+            return redirect(normal2, id)
+        elif health =='quarantine':
+            return redirect(quarantine, id)
+        elif health =='hospital':
+            return redirect(doctor, id)
 
     return render(request, 'myworkplace/daily_update.html', context)
 
@@ -162,8 +167,8 @@ def screen(request, id):
     return render(request, 'myworkplace/screen.html', context)
 
 def checkin(request, id):
-    data = employee.objects.get(employee_ID=str(id))
-    context = {'data': data.__dict__}
+    data = employee.objects.get(employee_ID=str(id)).__dict__
+    context = {'data': data}
 
     if request.method == "POST":
         action_type = request.POST.get("type")
@@ -175,19 +180,19 @@ def checkin(request, id):
         context['data'].update({'datetime': obj['datetime']})
 
         if(action_type == "checkin"):
-            return redirect(tscheckin, id)
+            return render(request, 'myworkplace/tscheckin.html', context)
         elif(action_type == "checkout"):
-            return redirect(tscheckout, id)
+            return render(request, 'myworkplace/tscheckout.html', context)
 
     return render(request, 'myworkplace/timestamp.html', context)
 
 def save_log(id, obj):
     user = employee.objects.get(employee_ID=str(id))
-    print(user.activity_checkin)
+    print(user.activity_text)
     data = json.loads(user.activity_checkin)
     data.append(obj)
     print(data)
-    user.activity_checkin = json.dumps(data, ensure_ascii=False)
+    user.activity_text = json.dumps(data, ensure_ascii=False)
     user.save()
 
 def tscheckin(request, id):
@@ -311,6 +316,29 @@ def normal_group(request, id):
     print('----------------------')
     print(context)
     return render(request, 'myworkplace/normal_group.html', context)
+
+
+
+def normal1(request, id):
+    data = employee.objects.get(employee_ID=id)
+    context = {'data': data.__dict__}
+    return render(request, 'myworkplace/normal1.html', context)
+
+def normal2(request, id):
+    data = employee.objects.get(employee_ID=id)
+    context = {'data': data.__dict__}
+    return render(request, 'myworkplace/normal2.html', context)
+
+
+def quarantine(request, id):
+    data = employee.objects.get(employee_ID=id)
+    context = {'data': data.__dict__}
+    return render(request, 'myworkplace/quarantine.html', context)
+
+def doctor(request, id):
+    data = employee.objects.get(employee_ID=id)
+    context = {'data': data.__dict__}
+    return render(request, 'myworkplace/doctor.html', context)
 
 def medium_group(request, id):
     data = employee.objects.get(employee_ID=id).__dict__
