@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db import connection
 from .models import employee, question, emailemployee
 from send_email.views import send_email_wfh_request
 import json
@@ -39,10 +40,8 @@ def home(request):
                'no_daily_update':employee.objects.filter(daily_update=False).count()}
     return render(request, 'myworkplace/home.html', context)
 
-
 def daily_update(request, id):
-
-
+    user=employee.objects.get(employee_ID=id)
     if request.method == "POST":
         dangerous_area = request.POST.get("question1")
         working_with_foreigner = request.POST.get("question2")
@@ -84,6 +83,8 @@ def daily_update(request, id):
         user.healthy=health
         user.daily_update=True
         user.save()
+        connection.close()
+
         if health == 'normal':
             return redirect(normal1, id)
         elif health == 'flu':
@@ -93,7 +94,7 @@ def daily_update(request, id):
         elif health =='hospital':
             return redirect(see_doctor, id)
 
-    return render(request, 'myworkplace/daily_update.html', context)
+    return render(request, 'myworkplace/daily_update.html')
 
 def personal_info(request, id):
     print('access personal info')
@@ -102,68 +103,70 @@ def personal_info(request, id):
     print(data)
     context = {'data': data}
     print(context)
+    connection.close()
+
     return render(request, 'myworkplace/personal_info.html', context)
 
-def screen(request, id):
-    data = employee.objects.get(employee_ID=str(id)).__dict__
-    context = {'data': data}
-
-    if request.method == "POST":
-        name = request.POST.get("input_name")
-        workplace = request.POST.get("input_workplace")
-        gender = request.POST.get("input_gender")
-        age = request.POST.get("input_age")
-
-        fever = request.POST.get("input_fever")
-        cold = request.POST.get("input_cold")
-        travel = request.POST.get("input_travel")
-        travel_dangerous_area = request.POST.get("input_travel_dangerous_area")
-        home_dangerous = request.POST.get("input_home_dangerous")
-        meet_foreigner = request.POST.get("input_meet_foreigner")
-        contact = request.POST.get("input_contact")
-
-        if fever == 'FALSE' and cold == 'FALSE' and travel == 'FALSE' and travel_dangerous_area == 'FALSE' \
-                and home_dangerous == 'FALSE' and meet_foreigner == 'FALSE' and contact == 'FALSE':
-            health = "normal ปกติ"
-        elif travel == 'TRUE' or travel_dangerous_area == 'TRUE' \
-                or home_dangerous == 'TRUE' or meet_foreigner == 'TRUE' or contact == 'TRUE':
-            health = 'High risk เสี่ยงสูง'
-        else:
-            health = 'Risk เสี่ยง'
-
-        user = employee.objects.get(employee_ID=id)
-        user.emplyee_name = name
-        user.work = workplace
-        user.employee_gender = gender
-        user.employee_age = age
-        user.healthy = health
-
-        obj = {'type': 'first_screen', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        data = json.loads(user.activity_text)
-        # print(data)
-
-        data.append(obj)
-        # print(data)
-        user.activity_text = json.dumps(data, ensure_ascii=False)
-        user.save()
-        context.update({'health': health})
-        print('######################')
-
-        print(context)
-        if health == "normal ปกติ":
-            return redirect(normal_group, id)
-        elif health == 'Risk เสี่ยง':
-            return redirect(medium_group, id)
-        else:
-            return redirect(risk_form, id)
-        # return render(request, 'myworkplace/confirm.html', context)
-    print('----------------------')
-    print(context)
-    return render(request, 'myworkplace/screen.html', context)
+# def screen(request, id):
+#     data = employee.objects.get(employee_ID=str(id)).__dict__
+#     context = {'data': data}
+#
+#     if request.method == "POST":
+#         name = request.POST.get("input_name")
+#         workplace = request.POST.get("input_workplace")
+#         gender = request.POST.get("input_gender")
+#         age = request.POST.get("input_age")
+#
+#         fever = request.POST.get("input_fever")
+#         cold = request.POST.get("input_cold")
+#         travel = request.POST.get("input_travel")
+#         travel_dangerous_area = request.POST.get("input_travel_dangerous_area")
+#         home_dangerous = request.POST.get("input_home_dangerous")
+#         meet_foreigner = request.POST.get("input_meet_foreigner")
+#         contact = request.POST.get("input_contact")
+#
+#         if fever == 'FALSE' and cold == 'FALSE' and travel == 'FALSE' and travel_dangerous_area == 'FALSE' \
+#                 and home_dangerous == 'FALSE' and meet_foreigner == 'FALSE' and contact == 'FALSE':
+#             health = "normal ปกติ"
+#         elif travel == 'TRUE' or travel_dangerous_area == 'TRUE' \
+#                 or home_dangerous == 'TRUE' or meet_foreigner == 'TRUE' or contact == 'TRUE':
+#             health = 'High risk เสี่ยงสูง'
+#         else:
+#             health = 'Risk เสี่ยง'
+#
+#         user = employee.objects.get(employee_ID=id)
+#         user.emplyee_name = name
+#         user.work = workplace
+#         user.employee_gender = gender
+#         user.employee_age = age
+#         user.healthy = health
+#
+#         obj = {'type': 'first_screen', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#         data = json.loads(user.activity_text)
+#         # print(data)
+#
+#         data.append(obj)
+#         # print(data)
+#         user.activity_text = json.dumps(data, ensure_ascii=False)
+#         user.save()
+#         context.update({'health': health})
+#         print('######################')
+#
+#         print(context)
+#         if health == "normal ปกติ":
+#             return redirect(normal_group, id)
+#         elif health == 'Risk เสี่ยง':
+#             return redirect(medium_group, id)
+#         else:
+#             return redirect(risk_form, id)
+#         # return render(request, 'myworkplace/confirm.html', context)
+#     print('----------------------')
+#     print(context)
+#     return render(request, 'myworkplace/screen.html', context)
 
 def checkin(request, id):
-    data = employee.objects.get(employee_ID=str(id)).__dict__
-    context = {'data': data}
+    data = employee.objects.get(employee_ID=str(id))
+    context = {'data': data.__dict__}
 
     if request.method == "POST":
         action_type = request.POST.get("type")
@@ -171,7 +174,7 @@ def checkin(request, id):
         longitude = request.POST.get("longitude")
         obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
             'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        save_log(id,obj)
+        save_log(data,obj)
         context['data'].update({'datetime': obj['datetime']})
 
         if(action_type == "checkin"):
@@ -181,24 +184,16 @@ def checkin(request, id):
 
     return render(request, 'myworkplace/timestamp.html', context)
 
-def save_log(id, obj):
-    user = employee.objects.get(employee_ID=str(id))
-    print(user.activity_text)
-    data = json.loads(user.activity_checkin)
+def save_log(data, obj):
+    data = json.loads(data.activity_checkin)
     data.append(obj)
-    print(data)
-    user.activity_text = json.dumps(data, ensure_ascii=False)
-    user.save()
+    data.activity_text = json.dumps(data, ensure_ascii=False)
+    data.save()
+    connection.close()
 
-def tscheckin(request, id):
-    data = employee.objects.get(employee_ID=str(id))
-    context = {'data': data.__dict__}
-    return render(request, 'myworkplace/tscheckin.html', context)
+def tscheckin(request, id):    return render(request, 'myworkplace/tscheckin.html')
 
-def tscheckout(request, id):
-    data = employee.objects.get(employee_ID=str(id))
-    context = {'data': data.__dict__}
-    return render(request, 'myworkplace/tscheckout.html', context)
+def tscheckout(request, id):    return render(request, 'myworkplace/tscheckout.html')
 
 
 
@@ -281,110 +276,119 @@ def challenge(request, id):
         print(data)
         user.activity_text = json.dumps(data, ensure_ascii=False)
         user.save()
+        connection.close()
         context['data'].update({'datetime': obj['datetime']})
         return render(request, 'myworkplace/checkinComplete.html', context)
 
     return render(request, 'myworkplace/challenge2.html', context)
 
-def normal_group(request, id):
-    data = employee.objects.get(employee_ID=id).__dict__
-    context = {'data': data}
-    if request.method == "POST":
-        print('here we are')
-        print('send email')  # send email
-        start_date = request.POST.get("id_start_date")
-        end_date = request.POST.get("id_end_date")
-        total_date = request.POST.get("id_total_date")
-        employee_up1 = request.POST.get("id_employee_up1")
-        employee_up2 = request.POST.get("id_employee_up2")
-        customRadio = request.POST.get("customRadio")
-
-        print(start_date, end_date, total_date, employee_up1, employee_up2)
-
-        ######send email here#########
-        if (customRadio == 'Accept'):
-            print(id)
-            print(employee_up1)
-            print(employee_up2)
-
-        return redirect(confirm, id)
-    print('----------------------')
-    print(context)
-    return render(request, 'myworkplace/normal_group.html', context)
+# def normal_group(request, id):
+#     data = employee.objects.get(employee_ID=id).__dict__
+#     context = {'data': data}
+#     if request.method == "POST":
+#         print('here we are')
+#         print('send email')  # send email
+#         start_date = request.POST.get("id_start_date")
+#         end_date = request.POST.get("id_end_date")
+#         total_date = request.POST.get("id_total_date")
+#         employee_up1 = request.POST.get("id_employee_up1")
+#         employee_up2 = request.POST.get("id_employee_up2")
+#         customRadio = request.POST.get("customRadio")
+#
+#         print(start_date, end_date, total_date, employee_up1, employee_up2)
+#
+#         ######send email here#########
+#         if (customRadio == 'Accept'):
+#             print(id)
+#             print(employee_up1)
+#             print(employee_up2)
+#
+#         return redirect(confirm, id)
+#     print('----------------------')
+#     print(context)
+#     return render(request, 'myworkplace/normal_group.html', context)
 
 
 
 def normal1(request, id):
     data = employee.objects.get(employee_ID=id)
     context = {'data': data.__dict__}
+    connection.close()
+
     return render(request, 'myworkplace/normal1.html', context)
 
 def normal2(request, id):
     data = employee.objects.get(employee_ID=id)
     context = {'data': data.__dict__}
+    connection.close()
+
     return render(request, 'myworkplace/normal2.html', context)
 
 
 def quarantine(request, id):
     data = employee.objects.get(employee_ID=id)
     context = {'data': data.__dict__}
+    connection.close()
+
     return render(request, 'myworkplace/quarantine.html', context)
 
 def see_doctor(request, id):
     data = employee.objects.get(employee_ID=id)
     context = {'data': data.__dict__}
+    connection.close()
+
     return render(request, 'myworkplace/see_doctor.html', context)
 
-def medium_group(request, id):
-    data = employee.objects.get(employee_ID=id).__dict__
-    context = {'data': data}
-    if request.method == "POST":
-        print('here we are')
-        print('send email')  # send email
+# def medium_group(request, id):
+#     data = employee.objects.get(employee_ID=id).__dict__
+#     context = {'data': data}
+#     if request.method == "POST":
+#         print('here we are')
+#         print('send email')  # send email
+#
+#         return redirect(confirm, id)
+#     print('----------------------')
+#     print(context)
+#     return render(request, 'myworkplace/medium_group.html', context)
 
-        return redirect(confirm, id)
-    print('----------------------')
-    print(context)
-    return render(request, 'myworkplace/medium_group.html', context)
+# def risk_group(request, id):
+#     data = employee.objects.get(employee_ID=id).__dict__
+#     print('risk group')
+#     context = {'data': data}
+#     if request.method == "POST":
+#         print('here we are')
+#         print('send email')  # send email
+#         ######send email here#########
+#         # user = employee.objects.get(employee_ID=id).__dict__
+#         # user.infected == True
+#         # user.save()
+#         return redirect(confirm, id)
+#     print('----------------------')
+#     print(context)
+#     return render(request, 'myworkplace/risk_group.html', context)
 
-def risk_group(request, id):
-    data = employee.objects.get(employee_ID=id).__dict__
-    print('risk group')
-    context = {'data': data}
-    if request.method == "POST":
-        print('here we are')
-        print('send email')  # send email
-        ######send email here#########
-        # user = employee.objects.get(employee_ID=id).__dict__
-        # user.infected == True
-        # user.save()
-        return redirect(confirm, id)
-    print('----------------------')
-    print(context)
-    return render(request, 'myworkplace/risk_group.html', context)
+# def risk_form(request, id):
+#     data = employee.objects.get(employee_ID=id).__dict__
+#     print('risk form')
+#     context = {'data': data}
+#     if request.method == "POST":
+#         print('here we are')
+#         ######send email here#########
+#         print('risk form')
+#
+#         return redirect(risk_group, id)
+#     print('----------------------')
+#     print(context)
+#     return render(request, 'myworkplace/risk_form.html', context)
 
-def risk_form(request, id):
-    data = employee.objects.get(employee_ID=id).__dict__
-    print('risk form')
-    context = {'data': data}
-    if request.method == "POST":
-        print('here we are')
-        ######send email here#########
-        print('risk form')
-
-        return redirect(risk_group, id)
-    print('----------------------')
-    print(context)
-    return render(request, 'myworkplace/risk_form.html', context)
-
-def confirm(request, id):
-    user = employee.objects.get(employee_ID=id)
-    context = {'id': user.employee_ID, 'health': user.healthy}
-    return render(request, 'myworkplace/confirm.html', context)
-
-def confirm_WFH(request, id):
-    print('link to work form home confirm page')
-    return render(request, 'myworkplace/confirm_WFH.html')
+# def confirm(request, id):
+#     user = employee.objects.get(employee_ID=id)
+#     context = {'id': user.employee_ID, 'health': user.healthy}
+#     return render(request, 'myworkplace/confirm.html', context)
+#
+# def confirm_WFH(request, id):
+#     print('link to work form home confirm page')
+#     return render(request, 'myworkplace/confirm_WFH.html')
 
 
 # API
@@ -590,7 +594,7 @@ def register(request, id):
             )
 
             user_data.save()
-
+            connection.close()
             return render(request, 'myworkplace/register_finish.html', context)
     print(context)
     return render(request, 'myworkplace/formregister1.html', context)
@@ -609,6 +613,8 @@ def confirm_registration(request, id):
         obj = [{'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}]
         new_user = employee(employee_line_ID=employee_line_id, employee_ID=employee_id, activity_text=json.dumps(obj))
         new_user.save()
+        connection.close()
+
         print('ลงทะเบียนใหม่')
         return render(request, 'myworkplace/home.html')
 
@@ -632,6 +638,7 @@ def randomquestions(request, id):
         data.append(obj)
         user.activity_text = json.dumps(data, ensure_ascii=False)
         user.save()
+        connection.close()
         if (answer == correct):
             return render(request, 'myworkplace/correct.html')
         else:
@@ -673,12 +680,16 @@ def correct(request):
 def miss3d_du(request, id):
     data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data}
+    connection.close()
+
     return render(request, 'myworkplace/miss3d_du_id.html', context)
 
 
 def miss3d_ts(request, id):
     data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data, 'number':40}
+    connection.close()
+
     return render(request, 'myworkplace/miss3d_ts_id.html', context)
 
 
@@ -697,6 +708,8 @@ def WFH_request(request, id, boss):
     user.activity_text = json.dumps(data, ensure_ascii=False)
     user.approved_status = 'WFH'
     user.save()
+    connection.close()
+
     context = {'data': 'WFH request'}
     return render(request, 'myworkplace/test.html', context)
 
@@ -716,6 +729,7 @@ def WFH_approve(request, id, boss):
     user.active_status='WFH'
     user.approved_status='Idle'
     user.save()
+    connection.close()
     context = {'data': 'WFH approve'}
     return render(request, 'myworkplace/test.html', context)
 
@@ -733,6 +747,7 @@ def LEAVE_request(request, id, boss):
     user.activity_text = json.dumps(data, ensure_ascii=False)
     user.active_status = 'LEAVE'
     user.save()
+    connection.close()
     context={'data': 'Leave request'}
     return render(request, 'myworkplace/test.html',context )
 

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'myworkplace',
     'rest_framework',
     'line_bot',
-    'send_email'
+    'send_email',
 ]
 
 MIDDLEWARE = [
