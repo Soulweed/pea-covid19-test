@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import employee
+from .models import employee, question, emailemployee
 import json
 from datetime import datetime, timedelta
 import getpass
@@ -247,13 +247,17 @@ def confirm_WFH(request, id):
 
 # API
 from rest_framework import viewsets
-from .serializers import QuestionSerializer
-from .models import question
+from .serializers import QuestionSerializer, EmailSerializer
 
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = question.objects.all().order_by('question_text')
     serializer_class = QuestionSerializer
+
+class EmailViewSet(viewsets.ModelViewSet):
+    queryset = emailemployee.objects.all().order_by('employeeid')
+    serializer_class = EmailSerializer
+
 
 
 

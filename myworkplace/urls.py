@@ -6,6 +6,8 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'questions', views.QuestionViewSet)
+router1 = routers.DefaultRouter()
+router1.register(r'emailemployees', views.EmailViewSet)
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -23,6 +25,8 @@ urlpatterns = [
     path('personal_info/<id>/', views.personal_info, name='personal_info'),
     # path('callback/', views.callback, name='callback'),
     path('api/', include(router.urls)),
+    path('api1', include(router1.urls)),
+
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('confirm_registration/<id>/', views.confirm_registration, name='confirm_registration'),
     path('challenge2/<id>/', views.randomquestions, name='challenge'),

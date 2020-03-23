@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/myworkplace/admin.py" afterPath="$PROJECT_DIR$/myworkplace/admin.py" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/models.py" afterPath="$PROJECT_DIR$/myworkplace/models.py" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/serializers.py" afterPath="$PROJECT_DIR$/myworkplace/serializers.py" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="456">
-              <caret line="142" column="43" lean-forward="true" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+              <caret line="142" column="43" lean-forward="false" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -69,34 +67,44 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="258" column="0" lean-forward="true" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
+            <state relative-caret-position="94">
+              <caret line="250" column="0" lean-forward="true" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#2259#2506#0" expanded="false" />
-                <element signature="e#2537#4814#0" expanded="false" />
-                <element signature="e#4846#5745#0" expanded="false" />
-                <element signature="e#6714#7635#0" expanded="false" />
-                <element signature="e#7672#8019#0" expanded="false" />
-                <element signature="e#8054#8578#0" expanded="false" />
-                <element signature="e#8612#9006#0" expanded="false" />
-                <element signature="e#9038#9208#0" expanded="false" />
-                <element signature="e#9244#9347#0" expanded="false" />
-                <element signature="e#10112#10176#0" expanded="false" />
-                <element signature="e#10234#10466#0" expanded="false" />
-                <element signature="e#10499#10673#0" expanded="false" />
-                <element signature="e#10718#11525#0" expanded="false" />
-                <element signature="e#11688#12822#0" expanded="false" />
-                <element signature="e#12884#13744#0" expanded="false" />
-                <element signature="e#13778#20538#0" expanded="false" />
-                <element signature="e#15069#20470#0" expanded="false" />
-                <element signature="e#15159#15595#0" expanded="false" />
-                <element signature="e#15635#16167#0" expanded="false" />
-                <element signature="e#16207#17087#0" expanded="false" />
-                <element signature="e#17127#20470#0" expanded="false" />
-                <element signature="e#20584#21182#0" expanded="false" />
-                <element signature="e#22232#22261#0" expanded="false" />
+                <element signature="e#2284#2531#0" expanded="false" />
+                <element signature="e#2562#4839#0" expanded="false" />
+                <element signature="e#4871#5770#0" expanded="false" />
+                <element signature="e#6739#7660#0" expanded="false" />
+                <element signature="e#7697#8044#0" expanded="false" />
+                <element signature="e#8079#8603#0" expanded="false" />
+                <element signature="e#8637#9031#0" expanded="false" />
+                <element signature="e#9063#9233#0" expanded="false" />
+                <element signature="e#9269#9372#0" expanded="false" />
+                <element signature="e#10275#10339#0" expanded="false" />
+                <element signature="e#10397#10629#0" expanded="false" />
+                <element signature="e#10662#10836#0" expanded="false" />
+                <element signature="e#10881#11688#0" expanded="false" />
+                <element signature="e#11851#12985#0" expanded="false" />
+                <element signature="e#13047#13907#0" expanded="false" />
+                <element signature="e#13941#20701#0" expanded="false" />
+                <element signature="e#15232#20633#0" expanded="false" />
+                <element signature="e#15322#15758#0" expanded="false" />
+                <element signature="e#15798#16330#0" expanded="false" />
+                <element signature="e#16370#17250#0" expanded="false" />
+                <element signature="e#17290#20633#0" expanded="false" />
+                <element signature="e#20747#21345#0" expanded="false" />
+                <element signature="e#22395#22424#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,14 +121,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -214,14 +220,14 @@
         <option value="$PROJECT_DIR$/peacovid19v2/settings.py" />
         <option value="$PROJECT_DIR$/peacovid19v2/urls.py" />
         <option value="$PROJECT_DIR$/line_bot/urls.py" />
-        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html" />
         <option value="$PROJECT_DIR$/line_bot/views.py" />
-        <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/serializers.py" />
         <option value="$PROJECT_DIR$/myworkplace/models.py" />
         <option value="$PROJECT_DIR$/myworkplace/admin.py" />
+        <option value="$PROJECT_DIR$/myworkplace/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
       </list>
     </option>
   </component>
@@ -398,13 +404,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4079602" sideWeight="0.50572246" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.8927039" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3325062" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3325062" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18168813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -453,25 +460,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/myworkplace/admin.py</url>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/PycharmProjects/peacovid19v2/lib/python3.6/site-packages/linebot/models/send_messages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="48" column="8" lean-forward="false" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/risk_group.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -713,14 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/peacovid19v2/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -786,39 +771,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="258" column="0" lean-forward="true" selection-start-line="258" selection-start-column="0" selection-end-line="258" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#2259#2506#0" expanded="false" />
-            <element signature="e#2537#4814#0" expanded="false" />
-            <element signature="e#4846#5745#0" expanded="false" />
-            <element signature="e#6714#7635#0" expanded="false" />
-            <element signature="e#7672#8019#0" expanded="false" />
-            <element signature="e#8054#8578#0" expanded="false" />
-            <element signature="e#8612#9006#0" expanded="false" />
-            <element signature="e#9038#9208#0" expanded="false" />
-            <element signature="e#9244#9347#0" expanded="false" />
-            <element signature="e#10112#10176#0" expanded="false" />
-            <element signature="e#10234#10466#0" expanded="false" />
-            <element signature="e#10499#10673#0" expanded="false" />
-            <element signature="e#10718#11525#0" expanded="false" />
-            <element signature="e#11688#12822#0" expanded="false" />
-            <element signature="e#12884#13744#0" expanded="false" />
-            <element signature="e#13778#20538#0" expanded="false" />
-            <element signature="e#15069#20470#0" expanded="false" />
-            <element signature="e#15159#15595#0" expanded="false" />
-            <element signature="e#15635#16167#0" expanded="false" />
-            <element signature="e#16207#17087#0" expanded="false" />
-            <element signature="e#17127#20470#0" expanded="false" />
-            <element signature="e#20584#21182#0" expanded="false" />
-            <element signature="e#22232#22261#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -832,7 +784,7 @@
     <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
-          <caret line="142" column="43" lean-forward="true" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
+          <caret line="142" column="43" lean-forward="false" selection-start-line="142" selection-start-column="43" selection-end-line="142" selection-end-column="43" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -841,11 +793,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="34" lean-forward="true" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+        <state relative-caret-position="0">
+          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="250" column="0" lean-forward="true" selection-start-line="250" selection-start-column="0" selection-end-line="250" selection-end-column="0" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#2284#2531#0" expanded="false" />
+            <element signature="e#2562#4839#0" expanded="false" />
+            <element signature="e#4871#5770#0" expanded="false" />
+            <element signature="e#6739#7660#0" expanded="false" />
+            <element signature="e#7697#8044#0" expanded="false" />
+            <element signature="e#8079#8603#0" expanded="false" />
+            <element signature="e#8637#9031#0" expanded="false" />
+            <element signature="e#9063#9233#0" expanded="false" />
+            <element signature="e#9269#9372#0" expanded="false" />
+            <element signature="e#10275#10339#0" expanded="false" />
+            <element signature="e#10397#10629#0" expanded="false" />
+            <element signature="e#10662#10836#0" expanded="false" />
+            <element signature="e#10881#11688#0" expanded="false" />
+            <element signature="e#11851#12985#0" expanded="false" />
+            <element signature="e#13047#13907#0" expanded="false" />
+            <element signature="e#13941#20701#0" expanded="false" />
+            <element signature="e#15232#20633#0" expanded="false" />
+            <element signature="e#15322#15758#0" expanded="false" />
+            <element signature="e#15798#16330#0" expanded="false" />
+            <element signature="e#16370#17250#0" expanded="false" />
+            <element signature="e#17290#20633#0" expanded="false" />
+            <element signature="e#20747#21345#0" expanded="false" />
+            <element signature="e#22395#22424#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/peacovid19v2/lib/python3.6/site-packages/rest_framework/routers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="315" column="0" lean-forward="false" selection-start-line="315" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
