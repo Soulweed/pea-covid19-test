@@ -593,6 +593,7 @@ def miss3d_ts(request, id):
 
 def LEAVE_request(request, id):
     context ={'EmployeeID': id,}
+    email=''
     if request.method == "POST":
         page = request.POST.get("page")
 
