@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %} Form WFH | แจ้งเข้าร่วมโครงการ 3 / 4 {% endblock %}
+{% block body_bl %}
+
+  <div class="py-5 wfhbg">
+    <div class="py-4 container">
+      <div class="row">
+        <div class="col-12">
+          <h1> &nbsp; </h1>
+          <h1> &nbsp; </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <img src="../img/track3@3x.png" alt="purpledottl3" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3 class="formwfhtext">คุณได้ขอเข้าร่วม</h3>
+          <h3 class="formwfhtext">โครงการ WORK FROM HOME</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-4 py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="px-4 pt-1">
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-3 py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h6 class="">สำหรับผู้ที่มีความเสี่ยงต้องแยกตัวจากผู้อื่น</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-5 pt-2">
+    <div class="px-5 container">
+      <div class="row">
+        <div class="col-6">
+          <h6 class="">ตั้งแต่วันที่</h6>
+        </div>
+        <div class="col-6">
+          <h6 class="brightpurpletext">25 มีนาคม 2563</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-5">
+    <div class="px-5 container">
+      <div class="row">
+        <div class="col-6">
+          <h6 class="">ถึงวันที่</h6>
+        </div>
+        <div class="col-6">
+          <h6 class="brightpurpletext">1 เมษายน 2563</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-5">
+    <div class="px-5 container">
+      <div class="row">
+        <div class="col-6">
+          <h6 class="">เป็นเวลา</h6>
+        </div>
+        <div class="col-6">
+          <h6 class="brightpurpletext">14 &nbsp; <font color="#1f1722">วัน</font></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-5">
+    <div class="px-5 container">
+      <div class="row">
+        <div class="col-6">
+          <h6 class="">ชื่อผู้อนุมัติ</h6>
+        </div>
+        <div class="col-6">
+          <h6 class="">{{ boss_name }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-5">
+    <div class="px-5 container">
+      <div class="row">
+        <div class="col-6">
+          <h6 class="">ตำแหน่ง</h6>
+        </div>
+        <div class="col-6">
+          <h6 class="">{{ JobDesc }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-4 py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="px-4 pt-1">
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h6 id="remark">*กรุณาตรวจสอบข้อมูลความถูกต้องก่อนดำเนินการถัดไป</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form action="/templates/formwfh4.html" method="POST">
+    <!-- {% csrf_token %} -->
+  <div class="px-4 py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <input class="w-100 mapbtn" type="submit" value="ยืนยัน">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-4 pt-1 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <input class="w-100 mapbtnreverse" type="submit" value="กลับไปแก้ไข">
+        </div>
+      </div>
+    </div>
+  </div>
+  </form>
+<script>
+    window.onload = function(){
+        document.getElementById("page_input").value = "2";
+    };
+
+</script>
+{% endblock %}

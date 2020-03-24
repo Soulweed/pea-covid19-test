@@ -129,7 +129,7 @@ def send_email_register(email, line_id, id):
                 to_recipients=recipient_list)
     print('message created')
     m.send_and_save()
-    print(m)
+    # print(m)
     print('email send')
 
 
@@ -151,7 +151,7 @@ def send_email_wfh_request(id, boss):
                 to_recipients=[email_boss])
     print('message created')
     m.send_and_save()
-    print(m)
+    # print(m)
     print('email send')
 
 

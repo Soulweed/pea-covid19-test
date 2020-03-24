@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db import connection
 from myworkplace.models import employee
 from send_email.views import send_email_register, get_user_email
 
@@ -67,6 +68,7 @@ def handle_text_message(event):
         ##### function create email กับ content ข้างใน
         try:
             employee.objects.get(employee_line_ID=dict_source['user_id'])
+            connection.close()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
         except:
@@ -105,6 +107,8 @@ def handle_text_message(event):
     else:
         try:
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
+            connection.close()
+
             if dict_message['text'] == 'leave':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(

@@ -472,8 +472,124 @@ def miss3d_du(request, id):
 def miss3d_ts(request, id):
     data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data, 'number':40}
+    connection.close()
 
     return render(request, 'myworkplace/miss3d_ts_id.html', context)
+
+
+
+def LEAVE(request, id):
+
+    context ={'EmployeeID': id,}
+
+    if request.method == "POST":
+        page = request.POST.get("page")
+        print(page)
+        if (page == "1"):
+            print("OK1")
+            id_boss = request.POST.get("id_boss")
+            day = 14
+            context.update({'id_boss':id_boss, 'day':day})
+            return render(request, 'myworkplace/formleave2.html', context)
+
+        if (page == "2"):
+            print("OK2")
+            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(id)
+
+            context.update({'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc':PositionDescShort})
+            return render(request, 'myworkplace/formleave3.html.html', context)
+
+        if (page == "3"):
+            print("OK3")
+
+            firstname_ref_1 = request.POST.get("firstname_ref_1")
+            lastname_ref_1 = request.POST.get("lastname_ref_1")
+            mobile_ref_1 = request.POST.get("mobile_ref_1")
+            relation_ref_1 = request.POST.get("relation_ref_1")
+            firstname_ref_2 = request.POST.get("firstname_ref_2")
+            lastname_ref_2 = request.POST.get("lastname_ref_2")
+            mobile_ref_2 = request.POST.get("mobile_ref_2")
+            relation_ref_2 = request.POST.get("relation_ref_2")
+            firstname_ref_3 = request.POST.get("firstname_ref_3")
+            lastname_ref_3 = request.POST.get("lastname_ref_3")
+            mobile_ref_3 = request.POST.get("mobile_ref_3")
+            relation_ref_3 = request.POST.get("relation_ref_3")
+            context.update({'firstname_ref_1':firstname_ref_1, 'lastname_ref_1':lastname_ref_1,
+                            'mobile_ref_1':mobile_ref_1, 'firstname_ref_2':firstname_ref_2, 'lastname_ref_2':lastname_ref_2,
+                            'mobile_ref_2':mobile_ref_2, 'firstname_ref_3':firstname_ref_3, 'lastname_ref_3':lastname_ref_3,
+                            'mobile_ref_3':mobile_ref_3 })
+
+        #     return render(request, 'myworkplace/register_4.html', context)
+        #
+        # if (page == "4"):
+        #     print("OK4")
+            # close_person_first_name = request.POST.get("close_person_first_name")
+            # close_person_last_name = request.POST.get("close_person_last_name")
+            # close_person_tel = request.POST.get("close_person_tel")
+            # close_person_relationship = request.POST.get("close_person_relationship")
+            # workmate_first_name = request.POST.get("workmate_first_name")
+            # workmate_last_name = request.POST.get("workmate_last_name")
+            # workmate_tel = request.POST.get("workmate_tel")
+            # emergency_one_first_name = request.POST.get("emergency_one_first_name")
+            # emergency_one_last_name = request.POST.get("emergency_one_last_name")
+            # emergency_one_tel = request.POST.get("emergency_one_tel")
+            # emergency_two_first_name = request.POST.get("emergency_two_first_name")
+            # emergency_two_last_name = request.POST.get("emergency_two_last_name")
+            # emergency_two_tel = request.POST.get("emergency_two_tel")
+
+            obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+
+            user_data = employee(
+                emplyee_name=FirstName,
+                employee_ID=emp_id,
+                employee_line_ID=line_id,
+                activity_text=json.dumps([obj], ensure_ascii=False),
+                sex=sex,
+                age=age,
+                tel=tel,
+                work_place=work_place,
+                work_building=work_building,
+                work_floor=work_floor,
+                address_no=address_no,
+                address_tumbol=address_tumbol,
+                address_amphur=address_amphur,
+                address_province=address_province,
+                address_type=address_type,
+                address_to_live=address_to_live,
+                detention_place=detention_place,
+                blood=blood,
+                congenital_disease_status=congenital_disease_status,
+                congenital_disease=congenital_disease,
+                drug_allergy_history_status=drug_allergy_history_status,
+                drug_allergy_history=drug_allergy_history,
+                respiratory_disease_status=respiratory_disease_status,
+                respiratory_disease=respiratory_disease,
+                last_disease=last_disease,
+                last_hospital=last_hospital,
+                last_time_status=last_time_status,
+                favorite_hospital=favorite_hospital,
+
+                close_person_first_name=close_person_first_name,
+                close_person_last_name=close_person_last_name,
+                close_person_tel=close_person_tel,
+                close_person_relationship=close_person_relationship,
+                workmate_first_name=workmate_first_name,
+                workmate_last_name=workmate_last_name,
+                workmate_tel=workmate_tel,
+                emergency_one_first_name=emergency_one_first_name,
+                emergency_one_last_name=emergency_one_last_name,
+                emergency_one_tel=emergency_one_tel,
+                emergency_two_first_name=emergency_two_first_name,
+                emergency_two_last_name=emergency_two_last_name,
+                emergency_two_tel=emergency_two_tel
+            )
+
+            user_data.save()
+            print('model save')
+            connection.close()
+            return render(request, 'myworkplace/register_finish.html', context)
+    return render(request, 'myworkplace/formleave1.html', context)
 
 
 
