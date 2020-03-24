@@ -87,13 +87,13 @@ def daily_update(request, id):
         connection.close()
 
         if health == 'normal':
-            return redirect(normal1, id)
+            return redirect(normal1)
         elif health == 'flu':
-            return redirect(normal2, id)
+            return redirect(normal2)
         elif health =='quarantine':
-            return redirect(quarantine, id)
+            return redirect(quarantine)
         elif health =='hospital':
-            return redirect(see_doctor, id)
+            return redirect(see_doctor)
 
     return render(request, 'myworkplace/daily_update.html')
 
@@ -166,34 +166,34 @@ def challenge(request, id):
 
 
 
-def normal1(request, id):
-    data = employee.objects.get(employee_ID=id)
-    context = {'data': data.__dict__}
-    connection.close()
+def normal1(request):
+    # data = employee.objects.get(employee_ID=id)
+    # context = {'data': data.__dict__}
+    # connection.close()
 
-    return render(request, 'myworkplace/normal1.html', context)
+    return render(request, 'myworkplace/normal1.html')
 
-def normal2(request, id):
-    data = employee.objects.get(employee_ID=id)
-    context = {'data': data.__dict__}
-    connection.close()
+def normal2(request):
+    # data = employee.objects.get(employee_ID=id)
+    # context = {'data': data.__dict__}
+    # connection.close()
 
-    return render(request, 'myworkplace/normal2.html', context)
+    return render(request, 'myworkplace/normal2.html')
 
 
-def quarantine(request, id):
-    data = employee.objects.get(employee_ID=id)
-    context = {'data': data.__dict__}
-    connection.close()
+def quarantine(request):
+    # data = employee.objects.get(employee_ID=id)
+    # context = {'data': data.__dict__}
+    # connection.close()
 
-    return render(request, 'myworkplace/quarantine.html', context)
+    return render(request, 'myworkplace/quarantine.html')
 
-def see_doctor(request, id):
-    data = employee.objects.get(employee_ID=id)
-    context = {'data': data.__dict__}
-    connection.close()
+def see_doctor(request):
+    # data = employee.objects.get(employee_ID=id)
+    # context = {'data': data.__dict__}
+    # connection.close()
 
-    return render(request, 'myworkplace/see_doctor.html', context)
+    return render(request, 'myworkplace/see_doctor.html')
 
 
 
