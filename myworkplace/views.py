@@ -339,26 +339,26 @@ def register3(request,id):
 
 
 
-def register(request,id):
-    emp_id = id[33:]
-    line_id = id[0:33]
-    try:
-        employee.objects.get(employee_line_ID=line_id)
-        return redirect(home)
-    except:
-        # pass
-        obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+# def register(request,id):
+#     emp_id = id[33:]
+#     line_id = id[0:33]
+#     try:
+#         employee.objects.get(employee_line_ID=line_id)
+#         return redirect(home)
+#     except:
+#         # pass
+#         obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#
+#         user= employee(emplyee_name='test',
+#                         employee_ID=emp_id,
+#                         employee_line_ID=line_id,
+#                         activity_text=json.dumps([obj], ensure_ascii=False))
+#         user.save()
+#         connection.close()
+#         return render(request, 'myworkplace/register_finish.html')
 
-        user= employee(emplyee_name='test',
-                        employee_ID=emp_id,
-                        employee_line_ID=line_id,
-                        activity_text=json.dumps([obj], ensure_ascii=False))
-        user.save()
-        connection.close()
-        return render(request, 'myworkplace/register_finish.html')
 
-
-def register2(request, id):
+def register(request, id):
     # data = employee.objects.get(employee_ID=id).__dict__
 
     emp_id = id[33:]
