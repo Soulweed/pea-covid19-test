@@ -50,6 +50,8 @@
       <div class="row">
         <div class="col-6">
           <h6 id="question"><small>ชื่อ (ไม่ต้องมีคำนำหน้า)</small></h6>
+            <input type="hidden" name="page" value="3">
+
           <input class="w-100 edited" name="firstname_ref_1" type="text" required>
         </div>
         <div class="col-6">
@@ -160,16 +162,10 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-                                                <input name="page" id="page_input" hidden="true">
-
           <input id="checkin" class="w-100 btn" type="submit" value="ถัดไป">
         </div>
       </div>
     </div>
   </div>
   </form>
-    <script>
-    window.onload = function(){
-        document.getElementById("page_input").value = "3";
-    };</script>
   {% endblock %}

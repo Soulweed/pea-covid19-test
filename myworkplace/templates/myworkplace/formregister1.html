@@ -109,7 +109,7 @@
         </div>
         <div class="col-6">
           <h6 id="edited">หมายเลขโทรศัพท์มือถือ <font color="#f03d3d"> &nbsp; * &nbsp; </font></h6>
-          <input class="w-100 edited" name="mobile_phone" required type="text">
+          <input class="w-100 edited" required type="text" name="mobile_phone" >
         </div>
       </div>
     </div>
@@ -141,19 +141,11 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-                                    <input name="page" id="page_input" hidden="true">
-
           <input id="checkin" class="w-100 btn" type="submit" value="ถัดไป">
         </div>
       </div>
     </div>
   </div>
   </form>
-    <script>
-    window.onload = function(){
-        document.getElementById("page_input").value = "1";
-    };
-
-</script>
 
   {% endblock %}

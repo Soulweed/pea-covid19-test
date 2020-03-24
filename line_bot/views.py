@@ -105,6 +105,7 @@ def handle_text_message(event):
                                            ])
     else:
         try:
+            print(dict_source['user_id'])
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
             connection.close()
 

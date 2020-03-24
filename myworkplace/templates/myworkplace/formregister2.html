@@ -42,7 +42,7 @@
           <div class="col-12">
             <h6 id="edited">ที่อยู่</h6>
             <input type="hidden" name="page" value="2">
-            <input class="w-100 edited" name="adress" type="text" required value="xxx">
+            <input class="w-100 edited" name="adress" type="text" required value="">
           </div>
         </div>
       </div>
@@ -118,8 +118,6 @@
         <div class="container">
           <div class="row">
             <div class="col-12 text-center">
-                                                    <input name="page" id="page_input" hidden="true">
-
               <input id="checkin" class="w-100 btn" type="submit" value="ถัดไป">
             </div>
           </div>
@@ -127,9 +125,5 @@
       </div>
   </form>
 
-    <script>
-    window.onload = function(){
-        document.getElementById("page_input").value = "2";
-    };</script>
 
   {% endblock %}
