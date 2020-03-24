@@ -293,7 +293,7 @@ def register(request,id):
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
             user_data = employee(
-                emplyee_name=emp_name,
+                emplyee_name='{} {}'.format(FirstName, LastName),
                 employee_ID=emp_id,
                 employee_line_ID=line_id,
                 activity_text=json.dumps([obj], ensure_ascii=False),
