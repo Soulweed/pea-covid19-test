@@ -73,10 +73,7 @@ def handle_text_message(event):
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
         except:
             email_name = get_user_email(id=dict_message['text'])
-            print(email_name)
             if email_name is not None:
-                print('-----------------')
-                print('here we are')
                 try:
                     send_email_register(email=email_name, line_id=dict_source['user_id'], id=dict_message['text'])
                     line_bot_api.reply_message(event.reply_token,
