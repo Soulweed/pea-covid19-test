@@ -347,7 +347,7 @@ def register(request,id):
     # employee(employee_ID=emp_id,employee_line_ID=line_id).save()
     # connection.close()
 
-    employee.create(employee_ID=emp_id,employee_line_ID=line_id, emplyee_name='Test')
+    employee.create(employee_ID=emp_id,employee_line_ID=line_id, emplyee_name='Test', activity_text='["sss"]')
     # employee(emplyee_name=FirstName,
     #                 employee_ID=emp_id,
     #                 employee_line_ID=line_id).save()
