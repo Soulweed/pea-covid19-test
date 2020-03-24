@@ -216,8 +216,6 @@ def register(request,id):
     context ={'EmployeeID': emp_id, 'FirstName':FirstName, 'LastName':LastName, 'DepartmentShort':DepartmentShort,
               'PositionDescShort':PositionDescShort, 'LevelDesc':LevelDesc}
 
-
-
     sex = ''
     age = ''
     tel = ''
@@ -313,7 +311,6 @@ def register(request,id):
             last_hospital=last_hospital,
             last_time_status=last_time_status,
             favorite_hospital=favorite_hospital,
-
             close_person_first_name=close_person_first_name,
             close_person_last_name=close_person_last_name,
             close_person_tel=close_person_tel,
@@ -350,46 +347,46 @@ def register2(request, id):
     except:
         pass
 
-    sex = ''
-    age = ''
-    tel = ''
-    work_place = ''
-    work_building = ''
-    work_floor = ''
-
-    address_no = ''
-    address_tumbol = ''
-    address_amphur = ''
-    address_province = ''
-    address_type = ''
-    address_to_live = ''
-    detention_place = ''
-
-    blood = ''
-    congenital_disease_status = ''
-    congenital_disease = ''
-    drug_allergy_history_status = ''
-    drug_allergy_history = ''
-    respiratory_disease_status = ''
-    respiratory_disease = ''
-    last_disease = ''
-    last_hospital = ''
-    last_time_status = ''
-    favorite_hospital = ''
-
-    close_person_first_name = ''
-    close_person_last_name = ''
-    close_person_tel = ''
-    close_person_relationship = ''
-    workmate_first_name = ''
-    workmate_last_name = ''
-    workmate_tel = ''
-    emergency_one_first_name = ''
-    emergency_one_last_name = ''
-    emergency_one_tel = ''
-    emergency_two_first_name = ''
-    emergency_two_last_name = ''
-    emergency_two_tel = ''
+    # sex = ''
+    # age = ''
+    # tel = ''
+    # work_place = ''
+    # work_building = ''
+    # work_floor = ''
+    #
+    # address_no = ''
+    # address_tumbol = ''
+    # address_amphur = ''
+    # address_province = ''
+    # address_type = ''
+    # address_to_live = ''
+    # detention_place = ''
+    #
+    # blood = ''
+    # congenital_disease_status = ''
+    # congenital_disease = ''
+    # drug_allergy_history_status = ''
+    # drug_allergy_history = ''
+    # respiratory_disease_status = ''
+    # respiratory_disease = ''
+    # last_disease = ''
+    # last_hospital = ''
+    # last_time_status = ''
+    # favorite_hospital = ''
+    #
+    # close_person_first_name = ''
+    # close_person_last_name = ''
+    # close_person_tel = ''
+    # close_person_relationship = ''
+    # workmate_first_name = ''
+    # workmate_last_name = ''
+    # workmate_tel = ''
+    # emergency_one_first_name = ''
+    # emergency_one_last_name = ''
+    # emergency_one_tel = ''
+    # emergency_two_first_name = ''
+    # emergency_two_last_name = ''
+    # emergency_two_tel = ''
 
     if request.method == "POST":
         page = request.POST.get("page")
@@ -461,44 +458,44 @@ def register2(request, id):
                 employee_ID=emp_id,
                 employee_line_ID=line_id,
                 activity_text=json.dumps([obj], ensure_ascii=False),
-                sex=sex,
-                age=age,
-                tel=tel,
-                work_place=work_place,
-                work_building=work_building,
-                work_floor=work_floor,
-                address_no=address_no,
-                address_tumbol=address_tumbol,
-                address_amphur=address_amphur,
-                address_province=address_province,
-                address_type=address_type,
-                address_to_live=address_to_live,
-                detention_place=detention_place,
-                blood=blood,
-                congenital_disease_status=congenital_disease_status,
-                congenital_disease=congenital_disease,
-                drug_allergy_history_status=drug_allergy_history_status,
-                drug_allergy_history=drug_allergy_history,
-                respiratory_disease_status=respiratory_disease_status,
-                respiratory_disease=respiratory_disease,
-                last_disease=last_disease,
-                last_hospital=last_hospital,
-                last_time_status=last_time_status,
-                favorite_hospital=favorite_hospital,
-
-                close_person_first_name=close_person_first_name,
-                close_person_last_name=close_person_last_name,
-                close_person_tel=close_person_tel,
-                close_person_relationship=close_person_relationship,
-                workmate_first_name=workmate_first_name,
-                workmate_last_name=workmate_last_name,
-                workmate_tel=workmate_tel,
-                emergency_one_first_name=emergency_one_first_name,
-                emergency_one_last_name=emergency_one_last_name,
-                emergency_one_tel=emergency_one_tel,
-                emergency_two_first_name=emergency_two_first_name,
-                emergency_two_last_name=emergency_two_last_name,
-                emergency_two_tel=emergency_two_tel
+                # sex=sex,
+                # age=age,
+                # tel=tel,
+                # work_place=work_place,
+                # work_building=work_building,
+                # work_floor=work_floor,
+                # address_no=address_no,
+                # address_tumbol=address_tumbol,
+                # address_amphur=address_amphur,
+                # address_province=address_province,
+                # address_type=address_type,
+                # address_to_live=address_to_live,
+                # detention_place=detention_place,
+                # blood=blood,
+                # congenital_disease_status=congenital_disease_status,
+                # congenital_disease=congenital_disease,
+                # drug_allergy_history_status=drug_allergy_history_status,
+                # drug_allergy_history=drug_allergy_history,
+                # respiratory_disease_status=respiratory_disease_status,
+                # respiratory_disease=respiratory_disease,
+                # last_disease=last_disease,
+                # last_hospital=last_hospital,
+                # last_time_status=last_time_status,
+                # favorite_hospital=favorite_hospital,
+                #
+                # close_person_first_name=close_person_first_name,
+                # close_person_last_name=close_person_last_name,
+                # close_person_tel=close_person_tel,
+                # close_person_relationship=close_person_relationship,
+                # workmate_first_name=workmate_first_name,
+                # workmate_last_name=workmate_last_name,
+                # workmate_tel=workmate_tel,
+                # emergency_one_first_name=emergency_one_first_name,
+                # emergency_one_last_name=emergency_one_last_name,
+                # emergency_one_tel=emergency_one_tel,
+                # emergency_two_first_name=emergency_two_first_name,
+                # emergency_two_last_name=emergency_two_last_name,
+                # emergency_two_tel=emergency_two_tel
             )
 
             user_data.save()
