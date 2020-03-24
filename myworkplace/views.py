@@ -347,12 +347,8 @@ def register(request,id):
         return redirect(home)
     except:
         # pass
-        # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
         obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        # employee(employee_ID=emp_id,employee_line_ID=line_id).save()
-        # connection.close()
 
-        # employee.create(employee_ID=emp_id,employee_line_ID=line_id, emplyee_name='Test', activity_text='["sss"]')
         user= employee(emplyee_name='test',
                         employee_ID=emp_id,
                         employee_line_ID=line_id,
@@ -368,170 +364,125 @@ def register2(request, id):
     emp_id = id[33:]
     line_id = id[0:33]
     FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
-
     context ={'EmployeeID': emp_id, 'FirstName':FirstName, 'LastName':LastName, 'DepartmentShort':DepartmentShort,
               'PositionDescShort':PositionDescShort, 'LevelDesc':LevelDesc}
     try:
         employee.objects.get(employee_line_ID=line_id)
         return redirect(home)
     except:
-        pass
+        if request.method == "POST":
+            page = request.POST.get("page")
+            print(page)
+            if (page == "1"):
+                print("OK1")
+                ext = request.POST.get("ext") #หมายเลขโทรศัพท์ภายใน
+                mobile_phone = request.POST.get("mobile_phone") #หมายเลขโทรศัพท์มือถือ
+                building = request.POST.get("building") #อาคาร
+                floor = request.POST.get("floor") #ชั้น
+                context.update({'ext':ext, 'mobile_phone':mobile_phone, 'floor':floor, 'building':building})
 
-    # sex = ''
-    # age = ''
-    # tel = ''
-    # work_place = ''
-    # work_building = ''
-    # work_floor = ''
-    #
-    # address_no = ''
-    # address_tumbol = ''
-    # address_amphur = ''
-    # address_province = ''
-    # address_type = ''
-    # address_to_live = ''
-    # detention_place = ''
-    #
-    # blood = ''
-    # congenital_disease_status = ''
-    # congenital_disease = ''
-    # drug_allergy_history_status = ''
-    # drug_allergy_history = ''
-    # respiratory_disease_status = ''
-    # respiratory_disease = ''
-    # last_disease = ''
-    # last_hospital = ''
-    # last_time_status = ''
-    # favorite_hospital = ''
-    #
-    # close_person_first_name = ''
-    # close_person_last_name = ''
-    # close_person_tel = ''
-    # close_person_relationship = ''
-    # workmate_first_name = ''
-    # workmate_last_name = ''
-    # workmate_tel = ''
-    # emergency_one_first_name = ''
-    # emergency_one_last_name = ''
-    # emergency_one_tel = ''
-    # emergency_two_first_name = ''
-    # emergency_two_last_name = ''
-    # emergency_two_tel = ''
+                return render(request, 'myworkplace/formregister2.html', context)
 
-    if request.method == "POST":
-        page = request.POST.get("page")
-        print(page)
-        if (page == "1"):
-            print("OK1")
+            if (page == "2"):
+                print("OK2")
 
-            emp_name=request.POST.get("first-last name")
-            ext = request.POST.get("ext") #หมายเลขโทรศัพท์ภายใน
-            mobile_phone = request.POST.get("mobile_phone") #หมายเลขโทรศัพท์มือถือ
-            building = request.POST.get("building") #อาคาร
-            floor = request.POST.get("floor") #ชั้น
-            context.update({'ext':ext, 'mobile_phone':mobile_phone, 'floor':floor, 'building':building})
+                address = request.POST.get("address")
+                selector = request.POST.get("selector")
+                addition_address = request.POST.get("addition_address")
+                context.update({'address':address, 'selector':selector,'addition_address':addition_address})
+                return render(request, 'myworkplace/formregister3.html', context)
 
-            return render(request, 'myworkplace/formregister2.html', context)
+            if (page == "3"):
+                print("OK3")
 
-        if (page == "2"):
-            print("OK2")
+                firstname_ref_1 = request.POST.get("firstname_ref_1")
+                lastname_ref_1 = request.POST.get("lastname_ref_1")
+                mobile_ref_1 = request.POST.get("mobile_ref_1")
+                relation_ref_1 = request.POST.get("relation_ref_1")
+                firstname_ref_2 = request.POST.get("firstname_ref_2")
+                lastname_ref_2 = request.POST.get("lastname_ref_2")
+                mobile_ref_2 = request.POST.get("mobile_ref_2")
+                relation_ref_2 = request.POST.get("relation_ref_2")
+                firstname_ref_3 = request.POST.get("firstname_ref_3")
+                lastname_ref_3 = request.POST.get("lastname_ref_3")
+                mobile_ref_3 = request.POST.get("mobile_ref_3")
+                relation_ref_3 = request.POST.get("relation_ref_3")
+                context.update({'firstname_ref_1':firstname_ref_1, 'lastname_ref_1':lastname_ref_1,
+                                'mobile_ref_1':mobile_ref_1, 'relation_ref_1':relation_ref_1,
+                                'firstname_ref_2':firstname_ref_2, 'lastname_ref_2':lastname_ref_2,
+                                'mobile_ref_2':mobile_ref_2, 'relation_ref_1':relation_ref_2,
+                                'firstname_ref_3':firstname_ref_3, 'lastname_ref_3':lastname_ref_3,
+                                'mobile_ref_3':mobile_ref_3,'relation_ref_1':relation_ref_3 })
 
-            address = request.POST.get("address")
-            selector = request.POST.get("selector")
-            addition_address = request.POST.get("addition_address")
-            context.update({'address':address, 'selector':selector,'addition_address':addition_address})
-            return render(request, 'myworkplace/formregister3.html', context)
+            #     return render(request, 'myworkplace/register_4.html', context)
+            #
+            # if (page == "4"):
+            #     print("OK4")
+                # close_person_first_name = request.POST.get("close_person_first_name")
+                # close_person_last_name = request.POST.get("close_person_last_name")
+                # close_person_tel = request.POST.get("close_person_tel")
+                # close_person_relationship = request.POST.get("close_person_relationship")
+                # workmate_first_name = request.POST.get("workmate_first_name")
+                # workmate_last_name = request.POST.get("workmate_last_name")
+                # workmate_tel = request.POST.get("workmate_tel")
+                # emergency_one_first_name = request.POST.get("emergency_one_first_name")
+                # emergency_one_last_name = request.POST.get("emergency_one_last_name")
+                # emergency_one_tel = request.POST.get("emergency_one_tel")
+                # emergency_two_first_name = request.POST.get("emergency_two_first_name")
+                # emergency_two_last_name = request.POST.get("emergency_two_last_name")
+                # emergency_two_tel = request.POST.get("emergency_two_tel")
 
-        if (page == "3"):
-            print("OK3")
-
-            firstname_ref_1 = request.POST.get("firstname_ref_1")
-            lastname_ref_1 = request.POST.get("lastname_ref_1")
-            mobile_ref_1 = request.POST.get("mobile_ref_1")
-            relation_ref_1 = request.POST.get("relation_ref_1")
-            firstname_ref_2 = request.POST.get("firstname_ref_2")
-            lastname_ref_2 = request.POST.get("lastname_ref_2")
-            mobile_ref_2 = request.POST.get("mobile_ref_2")
-            relation_ref_2 = request.POST.get("relation_ref_2")
-            firstname_ref_3 = request.POST.get("firstname_ref_3")
-            lastname_ref_3 = request.POST.get("lastname_ref_3")
-            mobile_ref_3 = request.POST.get("mobile_ref_3")
-            relation_ref_3 = request.POST.get("relation_ref_3")
-            context.update({'firstname_ref_1':firstname_ref_1, 'lastname_ref_1':lastname_ref_1,
-                            'mobile_ref_1':mobile_ref_1, 'firstname_ref_2':firstname_ref_2, 'lastname_ref_2':lastname_ref_2,
-                            'mobile_ref_2':mobile_ref_2, 'firstname_ref_3':firstname_ref_3, 'lastname_ref_3':lastname_ref_3,
-                            'mobile_ref_3':mobile_ref_3 })
-
-        #     return render(request, 'myworkplace/register_4.html', context)
-        #
-        # if (page == "4"):
-        #     print("OK4")
-            # close_person_first_name = request.POST.get("close_person_first_name")
-            # close_person_last_name = request.POST.get("close_person_last_name")
-            # close_person_tel = request.POST.get("close_person_tel")
-            # close_person_relationship = request.POST.get("close_person_relationship")
-            # workmate_first_name = request.POST.get("workmate_first_name")
-            # workmate_last_name = request.POST.get("workmate_last_name")
-            # workmate_tel = request.POST.get("workmate_tel")
-            # emergency_one_first_name = request.POST.get("emergency_one_first_name")
-            # emergency_one_last_name = request.POST.get("emergency_one_last_name")
-            # emergency_one_tel = request.POST.get("emergency_one_tel")
-            # emergency_two_first_name = request.POST.get("emergency_two_first_name")
-            # emergency_two_last_name = request.POST.get("emergency_two_last_name")
-            # emergency_two_tel = request.POST.get("emergency_two_tel")
-
-            obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+                obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
 
-            user_data = employee(
-                emplyee_name=FirstName,
-                employee_ID=emp_id,
-                employee_line_ID=line_id,
-                activity_text=json.dumps([obj], ensure_ascii=False),
-                # sex=sex,
-                # age=age,
-                # tel=tel,
-                # work_place=work_place,
-                # work_building=work_building,
-                # work_floor=work_floor,
-                # address_no=address_no,
-                # address_tumbol=address_tumbol,
-                # address_amphur=address_amphur,
-                # address_province=address_province,
-                # address_type=address_type,
-                # address_to_live=address_to_live,
-                # detention_place=detention_place,
-                # blood=blood,
-                # congenital_disease_status=congenital_disease_status,
-                # congenital_disease=congenital_disease,
-                # drug_allergy_history_status=drug_allergy_history_status,
-                # drug_allergy_history=drug_allergy_history,
-                # respiratory_disease_status=respiratory_disease_status,
-                # respiratory_disease=respiratory_disease,
-                # last_disease=last_disease,
-                # last_hospital=last_hospital,
-                # last_time_status=last_time_status,
-                # favorite_hospital=favorite_hospital,
-                #
-                # close_person_first_name=close_person_first_name,
-                # close_person_last_name=close_person_last_name,
-                # close_person_tel=close_person_tel,
-                # close_person_relationship=close_person_relationship,
-                # workmate_first_name=workmate_first_name,
-                # workmate_last_name=workmate_last_name,
-                # workmate_tel=workmate_tel,
-                # emergency_one_first_name=emergency_one_first_name,
-                # emergency_one_last_name=emergency_one_last_name,
-                # emergency_one_tel=emergency_one_tel,
-                # emergency_two_first_name=emergency_two_first_name,
-                # emergency_two_last_name=emergency_two_last_name,
-                # emergency_two_tel=emergency_two_tel
-            )
+                user_data = employee(
+                    emplyee_name='{} {}'.format(FirstName, LastName),
+                    employee_ID=emp_id,
+                    employee_line_ID=line_id,
+                    activity_text=json.dumps([obj], ensure_ascii=False),
+                    employee_tel=mobile_phone,
+                    emplyee_address=address,
+                    # sex=sex,
+                    # age=age,
+                    # work_place=work_place,
+                    # work_building=work_building,
+                    # work_floor=work_floor,
+                    # address_tumbol=address_tumbol,
+                    # address_amphur=address_amphur,
+                    # address_province=address_province,
+                    # address_type=address_type,
+                    # address_to_live=address_to_live,
+                    # detention_place=detention_place,
+                    # blood=blood,
+                    # congenital_disease_status=congenital_disease_status,
+                    # congenital_disease=congenital_disease,
+                    # drug_allergy_history_status=drug_allergy_history_status,
+                    # drug_allergy_history=drug_allergy_history,
+                    # respiratory_disease_status=respiratory_disease_status,
+                    # respiratory_disease=respiratory_disease,
+                    # last_disease=last_disease,
+                    # last_hospital=last_hospital,
+                    # last_time_status=last_time_status,
+                    # favorite_hospital=favorite_hospital,
+                    # close_person_first_name=close_person_first_name,
+                    # close_person_last_name=close_person_last_name,
+                    # close_person_tel=close_person_tel,
+                    # close_person_relationship=close_person_relationship,
+                    # workmate_first_name=workmate_first_name,
+                    # workmate_last_name=workmate_last_name,
+                    # workmate_tel=workmate_tel,
+                    # emergency_one_first_name=emergency_one_first_name,
+                    # emergency_one_last_name=emergency_one_last_name,
+                    # emergency_one_tel=emergency_one_tel,
+                    # emergency_two_first_name=emergency_two_first_name,
+                    # emergency_two_last_name=emergency_two_last_name,
+                    # emergency_two_tel=emergency_two_tel
+                )
 
-            user_data.save()
-            print('model save')
-            connection.close()
-            return render(request, 'myworkplace/register_finish.html', context)
+                user_data.save()
+                print('model save')
+                connection.close()
+                return render(request, 'myworkplace/register_finish.html', context)
     print(context)
     return render(request, 'myworkplace/formregister1.html', context)
 
