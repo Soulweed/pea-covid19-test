@@ -208,7 +208,7 @@ class EmailViewSet(viewsets.ModelViewSet):
 from django.http import HttpResponseForbidden, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-def register(request,id):
+def register3(request,id):
     emp_id = id[33:]
     line_id = id[0:33]
     FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
@@ -330,6 +330,21 @@ def register(request,id):
         connection.close()
         return render(request, 'myworkplace/register_finish.html', context)
     return render(request, 'myworkplace/formregister.html', context)
+
+
+
+def register(request,id):
+    emp_id = id[33:]
+    line_id = id[0:33]
+    FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
+    obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+    employee(emplyee_name=FirstName,
+                    employee_ID=emp_id,
+                    employee_line_ID=line_id,
+                    activity_text=json.dumps([obj], ensure_ascii=False)).save()
+    connection.close()
+    return render(request, 'myworkplace/register_finish.html')
 
 
 def register2(request, id):
