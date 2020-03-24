@@ -608,21 +608,11 @@ def LEAVE(request, id):
         if (page == "2"):
             print("OK2")
             FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(id)
-
             context.update({'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc':PositionDescShort})
             return render(request, 'myworkplace/formleave3.html.html', context)
 
         if (page == "3"):
             print("OK3")
-
-
-
-        #     return render(request, 'myworkplace/register_4.html', context)
-        #
-        # if (page == "4"):
-        #     print("OK4")
-
-
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
             return render(request, 'myworkplace/register_finish.html', context)

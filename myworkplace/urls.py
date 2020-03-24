@@ -30,7 +30,6 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api1', include(router1.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('confirm_registration/<id>/', views.confirm_registration, name='confirm_registration'),
     path('challenge2/<id>/', views.randomquestions, name='challenge'),
     path('correct/', views.correct, name='correct'),
     path('wrong/', views.wrong, name='wrong'),
