@@ -343,15 +343,16 @@ def register(request,id):
     emp_id = id[33:]
     line_id = id[0:33]
     # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
-    # obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+    obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
     # employee(employee_ID=emp_id,employee_line_ID=line_id).save()
     # connection.close()
 
-    employee.create(employee_ID=emp_id,employee_line_ID=line_id, emplyee_name='Test', activity_text='["sss"]')
-    # employee(emplyee_name=FirstName,
-    #                 employee_ID=emp_id,
-    #                 employee_line_ID=line_id).save()
-                    # activity_text=json.dumps([obj], ensure_ascii=False)).save()
+    # employee.create(employee_ID=emp_id,employee_line_ID=line_id, emplyee_name='Test', activity_text='["sss"]')
+    user= employee(emplyee_name='test',
+                    employee_ID=emp_id,
+                    employee_line_ID=line_id,
+                    activity_text=json.dumps([obj], ensure_ascii=False))
+    user.save()
     connection.close()
     return render(request, 'myworkplace/register_finish.html')
 
