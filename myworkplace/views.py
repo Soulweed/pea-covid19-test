@@ -338,9 +338,10 @@ def register(request,id):
     line_id = id[0:33]
     # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
     # obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-    employee(employee_ID=emp_id,employee_line_ID=line_id).save()
-    connection.close()
+    # employee(employee_ID=emp_id,employee_line_ID=line_id).save()
+    # connection.close()
 
+    employee.create(employee_ID=emp_id,employee_line_ID=line_id)
     # employee(emplyee_name=FirstName,
     #                 employee_ID=emp_id,
     #                 employee_line_ID=line_id).save()

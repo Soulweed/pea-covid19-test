@@ -134,6 +134,12 @@ class employee(models.Model):
     def __str__(self):
         return "{}-{}".format(self.employee_ID, self.emplyee_name)
 
+    @classmethod
+    def create(cls, emplyee_name, employee_ID, employee_line_ID):
+        emp = cls(emplyee_name=emplyee_name, employee_ID=employee_ID, employee_line_ID=employee_line_ID)
+        # do something with the book
+        return emp
+
 class question(models.Model):
     question_text = models.CharField(max_length=200, blank=True)
     answer_1 = models.CharField(max_length=200, blank=True)

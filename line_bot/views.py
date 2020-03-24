@@ -51,9 +51,6 @@ def callback(request):
     return HttpResponse('OK', status=200)
 
 
-reply_text = 'A whole new world'
-
-
 # # オウム返し
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
