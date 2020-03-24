@@ -72,7 +72,7 @@ def daily_update(request, id):
             health = 'quarantine'
         elif (group1 == 0 and group2 > 0 ):
             health = 'flu'
-        elif (group1 == 1 and group2 > 1) or (group1 > 1 and group2 > 1):
+        elif (group1 == 1 and group2 > 0) or (group1 > 1 and group2 > 1):
             health = 'hospital'
         # user = employee.objects.get(employee_ID=id)
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
@@ -342,19 +342,24 @@ def register3(request,id):
 def register(request,id):
     emp_id = id[33:]
     line_id = id[0:33]
-    # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
-    obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-    # employee(employee_ID=emp_id,employee_line_ID=line_id).save()
-    # connection.close()
+    try:
+        employee.objects.get(employee_line_ID=line_id)
+        return redirect(home)
+    except:
+        # pass
+        # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
+        obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+        # employee(employee_ID=emp_id,employee_line_ID=line_id).save()
+        # connection.close()
 
-    # employee.create(employee_ID=emp_id,employee_line_ID=line_id, emplyee_name='Test', activity_text='["sss"]')
-    user= employee(emplyee_name='test',
-                    employee_ID=emp_id,
-                    employee_line_ID=line_id,
-                    activity_text=json.dumps([obj], ensure_ascii=False))
-    user.save()
-    connection.close()
-    return render(request, 'myworkplace/register_finish.html')
+        # employee.create(employee_ID=emp_id,employee_line_ID=line_id, emplyee_name='Test', activity_text='["sss"]')
+        user= employee(emplyee_name='test',
+                        employee_ID=emp_id,
+                        employee_line_ID=line_id,
+                        activity_text=json.dumps([obj], ensure_ascii=False))
+        user.save()
+        connection.close()
+        return render(request, 'myworkplace/register_finish.html')
 
 
 def register2(request, id):
