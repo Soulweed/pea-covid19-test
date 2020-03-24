@@ -341,8 +341,8 @@ def register(request,id):
 
     employee(emplyee_name=FirstName,
                     employee_ID=emp_id,
-                    employee_line_ID=line_id,
-                    activity_text=json.dumps([obj], ensure_ascii=False)).save()
+                    employee_line_ID=line_id).save()
+                    # activity_text=json.dumps([obj], ensure_ascii=False)).save()
     connection.close()
     return render(request, 'myworkplace/register_finish.html')
 
