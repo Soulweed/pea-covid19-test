@@ -16,7 +16,7 @@ import random
 # importing email library
 from django.core.mail import send_mail
 from django.conf import settings
-from send_email.views import send_email_register, get_user_email
+from send_email.views import send_email_register, get_user_email, send_email_leave_request
 
 
 
@@ -599,18 +599,32 @@ def LEAVE_request(request, id):
             print("OK1")
             id_boss = request.POST.get("id_boss")
             day = 14
-            context.update({'id_boss':id_boss, 'day':day})
+            email=get_user_email(id_boss)
+            context.update({'id_boss':id_boss, 'email_boss':email, 'day':day})
             return render(request, 'myworkplace/formleave2.html', context)
 
         if (page == "2"):
             print("OK2")
-            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(id)
+            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(id_boss)
+
             context.update({'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc':PositionDescShort})
+
             return render(request, 'myworkplace/formleave3.html.html', context)
+
+
 
         if (page == "3"):
             print("OK3")
-            obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+            obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+            send_email_leave_request(id=id, boss=id_boss)
+            user = employee.objects.get(employee_ID=str(id))
+            data = json.loads(user.activity_text)
+            data.append(obj)
+            user.activity_text = json.dumps(data, ensure_ascii=False)
+            user.approved_status = 'WFH'
+            user.save()
+            connection.close()
 
             return render(request, 'myworkplace/register_finish.html', context)
     return render(request, 'myworkplace/formleave1.html', context)

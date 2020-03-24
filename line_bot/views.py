@@ -5,7 +5,6 @@ from send_email.views import send_email_register, get_user_email
 
 # Create your views here.
 
-
 from django.http import HttpResponseForbidden, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
@@ -138,7 +137,7 @@ def handle_text_message(event):
                                                                        "action": {
                                                                            "type": "uri",
                                                                            "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/LEAVE_request/{}/".format(user_employee.employee_ID)
+                                                                           "uri": "https://pea-covid19-test.herokuapp.com/"
                                                                        },
                                                                        "aspectRatio": "1040:174"
                                                                    }
