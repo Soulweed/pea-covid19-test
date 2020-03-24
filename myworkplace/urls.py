@@ -37,7 +37,7 @@ urlpatterns = [
     path('miss3d_ts/<id>/', views.miss3d_ts, name='miss3d_ts'),
     path('register/<id>/', views.register, name='register'),
     path('WFH_request/<id>/<boss>/', views.WFH_request, name='WFH_request'),
-    path('LEAVE_request/<id>/<boss>/', views.LEAVE_request, name='LEAVE_request'),
+    path('LEAVE_request/<id>/', views.LEAVE_request, name='LEAVE_request'),
     path('WFH_approve/<id>/<boss>/', views.WFH_approve, name='WFH_approve'),
     # path('LEAVE_approve/<id>/<boss>/', views.LEAVE_approve, name='LEAVE_approve'),
 

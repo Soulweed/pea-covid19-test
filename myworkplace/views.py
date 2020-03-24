@@ -591,13 +591,10 @@ def miss3d_ts(request, id):
 
 
 
-def LEAVE(request, id):
-
+def LEAVE_request(request, id):
     context ={'EmployeeID': id,}
-
     if request.method == "POST":
         page = request.POST.get("page")
-        print(page)
         if (page == "1"):
             print("OK1")
             id_boss = request.POST.get("id_boss")
@@ -660,7 +657,7 @@ def WFH_approve(request, id, boss):
     return render(request, 'myworkplace/test.html', context)
 
 
-def LEAVE_request(request, id, boss):
+def LEAVE_approve(request, id, boss):
     day=14
     obj = {'type': 'LEAVE_request', 'approved_by': boss,
            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
