@@ -608,20 +608,15 @@ def LEAVE_request(request, id):
             print(id_boss)
             email = get_user_email(id_boss)
             print(email)
-            context.update({'id_boss': id_boss, 'email_boss': email, 'day': day})
+            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
+                context['id_boss'])
+            context.update({'id_boss': id_boss, 'email_boss': email, 'day': day,
+                            'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort})
             return render(request, 'myworkplace/formleave3.html', context)
 
 
         if (page == "3"):
             print("OK3")
-            print(context['id_boss'])
-
-            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
-                context['id_boss'])
-
-            context.update({'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort})
-
-
 
             obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
@@ -637,7 +632,7 @@ def LEAVE_request(request, id):
             print('model save')
             connection.close()
 
-            return render(request, 'myworkplace/register_finish.html', context)
+            return render(request, 'myworkplace/formleave4.html', context)
     return render(request, 'myworkplace/formleave1.html', context)
 
 
