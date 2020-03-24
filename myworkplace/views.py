@@ -47,7 +47,6 @@ def home(request):
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
-    user=employee.objects.get(employee_ID=id)
     if request.method == "POST":
         dangerous_area = request.POST.get("question1")
         working_with_foreigner = request.POST.get("question2")
@@ -78,6 +77,7 @@ def daily_update(request, id):
         # user = employee.objects.get(employee_ID=id)
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
+        user = employee.objects.get(employee_ID=id)
         data = json.loads(user.activity_daily_update)
         data.append(obj)
         user.activity_daily_update = json.dumps(data)
