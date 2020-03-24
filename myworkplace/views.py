@@ -216,126 +216,122 @@ def register(request,id):
     context ={'EmployeeID': emp_id, 'FirstName':FirstName, 'LastName':LastName, 'DepartmentShort':DepartmentShort,
               'PositionDescShort':PositionDescShort, 'LevelDesc':LevelDesc}
 
-    try:
-        employee.objects.get(employee_line_ID=line_id)
-        return redirect(home)
-    except:
 
-        sex = ''
-        age = ''
-        tel = ''
-        work_place = ''
-        work_building = ''
-        work_floor = ''
 
-        address_no = ''
-        address_tumbol = ''
-        address_amphur = ''
-        address_province = ''
-        address_type = ''
-        address_to_live = ''
-        detention_place = ''
+    sex = ''
+    age = ''
+    tel = ''
+    work_place = ''
+    work_building = ''
+    work_floor = ''
 
-        blood = ''
-        congenital_disease_status = ''
-        congenital_disease = ''
-        drug_allergy_history_status = ''
-        drug_allergy_history = ''
-        respiratory_disease_status = ''
-        respiratory_disease = ''
-        last_disease = ''
-        last_hospital = ''
-        last_time_status = ''
-        favorite_hospital = ''
+    address_no = ''
+    address_tumbol = ''
+    address_amphur = ''
+    address_province = ''
+    address_type = ''
+    address_to_live = ''
+    detention_place = ''
 
-        close_person_first_name = ''
-        close_person_last_name = ''
-        close_person_tel = ''
-        close_person_relationship = ''
-        workmate_first_name = ''
-        workmate_last_name = ''
-        workmate_tel = ''
-        emergency_one_first_name = ''
-        emergency_one_last_name = ''
-        emergency_one_tel = ''
-        emergency_two_first_name = ''
-        emergency_two_last_name = ''
-        emergency_two_tel = ''
+    blood = ''
+    congenital_disease_status = ''
+    congenital_disease = ''
+    drug_allergy_history_status = ''
+    drug_allergy_history = ''
+    respiratory_disease_status = ''
+    respiratory_disease = ''
+    last_disease = ''
+    last_hospital = ''
+    last_time_status = ''
+    favorite_hospital = ''
 
-        if request.method == "POST":
-            emp_name = request.POST.get("first-last name")
-            ext = request.POST.get("ext")  # หมายเลขโทรศัพท์ภายใน
-            mobile_phone = request.POST.get("mobile_phone")  # หมายเลขโทรศัพท์มือถือ
-            building = request.POST.get("building")  # อาคาร
-            floor = request.POST.get("floor")  # ชั้น
-            address = request.POST.get("address")
-            selector = request.POST.get("selector")
-            addition_address = request.POST.get("addition_address")
+    close_person_first_name = ''
+    close_person_last_name = ''
+    close_person_tel = ''
+    close_person_relationship = ''
+    workmate_first_name = ''
+    workmate_last_name = ''
+    workmate_tel = ''
+    emergency_one_first_name = ''
+    emergency_one_last_name = ''
+    emergency_one_tel = ''
+    emergency_two_first_name = ''
+    emergency_two_last_name = ''
+    emergency_two_tel = ''
 
-            firstname_ref_1 = request.POST.get("firstname_ref_1")
-            lastname_ref_1 = request.POST.get("lastname_ref_1")
-            mobile_ref_1 = request.POST.get("mobile_ref_1")
-            relation_ref_1 = request.POST.get("relation_ref_1")
-            firstname_ref_2 = request.POST.get("firstname_ref_2")
-            lastname_ref_2 = request.POST.get("lastname_ref_2")
-            mobile_ref_2 = request.POST.get("mobile_ref_2")
-            relation_ref_2 = request.POST.get("relation_ref_2")
-            firstname_ref_3 = request.POST.get("firstname_ref_3")
-            lastname_ref_3 = request.POST.get("lastname_ref_3")
-            mobile_ref_3 = request.POST.get("mobile_ref_3")
-            relation_ref_3 = request.POST.get("relation_ref_3")
+    if request.method == "POST":
+        emp_name = request.POST.get("first-last name")
+        ext = request.POST.get("ext")  # หมายเลขโทรศัพท์ภายใน
+        mobile_phone = request.POST.get("mobile_phone")  # หมายเลขโทรศัพท์มือถือ
+        building = request.POST.get("building")  # อาคาร
+        floor = request.POST.get("floor")  # ชั้น
+        address = request.POST.get("address")
+        selector = request.POST.get("selector")
+        addition_address = request.POST.get("addition_address")
 
-            obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+        firstname_ref_1 = request.POST.get("firstname_ref_1")
+        lastname_ref_1 = request.POST.get("lastname_ref_1")
+        mobile_ref_1 = request.POST.get("mobile_ref_1")
+        relation_ref_1 = request.POST.get("relation_ref_1")
+        firstname_ref_2 = request.POST.get("firstname_ref_2")
+        lastname_ref_2 = request.POST.get("lastname_ref_2")
+        mobile_ref_2 = request.POST.get("mobile_ref_2")
+        relation_ref_2 = request.POST.get("relation_ref_2")
+        firstname_ref_3 = request.POST.get("firstname_ref_3")
+        lastname_ref_3 = request.POST.get("lastname_ref_3")
+        mobile_ref_3 = request.POST.get("mobile_ref_3")
+        relation_ref_3 = request.POST.get("relation_ref_3")
 
-            user_data = employee(
-                emplyee_name=FirstName,
-                employee_ID=emp_id,
-                employee_line_ID=line_id,
-                activity_text=json.dumps([obj], ensure_ascii=False),
-                sex=sex,
-                age=age,
-                tel=tel,
-                work_place=work_place,
-                work_building=work_building,
-                work_floor=work_floor,
-                address_no=address_no,
-                address_tumbol=address_tumbol,
-                address_amphur=address_amphur,
-                address_province=address_province,
-                address_type=address_type,
-                address_to_live=address_to_live,
-                detention_place=detention_place,
-                blood=blood,
-                congenital_disease_status=congenital_disease_status,
-                congenital_disease=congenital_disease,
-                drug_allergy_history_status=drug_allergy_history_status,
-                drug_allergy_history=drug_allergy_history,
-                respiratory_disease_status=respiratory_disease_status,
-                respiratory_disease=respiratory_disease,
-                last_disease=last_disease,
-                last_hospital=last_hospital,
-                last_time_status=last_time_status,
-                favorite_hospital=favorite_hospital,
+        obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-                close_person_first_name=close_person_first_name,
-                close_person_last_name=close_person_last_name,
-                close_person_tel=close_person_tel,
-                close_person_relationship=close_person_relationship,
-                workmate_first_name=workmate_first_name,
-                workmate_last_name=workmate_last_name,
-                workmate_tel=workmate_tel,
-                emergency_one_first_name=emergency_one_first_name,
-                emergency_one_last_name=emergency_one_last_name,
-                emergency_one_tel=emergency_one_tel,
-                emergency_two_first_name=emergency_two_first_name,
-                emergency_two_last_name=emergency_two_last_name,
-                emergency_two_tel=emergency_two_tel
-            )
-            user_data.save()
-            print('model save')
-            connection.close()
-            return render(request, 'myworkplace/register_finish.html', context)
+        user_data = employee(
+            emplyee_name=FirstName,
+            employee_ID=emp_id,
+            employee_line_ID=line_id,
+            activity_text=json.dumps([obj], ensure_ascii=False),
+            sex=sex,
+            age=age,
+            tel=tel,
+            work_place=work_place,
+            work_building=work_building,
+            work_floor=work_floor,
+            address_no=address_no,
+            address_tumbol=address_tumbol,
+            address_amphur=address_amphur,
+            address_province=address_province,
+            address_type=address_type,
+            address_to_live=address_to_live,
+            detention_place=detention_place,
+            blood=blood,
+            congenital_disease_status=congenital_disease_status,
+            congenital_disease=congenital_disease,
+            drug_allergy_history_status=drug_allergy_history_status,
+            drug_allergy_history=drug_allergy_history,
+            respiratory_disease_status=respiratory_disease_status,
+            respiratory_disease=respiratory_disease,
+            last_disease=last_disease,
+            last_hospital=last_hospital,
+            last_time_status=last_time_status,
+            favorite_hospital=favorite_hospital,
 
+            close_person_first_name=close_person_first_name,
+            close_person_last_name=close_person_last_name,
+            close_person_tel=close_person_tel,
+            close_person_relationship=close_person_relationship,
+            workmate_first_name=workmate_first_name,
+            workmate_last_name=workmate_last_name,
+            workmate_tel=workmate_tel,
+            emergency_one_first_name=emergency_one_first_name,
+            emergency_one_last_name=emergency_one_last_name,
+            emergency_one_tel=emergency_one_tel,
+            emergency_two_first_name=emergency_two_first_name,
+            emergency_two_last_name=emergency_two_last_name,
+            emergency_two_tel=emergency_two_tel
+        )
+        user_data.save()
+        print('model save')
+        connection.close()
+        return render(request, 'myworkplace/register_finish.html', context)
     return render(request, 'myworkplace/formregister.html', context)
 
 
