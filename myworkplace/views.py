@@ -621,10 +621,8 @@ def LEAVE_request(request, id):
 
         if (page == "3"):
             print(page)
-
             print("OK3")
-            print(email)
-            print(context['email'])
+            print(context)
             obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
 
