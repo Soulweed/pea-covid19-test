@@ -159,12 +159,14 @@ def send_email_wfh_request(id, boss):
 
 
 
-def send_email_leave_request(id, boss):
+def send_email_leave_request(id, email_boss):
     server = 'email.pea.co.th'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
     password = 'peacovid19'
-    email_boss = boss + '@pea.co.th'
+    # email_boss = boss + '@pea.co.th'
+    email_boss = email_boss
+
     account = connect(server, email, username, password)
     subject = 'ขอลา WFH'
     body = 'พนักงานรหัส {} ขอลา leave 14 วัน'.format(id)

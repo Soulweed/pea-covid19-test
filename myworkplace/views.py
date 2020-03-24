@@ -621,7 +621,7 @@ def LEAVE_request(request, id):
             obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
             # send_email_leave_request(id=id, boss=id_boss)
-            send_email_leave_request(id=id, boss=context['id_boss'])
+            send_email_leave_request(id=id, email_boss=email)
 
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
@@ -633,6 +633,7 @@ def LEAVE_request(request, id):
             connection.close()
 
             return render(request, 'myworkplace/formleave4.html', context)
+
     return render(request, 'myworkplace/formleave1.html', context)
 
 
