@@ -616,15 +616,15 @@ def LEAVE_request(request, id):
                 id_boss)
             context.update({'id_boss': id_boss, 'email_boss': email, 'day': day,
                             'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort})
-            return render(request, 'myworkplace/formleave3.html', {'email':email})
+            return render(request, 'myworkplace/formleave3.html', context)
 
 
         if (page == "3"):
             print(page)
             print("OK3")
+            email = request.POST.get("email_boss")
             print(email)
             obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
 
             send_email_leave_request(id=id, email_boss=email)
             user = employee.objects.get(employee_ID=str(id))
