@@ -597,11 +597,14 @@ def LEAVE_request(request, id):
         page = request.POST.get("page")
 
         if (page == "1"):
+            print(page)
+
             print("OK1")
 
             return render(request, 'myworkplace/formleave2.html', context)
 
         if (page == "2"):
+            print(page)
             print("OK2")
             id_boss = request.POST.get("id_boss")
             day = 14
@@ -616,11 +619,10 @@ def LEAVE_request(request, id):
 
 
         if (page == "3"):
+            print(page)
+
             print("OK3")
-
             obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
-            # send_email_leave_request(id=id, boss=id_boss)
             send_email_leave_request(id=id, email_boss=email)
 
             user = employee.objects.get(employee_ID=str(id))
