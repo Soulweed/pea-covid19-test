@@ -624,8 +624,9 @@ def LEAVE_request(request, id):
 
             print("OK3")
             obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-            send_email_leave_request(id=id, email_boss=email)
 
+
+            send_email_leave_request(id=id, email_boss=email)
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
             data.append(obj)

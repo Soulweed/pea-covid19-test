@@ -147,35 +147,32 @@ def send_email_wfh_request(id, boss):
     subject = 'ขอลา WFH'
     body = 'พนักงานรหัส {} ขอลา WFH กรุณากด link: https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/'.format(id, id, boss)
     print(email_boss)
-
     m = Message(account=account,
                 subject=subject,
                 body=body,
                 to_recipients=[email_boss])
     print('message created')
     m.send_and_save()
-    # print(m)
+    print(m)
     print('email send')
 
 
 
 def send_email_leave_request(id, email_boss):
+    recipient_list = [email_boss]
+    print('receipient list', recipient_list)
     server = 'email.pea.co.th'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
     password = 'peacovid19'
-    # email_boss = boss + '@pea.co.th'
-    email_boss = email_boss
-
     account = connect(server, email, username, password)
+    # email_boss = boss + '@pea.co.th'
     subject = 'ขอลา WFH'
     body = 'พนักงานรหัส {} ขอลา leave 14 วัน'.format(id)
-
-
     m = Message(account=account,
                 subject=subject,
                 body=body,
-                to_recipients=[email_boss])
+                to_recipients=recipient_list)
     print('message created')
     m.send_and_save()
     print(m)

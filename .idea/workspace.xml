@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
+      <change beforePath="$PROJECT_DIR$/send_email/views.py" afterPath="$PROJECT_DIR$/send_email/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/send_email/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="168" column="0" lean-forward="false" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+            <state relative-caret-position="222">
+              <caret line="167" column="36" lean-forward="true" selection-start-line="167" selection-start-column="36" selection-end-line="167" selection-end-column="36" />
               <folding>
                 <element signature="e#1327#2134#0" expanded="false" />
               </folding>
@@ -48,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="611" column="26" lean-forward="true" selection-start-line="611" selection-start-column="26" selection-end-line="611" selection-end-column="26" />
+            <state relative-caret-position="173">
+              <caret line="628" column="61" lean-forward="false" selection-start-line="628" selection-start-column="61" selection-end-line="628" selection-end-column="61" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -162,8 +163,8 @@
       <find>image</find>
       <find>send_email_leave_request</find>
       <find>form</find>
-      <find>get_user_email</find>
       <find>page</find>
+      <find>get_user_email</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -216,13 +217,13 @@
         <option value="$PROJECT_DIR$/line_bot/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckin.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html" />
-        <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave4.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
+        <option value="$PROJECT_DIR$/send_email/views.py" />
       </list>
     </option>
   </component>
@@ -825,16 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/send_email/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="168" column="0" lean-forward="false" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding>
-            <element signature="e#1327#2134#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -887,10 +878,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="611" column="26" lean-forward="true" selection-start-line="611" selection-start-column="26" selection-end-line="611" selection-end-column="26" />
+        <state relative-caret-position="173">
+          <caret line="628" column="61" lean-forward="false" selection-start-line="628" selection-start-column="61" selection-end-line="628" selection-end-column="61" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/send_email/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="167" column="36" lean-forward="true" selection-start-line="167" selection-start-column="36" selection-end-line="167" selection-end-column="36" />
+          <folding>
+            <element signature="e#1327#2134#0" expanded="false" />
           </folding>
         </state>
       </provider>
