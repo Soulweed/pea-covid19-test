@@ -608,7 +608,7 @@ def LEAVE_request(request, id):
             print(id_boss)
             email = get_user_email(id_boss)
             context.update({'id_boss': id_boss, 'email_boss': email, 'day': day})
-            return render(request, 'myworkplace/formleave3.html.html', context)
+            return render(request, 'myworkplace/formleave3.html', context)
 
 
         if (page == "3"):
