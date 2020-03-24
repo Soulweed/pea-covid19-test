@@ -32,12 +32,18 @@ class CheckoutForm(forms.Form):
 
 # Create your views here.
 def home(request):
-    context = {'number_of_employee': employee.objects.count(),
-               'high_risk':employee.objects.filter(active_status='COVID').count(),
-               'normal_wfh':employee.objects.filter(active_status='WFH').count(),
-               'risk_wfh':employee.objects.filter(active_status='Leave').count(),
-               'pea_office':employee.objects.filter(active_status='PEA').count(),
-               'no_daily_update':employee.objects.filter(daily_update=False).count()}
+    # context = {'number_of_employee': employee.objects.count(),
+    #            'high_risk':employee.objects.filter(active_status='COVID').count(),
+    #            'normal_wfh':employee.objects.filter(active_status='WFH').count(),
+    #            'risk_wfh':employee.objects.filter(active_status='Leave').count(),
+    #            'pea_office':employee.objects.filter(active_status='PEA').count(),
+    #            'no_daily_update':employee.objects.filter(daily_update=False).count()}
+    context = {'number_of_employee': 5,
+               'high_risk':1,
+               'normal_wfh':2,
+               'risk_wfh':3,
+               'pea_office':4,
+               'no_daily_update':4}
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
