@@ -689,7 +689,6 @@ def get_employee_profile(id):
 
     authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
         'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
-    print(authData)
 
     return authData.get("FirstName"), authData.get("LastName"), authData.get("DepartmentShort"), \
            authData.get("'PositionDescShort"), authData.get("'LevelDesc")

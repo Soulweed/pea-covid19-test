@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from django.db import connection
 from exchangelib import Configuration, Account, DELEGATE, Credentials
 from exchangelib import Message, Mailbox, FileAttachment
 import requests, xmltodict
 from datetime import datetime, timedelta
 from myworkplace.models import employee, emailemployee
 # Create your views here.
+
 
 def connect(server, email, username, password):
     """
@@ -97,6 +99,7 @@ def get_user_email(id):
     # return authData.get("Email")
 
     user = emailemployee.objects.get(employeeid=id)
+    connection.close()
     print(user.employeeemail)
     return user.employeeemail
 
