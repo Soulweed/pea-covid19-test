@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave2.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave2.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave4.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave4.html" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/send_email/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="166">
-              <caret line="168" column="0" lean-forward="true" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+              <caret line="168" column="0" lean-forward="false" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
               <folding>
                 <element signature="e#1327#2134#0" expanded="false" />
               </folding>
@@ -66,8 +64,18 @@
       <file leaf-file-name="formleave1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+            <state relative-caret-position="2592">
+              <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-469">
+              <caret line="1148" column="24" lean-forward="false" selection-start-line="1148" selection-start-column="24" selection-end-line="1148" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -76,20 +84,20 @@
       <file leaf-file-name="formleave2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="110" column="0" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+            <state relative-caret-position="1760">
+              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formleave3.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="formleave3.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+            <state relative-caret-position="319">
+              <caret line="141" column="24" lean-forward="false" selection-start-line="141" selection-start-column="24" selection-end-line="141" selection-end-column="24" />
               <folding>
-                <marker date="1585057219610" expanded="true" signature="4540:4847" ph="..." />
+                <marker date="1585057595550" expanded="true" signature="4552:4859" ph="..." />
               </folding>
             </state>
           </provider>
@@ -105,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formleave4.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="formleave4.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="34" column="16" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+            <state relative-caret-position="64">
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -193,7 +201,6 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/doctor.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/daily_update.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/register_4.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh1.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2.html" />
         <option value="$PROJECT_DIR$/peacovid19v2/settings.py" />
@@ -212,10 +219,11 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave4.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" />
       </list>
     </option>
   </component>
@@ -293,12 +301,6 @@
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
@@ -673,14 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="1183" column="26" lean-forward="false" selection-start-line="1183" selection-start-column="26" selection-end-line="1183" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/PycharmProjects/peacovid19v2/lib/python3.6/site-packages/django/db/models/query.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
@@ -835,7 +829,7 @@
     <entry file="file://$PROJECT_DIR$/send_email/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
-          <caret line="168" column="0" lean-forward="true" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+          <caret line="168" column="0" lean-forward="false" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
           <folding>
             <element signature="e#1327#2134#0" expanded="false" />
           </folding>
@@ -846,32 +840,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="153" column="42" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding>
-            <marker date="1585057219610" expanded="true" signature="4540:4847" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="110" column="0" lean-forward="true" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -888,9 +856,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="34" column="16" lean-forward="true" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+        <state relative-caret-position="64">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2592">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1760">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-469">
+          <caret line="1148" column="24" lean-forward="false" selection-start-line="1148" selection-start-column="24" selection-end-line="1148" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="141" column="24" lean-forward="false" selection-start-line="141" selection-start-column="24" selection-end-line="141" selection-end-column="24" />
+          <folding>
+            <marker date="1585057595550" expanded="true" signature="4552:4859" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
