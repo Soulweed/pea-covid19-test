@@ -297,7 +297,7 @@ def register(request,id):
                 employee_ID=emp_id,
                 employee_line_ID=line_id,
                 activity_text=json.dumps([obj], ensure_ascii=False),
-                employ_tel=ext,
+                employee_tel=ext,
                 tel=mobile_phone,
                 work_building = building,
                 work_floor = floor,
