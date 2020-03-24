@@ -4,111 +4,109 @@
 {% block title_bl %} Form WFH | แจ้งเข้าร่วมโครงการ 2 / 4 {% endblock %}
 {% block body_bl %}
 
-  <div class="py-5 wfhbg">
-    <div class="py-4 container">
-      <div class="row">
-        <div class="col-12">
-          <h1> &nbsp; </h1>
-          <h1> &nbsp; </h1>
+    <div class="py-5 wfhbg">
+        <div class="py-4 container">
+            <div class="row">
+                <div class="col-12">
+                    <h1> &nbsp; </h1>
+                    <h1> &nbsp; </h1>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <img src="{% static 'images/track2@3x.png' %}" alt="purpledottl2" width="100%">
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <img src="{% static 'images/track2@3x.png' %}" alt="purpledottl2" width="100%">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="py-1">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <h3 class="formwfhtext">เข้าร่วม</h3>
-          <h3 class="formwfhtext">โครงการ WORK FROM HOME</h3>
+    <div class="py-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="formwfhtext">เข้าร่วม</h3>
+                    <h3 class="formwfhtext">โครงการ WORK FROM HOME</h3>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="px-4 py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="px-4 pt-1">
-            <hr>
-          </div>
+    <div class="px-4 py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="px-4 pt-1">
+                        <hr>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="px-3 py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h5 class="brightpurpletext">โปรดตรวจสอบและกรอกรายละเอียดให้ครบถ้วน</h5>
+    <div class="px-3 py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="brightpurpletext">โปรดตรวจสอบและกรอกรายละเอียดให้ครบถ้วน</h5>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="px-3 py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h6 id="unedited">รหัสพนักงาน</h6>
-          <input class="w-100 unedited" type="text" value={{ EmployeeID }} disabled="disabled">
+    <div class="px-3 py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h6 id="unedited">รหัสพนักงาน</h6>
+                    <input class="w-100 unedited" type="text" value={{ EmployeeID }} disabled="disabled">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-      <form method="POST">
-     {% csrf_token %}
-  <div class="px-3 py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h6 id="edited">รหัสผู้บังคับบัญชาต้นสังกัด &nbsp; <span><img src= "{% static 'images/invalid-name@3x.png' %}" alt="invalid-name" width="20px"></span></h6>
-          <input name= "id_boss" class="w-100 edited" type="text">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="px-3 py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h6 id="edited">รหัสผู้บังคับบัญชาต้นสังกัด &nbsp; <span><img
+                                src="{% static 'images/invalid-name@3x.png' %}" alt="invalid-name" width="20px"></span>
+                        </h6>
+                        <input name="id_boss" class="w-100 edited" type="text">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="px-4 py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h5 class="">รวมจำนวนวันที่ Work from home <font color="#8448ff" style="font-size: xx-large;"> 14 </font> วัน</h5>
+        <div class="px-4 py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="">รวมจำนวนวันที่ Work from home <font color="#8448ff" style="font-size: xx-large;">
+                            14 </font> วัน</h5>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="px-4 py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-            <input name="page" id="page_input" hidden="true">
-          <input class="w-100 mapbtn" type="submit" value="ถัดไป">
+        <div class="px-4 py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+            <input type="hidden" name="page" value="2">
+                        <input class="w-100 mapbtn" type="submit" value="ถัดไป">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-{#  <div class="px-4 pt-1 pb-5">#}
-{#    <div class="container">#}
-{#      <div class="row">#}
-{#        <div class="col-12 text-center">#}
-{#          <input class="w-100 mapbtnreverse" type="submit" value="ย้อนกลับ">#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-  </form>
+        {#  <div class="px-4 pt-1 pb-5">#}
+        {#    <div class="container">#}
+        {#      <div class="row">#}
+        {#        <div class="col-12 text-center">#}
+        {#          <input class="w-100 mapbtnreverse" type="submit" value="ย้อนกลับ">#}
+        {#        </div>#}
+        {#      </div>#}
+        {#    </div>#}
+        {#  </div>#}
+    </form>
 
-    <script>
-    window.onload = function(){
-        document.getElementById("page_input").value = "2";
-    };
 
-</script>
 {% endblock %}
