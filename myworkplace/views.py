@@ -609,7 +609,7 @@ def LEAVE_request(request, id):
             email = get_user_email(id_boss)
             print(email)
             FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
-                context['id_boss'])
+                id_boss)
             context.update({'id_boss': id_boss, 'email_boss': email, 'day': day,
                             'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort})
             return render(request, 'myworkplace/formleave3.html', context)
