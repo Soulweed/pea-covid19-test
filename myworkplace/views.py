@@ -68,11 +68,11 @@ def daily_update(request, id):
 
         if group1 == 0 and group2 == 0:
             health = 'normal'
-        elif (group1 > 0 and group2 == 0) or (group1 > 1 and group2 == 1):
+        elif (group1 > 0 and group2 == 0) or (group1 > 0 and group2 == 1):
             health = 'quarantine'
         elif (group1 == 0 and group2 > 0 ):
             health = 'flu'
-        elif (group1 == 1 and group2 > 0) or (group1 > 1 and group2 > 1):
+        elif (group1 == 1 and group2 > 1) or (group1 > 1 and group2 > 1):
             health = 'hospital'
         # user = employee.objects.get(employee_ID=id)
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
