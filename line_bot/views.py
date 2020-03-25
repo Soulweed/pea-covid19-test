@@ -107,7 +107,6 @@ def handle_text_message(event):
             print(dict_source['user_id'])
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
             connection.close()
-            d, t = user_employee.last_daily_update()
 
             if dict_message['text'] == 'leave':
                 line_bot_api.reply_message(event.reply_token,
@@ -138,7 +137,7 @@ def handle_text_message(event):
                                                                        "action": {
                                                                            "type": "uri",
                                                                            "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/formwfh2/{}/".format(user_employee.employee_ID)
+                                                                           "uri": "https://pea-covid19-test.herokuapp.com/formwfh1/{}/".format(user_employee.employee_ID)
                                                                        },
                                                                        "aspectRatio": "1040:174"
                                                                    }
@@ -259,6 +258,7 @@ def handle_text_message(event):
                                                }
                                            ))
             elif dict_message['text'] == 'profile':
+                d, t = user_employee.last_daily_update()
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',

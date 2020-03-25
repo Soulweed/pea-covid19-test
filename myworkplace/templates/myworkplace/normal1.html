@@ -5,10 +5,9 @@
 {% block title_bl %} daily update{% endblock %}
 {% block body_bl %}
 
-    <div class="Surface"> </div>
+    <div class="Surface"></div>
 
-    <img src="{% static 'images/form.png' %}" srcset="form@2x.png 2x,
-    form@3x.png 3x" class="form">
+    <img src="{% static 'images/mask-rectangle-rectangle-group-16-mask@3x.png' %}" class="form">
 
     <br>
     <br>
@@ -19,7 +18,7 @@
         <div class="row">
             <div class="col-12 text-center">
                 <!-- png -->
-                <img src= "{% static 'images/slider-discrete-1.png' %}" srcset="slider-discrete-1@2x.png 2x,slider-discrete-1@3x.png 3x">
+                <img src="{% static 'images/slider-discrete-1@3x.png' %}">
             </div>
         </div>
     </div>
@@ -48,29 +47,35 @@
     </div>
 
     <div class="px-4 py-3">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center"><input class="w-100 mapbtn" type="submit" value="เข้าปฏิบัติงานตามปกติ"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center"><a href="https://pea-covid19-test.herokuapp.com/resultscreen2/"><input
+                                                       class="w-100 mapbtn" type="submit" value="เข้าปฏิบัติงานตามปกติ"></a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-<div class="px-4 pt-1 pb-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center"><input class="w-100 mapbtnreverse" type="submit" value="เข้าร่วมโครงการ Work from home"></div>
-    </div>
-  </div>
-</div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="px-4 pt-1 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center"><input class="w-100 mapbtnreverse" type="submit"
+                                                           value="เข้าร่วมโครงการ Work from home"></div>
+                </div>
+            </div>
+        </div>
+    </form>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
 
 {% endblock %}

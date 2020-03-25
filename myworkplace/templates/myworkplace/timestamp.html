@@ -101,6 +101,7 @@
     </div>
 </div>
 </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/moment.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
@@ -112,9 +113,32 @@
     </script>
 
 <script>
+    var locationIsExist = false;
     document.onload = getLocation();
 
     function getLocation() {
+        setInterval(function(){
+            var format = 'HH:mm:ss'
+            var thisTimeStr = moment().format(format);
+            var thisTime = moment(thisTimeStr,format);
+            var checkinStarttime = moment('07:00:00', format);
+            var checkinEndttime = moment('8:45:00', format);
+            var checkoutStarttime = moment('16:30:00', format);
+            var checkoutEndtime = moment('24:00:00', format);
+            if (thisTime.isBetween(checkinStarttime, checkinEndttime) && locationIsExist) {
+                console.log('is between Checkin time');
+                document.getElementById("checkin").disabled = false;
+                document.getElementById("checkout").disabled = true;
+            } else if (thisTime.isBetween(checkoutStarttime, checkoutEndtime) && locationIsExist) {
+                console.log('is between Checkout time');
+                document.getElementById("checkin").disabled = true;
+                document.getElementById("checkout").disabled = false;
+            } else {
+                console.log('not in Checkin or Checkout time');
+                document.getElementById("checkin").disabled = true;
+                document.getElementById("checkout").disabled = true;
+            }
+        }, 1000);
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
@@ -127,8 +151,7 @@
         console.log(position.coords.longitude);
         document.getElementById("lat").value = position.coords.latitude;
         document.getElementById("lng").value = position.coords.longitude;
-        document.getElementById("checkin").disabled = false;
-        document.getElementById("checkout").disabled = false;
+        locationIsExist = true;
     }
 
     function checkinclick() {

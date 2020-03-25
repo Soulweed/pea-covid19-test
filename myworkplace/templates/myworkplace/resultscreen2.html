@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %} ผลการประเมินความเสี่ยง | คัดกรองกลุ่มเสี่ยง COVID-19 {% endblock %}
+{% block body_bl %}
+
+<div class="py-5 timestampbg">
+  <div class="py-4 container">
+    <div class="row">
+      <div class="col-12">
+        <h1> &nbsp; </h1>
+        <h1> &nbsp; </h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="formwfhtext text-center">ปฏิบัติงานที่สำนักงาน</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-3 pt-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h6 class="">ข้อแนะนำในการปฏิบัติตัวในช่วงของการระบาด COVID-19</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h6 class="">1. หมั่นล้างมือให้สะอาดด้วยสบู่หรือแอลกอฮอล์เจล <br>
+          2. หลีกเลี่ยงการสัมผัสผู้ที่มีอาการคล้ายไข้หวัด
+          หรือหลีกเลี่ยงการไปที่มีฝูงชน พื้นที่แออัด <br>
+          3. ใช้ผ้าปิดปากหรือจมูก เพื่อป้องกันการได้รับเชื้อโรค <br>
+          4. หลีกเลี่ยงการทานอาหารร่วมภาชนะกับผู้อื่น
+          และแยกของใช้ส่วนตัว</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h6 id="remark">*กรุณาตรวจสอบข้อมูลความถูกต้องก่อนดำเนินการถัดไป</h6>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="px-4 py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <a href="https://pea-covid19-test.herokuapp.com/resultscreen3/"><input class="w-100 mapbtn" type="submit" value="ยืนยัน">
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
