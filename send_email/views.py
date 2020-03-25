@@ -173,11 +173,12 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
     account = connect(server, email, username, password)
     # email_boss = boss + '@pea.co.th'
     boss=email_boss[0:-5]
-    subject = 'ขอลา WFH'
+    subject = 'ขออนุมัติ Work from Home'
     body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจากชื่อ  {} รหัสพนักงาน {} มีความประสงค์ขอปฏิบัติงานแบบ Work from home เงื่อนไขไม่เข้าเกณฑ์ผู้ที่มีความเสี่ยงต่อโรค COVID-19 \n\n' \
            'ระหว่างวันที่ {} ถึงวันที่ {} รวมระยะเวลาทั้งหมด {} วัน \n\n' \
            'ขอให้ท่านพิจารณาอนุมัติการปฏิบัติงานแบบ Work from home ให้พนักงานในสังกัดของท่าน โดยคลิกตาม link ด้านล่างนี้ \n\n' \
-           'link: https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/{}/\n\n' \
+           'https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/{}/\n\n' \
+           'ขอบคุณที่ท่านให้ความร่วมมือในการฝ่าวิกฤติ COVID-19\n\n' \
            'PEA COVID-19\n' \
            'By PEA Innovation Hub'.format(name, id,startdate, enddate, total_date, id, boss, total_date)
     m = Message(account=account,
@@ -200,7 +201,7 @@ def send_email_leave_request(id, email_boss, name):
     password = 'peacovid19'
     account = connect(server, email, username, password)
     # email_boss = boss + '@pea.co.th'
-    subject = 'ขอลา 14 วัน'
+    subject = 'ขอลาป่วย 14 วัน'
     body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก  {}  รหัส {} ซึ่งเป็นพนักงานในสังกัดของท่าน มีความเสี่ยงในการติดเชื้อ COVID-19 ต้องแยกตัวเอง เพื่อเฝ้าดูอาการและควรพบแพทย์\n\n' \
            'ขอให้ท่านติดตามอาการพนักงานในสังกัดของท่านอย่างใกล้ชิด \n\n' \
            'ขอบคุณที่ท่านให้ความร่วมมือในการฝ่าวิกฤติ COVID-19\n' \

@@ -532,7 +532,7 @@ def WFH_approve(request, id, boss, total_date):
     user.save()
     connection.close()
     context = {'data': 'WFH approve'}
-    return render(request, 'myworkplace/test.html', context)
+    return render(request, 'myworkplace/test2.html', context)
 
 
 

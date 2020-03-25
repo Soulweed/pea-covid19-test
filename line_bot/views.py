@@ -678,9 +678,10 @@ def handle_text_message(event):
                                            )
                                            )
             else:
-                line_bot_api.reply_message(event.reply_token,
-                                           TextSendMessage(
-                                               text='ฟังก์ชั่นนี้กำลังปรับปรุง ส่ง feedback ให้ admin ที่ www.menti.com กรอกรหัส 170022'))
+                pass
+                # line_bot_api.reply_message(event.reply_token,
+                #                            TextSendMessage(
+                #                                text='ฟังก์ชั่นนี้กำลังปรับปรุง ส่ง feedback ให้ admin ที่ www.menti.com กรอกรหัส 170022'))
 
         except:
             line_bot_api.reply_message(event.reply_token,
