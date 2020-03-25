@@ -123,10 +123,8 @@ def checkin(request, id):
         connection.close()
 
         if(action_type == "checkin"):
-
             return redirect(tscheckin, obj['datetime'])
         elif(action_type == "checkout"):
-
             return redirect(tscheckout, obj['datetime'])
 
     return render(request, 'myworkplace/timestamp.html', context)
@@ -134,11 +132,15 @@ def checkin(request, id):
 
 
 def tscheckin(request, time):
-    context={'datetime':time}
+    d=time.split()[0]
+    t=time.split()[-1][1:-1]
+    context={'date':d, 'time':t}
     return render(request, 'myworkplace/tscheckin.html', context)
 
 def tscheckout(request, time):
-    context = {'datetime': time}
+    d=time.split()[0]
+    t=time.split()[-1][1:-1]
+    context={'date':d, 'time':t}
     return render(request, 'myworkplace/tscheckout.html', context)
 
 
