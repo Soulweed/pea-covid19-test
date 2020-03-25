@@ -154,13 +154,16 @@ def formwfh2(request,id):
             id_boss = request.POST.get("director")
             startdate = request.POST.get("startdate")
             enddate = request.POST.get("enddate")
+            print('startdate: ', startdate)
+            print(type(startdate))
+            print('enddate ', enddate)
+            print(type(enddate))
 
-            if 'diffDays' in request.POST:
-                total_date = request.POST.get('diffDays')
-                print('total date', total_date)
+            # if 'diffDays' in request.POST:
+            #     total_date = request.POST.get('diffDays')
+            #     print('total date', total_date)
 
-            # total_date=request.POST.get("diffDays")
-
+            total_date=request.POST.get("diffDays")
             print('total date', total_date)
             email = get_user_email(id_boss)
             FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(

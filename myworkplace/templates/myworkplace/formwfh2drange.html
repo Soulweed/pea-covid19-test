@@ -106,7 +106,6 @@
                     <div class="col-12">
                         <h5 class="">รวมจำนวนวันที่ Work from home <font color="#8448ff" style="font-size: xx-large;">
                             <span id="diffDays"></span> </font>วัน
-{#                            <input type="hidden" id="diffDays" name="total_date" value=diffDays>#}
 
                         </h5>
                         <script type="text/javascript">
@@ -121,14 +120,11 @@
                                 // time difference
                                 var timeDiff = Math.abs((new Date(endform)).getTime() - (new Date(startform)).getTime());
                                 // days difference
-                                var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                                var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24))+1;
 
                                 // console.log(diffDays);
                                 if (!isNaN(diffDays)) {
                                     document.getElementById("diffDays").textContent = diffDays;
-
-                                    var data = {'diffDays': diffDays};
-                                    $.post(data);
                                 }
                             }
 
