@@ -191,8 +191,33 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
     print('email send')
 
 
+def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
+    recipient_list = [email_boss]
+    print('receipient list', recipient_list)
+    server = 'email.pea.co.th'
+    email = 'peacovid19@pea.co.th'
+    username = 'peacovid19'
+    password = 'peacovid19'
+    account = connect(server, email, username, password)
+    # email_boss = boss + '@pea.co.th'
+    subject = 'ขออนุมัติ Work from home เพื่อแยกตัวเอง 14 วัน'
+    body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก {} รหัสพนักงาน {} \n\n' \
+           'มีความประสงค์ขอปฏิบัติงานแบบ Work from home เพื่อขอแยกตัวเอง เนื่องจากมีความเสี่ยงในการสัมผัสเชื้อโรค COVID-19 เป็นเวลา 14 วัน ตั้งแต่วันที่ {} ถึงวันที่ {} ' \
+           'ขอให้ท่านพิจารณาอนุมัติการปฏิบัติงานแบบ Work from home ให้พนักงานในสังกัดของท่าน โดยคลิกตาม link ด้านล่างนี้ \n\n' \
+           'https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/{}/\n\n' \
+           'ขอบคุณที่ท่านให้ความร่วมมือในการฝ่าวิกฤติ COVID-19\n' \
+           'PEA COVID-19\n' \
+           'By PEA Innovation Hub'.format(name, id, startdate, enddate, id, email_boss, 14)
+    m = Message(account=account,
+                subject=subject,
+                body=body,
+                to_recipients=recipient_list)
+    print('message created')
+    m.send_and_save()
+    print(m)
+    print('email send')
 
-def send_email_leave_request(id, email_boss, name):
+def send_email_meetdoc_request(id, email_boss, name):
     recipient_list = [email_boss]
     print('receipient list', recipient_list)
     server = 'email.pea.co.th'

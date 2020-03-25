@@ -16,7 +16,7 @@ import random
 # importing email library
 from django.core.mail import send_mail
 from django.conf import settings
-from send_email.views import send_email_register, get_user_email, send_email_leave_request, send_email_confrim_register
+from send_email.views import send_email_register, get_user_email, send_email_wfh14day_request, send_email_confrim_register, send_email_meetdoc_request
 
 
 
@@ -125,11 +125,16 @@ def LEAVE_request(request, id):
                             'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort, 'Gender':Gender})
             return render(request, 'myworkplace/formleave3.html', context)
 
-
         if (page == "3"):
             print("OK3")
             email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
-            obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+
+            startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
+
+            enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
+            obj = {'type': 'wfh14days_request', 'startdate': startdate, 'enddate':enddate,
+                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
@@ -139,7 +144,7 @@ def LEAVE_request(request, id):
             user.save()
             print('model save')
             connection.close()
-            send_email_leave_request(id=id, email_boss=email, name=user.emplyee_name )
+            send_email_wfh14day_request(id=id, email_boss=email, name=user.emplyee_name, startdate=startdate, enddate=enddate)
             return render(request, 'myworkplace/formleave4.html', context)
 
     return render(request, 'myworkplace/formleave1.html', context)
@@ -212,7 +217,7 @@ def meet_doc2(request,id):
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
             print(startdate)
             print(type(startdate))
-            obj = {'type': 'leave_request', 'startdate': startdate, 'enddate':enddate,
+            obj = {'type': 'meet_doc_request', 'startdate': startdate, 'enddate':enddate,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
@@ -224,7 +229,7 @@ def meet_doc2(request,id):
             user.LEAVE_end_date=enddate
             user.save()
             connection.close()
-            send_email_leave_request(id=id, email_boss=email, name=user.emplyee_name )
+            send_email_meetdoc_request(id=id, email_boss=email, name=user.emplyee_name )
 
         return render(request, 'myworkplace/formseedoc3.html', context)
     return render(request, 'myworkplace/formseedoc2.html', context)
