@@ -156,7 +156,7 @@ def formwfh2(request,id):
             enddate = request.POST.get("enddate")
 
             if 'diffDays' in request.POST:
-                total_date = request.POST['diffDays']
+                total_date = request.POST.get('diffDays')
                 print('total date', total_date)
 
             # total_date=request.POST.get("diffDays")
