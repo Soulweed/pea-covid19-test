@@ -136,6 +136,31 @@ def send_email_register(email, line_id, id):
     print('email send')
 
 
+def send_email_confrim_register(email):
+    recipient_list = [email]
+    print('receipient list', recipient_list)
+    # subject = 'ยืนยันการสมัคร'
+    # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
+    server = 'email.pea.co.th'
+    email = 'peacovid19@pea.co.th'
+    username = 'peacovid19'
+    password = 'peacovid19'
+    account = connect(server, email, username, password)
+    subject = 'ยืนยันการลงทะเบียน'
+    body='ขอบคุณที่ร่วมลงทะเบียนกับเรา รหัสพนักงานของท่านได้รับการยืนยัน โดยระบบของ PEA COVID-19 LINE Official Account\n\n' \
+         ' เป็นที่เรียบร้อยแล้ว มาร่วมมือกันฝ่าวิกฤติ COVID-19 ไปด้วยกัน \n\n' \
+         'PEA COVID-19\n' \
+         ' By PEA Innovation Hub'
+
+    m = Message(account=account,
+                subject=subject,
+                body=body,
+                to_recipients=recipient_list)
+    print('message created')
+    m.send_and_save()
+    # print(m)
+    print('email send')
+
 
 def send_email_wfh_request(id, email_boss, total_date):
     recipient_list = [email_boss]

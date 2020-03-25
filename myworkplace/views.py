@@ -16,7 +16,7 @@ import random
 # importing email library
 from django.core.mail import send_mail
 from django.conf import settings
-from send_email.views import send_email_register, get_user_email, send_email_leave_request
+from send_email.views import send_email_register, get_user_email, send_email_leave_request, send_email_confrim_register
 
 
 
@@ -436,10 +436,12 @@ def register(request,id):
                 emergency_two_relationship=relation_ref_3,
 
             )
+
             user_data.save()
             print('model save')
             connection.close()
-
+            email = get_user_email(emp_id)
+            send_email_confrim_register(email)
 
             return redirect(daily_update,emp_id)
 

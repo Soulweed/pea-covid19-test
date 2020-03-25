@@ -108,7 +108,7 @@ def handle_text_message(event):
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
             connection.close()
 
-            if dict_message['text'] == 'leave':
+            if dict_message['text'] == 'ขออนุมัติ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
@@ -185,7 +185,7 @@ def handle_text_message(event):
                                            TextSendMessage(text='ทดสอบ'))
                 # send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
                 # print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
-            elif dict_message['text'] == 'check':
+            elif dict_message['text'] == 'ประเมินความเสี่ยง':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
@@ -257,7 +257,7 @@ def handle_text_message(event):
                                                    ]
                                                }
                                            ))
-            elif dict_message['text'] == 'profile':
+            elif dict_message['text'] == 'ข้อมูลส่วนตัว':
                 d, t = user_employee.last_daily_update()
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
@@ -304,7 +304,7 @@ def handle_text_message(event):
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "{}".format(user_employee.healthy),
+                                                                       "text": "{}".format({'normal':'ไม่เข้าเกณฑ์', 'quarantine':'แยกตัว','hospital':'ควรพบแพทย์'}[user_employee.healthy]),
                                                                        "size": "xl"
                                                                    }
                                                                ],
@@ -321,7 +321,7 @@ def handle_text_message(event):
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "{}".format(user_employee.active_status),
+                                                                       "text": "{}".format({'PEA':'ปฏิบัติงานตามปกติ', 'WFH':'Work from home','LEAVE':'ลาป่วย'}[user_employee.active_status]),
                                                                        "size": "xl"
                                                                    }
                                                                ],
@@ -362,23 +362,23 @@ def handle_text_message(event):
                                                                ],
                                                                "margin": "sm"
                                                            },
-                                                           {
-                                                               "type": "box",
-                                                               "layout": "horizontal",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "เหลือเวลา",
-                                                                       "size": "xl"
-                                                                   },
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "12 วัน",
-                                                                       "size": "xl"
-                                                                   }
-                                                               ],
-                                                               "margin": "sm"
-                                                           },
+                                                           # {
+                                                           #     "type": "box",
+                                                           #     "layout": "horizontal",
+                                                           #     "contents": [
+                                                           #         {
+                                                           #             "type": "text",
+                                                           #             "text": "เหลือเวลา",
+                                                           #             "size": "xl"
+                                                           #         },
+                                                           #         {
+                                                           #             "type": "text",
+                                                           #             "text": "12 วัน",
+                                                           #             "size": "xl"
+                                                           #         }
+                                                           #     ],
+                                                           #     "margin": "sm"
+                                                           # },
                                                            {
                                                                "type": "separator",
                                                                "margin": "xl"
@@ -401,7 +401,7 @@ def handle_text_message(event):
                                            )
             elif dict_message['text'] == 'tracking':
                 pass
-            elif dict_message['text'] == 'timestamp':
+            elif dict_message['text'] == 'ใบเซ็นชื่อ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
@@ -437,7 +437,7 @@ def handle_text_message(event):
                                                }
                                            )
                                            )
-            elif dict_message['text'] == 'support':
+            elif dict_message['text'] == 'test2':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
                                                alt_text='hello',
