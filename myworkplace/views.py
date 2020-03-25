@@ -183,7 +183,7 @@ def formwfh2(request,id):
             get_enddate =request.POST.get("enddate")
             obj = {'type': 'wfh_request', 'startdate': get_startdate, 'enddate':get_enddate,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-            send_email_wfh_request(id=id, email_boss=email, total_date=get_total_date)
+
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
             data.append(obj)
@@ -193,6 +193,8 @@ def formwfh2(request,id):
             user.WFH_end_date=get_enddate
             user.save()
             connection.close()
+            send_email_wfh_request(id=id, email_boss=email, total_date=get_total_date, name=user.emplyee_name, startdate=get_startdate, enddate=get_enddate)
+
             return render(request, 'myworkplace/formwfh4.html')
     return render(request, 'myworkplace/formwfh2drange.html', context)
 
