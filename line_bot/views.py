@@ -246,8 +246,7 @@ def handle_text_message(event):
                                                                        "action": {
                                                                            "type": "uri",
                                                                            "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/challenge2/{}/".format(
-                                                                               user_employee.employee_ID)
+                                                                           "uri": "https://pea-covid19-test.herokuapp.com/test/"
                                                                        }
                                                                    }
                                                                ],

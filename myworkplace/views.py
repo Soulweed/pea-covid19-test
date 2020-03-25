@@ -310,10 +310,10 @@ def quarantine(request,id):
     if request.method == "POST":
         return redirect(LEAVE_request, id)
     return render(request, 'myworkplace/quarantine.html')
-
-def see_doctor(request, id):
-
-    return render(request, 'myworkplace/see_doctor.html')
+#
+# def see_doctor(request, id):
+#
+#     return render(request, 'myworkplace/see_doctor.html')
 
 # API
 from rest_framework import viewsets
@@ -583,5 +583,4 @@ def get_employee_profile(id):
 
 
 def test(request):
-
     return render(request, 'myworkplace/test.html')
