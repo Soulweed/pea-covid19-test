@@ -29,7 +29,7 @@ SECRET_KEY = '9j0su3m7x0cq)=)bfnl&vh_y@w*p&f=t8625pewl$^asm^buz&'
 
 ADMINS=[('Pornchai', 'chaweewat.p@gmail.com')]
 DEBUG = False
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 
