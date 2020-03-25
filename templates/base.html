@@ -3,904 +3,56 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
 
-    <title>PEA COVID-19 {% block title_bl %}{% endblock %}</title>
+  <title>PEA COVID-19 {% block title_bl %}{% endblock %}</title>
 
-    <style>
-        /* fonts */
-        @font-face {
-            font-family: "Kanit-Black";
-            {#src: url('../fonts/Kanit-Black.ttf') format("truetype");#}
-            src: url("{% static 'fonts/Kanit-Black.ttf' %}") format("truetype");
+  <style>
+    /* fonts */
+    @font-face {
+      font-family: "Kanit-Black";
+      src: url("{% static 'fonts/Kanit-Black.ttf' %}") format("truetype");
 
-        }
-
-        @font-face {
-            font-family: "Kanit-Bold";
-            {#src: url('../fonts/Kanit-Black.ttf') format("truetype");#}
-            src: url("{% static 'fonts/Kanit-Black.ttf' %}") format("truetype");
-
-        }
-
-        @font-face {
-            font-family: "Kanit-Light";
-            {#src: url('../fonts/Kanit-Light.ttf') format("truetype");#}
-            src: url("{% static 'fonts/Kanit-Light.ttf' %}") format("truetype");
-
-        }
-
-        @font-face {
-            font-family: "Kanit-Medium";
-            {#src: url('../fonts/Kanit-Medium.ttf') format("truetype");#}
-            src: url("{% static 'fonts/Kanit-Medium.ttf' %}") format("truetype");
-
-        }
-
-        @font-face {
-            font-family: "Kanit-Regular";
-            {#src: url('../fonts/Kanit-Regular.ttf') format("truetype");#}
-            src: url("{% static 'fonts/Kanit-Regular.ttf' %}") format("truetype");
-
-        }
-
-        @font-face {
-            font-family: "Kanit-SemiBold";
-            {#src: url('../fonts/Kanit-SemiBold.ttf') format("truetype");#}
-            src: url("{% static 'fonts/Kanit-SemiBold.ttf' %}") format("truetype");
-
-        }
-        /* fonts */
-
-        body {
-            font-family: "Kanit-Medium";
-        }
-
-        /* daily_update css start */
-        #headerbg {
-            {#background-image: url('bgheader.png');#}
-            background-image: url("{% static 'images/bgheader.png' %}");
-
-            background-repeat: no-repeat;
-            background-size: cover;
-            color: white;
-
-        }
-
-        .card {
-            background-color: #7248C8;
-            border-radius: 15px;
-            color: white;
-        }
-
-        #opentext {
-            font-family: "Kanit-Regular";
-        }
-
-        hr {
-            border-width: 2px;
-            border-color: rgb(84, 82, 85, 0.4);
-        }
-
-        .question {
-            font-family: "Kanit-Regular";
-            font-weight: 600;
-        }
-
-        .qq {
-            font-family: "Kanit-Regular";
-        }
-
-        .btn {
-            background-color: rgb(84, 82, 85, 0.2);
-            border-radius: 5px;
-            color: rgb(84, 82, 85, 0.8);
-        }
-
-        .btn:hover {
-            background-color: #7248C8;
-            border-radius: 5px;
-            color: white;
-        }
-
-        .btn:active {
-            background-color: #7248C8;
-            border-radius: 5px;
-            color: white;
-        }
-
-        #checks {
-            font-family: "Kanit-Regular";
-        }
-
-        .remark {
-            font-family: "Kanit-Regular";
-            color: rgb(84, 82, 85, 0.6)
-        }
-
-        #submit {
-            background-color: rgb(84, 82, 85, 0.2);
-            border-radius: 5px;
-            color: rgb(84, 82, 85, 0.8);
-        }
-
-        #submit:hover {
-            background-color: #0BB07B;
-            border-radius: 5px;
-            color: white;
-        }
-
-        #submit:active {
-            background-color: #0BB07B;
-            border-radius: 5px;
-            color: white;
-        }
-
-        #hrcheckbox {
-            border-width: 2px;
-            border-color: rgb(84, 82, 85, 0.2);
-        }
-        /* daily_update css end */
-
-        /* dashboard css start*/
-        .bg {
-            {#background-image: url('bg.png');#}
-            background-image: url("{% static 'images/bg.png' %}");
-
-        }
-
-        #opentext {
-            font-weight: bold;
-        }
-
-        #opentextcf {
-            font-family: "Kanit-Light";
-            color: #6B6070;
-        }
-
-        #normalcard {
-            background-color: #0BB07B;
-            border-radius: 15px;
-        }
-
-        #riskwfh {
-            background-color: #FFC107;
-            border-radius: 15px;
-        }
-
-        #seedoc {
-            background-color: #F03D3D;
-            border-radius: 15px;
-        }
-
-        #notrisk {
-            background-color: #550C75;
-            border-radius: 15px;
-        }
-
-        #workatoffice {
-            background-color: #7248C8;
-            border-radius: 15px;
-        }
-
-        #notshow {
-            background-color: #1F1722;
-            border-radius: 15px;
-        }
-        /* dashboard css end */
-
-
-        /* challenge css start */
-        #missingbg {
-            background-image: url("{% static 'images/challengebg.png' %}");
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-
-        #headerquiz {
-            background-color: #8448FF;
-            color: white;
-        }
-
-        #submitchallenge {
-            background-color: #8448FF;
-            border-radius: 5px;
-            color: white;
-        }
-        /* challenge css end */
-
-        /* correct css start */
-        #missingbg {
-      background-image: url("{% static 'images/challengebg.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
     }
 
-    #correcttext {
-      color: #8448FF;
-    }
-    /* correct css end */
+    @font-face {
+      font-family: "Kanit-Bold";
+      src: url("{% static 'fonts/Kanit-Black.ttf' %}") format("truetype");
 
-    /* wrong css start */
-    #missingbg {
-      background-image: url("{% static 'images/challengebg.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
     }
 
-    #correcttext {
-      color: #8448FF;
-    }
-    /* wrong css end */
-
-    /* miss3days_du_id css start*/
-    #missingbg {
-      background-image: url("{% static 'images/missingbg.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .brightpurpletext {
-      color: #8448FF;
-    }
-
-    #submitit {
-      background-color: #8448FF;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #submitmit {
-      background-color: white;
-      border-color: #8448FF;
-      border-radius: 5px;
-      color: #8448FF;
-    }
-    /* miss3day_du_id css end*/
-
-    /* miss3day_ts_id css start */
-    #missingbg {
-      background-image:  url("{% static 'images/missingbg.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .brightpurpletext {
-      color: #8448FF;
-    }
-
-    #submitit {
-      background-color: #8448FF;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #submitmit {
-      background-color: white;
-      border-color: #8448FF;
-      border-radius: 5px;
-      color: #8448FF;
-    }
-    /* miss3day_ts_id css end */
-
-
-    /* caution css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    .headtc {
-      color: #7248C8;
-    }
-
-    #employeenum,
-    #bossnum,
-    #datestart,
-    #dateend {
-      border-color: #7248C8;
-      border-radius: 5px;
-    }
-
-    .remark {
-      font-family: "Kanit-Regular";
-      color: rgb(84, 82, 85, 0.6)
-    }
-
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* caution css end */
-
-    /* choosewfh css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    .card {
-      background-color: #7248C8;
-      border-radius: 15px;
-      color: white;
-    }
-
-    #choose {
-      font-family: "Kanit-Regular";
-    }
-
-    hr {
-      border-width: 2px;
-      border-color: rgb(84, 82, 85, 0.4);
-    }
-
-    .headtc {
-      color: #7248C8;
-    }
-
-    .qq {
-      font-family: "Kanit-Regular";
-    }
-
-    .btn {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-
-    .btn:hover {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    .btn:active {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #checks {
-      font-family: "Kanit-Regular";
-    }
-
-    .remark {
-      font-family: "Kanit-Regular";
-      color: rgb(84, 82, 85, 0.6)
-    }
-
-    #submit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-
-    #submit:hover {
-      background-color: #0BB07B;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #submit:active {
-      background-color: #0BB07B;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #hrcheckbox {
-      border-width: 2px;
-      border-color: rgb(84, 82, 85, 0.2);
-    }
-    /* choosewth css end */
-
-    /* covidresult css start */
-    #covidresultbg {
-      background-image: url("{% static 'images/covidresultbg.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .purpletext {
-      color: #756D78;
-    }
-
-    #uploadfile {
-      border-radius: 15px;
-      border-color: transparent;
-      background-color: #F3F5F8;
-      color: #9B9B9B;
+    @font-face {
       font-family: "Kanit-Light";
-      font-size: medium;
-      font-weight: lighter;
-    }
-
-    #resultnormal {
-      background-color: #0BB07B;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #resultinfected {
-      background-color: white;
-      border-color: #F03D3D;
-      border-radius: 5px;
-      color: #F03D3D;
-    }
-    /* covidresult css end */
-
-    /* covidresultneg css start */
-    #covidresultbg {
-      background-image: url("{% static 'images/covidresultbg.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .receivegreentext {
-      border-radius: 5px;
-      color: #0BB07B;
-    }
-    /* covidresultneg css end */
-
-    /* covidresultpos css start */
-    #covidresultbg {
-      background-image: url("{% static 'images/covidresultbg.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .receivegreentext {
-      border-radius: 5px;
-      color: #0BB07B;
-    }
-    /* covidresultpos css end */
-
-    /* covidresultuploaded css start */
-    #covidresultbg {
-      background-image: url("{% static 'images/covidresultbg.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .purpletext {
-      color: #756D78;
-    }
-
-    #uploadedfile {
-      border-radius: 15px;
-      border-color: transparent;
-      background-color: #F3F5F8;
-      /* color: #9B9B9B; */
-      font-family: "Kanit-Light";
-      font-size: medium;
-      font-weight: lighter;
-    }
-
-    #resultnormal {
-      background-color: #0BB07B;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #resultinfected {
-      background-color: white;
-      border-color: #F03D3D;
-      border-radius: 5px;
-      color: #F03D3D;
-    }
-    /* covidresultuploaded css end */
-
-    /* resultboo css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    #bigtext3 {
-      color: #F03D3D;
-    }
-
-    .cf {
-      color: rgb(84, 82, 85, 0.5);
-    }
-
-    #continuebtn {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-    /* resultboo css end */
-
-    /* resultdusoon css start */
-    #covidhero {
-      background-image: url("{% static 'images/covidhero.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .receivegreentext {
-      border-radius: 5px;
-      color: #0BB07B;
-    }
-    /* resultdusoon css end */
-
-    /* resultdutomorrow css start */
-    #covidhero {
-      background-image: url("{% static 'images/covidhero.png' %}");
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .receivegreentext {
-      border-radius: 5px;
-      color: #0BB07B;
-    }
-    /* resultdutomorrow css end */
-
-    /* resultmeh css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    #bigtext2 {
-      color: #EEAF52;
-    }
-
-    .cf {
-      color: rgb(84, 82, 85, 0.5);
-    }
-
-    #normalbtn {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #join {
-      border-color: #7248C8;
-      border-radius: 5px;
-      color: #7248C8;
-    }
-    /* resultmeh css end*/
-
-    /* resultnormal css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    #bigtext {
-      color: #0BB07B;
-    }
-    .cf {
-      color: rgb(84, 82, 85, 0.5);
-    }
-
-    #normalbtn {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #join {
-      border-color: #7248C8;
-      border-radius: 5px;
-      color: #7248C8;
-    }
-    /* resultnormal css end */
-
-    /* seedoc css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    #employeenum,
-    #bossnum,
-    #datestart,
-    #dateend {
-      border-color: #7248C8;
-      border-radius: 5px;
-    }
-
-    .headtc {
-      color: #7248C8;
-    }
+      src: url("{% static 'fonts/Kanit-Light.ttf' %}") format("truetype");
 
-    .cf {
-      color: rgb(84, 82, 85, 0.5);
     }
 
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* seedoc css end */
-
-    /* wfh1-2 css start*/
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    .headtc {
-      color: #7248C8;
-    }
-
-    .cf {
-      color: rgb(84, 82, 85, 0.5);
-    }
-
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* wfh1-2 css end */
-
-    /* wfh1-3 css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    .headtc {
-      color: #7248C8;
-    }
-
-    .cf {
-      color: rgb(84, 82, 85, 0.5);
-    }
-
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* wfh1-3 css end */
-
-    /* wfh1 css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    .cf {
-      color: rgb(84, 82, 85, 0.5);
-    }
-
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* wfh1 css end */
-
-    /* wfh2-3 css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    .headtc {
-      color: #7248C8;
-    }
-
-    #employeenum,
-    #bossnum,
-    #datestart,
-    #dateend {
-      border-color: #7248C8;
-      border-radius: 5px;
-    }
-
-    .remark {
-            font-family: "Kanit-Regular";
-            color: rgb(84, 82, 85, 0.6)
-        }
-
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* wfh2-3 css end */
-
-    /* wfh2 css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    .cf {
-      color: rgb(84, 82, 85, 0.5);
-    }
-
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* wfh2 css end */
-
-    /* wfh3-3 css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    .headtc {
-      color: #7248C8;
-    }
-
-    #employeenum,
-    #bossnum,
-    #datestart,
-    #dateend {
-      border-color: #7248C8;
-      border-radius: 5px;
-    }
-
-    .remark {
-            font-family: "Kanit-Regular";
-            color: rgb(84, 82, 85, 0.6)
-        }
-
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* wfh3-3 css end */
-
-    /* 21 css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
-    }
-
-    .cf {
-      color: rgb(84, 82, 85, 0.5);
-    }
+    @font-face {
+      font-family: "Kanit-Medium";
+      src: url("{% static 'fonts/Kanit-Medium.ttf' %}") format("truetype");
 
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
     }
 
-    .remark {
+    @font-face {
       font-family: "Kanit-Regular";
-      color: rgb(84, 82, 85, 0.6)
+      src: url("{% static 'fonts/Kanit-Regular.ttf' %}") format("truetype");
+
     }
 
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* 21 css end */
+    @font-face {
+      font-family: "Kanit-SemiBold";
+      src: url("{% static 'fonts/Kanit-SemiBold.ttf' %}") format("truetype");
 
-    /* 22 css start */
-    #headerbg {
-      background-image: url("{% static 'images/bgheader.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: white;
     }
 
-    .headtc {
-      color: #7248C8;
-    }
+    /* fonts */
 
-    #employeenum,
-    #bossnum,
-    #datestart,
-    #dateend {
-      border-color: #7248C8;
-      border-radius: 5px;
-    }
-
-    .remark {
-            font-family: "Kanit-Regular";
-            color: rgb(84, 82, 85, 0.6)
-        }
-
-        #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #edit {
-      background-color: rgb(84, 82, 85, 0.2);
-      border-radius: 5px;
-      color: rgb(84, 82, 85, 0.8);
-    }
-    /* 22 css end */
-
-        /* timestamp css start */
+    /* timestamp css start */
     body {
       font-family: "Kanit-Medium";
     }
@@ -948,87 +100,17 @@
       font-weight: 400;
     }
 
-    .purpletext {
-      color: #756d78;
-    }
-
     #yessirout {
       background-color: #CD87EB;
       border-radius: 5px;
       color: white;
     }
+
     /* timestamp css end */
 
-        /* daily_update css start */
-        #headerbg {
-      background-image: url("{% static 'images/header_form.png' %}") ;
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 300px;
-      background-size: contain;
-      background-position: center;
-      color: white;
-    }
-    @media only screen and (min-width: 350px) {
-            #headerbg {
-                width: 100%;
-                background-size: contain;
-            }
-        }
-
-    #submit {
-      background-color: #7248C8;
-      border-radius: 5px;
-      color: white;
-    }
-
-    .remark {
-            font-family: "Kanit-Regular";
-            color: rgb(84, 82, 85, 0.6)
-        }
-
-    .bold_font{
-        font-family: "Kanit-Medium";
-        font-size: 18px;
-        font-weight: 500;
-    }
-
-    .normal_font{
-        font-family: "Kanit-Light";
-        font-size: 16px;
-        font-weight: 300;
-        padding: 15px;
-    }
-
-    .big_font{
-        font-family: "Kanit-Regular";
-        font-size: 18px;
-        font-weight: 300;
-        padding: 15px;
-    }
-
-    .question{
-        font-family: "Kanit-Medium";
-        font-size: 18px;
-        font-weight: 500;
-        padding-top: 25px;
-    }
-
-    .qq{
-        font-family: "Kanit-Regular";
-        font-size: 18px;
-        font-weight: 300;
-    }
-
-    .qq_light{
-        font-family: "Kanit-Light";
-        font-size: 18px;
-        font-weight: 300;
-    }
-        /* daily_update css end */
-/* formregister1 css start */
+    /* formregister1 css start */
     .formregisterbg {
-      background-image:url"{% static 'images/register@3x.png' %}";
+      background-image: url("{% static 'images/register@3x.png' %}");
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -1146,7 +228,7 @@
 
     /* formwfh1 css start */
     .wfhbg {
-      background-image:  url"{% static 'images/wfh@3x.png' %}";
+      background-image: url("{%static 'images/wfh@3x.png' %}");
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -1182,20 +264,104 @@
     }
 
     /* formwfh4 css end */
-    </style>
+
+    /* formwfh2drange.html css start */
+    .input-icons i {
+      position: absolute;
+    }
+
+    .icon {
+      visibility: visible;
+      position: center;
+      margin-top: 4%;
+      margin-left: -9%;
+    }
+
+    .input-field {
+      text-align: center;
+    }
+
+    .input-icons:focus,
+    .icon:focus,
+    i:focus {
+      background-color: #8448ff;
+    }
+    /* formwfh2drange.html css end */
+
+    .covidleavebg {
+      background-image: url("{% static 'images/covid-leave@3x.png' %}");
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+
+    .homebg {
+            background-image: url("{% static 'images/group-2-group-2-copy-group-2-copy-2-mask@3x.png' %}");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        /* #bg_home {
+            background-image: url("{% static 'images/group-2-group-2-copy-group-2-copy-2-mask@3x.png' %}");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        } */
+
+        #status {
+            font-family: "Kanit-Light";
+            color: #4a4a4a;
+        }
+
+        .redtext {
+            color: #f03d3d;
+        }
+
+        .darkredtext {
+            font-weight: bolder;
+            font-size: 100px;
+            color: #c24045;
+        }
+
+        #normalcard {
+            background-color: #0BB07B;
+            border-radius: 15px;
+        }
+
+        #yellowcard {
+            background-color: #FFC107;
+            border-radius: 15px;
+        }
+
+        #purplecard {
+            background-color: #7248C8;
+            border-radius: 15px;
+        }
+
+        #graycard {
+            background-color: #d8d8d8;
+            border-radius: 15px;
+        }
+  </style>
 </head>
 
 <body>
-    {% block body_bl %}
-    {% endblock %}
+  {% block body_bl %}
+  {% endblock %}
 
-    <div class="container-fluid" id="footer">
-        <p id="credit">
-            <small>Created by PEA Innovation Hub<br>MARCH 16 2020</small>
-        </p>
-    </div>
+  <div class="container-fluid" id="footer">
+    <p id="credit">
+      <small>Created by PEA Innovation Hub<br>MARCH 16 2020</small>
+    </p>
+  </div>
 
-
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>

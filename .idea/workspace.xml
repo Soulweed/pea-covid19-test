@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckin.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckin.html" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,28 +34,18 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            <state relative-caret-position="216">
+              <caret line="27" column="37" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tscheckin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckin.html">
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tscheckout.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+            <state relative-caret-position="169">
+              <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -74,7 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>templates/dailyupdate</find>
       <find>dailyupdate</find>
       <find>ติดต่อ</find>
       <find>page_input</find>
@@ -104,6 +92,7 @@
       <find>send_email_leave_request</find>
       <find>daily</find>
       <find>check</find>
+      <find>img</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,7 +142,6 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave4.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html" />
@@ -163,6 +151,7 @@
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckin.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
       </list>
     </option>
   </component>
@@ -742,14 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="437" column="0" lean-forward="true" selection-start-line="437" selection-start-column="0" selection-end-line="437" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -792,14 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
@@ -807,6 +780,14 @@
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="49" column="14" lean-forward="true" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -818,10 +799,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html">
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        <state relative-caret-position="216">
+          <caret line="27" column="37" lean-forward="false" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="32" />
           <folding />
         </state>
       </provider>
