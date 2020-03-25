@@ -174,16 +174,18 @@ def formwfh2(request,id):
                 id_boss)
             context={'Boss_name':'{} {}'.format(FirstName, LastName), 'Boss_position':PositionDescShort,
                      'startdate':get_startdate, 'enddate':get_enddate, 'total_date':total_date, 'email_boss': email}
+            print(context)
             return render(request, 'myworkplace/formwfh3.html', context)
         if (page=="2"):
             email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
             get_total_date =request.POST.get("total_date")
-            get_startdate =request.POST.get("stratdate")
+            get_startdate =request.POST.get("startdate")
             get_enddate =request.POST.get("enddate")
-
+            print(get_startdate)
+            print(get_enddate)
             obj = {'type': 'wfh_request', 'startdate': get_startdate, 'enddate':get_enddate,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
+            print(obj)
             send_email_wfh_request(id=id, email_boss=email, total_date=get_total_date)
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
