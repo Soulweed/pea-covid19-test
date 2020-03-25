@@ -194,12 +194,8 @@ def formwfh2(request,id):
             user.WFH_end_date=get_enddate
             user.save()
             connection.close()
-
             return render(request, 'myworkplace/formwfh4.html')
-
-
     return render(request, 'myworkplace/formwfh2drange.html', context)
-
 
 def meet_doc2(request,id):
     context = {'id':id}
@@ -234,12 +230,10 @@ def meet_doc2(request,id):
     return render(request, 'myworkplace/formseedoc2.html', context)
 
 
-
 def personal_info(request, id):
     data = employee.objects.get(employee_line_ID=id).__dict__
     context = {'data': data}
     connection.close()
-
     return render(request, 'myworkplace/personal_info.html', context)
 
 
@@ -467,6 +461,7 @@ def register(request,id):
             print('model save')
             connection.close()
             return redirect(daily_update,emp_id)
+
     return render(request, 'myworkplace/formregister.html', context)
 
 

@@ -68,7 +68,7 @@ def handle_text_message(event):
             len(dict_message['text']) == 6 or len(dict_message['text']) == 7):
         ##### function create email กับ content ข้างใน
         try:
-            employee.objects.get(employee_line_ID=dict_source['user_id'])
+            user_employee=employee.objects.get(employee_line_ID=dict_source['user_id'])
             connection.close()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
