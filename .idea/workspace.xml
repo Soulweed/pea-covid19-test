@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="" />
+    <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +22,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/line_bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="163" column="87" lean-forward="false" selection-start-line="163" selection-start-column="87" selection-end-line="163" selection-end-column="87" />
+            <state relative-caret-position="-205">
+              <caret line="162" column="50" lean-forward="false" selection-start-line="162" selection-start-column="50" selection-end-line="162" selection-end-column="50" />
               <folding>
                 <element signature="e#2492#5129#0" expanded="false" />
                 <element signature="e#11224#11533#0" expanded="false" />
@@ -34,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/send_email/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="173" column="24" lean-forward="true" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+            <state relative-caret-position="53">
+              <caret line="166" column="43" lean-forward="false" selection-start-line="166" selection-start-column="29" selection-end-line="166" selection-end-column="43" />
               <folding>
                 <element signature="e#1327#2134#0" expanded="false" />
               </folding>
@@ -46,28 +48,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="42" column="19" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+            <state relative-caret-position="377">
+              <caret line="228" column="43" lean-forward="true" selection-start-line="228" selection-start-column="43" selection-end-line="228" selection-end-column="43" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#10795#11620#0" expanded="false" />
-                <element signature="e#12965#18987#0" expanded="false" />
-                <element signature="e#18991#19018#0" expanded="false" />
-                <element signature="e#27765#28788#0" expanded="false" />
-                <element signature="e#28791#28820#0" expanded="false" />
+                <element signature="e#10847#11672#0" expanded="false" />
+                <element signature="e#13017#19039#0" expanded="false" />
+                <element signature="e#19043#19070#0" expanded="false" />
+                <element signature="e#27817#28840#0" expanded="false" />
+                <element signature="e#28843#28872#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -133,8 +125,8 @@
       <find>date</find>
       <find>WFH_start_date</find>
       <find>date=</find>
-      <find>send_email_le</find>
       <find>delta</find>
+      <find>send_email_le</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -187,12 +179,12 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/myworkplace/urls.py" />
-        <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh4.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html" />
         <option value="$PROJECT_DIR$/line_bot/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" />
+        <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
       </list>
     </option>
@@ -818,25 +810,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#10795#11620#0" expanded="false" />
-            <element signature="e#12965#18987#0" expanded="false" />
-            <element signature="e#18991#19018#0" expanded="false" />
-            <element signature="e#27765#28788#0" expanded="false" />
-            <element signature="e#28791#28820#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="163" column="87" lean-forward="false" selection-start-line="163" selection-start-column="87" selection-end-line="163" selection-end-column="87" />
+        <state relative-caret-position="-205">
+          <caret line="162" column="50" lean-forward="false" selection-start-line="162" selection-start-column="50" selection-end-line="162" selection-end-column="50" />
           <folding>
             <element signature="e#2492#5129#0" expanded="false" />
             <element signature="e#11224#11533#0" expanded="false" />
@@ -850,10 +827,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/send_email/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="173" column="24" lean-forward="true" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
+        <state relative-caret-position="53">
+          <caret line="166" column="43" lean-forward="false" selection-start-line="166" selection-start-column="29" selection-end-line="166" selection-end-column="43" />
           <folding>
             <element signature="e#1327#2134#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="228" column="43" lean-forward="true" selection-start-line="228" selection-start-column="43" selection-end-line="228" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#10847#11672#0" expanded="false" />
+            <element signature="e#13017#19039#0" expanded="false" />
+            <element signature="e#19043#19070#0" expanded="false" />
+            <element signature="e#27817#28840#0" expanded="false" />
+            <element signature="e#28843#28872#0" expanded="false" />
           </folding>
         </state>
       </provider>

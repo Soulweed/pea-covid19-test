@@ -214,9 +214,11 @@ def meet_doc2(request,id):
             email = get_user_email(id_boss)
 
             send_email_leave_request(id=id, email_boss=email)
-            startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
-            enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d"),
+            startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
 
+            enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
+            print(startdate)
+            print(type(startdate))
             obj = {'type': 'leave_request', 'startdate': startdate, 'enddate':enddate,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             user = employee.objects.get(employee_ID=str(id))
