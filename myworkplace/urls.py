@@ -38,5 +38,5 @@ urlpatterns = [
     path('resultscreen2/', views.resultscreen2, name='resultscreen2'),
     path('resultscreen3/', views.resultscreen3, name='resultscreen3'),
     path('formleave/<id>', views.LEAVE_request, name='formleave'),
-    path('test', views.test, name='test'),
+    path('test/', views.test, name='test'),
 ]

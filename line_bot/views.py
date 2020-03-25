@@ -258,6 +258,7 @@ def handle_text_message(event):
                                                }
                                            ))
             elif dict_message['text'] == 'ข้อมูลส่วนตัว':
+                print('list profile')
                 d, t = user_employee.last_daily_update()
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
