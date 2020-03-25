@@ -40,6 +40,7 @@ urlpatterns = [
     path('LEAVE_request/<id>/', views.LEAVE_request, name='LEAVE_request'),
     path('WFH_approve/<id>/<boss>/', views.WFH_approve, name='WFH_approve'),
     # path('LEAVE_approve/<id>/<boss>/', views.LEAVE_approve, name='LEAVE_approve'),
-
+    path('meet_doc2/<id>/', views.meet_doc2, name='meet_doc2'),
+    path('formwfh2/<id>/', views.formwfh2, name='formwfh2'),
 
 ]

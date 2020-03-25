@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_bl %} Form WFH | แจ้งเข้าร่วมโครงการ 2 / 4 {% endblock %}
+{% block body_bl %}
+
+<div class="py-5 covidleavebg">
+  <div class="py-4 container">
+    <div class="row">
+      <div class="col-12">
+        <h1> &nbsp; </h1>
+        <h1> &nbsp; </h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="formwfhtext">พบแพทย์</h3>
+        <h4 class="formwfhtext">( พร้อมบันทึกลาป่วย 14 วัน )</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-4 py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="px-4 pt-1">
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-3 py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h5 class="brightpurpletext">โปรดตรวจสอบและกรอกรายละเอียดให้ครบถ้วน</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<form method="POST">
+  {% csrf_token %}
+  <div class="px-3 py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h6 id="edited">รหัสพนักงานของคุณ</h6>
+          <input type="hidden" name="page" value="1" />
+          <input class="w-100 unedited" type="text" required name="employee_id" value="{{id}}">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-3 py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h6 id="edited">รหัสผู้บังคับบัญชาต้นสังกัด &nbsp; <span><img src="{%static 'img/invalid-name@3x.png' %}"
+                alt="invalid-name" width="20px"></span></h6>
+          <input class="w-100 edited" name="director" required type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="px-4 py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="px-4 pt-1">
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-3 pt-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="brightpurpletext">เงื่อนไขและข้อกำหนด</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h6 class="">1. ให้ท่านไปทำการตรวจคัดกรองโรคที่โรงพยาบาลทันที
+          พร้อมขอใบรับรองแพทย์เพื่อยืนยันผลการตรวจ
+          หากท่านตรวจพบว่าติดเชื้อ COVID-19 โดยมีใบรับรอง
+          แพทย์ PEA จะอนุมัติให้พนักงานพักรักษาตัวได้ทันทีโดย
+          “ไม่ถือว่าเป็นวันลา” ทั้งนี้ระยะเวลาในการพักรักษาตัวขึ้น
+          อยู่กับดุลยพินิจของแพทย์ที่ให้การรักษา
+          ในกรณีที่ท่านตรวจพบว่าติดเชื้อ COVID-19 ตามราย
+          ละเอียดด้านบน จะต้องติดต่อผู้บังคับบัญชาต้นสังกัด
+          เพื่อรายงานผลให้ทราบทันที โดยแนบหลักฐานผลการ
+          ตรวจ/ใบรับรองแพทย์ ผ่านทาง ผ่านทาง PEA
+          COVID-19 Line Official Account ในเมนู จัดการ
+          ข้อมูล <br>
+          2. หากท่านตรวจไม่พบว่าติดเชื้อ COVID-19 แต่เป็นอาการ
+          ของโรคอื่นๆ ให้แนบหลักฐานผลการตรวจ/ใบรับรอง
+          แพทย์ ผ่านทาง ผ่านทาง PEA COVID-19 Line
+          Official Account ในเมนู จัดการข้อมูล ระบบจะอนุมัติ
+          ให้พนักงาน “ลาป่วย“ ทันทีโดยถือว่า “เป็นวันลา”  ทั้งนี้
+          ระยะเวลาในการลาป่วยจะอยู่ภายในระยะเวลา 14 วัน
+          ในกรณีที่ท่านมีความประสงค์จะเข้าร่วมโครงการ Work
+          from home ท่านจะต้องเข้าร่วมภายใต้เงื่อนไขประเภท
+          กลุ่มแยกตัวเอง 14 วัน เท่านั้น โดยสามารถยื่นความ
+          ประสงค์ในการเข้าร่วมโครงการผ่านทางระบบ PEA
+          COVID-19 ทั้งนี้ขึ้นอยู่กับดุลยพินิจของผู้บังคับบัญชา
+          ของท่านด้วย <br>
+          3. หากมีการตรวจสอบพบว่า ท่านไม่ปฏิบัติตามเงื่อนไขข้อ
+          ตกลงด้านบน ทาง PEA จะมีการพิจารณาบทลงโทษ
+          และมีผลต่อการพิจารณาประเมินผลงานประจำปีตาม
+          ระเบียบของการไฟฟ้าส่วนภูมิภาคต่อไป</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-4 py-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="px-4 pt-1">
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="px-4 py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <input class="w-100 mapbtn" type="submit" value="ยอมรับและพร้อมปฏิบัติตามอย่างเคร่งครัด">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

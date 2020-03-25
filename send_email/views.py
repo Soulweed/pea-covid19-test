@@ -137,20 +137,24 @@ def send_email_register(email, line_id, id):
 
 
 
-def send_email_wfh_request(id, boss):
+def send_email_wfh_request(id, email_boss, date):
+    recipient_list = [email_boss]
+    print('receipient list', recipient_list)
+
     server = 'email.pea.co.th'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
     password = 'peacovid19'
-    email_boss = boss + '@pea.co.th'
     account = connect(server, email, username, password)
+    # email_boss = boss + '@pea.co.th'
+    boss=email_boss[0:-5]
     subject = 'ขอลา WFH'
-    body = 'พนักงานรหัส {} ขอลา WFH กรุณากด link: https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/'.format(id, id, boss)
+    body = 'พนักงานรหัส {} ขอลา WFH จำนวน {} วัน กรุณากด link: https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/'.format(id,date, id, boss)
     print(email_boss)
     m = Message(account=account,
                 subject=subject,
                 body=body,
-                to_recipients=[email_boss])
+                to_recipients=recipient_list)
     print('message created')
     m.send_and_save()
     print(m)

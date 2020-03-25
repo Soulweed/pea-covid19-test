@@ -97,6 +97,102 @@ def daily_update(request, id):
 
     return render(request, 'myworkplace/daily_update.html')
 
+
+
+def LEAVE_request(request, id):
+    context ={'EmployeeID': id,}
+    email=''
+    if request.method == "POST":
+        page = request.POST.get("page")
+        if (page == "1"):
+            print(page)
+            print("OK1")
+            return render(request, 'myworkplace/formleave2.html', context)
+
+        if (page == "2"):
+            print(page)
+            print("OK2")
+            id_boss = request.POST.get("id_boss")
+            day = 14
+            print(id_boss)
+            email = get_user_email(id_boss)
+            print(email)
+
+            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
+                id_boss)
+            context.update({'id_boss': id_boss, 'email_boss': email, 'day': day,
+                            'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort})
+            return render(request, 'myworkplace/formleave3.html', context)
+
+
+        if (page == "3"):
+            print("OK3")
+            email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+            obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+            send_email_leave_request(id=id, email_boss=email)
+            user = employee.objects.get(employee_ID=str(id))
+            data = json.loads(user.activity_text)
+            data.append(obj)
+            user.activity_text = json.dumps(data, ensure_ascii=False)
+            user.active_status = 'LEAVE'
+            user.save()
+            print('model save')
+            connection.close()
+
+            return render(request, 'myworkplace/formleave4.html', context)
+
+    return render(request, 'myworkplace/formleave1.html', context)
+
+def formwfh2(request,id):
+    context = {'id':id}
+    if request.method == "POST":
+        page = request.POST.get("page")
+
+        if (page == "1"):
+            print(page)
+            id_boss = request.POST.get("director")
+            startdate = request.POST.get("startdate")
+            enddate = request.POST.get("enddate")
+            email = get_user_email(id_boss)
+
+            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
+                id_boss)
+            context={'Boss_name':'{} {}'.format(FirstName, LastName), 'Boss_position':PositionDescShort,
+                     'startdate':startdate, 'enddate':enddate, 'total_date':14, 'email_boss': email}
+            return render(request, 'myworkplace/formwfh3.html', context)
+        if (page=="2"):
+            email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+            total_date =request.POST.get("total_date")
+            obj = {'type': 'wfh_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+
+            send_email_wfh_request(id=id, email_boss=email)
+            user = employee.objects.get(employee_ID=str(id))
+            data = json.loads(user.activity_text)
+            data.append(obj)
+            user.activity_text = json.dumps(data, ensure_ascii=False)
+            user.approved_status = 'wfh'
+            user.save()
+            connection.close()
+
+            return render(request, 'myworkplace/formwfh4.html')
+
+
+    return render(request, 'myworkplace/formwfh2drange.html', context)
+
+
+def meet_doc2(request,id):
+    context = {'id':id}
+    if request.method == 'POST':
+        page = request.POST.get('page')
+        if(page == "1"):
+            director = request.POST.get("director")
+            print(director)
+        return render(request, 'myworkplace/formseedoc3.html', context)
+    return render(request, 'myworkplace/formseedoc2.html', context)
+
+
+
 def personal_info(request, id):
     data = employee.objects.get(employee_line_ID=id).__dict__
     context = {'data': data}
