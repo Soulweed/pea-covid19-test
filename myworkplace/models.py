@@ -143,7 +143,7 @@ class employee(models.Model):
 
     def last_daily_update(self):
         data = json.loads(self.activity_daily_update)
-        return data[-1]['datetime'].split()[0], data[-1]['datetime'].split()[0]
+        return data[-1]['datetime'].split()[0], data[-1]['datetime'].split()[1][1:-1]
 
 
 class question(models.Model):

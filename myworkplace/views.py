@@ -122,20 +122,24 @@ def checkin(request, id):
         user.save()
         connection.close()
 
-        context['data'].update({'datetime': obj['datetime']})
-        print(context)
         if(action_type == "checkin"):
-            return render(request, 'myworkplace/tscheckin.html', context)
+
+            return redirect(tscheckin, obj['datetime'])
         elif(action_type == "checkout"):
-            return render(request, 'myworkplace/tscheckout.html', context)
+
+            return redirect(tscheckout, obj['datetime'])
 
     return render(request, 'myworkplace/timestamp.html', context)
 
 
 
-def tscheckin(request, id):    return render(request, 'myworkplace/tscheckin.html')
+def tscheckin(request, time):
+    context={'datetime':time}
+    return render(request, 'myworkplace/tscheckin.html', context)
 
-def tscheckout(request, id):    return render(request, 'myworkplace/tscheckout.html')
+def tscheckout(request, time):
+    context = {'datetime': time}
+    return render(request, 'myworkplace/tscheckout.html', context)
 
 
 

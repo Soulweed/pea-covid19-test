@@ -106,8 +106,8 @@ def handle_text_message(event):
         try:
             print(dict_source['user_id'])
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-            d, t = user_employee.last_daily_update()
             connection.close()
+            d, t = user_employee.last_daily_update()
 
             if dict_message['text'] == 'leave':
                 line_bot_api.reply_message(event.reply_token,
@@ -675,7 +675,7 @@ def handle_text_message(event):
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
-                                               text='ฟังก์ชั่นนี้กำลังปรับปรุง ส่ง feedback ให้ admin ที่ www.menti.com กรอกรหัส 456368'))
+                                               text='ฟังก์ชั่นนี้กำลังปรับปรุง ส่ง feedback ให้ admin ที่ www.menti.com กรอกรหัส 170022'))
 
         except:
             line_bot_api.reply_message(event.reply_token,
