@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
+      <change beforePath="$PROJECT_DIR$/send_email/views.py" afterPath="$PROJECT_DIR$/send_email/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,18 +37,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/send_email/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="151" column="142" lean-forward="false" selection-start-line="151" selection-start-column="142" selection-end-line="151" selection-end-column="142" />
+              <folding>
+                <element signature="e#1327#2134#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="163" column="43" lean-forward="true" selection-start-line="163" selection-start-column="43" selection-end-line="163" selection-end-column="43" />
+            <state relative-caret-position="235">
+              <caret line="176" column="34" lean-forward="false" selection-start-line="176" selection-start-column="12" selection-end-line="176" selection-end-column="34" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#9146#9971#0" expanded="false" />
-                <element signature="e#11316#17338#0" expanded="false" />
-                <element signature="e#17342#17369#0" expanded="false" />
-                <element signature="e#26116#27139#0" expanded="false" />
-                <element signature="e#27142#27171#0" expanded="false" />
+                <element signature="e#9139#9964#0" expanded="false" />
+                <element signature="e#11309#17331#0" expanded="false" />
+                <element signature="e#17335#17362#0" expanded="false" />
+                <element signature="e#26109#27132#0" expanded="false" />
+                <element signature="e#27135#27164#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -64,7 +76,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formwfh2drange.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="formwfh2drange.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="199">
@@ -183,10 +195,10 @@
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/myworkplace/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html" />
-        <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/line_bot/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
+        <option value="$PROJECT_DIR$/send_email/views.py" />
       </list>
     </option>
   </component>
@@ -242,13 +254,6 @@
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
               <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
@@ -753,16 +758,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/send_email/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-          <folding>
-            <element signature="e#1327#2134#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh4.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-46">
@@ -811,11 +806,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html">
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-422">
-          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="199">
+          <caret line="105" column="69" lean-forward="true" selection-start-line="105" selection-start-column="69" selection-end-line="105" selection-end-column="69" />
+          <folding>
+            <element signature="e#2967#2995#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -834,27 +831,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-422">
+          <caret line="77" column="10" lean-forward="true" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="163" column="43" lean-forward="true" selection-start-line="163" selection-start-column="43" selection-end-line="163" selection-end-column="43" />
+        <state relative-caret-position="235">
+          <caret line="176" column="34" lean-forward="false" selection-start-line="176" selection-start-column="12" selection-end-line="176" selection-end-column="34" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#9146#9971#0" expanded="false" />
-            <element signature="e#11316#17338#0" expanded="false" />
-            <element signature="e#17342#17369#0" expanded="false" />
-            <element signature="e#26116#27139#0" expanded="false" />
-            <element signature="e#27142#27171#0" expanded="false" />
+            <element signature="e#9139#9964#0" expanded="false" />
+            <element signature="e#11309#17331#0" expanded="false" />
+            <element signature="e#17335#17362#0" expanded="false" />
+            <element signature="e#26109#27132#0" expanded="false" />
+            <element signature="e#27135#27164#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
+    <entry file="file://$PROJECT_DIR$/send_email/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="105" column="69" lean-forward="true" selection-start-line="105" selection-start-column="69" selection-end-line="105" selection-end-column="69" />
+        <state relative-caret-position="215">
+          <caret line="151" column="142" lean-forward="false" selection-start-line="151" selection-start-column="142" selection-end-line="151" selection-end-column="142" />
           <folding>
-            <element signature="e#2967#2995#0#HTML" expanded="true" />
+            <element signature="e#1327#2134#0" expanded="false" />
           </folding>
         </state>
       </provider>

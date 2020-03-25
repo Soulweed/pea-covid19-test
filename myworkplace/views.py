@@ -174,7 +174,7 @@ def formwfh2(request,id):
 
             obj = {'type': 'wfh_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-            send_email_wfh_request(id=id, email_boss=email, total_date=total_date)
+            send_email_wfh_request(id=id, email_boss=email, total_date=100)
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
             data.append(obj)

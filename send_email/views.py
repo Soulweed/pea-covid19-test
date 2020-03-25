@@ -137,7 +137,7 @@ def send_email_register(email, line_id, id):
 
 
 
-def send_email_wfh_request(id, email_boss, date):
+def send_email_wfh_request(id, email_boss, total_date):
     recipient_list = [email_boss]
     print('receipient list', recipient_list)
 
@@ -149,7 +149,7 @@ def send_email_wfh_request(id, email_boss, date):
     # email_boss = boss + '@pea.co.th'
     boss=email_boss[0:-5]
     subject = 'ขอลา WFH'
-    body = 'พนักงานรหัส {} ขอลา WFH จำนวน {} วัน กรุณากด link: https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/'.format(id,date, id, boss)
+    body = 'พนักงานรหัส {} ขอลา WFH จำนวน {} วัน กรุณากด link: https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/'.format(id,total_date, id, boss)
     print(email_boss)
     m = Message(account=account,
                 subject=subject,
