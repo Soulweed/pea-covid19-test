@@ -37,7 +37,8 @@ def home(request):
                'normal_wfh':employee.objects.filter(active_status='WFH').count(),
                'risk_wfh':employee.objects.filter(active_status='Leave').count(),
                'pea_office':employee.objects.filter(active_status='PEA').count(),
-               'no_daily_update':employee.objects.filter(daily_update=False).count()}
+               'no_daily_update':employee.objects.filter(daily_update=False).count(),
+               'update_date':datetime.now().strftime("%Y-%m-%d")}
     print(context)
 
     return render(request, 'myworkplace/home.html', context)
@@ -136,7 +137,7 @@ def LEAVE_request(request, id):
             data = json.loads(user.activity_text)
             data.append(obj)
             user.activity_text = json.dumps(data, ensure_ascii=False)
-            user.approved_status = 'LEAVE'
+            user.approved_status = 'Leave'
             user.save()
             print('model save')
             connection.close()
