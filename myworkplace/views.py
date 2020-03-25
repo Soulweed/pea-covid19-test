@@ -844,23 +844,6 @@ def LEAVE_approve(request, id, boss):
     return render(request, 'myworkplace/test.html',context )
 
 
-# def LEAVE_approve(request, id, boss):
-#     obj = {'type': 'LEAVE_approved', 'approved_by': boss,
-#            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
-#            'finish_date': (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d"),
-#            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-#
-#     user = employee.objects.get(employee_ID=str(id))
-#     print(user)
-#     data = json.loads(user.activity_text)
-#     data.append(obj)
-#     user.activity_text = json.dumps(data, ensure_ascii=False)
-#     user.active_status='LEAVE'
-#     user.approved_status='Idle'
-#     user.save()
-#     context = {'data': 'Leave approve'}
-#     return render(request, 'myworkplace/test.html', context)
-
 
 def get_employee_profile(id):
     url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
