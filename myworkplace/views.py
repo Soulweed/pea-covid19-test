@@ -98,7 +98,6 @@ def daily_update(request, id):
     return render(request, 'myworkplace/daily_update.html')
 
 
-
 def LEAVE_request(request, id):
     context ={'EmployeeID': id,}
     email=''
@@ -118,12 +117,11 @@ def LEAVE_request(request, id):
             email = get_user_email(id_boss)
             print(email)
 
-            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
+            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender = get_employee_profile(
                 id_boss)
             context.update({'id_boss': id_boss, 'email_boss': email, 'day': day,
-                            'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort})
+                            'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort, 'Gender':Gender})
             return render(request, 'myworkplace/formleave3.html', context)
-
 
         if (page == "3"):
             print("OK3")
@@ -148,7 +146,6 @@ def formwfh2(request,id):
     context = {'id':id}
     if request.method == "POST":
         page = request.POST.get("page")
-
         if (page == "1"):
             print(page)
             id_boss = request.POST.get("director")
@@ -170,9 +167,9 @@ def formwfh2(request,id):
             # total_date=request.POST.get("diffDays")
             print('total date', total_date)
             email = get_user_email(id_boss)
-            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
+            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender = get_employee_profile(
                 id_boss)
-            context={'Boss_name':'{} {}'.format(FirstName, LastName), 'Boss_position':PositionDescShort,
+            context={'Boss_name':'{} {}'.format(FirstName, LastName), 'Boss_position':PositionDescShort, 'Gender':Gender,
                      'startdate':get_startdate, 'enddate':get_enddate, 'total_date':total_date, 'email_boss': email}
             print(context)
             return render(request, 'myworkplace/formwfh3.html', context)
@@ -225,7 +222,8 @@ def meet_doc2(request,id):
             data = json.loads(user.activity_text)
             data.append(obj)
             user.activity_text = json.dumps(data, ensure_ascii=False)
-            user.approved_status = 'WFH'
+            user.active_status = 'LEAVE'
+            user.approved_status = 'Idle'
             user.LEAVE_start_date=startdate
             user.LEAVE_end_date=enddate
             user.save()
@@ -358,10 +356,10 @@ def register(request,id):
         employee.objects.get(employee_line_ID=line_id)
         return redirect(home)
     except:
-        FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(emp_id)
+        FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
 
         context ={'EmployeeID': emp_id, 'FirstName':FirstName, 'LastName':LastName, 'DepartmentShort':DepartmentShort,
-                  'PositionDescShort':PositionDescShort, 'LevelDesc':LevelDesc}
+                  'PositionDescShort':PositionDescShort, 'LevelDesc':LevelDesc, 'Gender':Gender}
 
         sex = ''
         age = ''
@@ -762,10 +760,10 @@ def LEAVE_request(request, id):
             # user.save()
             # connection.close()
 
-            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
+            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
                 id_boss)
             context.update({'id_boss': id_boss, 'email_boss': email, 'day': day,
-                            'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort})
+                            'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort, 'Gender':Gender})
             return render(request, 'myworkplace/formleave3.html', context)
 
 
@@ -886,4 +884,4 @@ def get_employee_profile(id):
         'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
 
     return authData.get("FirstName"), authData.get("LastName"), authData.get("DepartmentShort"), \
-           authData.get("'PositionDescShort"), authData.get("'LevelDesc")
+           authData.get("PositionDescShort"), authData.get("LevelDesc"), authData.get("Gender")

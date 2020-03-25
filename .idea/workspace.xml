@@ -48,38 +48,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+      <file leaf-file-name="timestamp.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="228" column="43" lean-forward="true" selection-start-line="228" selection-start-column="43" selection-end-line="228" selection-end-column="43" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#10847#11672#0" expanded="false" />
-                <element signature="e#13017#19039#0" expanded="false" />
-                <element signature="e#19043#19070#0" expanded="false" />
-                <element signature="e#27817#28840#0" expanded="false" />
-                <element signature="e#28843#28872#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="formseedoc3.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-942">
-              <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="51" />
+            <state relative-caret-position="-1838">
+              <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formseedoc2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="65" column="52" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="52" />
+            <state relative-caret-position="151">
+              <caret line="864" column="11" lean-forward="false" selection-start-line="864" selection-start-column="4" selection-end-line="864" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#10936#11761#0" expanded="false" />
+                <element signature="e#19156#19183#0" expanded="false" />
+                <element signature="e#27930#28953#0" expanded="false" />
+                <element signature="e#28956#28985#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="normal1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -97,7 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tel</find>
       <find>employ_tel</find>
       <find>normal1</find>
       <find>address</find>
@@ -125,8 +123,9 @@
       <find>date</find>
       <find>WFH_start_date</find>
       <find>date=</find>
-      <find>delta</find>
       <find>send_email_le</find>
+      <find>delta</find>
+      <find>get_emp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,7 +164,6 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister3.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister1.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/see_doctor.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal2.html" />
@@ -185,6 +183,7 @@
         <option value="$PROJECT_DIR$/line_bot/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
       </list>
     </option>
@@ -196,10 +195,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="605" />
-    <option name="y" value="23" />
-    <option name="width" value="835" />
-    <option name="height" value="877" />
+    <option name="width" value="952" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -234,6 +231,19 @@
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
+              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
+              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
+              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -372,7 +382,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="952" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="6" side_tool="false" content_ui="tabs" />
@@ -381,7 +391,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33995038" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20886981" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1923077" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -565,14 +575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/see_doctor.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -634,14 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="498">
@@ -698,14 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="367" column="8" lean-forward="false" selection-start-line="364" selection-start-column="40" selection-end-line="367" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/register_1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -746,14 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/checkin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="101" column="9" lean-forward="true" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh4.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
@@ -770,14 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="34" column="16" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/peacovid19v2/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -790,14 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
           <caret line="65" column="52" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-942">
-          <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -825,6 +787,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-942">
+          <caret line="21" column="51" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="370" column="8" lean-forward="true" selection-start-line="370" selection-start-column="8" selection-end-line="370" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="33" column="10" lean-forward="false" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/send_email/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="53">
@@ -835,17 +821,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1838">
+          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/checkin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="101" column="9" lean-forward="true" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="228" column="43" lean-forward="true" selection-start-line="228" selection-start-column="43" selection-end-line="228" selection-end-column="43" />
+        <state relative-caret-position="151">
+          <caret line="864" column="11" lean-forward="false" selection-start-line="864" selection-start-column="4" selection-end-line="864" selection-end-column="11" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#10847#11672#0" expanded="false" />
-            <element signature="e#13017#19039#0" expanded="false" />
-            <element signature="e#19043#19070#0" expanded="false" />
-            <element signature="e#27817#28840#0" expanded="false" />
-            <element signature="e#28843#28872#0" expanded="false" />
+            <element signature="e#10936#11761#0" expanded="false" />
+            <element signature="e#19156#19183#0" expanded="false" />
+            <element signature="e#27930#28953#0" expanded="false" />
+            <element signature="e#28956#28985#0" expanded="false" />
           </folding>
         </state>
       </provider>
