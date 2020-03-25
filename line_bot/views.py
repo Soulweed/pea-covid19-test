@@ -305,7 +305,7 @@ def handle_text_message(event):
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "{}".format({'normal':'ไม่เข้าเกณฑ์', 'quarantine':'แยกตัว','hospital':'ควรพบแพทย์'}[user_employee.healthy]),
+                                                                       "text": "{}".format({'normal':'ไม่เข้าเกณฑ์', 'flu':'ไม่เข้าเกณฑ์', 'quarantine':'แยกตัว','hospital':'ควรพบแพทย์'}[user_employee.healthy]),
                                                                        "size": "xl"
                                                                    }
                                                                ],
@@ -322,7 +322,7 @@ def handle_text_message(event):
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "{}".format({'PEA':'ปฏิบัติงานตามปกติ', 'WFH':'Work from home','LEAVE':'ลาป่วย'}[user_employee.active_status]),
+                                                                       "text": "{}".format({'PEA':'ปฏิบัติงานตามปกติ', 'WFH':'Work from home','LEAVE':'ลาป่วย', 'COVID':'COVID'}[user_employee.active_status]),
                                                                        "size": "xl"
                                                                    }
                                                                ],

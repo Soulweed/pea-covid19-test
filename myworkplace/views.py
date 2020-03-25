@@ -89,7 +89,7 @@ def daily_update(request, id):
         elif health =='quarantine':
             return redirect(quarantine, id)
         elif health =='hospital':
-            return redirect(see_doctor, id)
+            return redirect(meet_doc2, id)
 
     return render(request, 'myworkplace/daily_update.html')
 
@@ -309,10 +309,7 @@ def quarantine(request,id):
 
     return render(request, 'myworkplace/quarantine.html')
 
-def see_doctor(request):
-    # data = employee.objects.get(employee_ID=id)
-    # context = {'data': data.__dict__}
-    # connection.close()
+def see_doctor(request, id):
 
     return render(request, 'myworkplace/see_doctor.html')
 
