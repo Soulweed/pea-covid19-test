@@ -119,9 +119,11 @@
               var timeDiff = Math.abs((new Date(endform)).getTime() - (new Date(startform)).getTime());
               // days difference
               var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
               // console.log(diffDays);
               if(!isNaN(diffDays)){
                 document.getElementById("diffDays").textContent = diffDays;
+                updatediffDays()
               }
             }
             document.addEventListener('DOMContentLoaded', function () {
@@ -132,6 +134,15 @@
               document.getElementById('startdate')
                 .addEventListener('change',caldate);
             });
+
+            function updatediffDays(){
+                var data = {'diffDays': diffDays};
+                $.post(URL, data, function(response){
+                    if(response === 'success'){ alert('Yay!'); }
+                    else{ alert('Error! :('); }
+                });
+            }
+
           </script>
 
 
