@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,15 +22,15 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/line_bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="140" column="170" lean-forward="false" selection-start-line="140" selection-start-column="170" selection-end-line="140" selection-end-column="170" />
+            <state relative-caret-position="132">
+              <caret line="137" column="82" lean-forward="true" selection-start-line="137" selection-start-column="82" selection-end-line="137" selection-end-column="82" />
               <folding>
                 <element signature="e#2492#5129#0" expanded="false" />
-                <element signature="e#11230#11539#0" expanded="false" />
-                <element signature="e#11606#17450#0" expanded="false" />
-                <element signature="e#17519#28126#0" expanded="false" />
-                <element signature="e#28271#30890#0" expanded="false" />
-                <element signature="e#30959#49700#0" expanded="false" />
+                <element signature="e#11228#11537#0" expanded="false" />
+                <element signature="e#11604#17448#0" expanded="false" />
+                <element signature="e#17517#28124#0" expanded="false" />
+                <element signature="e#28269#30888#0" expanded="false" />
+                <element signature="e#30957#49698#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -40,8 +39,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="24" />
+            <state relative-caret-position="354">
+              <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -863,23 +862,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="24" />
+        <state relative-caret-position="354">
+          <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="140" column="170" lean-forward="false" selection-start-line="140" selection-start-column="170" selection-end-line="140" selection-end-column="170" />
+        <state relative-caret-position="132">
+          <caret line="137" column="82" lean-forward="true" selection-start-line="137" selection-start-column="82" selection-end-line="137" selection-end-column="82" />
           <folding>
             <element signature="e#2492#5129#0" expanded="false" />
-            <element signature="e#11230#11539#0" expanded="false" />
-            <element signature="e#11606#17450#0" expanded="false" />
-            <element signature="e#17519#28126#0" expanded="false" />
-            <element signature="e#28271#30890#0" expanded="false" />
-            <element signature="e#30959#49700#0" expanded="false" />
+            <element signature="e#11228#11537#0" expanded="false" />
+            <element signature="e#11604#17448#0" expanded="false" />
+            <element signature="e#17517#28124#0" expanded="false" />
+            <element signature="e#28269#30888#0" expanded="false" />
+            <element signature="e#30957#49698#0" expanded="false" />
           </folding>
         </state>
       </provider>
