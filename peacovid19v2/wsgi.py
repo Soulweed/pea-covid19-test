@@ -10,14 +10,12 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
-
+from whitenoise import WhiteNoise
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'peacovid19v2.settings')
 
 application = get_wsgi_application()
 
+application = WhiteNoise(application, root='/static/')
+application.add_files('/static/images/', prefix='more-files/')
 
 
-
-# from dj_static import Cling
-#
-# application = Cling(get_wsgi_application())
