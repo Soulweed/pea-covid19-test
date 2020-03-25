@@ -154,8 +154,9 @@ def formwfh2(request,id):
             id_boss = request.POST.get("director")
             startdate = request.POST.get("startdate")
             enddate = request.POST.get("enddate")
+            total_date=request.POST.get("total_date")
+            print(total_date)
             email = get_user_email(id_boss)
-
             FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
                 id_boss)
             context={'Boss_name':'{} {}'.format(FirstName, LastName), 'Boss_position':PositionDescShort,
@@ -840,7 +841,7 @@ def get_employee_profile(id):
     res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
     o = xmltodict.parse(res.text)
     jsonconvert = dict(o)
-
+    print(jsonconvert)
     authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
         'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
 

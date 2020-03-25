@@ -19,7 +19,7 @@
 <div class="py-5">
   <div class="container">
     <div class="row">
-      <div class="col-12 text-center"><img src="{% static 'imags/track2@3x.png' %}" alt="purpledottl2" width="100%"></div>
+      <div class="col-12 text-center"><img src="{% static 'images/track2@3x.png' %}" alt="purpledottl2" width="100%"></div>
     </div>
   </div>
 </div>
@@ -73,7 +73,7 @@
         <div class="col-12">
           <h6 id="edited">รหัสผู้บังคับบัญชาต้นสังกัด &nbsp;
             <span><img src="{% static 'images/invalid-name@3x.png' %}" alt="invalid-name" width="20px"></span></h6>
-          <input class="w-100 edited"  name="id_boss" required type="text">
+          <input class="w-100 edited"  name="director" required type="text">
         </div>
       </div>
     </div>
@@ -102,7 +102,9 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h5 class="">รวมจำนวนวันที่ Work from home <font color="#8448ff" style="font-size: xx-large;"> <span id="diffDays"></span> </font>วัน
+          <h5 class="">รวมจำนวนวันที่ Work from home <font color="#8448ff" style="font-size: xx-large;"> <span id="diffDays" name="total_date"></span> </font>วัน
+{#              <input type="hidden" id ="diffDays" name="total_date" value="diffDays">#}
+
           </h5>
           <script type="text/javascript">
             function caldate(){
