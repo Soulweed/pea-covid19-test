@@ -424,14 +424,14 @@ def register(request,id):
                 workmate_last_name=lastname_ref_1,
                 workmate_tel=mobile_ref_1,
                 workmate_id=relation_ref_1,
-                emergency_one_first_name=firstname_ref_2,
-                emergency_one_last_name=lastname_ref_2,
-                emergency_one_tel=mobile_ref_2,
-                emergency_one_relationship=relation_ref_2,
-                emergency_two_first_name=firstname_ref_3,
-                emergency_two_last_name=lastname_ref_3,
-                emergency_two_tel=mobile_ref_3,
-                emergency_two_relationship=relation_ref_3,
+                # emergency_one_first_name=firstname_ref_2,
+                # emergency_one_last_name=lastname_ref_2,
+                # emergency_one_tel=mobile_ref_2,
+                # emergency_one_relationship=relation_ref_2,
+                # emergency_two_first_name=firstname_ref_3,
+                # emergency_two_last_name=lastname_ref_3,
+                # emergency_two_tel=mobile_ref_3,
+                # emergency_two_relationship=relation_ref_3,
 
             )
 
