@@ -53,6 +53,7 @@ class employee(models.Model):
     activity_daily_update = models.TextField(default='[]')
     activity_challenge = models.TextField(default='[]')
     activity_checkin = models.TextField(default='[]')
+    activity_checkout = models.TextField(default='[]')
 
     active_status = models.CharField(max_length=6, choices=ACTIVE_STATUS_CHOICES,blank= True, default='PEA')
     approved_status = models.CharField(max_length=6, choices=APPROVED_STATUS,blank= True, default='Idle')
@@ -125,12 +126,15 @@ class employee(models.Model):
     workmate_first_name = models.CharField(max_length=255, blank=True)
     workmate_last_name = models.CharField(max_length=255, blank=True)
     workmate_tel = models.CharField(max_length=255, blank=True)
+    workmate_id = models.CharField(max_length=255, blank=True)
     emergency_one_first_name = models.CharField(max_length=255, blank=True)
     emergency_one_last_name = models.CharField(max_length=255, blank=True)
     emergency_one_tel = models.CharField(max_length=255, blank=True)
+    emergency_one_relationship=models.CharField(max_length=255, blank=True)
     emergency_two_first_name = models.CharField(max_length=255, blank=True)
     emergency_two_last_name = models.CharField(max_length=255, blank=True)
     emergency_two_tel = models.CharField(max_length=255, blank=True)
+    emergency_two_relationship=models.CharField(max_length=255, blank=True)
 
     def __str__(self):
         return "{}-{}".format(self.employee_ID, self.emplyee_name)

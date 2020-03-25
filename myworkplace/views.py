@@ -253,15 +253,26 @@ def checkin(request, id):
         obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
             'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-        data = json.loads(user.activity_checkin)
-        data.append(obj)
-        user.activity_checkin = json.dumps(data, ensure_ascii=False)
-        user.save()
-        connection.close()
+
 
         if(action_type == "checkin"):
+            obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
+                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+            data = json.loads(user.activity_checkin)
+            data.append(obj)
+            user.activity_checkin = json.dumps(data, ensure_ascii=False)
+            user.save()
+            connection.close()
+
             return redirect(tscheckin, obj['datetime'])
         elif(action_type == "checkout"):
+            obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
+                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+            data = json.loads(user.activity_checkout)
+            data.append(obj)
+            user.activity_checkout = json.dumps(data, ensure_ascii=False)
+            user.save()
+            connection.close()
             return redirect(tscheckout, obj['datetime'])
 
     return render(request, 'myworkplace/timestamp.html', context)
@@ -441,12 +452,15 @@ def register(request,id):
                 workmate_first_name=firstname_ref_1,
                 workmate_last_name=lastname_ref_1,
                 workmate_tel=mobile_ref_1,
+                workmate_id=relation_ref_1,
                 emergency_one_first_name=firstname_ref_2,
                 emergency_one_last_name=lastname_ref_2,
                 emergency_one_tel=mobile_ref_2,
+                emergency_one_relationship=relation_ref_2,
                 emergency_two_first_name=firstname_ref_3,
                 emergency_two_last_name=lastname_ref_3,
                 emergency_two_tel=mobile_ref_3,
+                emergency_two_relationship=relation_ref_3,
                 # sex=sex,
                 # age=age,
                 # work_place=work_place,
