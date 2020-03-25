@@ -401,6 +401,10 @@ def handle_text_message(event):
                                            )
             elif dict_message['text'] == 'tracking':
                 pass
+            elif dict_message['text'] == 'สถานการณ์':
+                pass
+            elif dict_message['text'] == 'ช่วยเหลือ':
+                pass
             elif dict_message['text'] == 'ใบเซ็นชื่อ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
