@@ -106,6 +106,7 @@ def handle_text_message(event):
         try:
             print(dict_source['user_id'])
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
+            d, t = user_employee.last_daily_update()
             connection.close()
 
             if dict_message['text'] == 'leave':
@@ -337,7 +338,7 @@ def handle_text_message(event):
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "19 มี.ค. 63",
+                                                                       "text": "{}".format(d),
                                                                        "size": "xl"
                                                                    }
                                                                ],
@@ -355,7 +356,7 @@ def handle_text_message(event):
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "10:30 น.",
+                                                                       "text": "{} น.".format(t),
                                                                        "size": "xl"
                                                                    }
                                                                ],

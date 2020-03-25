@@ -141,6 +141,11 @@ class employee(models.Model):
     #     # do something with the book
     #     return emp
 
+    def last_daily_update(self):
+        data = json.loads(self.activity_daily_update)
+        return data[-1]['datetime'].split()[0], data[-1]['datetime'].split()[0]
+
+
 class question(models.Model):
     question_text = models.CharField(max_length=200, blank=True)
     answer_1 = models.CharField(max_length=200, blank=True)

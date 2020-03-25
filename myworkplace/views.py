@@ -123,7 +123,7 @@ def checkin(request, id):
         connection.close()
 
         context['data'].update({'datetime': obj['datetime']})
-
+        print(context)
         if(action_type == "checkin"):
             return render(request, 'myworkplace/tscheckin.html', context)
         elif(action_type == "checkout"):
