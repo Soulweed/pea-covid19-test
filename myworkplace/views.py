@@ -101,28 +101,24 @@ def LEAVE_request(request, id):
 
         if (page == "1"):
             print(page)
-
             print("OK1")
-
             return render(request, 'myworkplace/formleave2.html', context)
-
         if (page == "2"):
             print(page)
             print("OK2")
             id_boss = request.POST.get("id_boss")
-            day = 14
+            total_day = 14
+            startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
+
+            enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
             print(id_boss)
             email = get_user_email(id_boss)
             print(email)
-            # user = employee.objects.get(employee_ID=str(id))
-            # user.employee_id_up_1=email
-            # user.save()
-            # connection.close()
 
             FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
                 id_boss)
-            context.update({'id_boss': id_boss, 'email_boss': email, 'day': day,
-                            'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort, 'Gender':Gender})
+            context={'id_boss': id_boss, 'email_boss': email, 'total_day': total_day,'startdate':startdate, 'enddate':enddate,
+                            'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort, 'Gender':Gender}
             return render(request, 'myworkplace/formleave3.html', context)
 
         if (page == "3"):
@@ -140,7 +136,7 @@ def LEAVE_request(request, id):
             data = json.loads(user.activity_text)
             data.append(obj)
             user.activity_text = json.dumps(data, ensure_ascii=False)
-            user.active_status = 'LEAVE'
+            user.approved_status = 'LEAVE'
             user.save()
             print('model save')
             connection.close()
