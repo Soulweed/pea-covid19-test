@@ -37,18 +37,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="74" column="50" lean-forward="false" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
+            <state relative-caret-position="179">
+              <caret line="156" column="51" lean-forward="false" selection-start-line="156" selection-start-column="41" selection-end-line="156" selection-end-column="51" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#8983#9808#0" expanded="false" />
-                <element signature="e#11153#17175#0" expanded="false" />
-                <element signature="e#17179#17206#0" expanded="false" />
-                <element signature="e#25953#26976#0" expanded="false" />
-                <element signature="e#26979#27008#0" expanded="false" />
+                <element signature="e#8984#9809#0" expanded="false" />
+                <element signature="e#11154#17176#0" expanded="false" />
+                <element signature="e#17180#17207#0" expanded="false" />
+                <element signature="e#25954#26977#0" expanded="false" />
+                <element signature="e#26980#27009#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -64,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formwfh2drange.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="formwfh2drange.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="106" column="35" lean-forward="true" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
+            <state relative-caret-position="102">
+              <caret line="104" column="143" lean-forward="false" selection-start-line="104" selection-start-column="143" selection-end-line="104" selection-end-column="143" />
               <folding>
                 <element signature="e#2967#2995#0#HTML" expanded="true" />
               </folding>
@@ -126,8 +126,8 @@
       <find>question</find>
       <find>{% csrf_token %}</find>
       <find>page_input</find>
-      <find>get_em</find>
       <find>page</find>
+      <find>get_em</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -185,8 +185,8 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/line_bot/views.py" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html" />
       </list>
     </option>
   </component>
@@ -394,7 +394,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.8927039" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20719603" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33995038" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20886981" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -825,16 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="106" column="35" lean-forward="true" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
-          <folding>
-            <element signature="e#2967#2995#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -845,15 +835,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="74" column="50" lean-forward="false" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
+        <state relative-caret-position="179">
+          <caret line="156" column="51" lean-forward="false" selection-start-line="156" selection-start-column="41" selection-end-line="156" selection-end-column="51" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#8983#9808#0" expanded="false" />
-            <element signature="e#11153#17175#0" expanded="false" />
-            <element signature="e#17179#17206#0" expanded="false" />
-            <element signature="e#25953#26976#0" expanded="false" />
-            <element signature="e#26979#27008#0" expanded="false" />
+            <element signature="e#8984#9809#0" expanded="false" />
+            <element signature="e#11154#17176#0" expanded="false" />
+            <element signature="e#17180#17207#0" expanded="false" />
+            <element signature="e#25954#26977#0" expanded="false" />
+            <element signature="e#26980#27009#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="104" column="143" lean-forward="false" selection-start-line="104" selection-start-column="143" selection-end-line="104" selection-end-column="143" />
+          <folding>
+            <element signature="e#2967#2995#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

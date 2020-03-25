@@ -165,6 +165,7 @@ def formwfh2(request,id):
         if (page=="2"):
             email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
             total_date =request.POST.get("total_date")
+
             obj = {'type': 'wfh_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
             send_email_wfh_request(id=id, email_boss=email, total_date=total_date)
