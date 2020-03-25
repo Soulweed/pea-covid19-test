@@ -131,7 +131,6 @@ def LEAVE_request(request, id):
             email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
             obj = {'type': 'LEAVE_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-            send_email_leave_request(id=id, email_boss=email)
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
             data.append(obj)
@@ -140,7 +139,7 @@ def LEAVE_request(request, id):
             user.save()
             print('model save')
             connection.close()
-
+            send_email_leave_request(id=id, email_boss=email, name=user.emplyee_name )
             return render(request, 'myworkplace/formleave4.html', context)
 
     return render(request, 'myworkplace/formleave1.html', context)

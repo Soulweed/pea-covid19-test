@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" />
-    </list>
+    <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/line_bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="129">
-              <caret line="686" column="111" lean-forward="true" selection-start-line="686" selection-start-column="111" selection-end-line="686" selection-end-column="111" />
+              <caret line="686" column="111" lean-forward="false" selection-start-line="686" selection-start-column="111" selection-end-line="686" selection-end-column="111" />
               <folding>
                 <element signature="e#2492#5143#0" expanded="false" />
                 <element signature="e#5399#11123#0" expanded="false" />
@@ -42,7 +38,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
+            <state relative-caret-position="57">
               <caret line="530" column="31" lean-forward="false" selection-start-line="530" selection-start-column="31" selection-end-line="530" selection-end-column="31" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
@@ -54,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/test.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
@@ -144,10 +140,10 @@
       <find>quarantine</find>
       <find>LEAVE_request</find>
       <find>wfh</find>
-      <find>WFH_approve</find>
-      <find>send_email_wfh_request</find>
       <find>ใ</find>
       <find>.</find>
+      <find>send_email_wfh_request</find>
+      <find>WFH_approve</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -738,23 +734,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/test.html">
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        <state relative-caret-position="143">
+          <caret line="94" column="60" lean-forward="false" selection-start-line="94" selection-start-column="60" selection-end-line="94" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+    <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="530" column="31" lean-forward="false" selection-start-line="530" selection-start-column="31" selection-end-line="530" selection-end-column="31" />
+        <state relative-caret-position="129">
+          <caret line="686" column="111" lean-forward="false" selection-start-line="686" selection-start-column="111" selection-end-line="686" selection-end-column="111" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#5704#7989#0" expanded="false" />
-            <element signature="e#9423#9602#0" expanded="false" />
-            <element signature="e#11105#11250#0" expanded="false" />
+            <element signature="e#2492#5143#0" expanded="false" />
+            <element signature="e#5399#11123#0" expanded="false" />
+            <element signature="e#11189#11498#0" expanded="false" />
+            <element signature="e#11577#17421#0" expanded="false" />
+            <element signature="e#17496#28420#0" expanded="false" />
+            <element signature="e#28716#31335#0" expanded="false" />
+            <element signature="e#31402#50143#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -769,27 +768,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html">
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="94" column="60" lean-forward="false" selection-start-line="94" selection-start-column="60" selection-end-line="94" selection-end-column="60" />
-          <folding />
+        <state relative-caret-position="57">
+          <caret line="530" column="31" lean-forward="false" selection-start-line="530" selection-start-column="31" selection-end-line="530" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#5704#7989#0" expanded="false" />
+            <element signature="e#9423#9602#0" expanded="false" />
+            <element signature="e#11105#11250#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/line_bot/views.py">
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="686" column="111" lean-forward="true" selection-start-line="686" selection-start-column="111" selection-end-line="686" selection-end-column="111" />
-          <folding>
-            <element signature="e#2492#5143#0" expanded="false" />
-            <element signature="e#5399#11123#0" expanded="false" />
-            <element signature="e#11189#11498#0" expanded="false" />
-            <element signature="e#11577#17421#0" expanded="false" />
-            <element signature="e#17496#28420#0" expanded="false" />
-            <element signature="e#28716#31335#0" expanded="false" />
-            <element signature="e#31402#50143#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="144">
+          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
