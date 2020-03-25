@@ -633,7 +633,7 @@ def randomquestions(request, id):
         obj = {'type': 'question', 'answer':answer==correct, 'latitude': latitude, 'longitude': longitude,
                'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
         user = employee.objects.get(employee_ID=str(id))
-        data = json.loads(user.activity_text)
+        data = json.loads(user.activity_challenge)
         data.append(obj)
         user.activity_text = json.dumps(data, ensure_ascii=False)
         user.save()

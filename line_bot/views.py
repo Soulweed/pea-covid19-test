@@ -138,7 +138,7 @@ def handle_text_message(event):
                                                                        "action": {
                                                                            "type": "uri",
                                                                            "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/"
+                                                                           "uri": "https://pea-covid19-test.herokuapp.com/formwfh2/<id>/".format(user_employee.employee_ID)
                                                                        },
                                                                        "aspectRatio": "1040:174"
                                                                    }
