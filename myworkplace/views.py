@@ -206,7 +206,6 @@ def meet_doc2(request,id):
             print(id_boss)
             email = get_user_email(id_boss)
 
-            send_email_leave_request(id=id, email_boss=email)
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
 
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
@@ -224,6 +223,7 @@ def meet_doc2(request,id):
             user.LEAVE_end_date=enddate
             user.save()
             connection.close()
+            send_email_leave_request(id=id, email_boss=email, name=user.emplyee_name )
 
         return render(request, 'myworkplace/formseedoc3.html', context)
     return render(request, 'myworkplace/formseedoc2.html', context)

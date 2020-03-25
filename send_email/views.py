@@ -187,7 +187,7 @@ def send_email_wfh_request(id, email_boss, total_date):
 
 
 
-def send_email_leave_request(id, email_boss):
+def send_email_leave_request(id, email_boss, name):
     recipient_list = [email_boss]
     print('receipient list', recipient_list)
     server = 'email.pea.co.th'
@@ -197,7 +197,11 @@ def send_email_leave_request(id, email_boss):
     account = connect(server, email, username, password)
     # email_boss = boss + '@pea.co.th'
     subject = 'ขอลา 14 วัน'
-    body = 'พนักงานรหัส {} ขอลา leave 14 วัน'.format(id)
+    body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก  {}  รหัส {} ซึ่งเป็นพนักงานในสังกัดของท่าน มีความเสี่ยงในการติดเชื้อ COVID-19 ต้องแยกตัวเอง เพื่อเฝ้าดูอาการและควรพบแพทย์\n\n' \
+           'ขอให้ท่านติดตามอาการพนักงานในสังกัดของท่านอย่างใกล้ชิด \n\n' \
+           'ขอบคุณที่ท่านให้ความร่วมมือในการฝ่าวิกฤติ COVID-19\n' \
+           'PEA COVID-19\n' \
+           'By PEA Innovation Hub'.format(name, id)
     m = Message(account=account,
                 subject=subject,
                 body=body,
