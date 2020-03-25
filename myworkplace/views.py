@@ -16,7 +16,8 @@ import random
 # importing email library
 from django.core.mail import send_mail
 from django.conf import settings
-from send_email.views import send_email_register, get_user_email, send_email_wfh14day_request, send_email_confrim_register, send_email_meetdoc_request
+from send_email.views import send_email_register, get_user_email, send_email_wfh14day_request, send_email_confrim_register, \
+    send_email_meetdoc_request, send_email_confrim_wfh
 
 
 
@@ -206,7 +207,6 @@ def meet_doc2(request,id):
         if(page == "1"):
 
             id_boss = request.POST.get("director")
-            print(id_boss)
             email = get_user_email(id_boss)
 
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
@@ -532,8 +532,10 @@ def WFH_approve(request, id, boss, total_date):
     user.approved_status='Idle'
     user.save()
     connection.close()
-    context = {'data': 'WFH approve'}
-    return render(request, 'myworkplace/test2.html', context)
+
+    email = get_user_email(id)
+    send_email_confrim_wfh(email)
+    return render(request, 'myworkplace/test2.html')
 
 
 

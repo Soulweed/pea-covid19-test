@@ -191,6 +191,34 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
     print('email send')
 
 
+def send_email_confrim_wfh(email):
+    recipient_list = [email]
+    print('receipient list', recipient_list)
+    # subject = 'ยืนยันการสมัคร'
+    # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
+    server = 'email.pea.co.th'
+    email = 'peacovid19@pea.co.th'
+    username = 'peacovid19'
+    password = 'peacovid19'
+    account = connect(server, email, username, password)
+    subject = 'แจ้งผลการอนุมัติ Work from home'
+    body='คำร้องการขอปฏิบัติงานแบบ Work From Home ของท่านได้รับการอนุมัติจากผู้บังคับบัญชาต้นสังกัดแล้ว\n\n' \
+         'สามารถดูข้อมูลเพิ่มเติมได้ที่ LINE: PEA COVID-19 โดยเข้าไปที่เมนู "ข้อมูลส่วนตัว"\n\n' \
+         'อย่าลืมลงบันทึกเวลาปฏิบัติงานและประเมินความเสี่ยงประจำวันผ่านระบบ PEA COVID-19 ด้วยนะครับ\n\n' \
+         'มาร่วมมือกันฝ่าวิกฤติ COVID-19 ไปด้วยกัน \n\n' \
+         'PEA COVID-19\n' \
+         'By PEA Innovation Hub'
+
+    m = Message(account=account,
+                subject=subject,
+                body=body,
+                to_recipients=recipient_list)
+    print('message created')
+    m.send_and_save()
+    # print(m)
+    print('email send')
+
+
 def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
     recipient_list = [email_boss]
     print('receipient list', recipient_list)
@@ -216,6 +244,7 @@ def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
     m.send_and_save()
     print(m)
     print('email send')
+
 
 def send_email_meetdoc_request(id, email_boss, name):
     recipient_list = [email_boss]
