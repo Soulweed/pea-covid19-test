@@ -4,168 +4,179 @@
 {% block title_bl %} Form WFH | แจ้งเข้าร่วมโครงการ 2 / 4 {% endblock %}
 {% block body_bl %}
 
-<div class="py-5 wfhbg">
-  <div class="py-4 container">
-    <div class="row">
-      <div class="col-12">
-        <h1>&nbsp;
-        </h1>
-        <h1>&nbsp;
-        </h1>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center"><img src="{% static 'images/track2@3x.png' %}" alt="purpledottl2" width="100%"></div>
-    </div>
-  </div>
-</div>
-<div class="py-1">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h3 class="formwfhtext">เข้าร่วม</h3>
-        <h3 class="formwfhtext">โครงการ WORK FROM HOME</h3>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="px-4 py-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="px-4 pt-1">
-          <hr>
+    <div class="py-5 wfhbg">
+        <div class="py-4 container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>&nbsp;
+                    </h1>
+                    <h1>&nbsp;
+                    </h1>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
-<div class="px-3 py-2">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h5 class="brightpurpletext">โปรดตรวจสอบและกรอกรายละเอียดให้ครบถ้วน</h5>
-      </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center"><img src="{% static 'images/track2@3x.png' %}" alt="purpledottl2"
+                                                     width="100%"></div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-<form method="POST">
-  {% csrf_token %}
-  <div class="px-3 py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h6 id="unedited">รหัสพนักงาน</h6>
+    <div class="py-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 class="formwfhtext">เข้าร่วม</h3>
+                    <h3 class="formwfhtext">โครงการ WORK FROM HOME</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-4 py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="px-4 pt-1">
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="px-3 py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="brightpurpletext">โปรดตรวจสอบและกรอกรายละเอียดให้ครบถ้วน</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="px-3 py-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h6 id="unedited">รหัสพนักงาน</h6>
                         <input type="hidden" name="page" value="1">
-
-          <input class="w-100 unedited" type="text" value="{{id}}" readonly>
+                        <input class="w-100 unedited" type="text" value="{{ id }}" readonly>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="px-3 py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h6 id="edited">รหัสผู้บังคับบัญชาต้นสังกัด &nbsp;
-            <span><img src="{% static 'images/invalid-name@3x.png' %}" alt="invalid-name" width="20px"></span></h6>
-          <input class="w-100 edited"  name="director" required type="text">
+        <div class="px-3 py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h6 id="edited">รหัสผู้บังคับบัญชาต้นสังกัด &nbsp;
+                            <span><img src="{% static 'images/invalid-name@3x.png' %}" alt="invalid-name" width="20px"></span>
+                        </h6>
+                        <input class="w-100 edited" name="director" required type="text">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <label id="question" for="startdate">วันที่เริ่มต้น</label>
-          <div class="input-icons">
-            <input class="w-100 edited input-field" type="date" required id="startdate" name="startdate">
-            <i class="far fa-calendar-alt icon"></i>
-          </div>
+        <div class="py-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <label id="question" for="startdate">วันที่เริ่มต้น</label>
+                        <div class="input-icons">
+                            <input class="w-100 edited input-field" type="date" required id="startdate"
+                                   name="startdate">
+                            <i class="far fa-calendar-alt icon"></i>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label id="question" for="enddate">วันที่สิ้นสุด</label>
+                        <div class="input-icons">
+                            <input class="w-100 edited input-field" type="date" required id="enddate" name="enddate">
+                            <i class="far fa-calendar-alt icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-6">
-          <label id="question" for="enddate">วันที่สิ้นสุด</label>
-          <div class="input-icons">
-            <input class="w-100 edited input-field" type="date" required id="enddate" name="enddate">
-            <i class="far fa-calendar-alt icon"></i>
-          </div>
+        <div class="px-4 py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="">รวมจำนวนวันที่ Work from home <font color="#8448ff" style="font-size: xx-large;">
+                            <span id="diffDays"></span> </font>วัน
+{#                            <input type="hidden" id="diffDays" name="total_date" value=diffDays>#}
+
+                        </h5>
+                        <script type="text/javascript">
+                            function caldate() {
+                                let startdate = document.getElementById('startdate').value;
+                                let endate = document.getElementById('enddate').value;
+                                var startlist = startdate.split("-");
+                                var endlist = endate.split("-");
+                                var startform = startlist[0] + "/" + startlist[1] + "/" + startlist[2];
+                                var endform = endlist[0] + "/" + endlist[1] + "/" + endlist[2];
+                                var div_date = (new Date(endform)) - (new Date(startform));
+                                // time difference
+                                var timeDiff = Math.abs((new Date(endform)).getTime() - (new Date(startform)).getTime());
+                                // days difference
+                                var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                                // console.log(diffDays);
+                                if (!isNaN(diffDays)) {
+                                    document.getElementById("diffDays").textContent = diffDays;
+
+                                    var data = {'diffDays': diffDays};
+                                    $.post(data);
+                                }
+                            }
+
+                            document.addEventListener('DOMContentLoaded', function () {
+                                document.getElementById('enddate')
+                                    .addEventListener('change', caldate);
+                            });
+                            document.addEventListener('DOMContentLoaded', function () {
+                                document.getElementById('startdate')
+                                    .addEventListener('change', caldate);
+                            });
+
+                            function updatediffDays() {
+                                var data = {'diffDays': diffDays};
+                                $.post(URL, data, function (response) {
+                                    if (response === 'success') {
+                                        alert('Yay!');
+                                    }
+                                    else {
+                                        alert('Error! :(');
+                                    }
+                                });
+                            }
+
+                        </script>
+
+
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="px-4 py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h5 class="">รวมจำนวนวันที่ Work from home <font color="#8448ff" style="font-size: xx-large;"> <span id="diffDays" ></span> </font>วัน
-<input type="hidden" id ="diffDays" name="total_date" value=diffDays>
+        <div class="px-4 py-3">
+            <div class="container">
+                <div class="row">
 
-          </h5>
-          <script type="text/javascript">
-            function caldate(){
-              let startdate = document.getElementById('startdate').value;
-              let endate = document.getElementById('enddate').value;
-              var startlist = startdate.split("-");
-              var endlist = endate.split("-");
-              var startform = startlist[0] + "/" + startlist[1] + "/" + startlist[2];
-              var endform =endlist[0] + "/" +endlist[1] + "/" + endlist[2];
-              var div_date = (new Date(endform)) - (new Date(startform));
-              // time difference
-              var timeDiff = Math.abs((new Date(endform)).getTime() - (new Date(startform)).getTime());
-              // days difference
-              var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                    <div class="col-12 text-center"><input class="w-100 mapbtn" type="submit" value="ถัดไป"></div>
 
-              // console.log(diffDays);
-              if(!isNaN(diffDays)){
-                document.getElementById("diffDays").textContent = diffDays;
-                updatediffDays()
-              }
-            }
-            document.addEventListener('DOMContentLoaded', function () {
-              document.getElementById('enddate')
-                .addEventListener('change',caldate);
-            });
-            document.addEventListener('DOMContentLoaded', function () {
-              document.getElementById('startdate')
-                .addEventListener('change',caldate);
-            });
-
-            function updatediffDays(){
-                var data = {'diffDays': diffDays};
-                $.post(URL, data, function(response){
-                    if(response === 'success'){ alert('Yay!'); }
-                    else{ alert('Error! :('); }
-                });
-            }
-
-          </script>
-
-
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="px-4 py-3">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-12 text-center"><input class="w-100 mapbtn" type="submit" value="ถัดไป"></div>
-
-      </div>
-    </div>
-  </div>
-  <div class="px-4 pt-1 pb-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center"><input class="w-100 mapbtnreverse" type="submit" value="ย้อนกลับ"></div>
-      </div>
-    </div>
-  </div>
-</form>
+        <div class="px-4 pt-1 pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center"><input class="w-100 mapbtnreverse" type="submit" value="ย้อนกลับ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
 {% endblock %}
