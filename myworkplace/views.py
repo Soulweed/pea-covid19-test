@@ -191,7 +191,7 @@ def formwfh2(request,id):
             data = json.loads(user.activity_text)
             data.append(obj)
             user.activity_text = json.dumps(data, ensure_ascii=False)
-            user.approved_status = 'wfh'
+            user.approved_status = 'WFH'
             user.WFH_start_date=get_startdate
             user.WFH_end_date=get_enddate
             user.save()
@@ -208,8 +208,27 @@ def meet_doc2(request,id):
     if request.method == 'POST':
         page = request.POST.get('page')
         if(page == "1"):
-            director = request.POST.get("director")
-            print(director)
+
+            id_boss = request.POST.get("director")
+            print(id_boss)
+            email_boss = get_user_email(id_boss)
+
+            send_email_leave_request(id=id, email_boss=email_boss)
+            startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
+            enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d"),
+
+            obj = {'type': 'leave_request', 'startdate': startdate, 'enddate':enddate,
+                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+            user = employee.objects.get(employee_ID=str(id))
+            data = json.loads(user.activity_text)
+            data.append(obj)
+            user.activity_text = json.dumps(data, ensure_ascii=False)
+            user.approved_status = 'WFH'
+            user.LEAVE_start_date=startdate
+            user.LEAVE_end_date=enddate
+            user.save()
+            connection.close()
+
         return render(request, 'myworkplace/formseedoc3.html', context)
     return render(request, 'myworkplace/formseedoc2.html', context)
 
@@ -784,10 +803,8 @@ def WFH_request(request, id, boss):
     user.approved_status = 'WFH'
     user.save()
     connection.close()
-
     context = {'data': 'WFH request'}
     return render(request, 'myworkplace/test.html', context)
-
 
 
 def WFH_approve(request, id, boss):
