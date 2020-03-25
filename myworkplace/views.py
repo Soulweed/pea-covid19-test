@@ -155,7 +155,7 @@ def formwfh2(request,id):
             startdate = request.POST.get("startdate")
             enddate = request.POST.get("enddate")
             total_date=request.POST.get("total_date")
-            print(total_date)
+            print('total date', total_date)
             email = get_user_email(id_boss)
             FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
                 id_boss)
