@@ -27,7 +27,7 @@ SECRET_KEY = '9j0su3m7x0cq)=)bfnl&vh_y@w*p&f=t8625pewl$^asm^buz&'
 # ALLOWED_HOSTS = []
 
 
-ADMINS=[('Pornchai', 'chaweewat.p@gmail.com')]
+ADMINS=(('Pornchai', 'chaweewat.p@gmail.com'),)
 DEBUG = False
 ALLOWED_HOSTS = ['.herokuapp.com']
 
