@@ -388,7 +388,7 @@ def handle_text_message(event):
                                                                "action": {
                                                                    "type": "uri",
                                                                    "label": "รายละเอียดเพิ่มเติม",
-                                                                   "uri": "http://pea-covid19-test.herokuapp.com/"
+                                                                   "uri": "http://pea-covid19-test.herokuapp.com/test/"
                                                                },
                                                                "margin": "xxl"
                                                            }

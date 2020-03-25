@@ -247,8 +247,6 @@ def checkin(request, id):
         obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
             'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-
-
         if(action_type == "checkin"):
             obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
@@ -539,6 +537,8 @@ def WFH_approve(request, id, boss):
     return render(request, 'myworkplace/test.html', context)
 
 
+
+
 def LEAVE_approve(request, id, boss):
     day=14
     obj = {'type': 'LEAVE_request', 'approved_by': boss,
@@ -581,3 +581,8 @@ def get_employee_profile(id):
 
     return authData.get("FirstName"), authData.get("LastName"), authData.get("DepartmentShort"), \
            authData.get("PositionDescShort"), authData.get("LevelDesc"), authData.get("Gender")
+
+
+def test(request):
+
+    return render(request, 'myworkplace/test.html')
