@@ -38,6 +38,7 @@ def home(request):
                'risk_wfh':employee.objects.filter(active_status='Leave').count(),
                'pea_office':employee.objects.filter(active_status='PEA').count(),
                'no_daily_update':employee.objects.filter(daily_update=False).count()}
+
     # context = {'number_of_employee': 5,
     #            'high_risk':1,
     #            'normal_wfh':2,
@@ -422,7 +423,6 @@ def register(request,id):
             address = request.POST.get("address")
             selector = request.POST.get("selector")
             addition_address = request.POST.get("addition_address")
-
             firstname_ref_1 = request.POST.get("firstname_ref_1")
             lastname_ref_1 = request.POST.get("lastname_ref_1")
             mobile_ref_1 = request.POST.get("mobile_ref_1")
@@ -461,41 +461,7 @@ def register(request,id):
                 emergency_two_last_name=lastname_ref_3,
                 emergency_two_tel=mobile_ref_3,
                 emergency_two_relationship=relation_ref_3,
-                # sex=sex,
-                # age=age,
-                # work_place=work_place,
-                #
-                # address_no=address_no,
-                # address_tumbol=address_tumbol,
-                # address_amphur=address_amphur,
-                # address_province=address_province,
-                # address_type=address_type,
-                # address_to_live=address_to_live,
-                # detention_place=detention_place,
-                # blood=blood,
-                # congenital_disease_status=congenital_disease_status,
-                # congenital_disease=congenital_disease,
-                # drug_allergy_history_status=drug_allergy_history_status,
-                # drug_allergy_history=drug_allergy_history,
-                # respiratory_disease_status=respiratory_disease_status,
-                # respiratory_disease=respiratory_disease,
-                # last_disease=last_disease,
-                # last_hospital=last_hospital,
-                # last_time_status=last_time_status,
-                # favorite_hospital=favorite_hospital,
-                # close_person_first_name=close_person_first_name,
-                # close_person_last_name=close_person_last_name,
-                # close_person_tel=close_person_tel,
-                # close_person_relationship=close_person_relationship,
-                # workmate_first_name=workmate_first_name,
-                # workmate_last_name=workmate_last_name,
-                # workmate_tel=workmate_tel,
-                # emergency_one_first_name=emergency_one_first_name,
-                # emergency_one_last_name=emergency_one_last_name,
-                # emergency_one_tel=emergency_one_tel,
-                # emergency_two_first_name=emergency_two_first_name,
-                # emergency_two_last_name=emergency_two_last_name,
-                # emergency_two_tel=emergency_two_tel
+
             )
             user_data.save()
             print('model save')
