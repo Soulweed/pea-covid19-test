@@ -3,7 +3,7 @@ from django.db import connection
 from .models import employee, question, emailemployee
 from send_email.views import send_email_wfh_request
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 import getpass
 from collections import defaultdict
 from exchangelib import Configuration, Account, DELEGATE, Credentials
@@ -152,37 +152,46 @@ def formwfh2(request,id):
         if (page == "1"):
             print(page)
             id_boss = request.POST.get("director")
-            startdate = request.POST.get("startdate")
-            enddate = request.POST.get("enddate")
-            print('startdate: ', startdate)
-            print(type(startdate))
-            print('enddate ', enddate)
-            print(type(enddate))
+            get_startdate = request.POST.get("startdate")
+            get_enddate = request.POST.get("enddate")
+            print('startdate: ', get_startdate)
+            print(type(get_startdate))
+            print('enddate ', get_enddate)
+            print(type(get_enddate))
 
+            startdate = datetime.datetime.strptime(get_startdate, "%Y-%m-%d").date()
+            enddate = datetime.datetime.strptime(get_enddate, "%Y-%m-%d").date()
+
+            delta = enddate - startdate
+            total_date = delta.days + 1
             # if 'diffDays' in request.POST:
             #     total_date = request.POST.get('diffDays')
             #     print('total date', total_date)
-
-            total_date=request.POST.get("diffDays")
+            # total_date=request.POST.get("diffDays")
             print('total date', total_date)
             email = get_user_email(id_boss)
             FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc = get_employee_profile(
                 id_boss)
             context={'Boss_name':'{} {}'.format(FirstName, LastName), 'Boss_position':PositionDescShort,
-                     'startdate':startdate, 'enddate':enddate, 'total_date':total_date, 'email_boss': email}
+                     'startdate':get_startdate, 'enddate':get_enddate, 'total_date':total_date, 'email_boss': email}
             return render(request, 'myworkplace/formwfh3.html', context)
         if (page=="2"):
             email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
-            total_date =request.POST.get("total_date")
+            get_total_date =request.POST.get("total_date")
+            get_startdate =request.POST.get("stratdate")
+            get_enddate =request.POST.get("enddate")
 
-            obj = {'type': 'wfh_request', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+            obj = {'type': 'wfh_request', 'startdate': get_startdate, 'enddate':get_enddate,
+                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-            send_email_wfh_request(id=id, email_boss=email, total_date=100)
+            send_email_wfh_request(id=id, email_boss=email, total_date=get_total_date)
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
             data.append(obj)
             user.activity_text = json.dumps(data, ensure_ascii=False)
             user.approved_status = 'wfh'
+            user.WFH_start_date=get_startdate
+            user.WFH_end_date=get_enddate
             user.save()
             connection.close()
 
