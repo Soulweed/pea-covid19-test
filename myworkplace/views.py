@@ -159,8 +159,8 @@ def formwfh2(request,id):
             print('enddate ', get_enddate)
             print(type(get_enddate))
 
-            startdate = datetime.datetime.strptime(get_startdate, "%Y-%m-%d").date()
-            enddate = datetime.datetime.strptime(get_enddate, "%Y-%m-%d").date()
+            startdate = datetime.strptime(get_startdate, "%Y-%m-%d").date()
+            enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
 
             delta = enddate - startdate
             total_date = delta.days + 1
