@@ -23,13 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9j0su3m7x0cq)=)bfnl&vh_y@w*p&f=t8625pewl$^asm^buz&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-# ALLOWED_HOSTS = []
+DEBUG = True
+ALLOWED_HOSTS = []
 
 
-ADMINS=(('Pornchai', 'chaweewat.p@gmail.com'),)
-DEBUG = False
-ALLOWED_HOSTS = ['pea-covid19-test.herokuapp.com']
+# ADMINS=(('Pornchai', 'chaweewat.p@gmail.com'),)
+# DEBUG = False
+# ALLOWED_HOSTS = ['pea-covid19-test.herokuapp.com']
 
 
 
@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'peacovid19v2.urls'
@@ -147,7 +147,7 @@ STATICFILES_DIRS = (
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')     #for production
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # activate Django-heroku
 django_heroku.settings(locals())
 
