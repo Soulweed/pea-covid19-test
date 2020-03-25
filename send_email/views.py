@@ -171,7 +171,7 @@ def send_email_leave_request(id, email_boss):
     password = 'peacovid19'
     account = connect(server, email, username, password)
     # email_boss = boss + '@pea.co.th'
-    subject = 'ขอลา WFH'
+    subject = 'ขอลา 14 วัน'
     body = 'พนักงานรหัส {} ขอลา leave 14 วัน'.format(id)
     m = Message(account=account,
                 subject=subject,

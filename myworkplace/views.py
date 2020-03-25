@@ -211,9 +211,9 @@ def meet_doc2(request,id):
 
             id_boss = request.POST.get("director")
             print(id_boss)
-            email_boss = get_user_email(id_boss)
+            email = get_user_email(id_boss)
 
-            send_email_leave_request(id=id, email_boss=email_boss)
+            send_email_leave_request(id=id, email_boss=email)
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d"),
 
