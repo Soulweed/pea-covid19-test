@@ -120,11 +120,11 @@ def send_email_register(email, line_id, id):
     account = connect(server, email, username, password)
     subject = 'ยืนยันการลงทะเบียน'
     body = ' รหัสพนักงานของท่าน {} ได้มีการลงทะเบียนกับ PEA COVID-19\n\n' \
-           ' กรุณาเริ่มต้นการใช้งาน โดยยืนยันตัวตนของท่านผ่านข้อความฉบับนี้ โดยคลิกตาม link ด้านล่างนี้\n\n ' \
-           ' https://pea-covid19-test.herokuapp.com/register/{}{}/ \n\n ' \
-           'เพื่อกรอกข้อมูลส่วนตัว และประเมินความเสี่ยงเบื้องต้น \n\n ' \
-           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการฝ่าวิกฤติ COVID-19 \n\n ' \
-           'PEA COVID-19 \n ' \
+           'กรุณาเริ่มต้นการใช้งาน โดยยืนยันตัวตนของท่านผ่านข้อความฉบับนี้ โดยคลิกตาม link ด้านล่างนี้\n\n ' \
+           'https://pea-covid19-test.herokuapp.com/register/{}{}/ \n\n' \
+           'เพื่อกรอกข้อมูลส่วนตัว และประเมินความเสี่ยงเบื้องต้น \n\n' \
+           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการฝ่าวิกฤติ COVID-19 \n\n' \
+           'PEA COVID-19 \n' \
            'By PEA Innovation Hub'.format(id, line_id, id)
     m = Message(account=account,
                 subject=subject,

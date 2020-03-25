@@ -79,7 +79,7 @@ def handle_text_message(event):
                     send_email_register(email=email_name, line_id=dict_source['user_id'], id=dict_message['text'])
                     line_bot_api.reply_message(event.reply_token,
                                                TextSendMessage(
-                                                   text='โปรดทำงานยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
+                                                   text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
                                                         '(username คือรหัสพนักงาน 6 หลัก)'),
                                                )
                 except:
