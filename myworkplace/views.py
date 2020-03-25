@@ -516,11 +516,11 @@ def WFH_request(request, id, boss):
     return render(request, 'myworkplace/test.html', context)
 
 
-def WFH_approve(request, id, boss):
-    day=10
+def WFH_approve(request, id, boss, total_date):
+
     obj = {'type': 'WFH_approved', 'approved_by': boss,
            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
-           'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
+           'finish_date': (datetime.now() + timedelta(days=int(total_date))).strftime("%Y-%m-%d"),
            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
     user = employee.objects.get(employee_ID=str(id))

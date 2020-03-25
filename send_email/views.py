@@ -174,10 +174,12 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
     # email_boss = boss + '@pea.co.th'
     boss=email_boss[0:-5]
     subject = 'ขอลา WFH'
-    body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจากชื่อ  {} รหัสพนักงาน {} มีความประสงค์ขอปฏิบัติงานแบบ Work from home เงื่อนไขไม่เข้าเกณฑ์ผู้ที่มีความเสี่ยงต่อโรค COVID-19 ระหว่างวันที่ {} ถึงวันที่ {} รวมระยะเวลาทั้งหมด {} วัน ขอให้ท่านพิจารณาอนุมัติการปฏิบัติงานแบบ Work from home ให้พนักงานในสังกัดของท่าน โดยคลิกตาม link ด้านล่างนี้ \n\n' \
-           'link: https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/\n\n' \
+    body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจากชื่อ  {} รหัสพนักงาน {} มีความประสงค์ขอปฏิบัติงานแบบ Work from home เงื่อนไขไม่เข้าเกณฑ์ผู้ที่มีความเสี่ยงต่อโรค COVID-19 \n\n' \
+           'ระหว่างวันที่ {} ถึงวันที่ {} รวมระยะเวลาทั้งหมด {} วัน \n\n' \
+           'ขอให้ท่านพิจารณาอนุมัติการปฏิบัติงานแบบ Work from home ให้พนักงานในสังกัดของท่าน โดยคลิกตาม link ด้านล่างนี้ \n\n' \
+           'link: https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/{}/\n\n' \
            'PEA COVID-19\n' \
-           'By PEA Innovation Hub'.format(name, id,startdate, enddate, total_date, id, boss)
+           'By PEA Innovation Hub'.format(name, id,startdate, enddate, total_date, id, boss, total_date)
     m = Message(account=account,
                 subject=subject,
                 body=body,
