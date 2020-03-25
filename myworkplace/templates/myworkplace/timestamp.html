@@ -101,8 +101,7 @@
     </div>
 </div>
 </form>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
@@ -115,9 +114,10 @@
 
 <script>
     var locationIsExist = false;
-    document.onload = getLocation();
+    window.onload = getLocation();
 
     function getLocation() {
+
         setInterval(function(){
             var format = 'HH:mm:ss'
             var thisTimeStr = moment().format(format);
@@ -140,6 +140,7 @@
                 document.getElementById("checkout").disabled = true;
             }
         }, 1000);
+
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
@@ -166,4 +167,5 @@
     }
 
 </script>
+
 {% endblock %}
