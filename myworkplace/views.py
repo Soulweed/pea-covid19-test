@@ -51,19 +51,15 @@ def daily_update(request, id):
         contact_with_infected = request.POST.get("question3")
         doctor = request.POST.get("question4")
         stay_in_infected_place = request.POST.get("question5")
-
         fever = request.POST.get("fever")
         cough = request.POST.get("cough")
         cold = request.POST.get("runnynose")
         sore_throat = request.POST.get("throatache")
         tried = request.POST.get("tired")
-
         list_group_1 = [dangerous_area, working_with_foreigner, contact_with_infected, doctor, stay_in_infected_place]
         list_group_2 = [fever, cough, cold, sore_throat, tried]
         group1 = list_group_1.count('TRUE')
         group2 = list_group_2.count('on')
-
-
         if group1 == 0 and group2 == 0:
             health = 'normal'
         elif (group1 > 0 and group2 == 0) or (group1 > 0 and group2 == 1):
@@ -72,9 +68,7 @@ def daily_update(request, id):
             health = 'flu'
         elif (group1 == 1 and group2 > 1) or (group1 > 1 and group2 > 1):
             health = 'hospital'
-        # user = employee.objects.get(employee_ID=id)
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
         user = employee.objects.get(employee_ID=id)
         data = json.loads(user.activity_daily_update)
         data.append(obj)
@@ -83,7 +77,6 @@ def daily_update(request, id):
         user.daily_update=True
         user.save()
         connection.close()
-
         if health == 'normal':
             return redirect(normal1, id)
         elif health == 'flu':
@@ -92,7 +85,6 @@ def daily_update(request, id):
             return redirect(quarantine, id)
         elif health =='hospital':
             return redirect(meet_doc2, id)
-
     return render(request, 'myworkplace/daily_update.html')
 
 def LEAVE_request(request, id):
@@ -102,20 +94,20 @@ def LEAVE_request(request, id):
         page = request.POST.get("page")
 
         if (page == "1"):
-            print(page)
-            print("OK1")
+            # print(page)
+            # print("OK1")
             return render(request, 'myworkplace/formleave2.html', context)
         if (page == "2"):
-            print(page)
-            print("OK2")
+            # print(page)
+            # print("OK2")
             id_boss = request.POST.get("id_boss")
             total_day = 14
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
 
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
-            print(id_boss)
+            # print(id_boss)
             email = get_user_email(id_boss)
-            print(email)
+            # print(email)
 
             FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
                 id_boss)
@@ -124,7 +116,7 @@ def LEAVE_request(request, id):
             return render(request, 'myworkplace/formleave3.html', context)
 
         if (page == "3"):
-            print("OK3")
+            # print("OK3")
             email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
 
 
@@ -140,7 +132,6 @@ def LEAVE_request(request, id):
             user.activity_text = json.dumps(data, ensure_ascii=False)
             user.approved_status = 'Leave'
             user.save()
-            print('model save')
             connection.close()
             send_email_wfh14day_request(id=id, email_boss=email, name=user.emplyee_name, startdate=startdate, enddate=enddate)
             return render(request, 'myworkplace/formleave4.html', context)
@@ -212,8 +203,6 @@ def meet_doc2(request,id):
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
 
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
-            print(startdate)
-            print(type(startdate))
             obj = {'type': 'meet_doc_request', 'startdate': startdate, 'enddate':enddate,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             user = employee.objects.get(employee_ID=str(id))
@@ -247,8 +236,6 @@ def checkin(request, id):
         action_type = request.POST.get("type")
         latitude = request.POST.get("latitude")
         longitude = request.POST.get("longitude")
-        obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
-            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
         if(action_type == "checkin"):
             obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
@@ -258,7 +245,6 @@ def checkin(request, id):
             user.activity_checkin = json.dumps(data, ensure_ascii=False)
             user.save()
             connection.close()
-
             return redirect(tscheckin, obj['datetime'])
         elif(action_type == "checkout"):
             obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
@@ -269,7 +255,6 @@ def checkin(request, id):
             user.save()
             connection.close()
             return redirect(tscheckout, obj['datetime'])
-
     return render(request, 'myworkplace/timestamp.html', context)
 
 
@@ -285,10 +270,6 @@ def tscheckout(request, time):
     t=time.split()[-1][1:-1]
     context={'date':d, 'time':t}
     return render(request, 'myworkplace/tscheckout.html', context)
-
-
-
-
 
 def normal1(request, id):
     if request.method == "POST":
@@ -310,10 +291,6 @@ def quarantine(request,id):
     if request.method == "POST":
         return redirect(LEAVE_request, id)
     return render(request, 'myworkplace/quarantine.html')
-#
-# def see_doctor(request, id):
-#
-#     return render(request, 'myworkplace/see_doctor.html')
 
 # API
 from rest_framework import viewsets
@@ -335,7 +312,8 @@ def register(request,id):
     emp_id = id[33:]
     line_id = id[0:33]
     try:
-        employee.objects.get(employee_line_ID=line_id)
+        user=employee.objects.get(employee_line_ID=line_id)
+        connection.close()
         return redirect(home)
     except:
         FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
@@ -433,17 +411,14 @@ def register(request,id):
                 # emergency_two_relationship=relation_ref_3,
 
             )
-
             user_data.save()
-            print('model save')
+            print('model save: {}'.format(emp_id))
             connection.close()
             email = get_user_email(emp_id)
-            send_email_confrim_register(email)
-
+            send_email_confrim_register(id=id, email=email)
             return redirect(daily_update,emp_id)
 
     return render(request, 'myworkplace/formregister.html', context)
-
 
 ######## challenge
 
@@ -481,7 +456,6 @@ def miss3d_du(request, id):
     data = employee.objects.get(employee_ID=str(id)).__dict__
     context = {'data': data}
     connection.close()
-
     return render(request, 'myworkplace/miss3d_du_id.html', context)
 
 
@@ -492,29 +466,23 @@ def miss3d_ts(request, id):
 
     return render(request, 'myworkplace/miss3d_ts_id.html', context)
 
-
-
-
-
-
-
-def WFH_request(request, id, boss):
-    day=10
-    obj = {'type': 'WFH_request', 'approved_by': boss,
-           'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
-           'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
-           'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
-    send_email_wfh_request(id=id, boss=boss)
-    user = employee.objects.get(employee_ID=str(id))
-    data = json.loads(user.activity_text)
-    data.append(obj)
-    user.activity_text = json.dumps(data, ensure_ascii=False)
-    user.approved_status = 'WFH'
-    user.save()
-    connection.close()
-    context = {'data': 'WFH request'}
-    return render(request, 'myworkplace/test.html', context)
+# def WFH_request(request, id, boss):
+#     day=10
+#     obj = {'type': 'WFH_request', 'approved_by': boss,
+#            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
+#            'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
+#            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#
+#     send_email_wfh_request(id=id, boss=boss)
+#     user = employee.objects.get(employee_ID=str(id))
+#     data = json.loads(user.activity_text)
+#     data.append(obj)
+#     user.activity_text = json.dumps(data, ensure_ascii=False)
+#     user.approved_status = 'WFH'
+#     user.save()
+#     connection.close()
+#     context = {'data': 'WFH request'}
+#     return render(request, 'myworkplace/test.html', context)
 
 
 def WFH_approve(request, id, boss, total_date):
@@ -534,10 +502,8 @@ def WFH_approve(request, id, boss, total_date):
     connection.close()
 
     email = get_user_email(id)
-    send_email_confrim_wfh(email)
+    send_email_confrim_wfh(boss=boss, email=email)
     return render(request, 'myworkplace/test2.html')
-
-
 
 
 def LEAVE_approve(request, id, boss):
@@ -586,3 +552,11 @@ def get_employee_profile(id):
 
 def test(request):
     return render(request, 'myworkplace/test.html')
+
+def removeid(request):
+    context={'data':[]}
+    for line_id in employee.objects.values_list('employee_line_ID', flat=True).distinct():
+        # Email.objects.filter(pk__in=Email.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
+        context['data'].append(line_id)
+
+    return render(request,'myworkplace/removeid.html', context)

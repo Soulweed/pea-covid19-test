@@ -29,7 +29,7 @@ urlpatterns = [
     path('miss3d_du/<id>/', views.miss3d_du, name='miss3d_du'),
     path('miss3d_ts/<id>/', views.miss3d_ts, name='miss3d_ts'),
     path('register/<id>/', views.register, name='register'),
-    path('WFH_request/<id>/<boss>/', views.WFH_request, name='WFH_request'),
+    # path('WFH_request/<id>/<boss>/', views.WFH_request, name='WFH_request'),
     path('LEAVE_request/<id>/', views.LEAVE_request, name='LEAVE_request'),
     path('WFH_approve/<id>/<boss>/<total_date>/', views.WFH_approve, name='WFH_approve'),
     path('meet_doc2/<id>/', views.meet_doc2, name='meet_doc2'),
@@ -39,4 +39,5 @@ urlpatterns = [
     path('resultscreen3/', views.resultscreen3, name='resultscreen3'),
     path('formleave/<id>', views.LEAVE_request, name='formleave'),
     path('test/', views.test, name='test'),
+    path('removeid/', views.removeid, name='removeid')
 ]

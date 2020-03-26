@@ -98,21 +98,11 @@ def get_user_email(id):
 
     return authData.get("Email")
 
-    # user = emailemployee.objects.get(employeeid=id)
-    # connection.close()
-    # print(user.employeeemail)
-    # return user.employeeemail
-
-
-
-
-
 #### สมัคร ยืนยัน Register
 def send_email_register(email, line_id, id):
     recipient_list = [email]
     print('receipient list', recipient_list)
-    # subject = 'ยืนยันการสมัคร'
-    # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
+
     server = 'email.pea.co.th'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
@@ -130,13 +120,11 @@ def send_email_register(email, line_id, id):
                 subject=subject,
                 body=body,
                 to_recipients=recipient_list)
-    print('message created')
     m.send_and_save()
-    # print(m)
-    print('email send')
+    print('email send: {} >> {}'.format(id, email))
 
 
-def send_email_confrim_register(email):
+def send_email_confrim_register(id, email):
     recipient_list = [email]
     print('receipient list', recipient_list)
     # subject = 'ยืนยันการสมัคร'
@@ -156,10 +144,11 @@ def send_email_confrim_register(email):
                 subject=subject,
                 body=body,
                 to_recipients=recipient_list)
-    print('message created')
+    # print('message created')
     m.send_and_save()
     # print(m)
-    print('email send')
+    print('email send: {} >> {}'.format(id, email))
+
 
 
 def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
@@ -185,15 +174,15 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
                 subject=subject,
                 body=body,
                 to_recipients=recipient_list)
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, email_boss))
 
 
-def send_email_confrim_wfh(email):
+def send_email_confrim_wfh(boss, email):
     recipient_list = [email]
-    print('receipient list', recipient_list)
+    # print('receipient list', recipient_list)
     # subject = 'ยืนยันการสมัคร'
     # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
     server = 'email.pea.co.th'
@@ -213,15 +202,15 @@ def send_email_confrim_wfh(email):
                 subject=subject,
                 body=body,
                 to_recipients=recipient_list)
-    print('message created')
+    # print('message created')
     m.send_and_save()
     # print(m)
-    print('email send')
+    print('email send: {} >> {}'.format(boss, email))
 
 
 def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
     recipient_list = [email_boss]
-    print('receipient list', recipient_list)
+    # print('receipient list', recipient_list)
     server = 'email.pea.co.th'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
@@ -240,15 +229,15 @@ def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
                 subject=subject,
                 body=body,
                 to_recipients=recipient_list)
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, email_boss))
 
 
 def send_email_meetdoc_request(id, email_boss, name):
     recipient_list = [email_boss]
-    print('receipient list', recipient_list)
+    # print('receipient list', recipient_list)
     server = 'email.pea.co.th'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
@@ -265,10 +254,10 @@ def send_email_meetdoc_request(id, email_boss, name):
                 subject=subject,
                 body=body,
                 to_recipients=recipient_list)
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, email_boss))
 
 
 ########################################### แจ้ง Boss ##########################################################
@@ -300,10 +289,10 @@ def send_email_wfh_warning(request, id, boss, day):
                 subject=subject,
                 body=body,
                 to_recipients=[boss])
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, boss))
 
 
 # แจ้งเตือน Boss พนักงานไม่ได้ทำการติดต่อกับระบบเกิน 3 วัน เข้าเกณฑ์กลุ่มเสี่ยง
@@ -329,10 +318,10 @@ def send_email_leave(request, id, boss):
                 subject=subject,
                 body=body,
                 to_recipients=[boss])
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, boss))
 
     return render(request, 'myworkplace/confirm_WFH.html')
 
@@ -360,10 +349,10 @@ def send_email_outgoing_warning(request, id, boss):
                 subject=subject,
                 body=body,
                 to_recipients=[boss])
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, boss))
 
     return render(request, 'myworkplace/confirm_WFH.html')
 
@@ -393,10 +382,10 @@ def send_email_leave(request, id, boss):
                 subject=subject,
                 body=body,
                 to_recipients=[boss])
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, boss))
 
     return render(request, 'myworkplace/confirm_WFH.html')
 
@@ -426,10 +415,10 @@ def send_email_leave(request, id, boss):
                 subject=subject,
                 body=body,
                 to_recipients=[boss])
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, boss))
 
     return render(request, 'myworkplace/confirm_WFH.html')
 
@@ -462,10 +451,10 @@ def send_email_timestamp_warning(request, id, boss, day):
                 subject=subject,
                 body=body,
                 to_recipients=[boss])
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, boss))
 
 
 ### แจ้งเตือน พนักงาน ขาดการทำ PEA STOP COVID-19 CHALLENGE
@@ -496,10 +485,10 @@ def send_email_challenge_warning(request, id, boss, day):
                 subject=subject,
                 body=body,
                 to_recipients=[boss])
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, boss))
 
 
 ### แจ้งเตือน พนักงาน ขาดการทำ Daily Health Update
@@ -530,10 +519,10 @@ def send_email_dailyhealth_warning(request, id, boss, day):
                 subject=subject,
                 body=body,
                 to_recipients=[boss])
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, boss))
 
 
 ### แจ้งเตือน พนักงาน ขาดการทำ Time Stamp, PEA STOP COVID-19 CHALLENGE, Daily Health Update
@@ -564,8 +553,8 @@ def send_email_activity_warning(request, id, boss, day):
                 subject=subject,
                 body=body,
                 to_recipients=[boss])
-    print('message created')
+    # print('message created')
     m.send_and_save()
-    print(m)
-    print('email send')
+    # print(m)
+    print('email send: {} >> {}'.format(id, boss))
 

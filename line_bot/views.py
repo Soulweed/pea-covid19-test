@@ -183,8 +183,7 @@ def handle_text_message(event):
                 # print('ทดสอบ ส่งอีเมล')
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(text='ทดสอบ'))
-                # send_email_register(id = dict_message['text'], line_id=dict_source['user_id'])
-                # print('ทดสอบ ส่งอีเมลแล้วเสร็จ')
+
             elif dict_message['text'] == 'ประเมินความเสี่ยง':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
