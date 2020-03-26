@@ -73,10 +73,10 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
         except:
-            email_name = get_user_email(id=dict_message['text'])
-            if email_name is not None:
+            emp_email = get_user_email(id=dict_message['text'])
+            if emp_email is not None:
                 try:
-                    send_email_register(email=email_name, line_id=dict_source['user_id'], id=dict_message['text'])
+                    send_email_register(emp_email=emp_email, line_id=dict_source['user_id'], id=dict_message['text'])
                     line_bot_api.reply_message(event.reply_token,
                                                TextSendMessage(
                                                    text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '

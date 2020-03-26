@@ -99,8 +99,8 @@ def get_user_email(id):
     return authData.get("Email")
 
 #### สมัคร ยืนยัน Register
-def send_email_register(email, line_id, id):
-    recipient_list = [email]
+def send_email_register(emp_email, line_id, id):
+    recipient_list = [emp_email]
     print('receipient list', recipient_list)
 
     server = 'email.pea.co.th'
@@ -121,11 +121,11 @@ def send_email_register(email, line_id, id):
                 body=body,
                 to_recipients=recipient_list)
     m.send_and_save()
-    print('email send: {} >> {}'.format(id, email))
+    print('email register send: {} : {}'.format(id, emp_email))
 
 
-def send_email_confrim_register(id, email):
-    recipient_list = [email]
+def send_email_confrim_register(id, emp_email):
+    recipient_list = [emp_email]
     print('receipient list', recipient_list)
     # subject = 'ยืนยันการสมัคร'
     # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
@@ -147,7 +147,7 @@ def send_email_confrim_register(id, email):
     # print('message created')
     m.send_and_save()
     # print(m)
-    print('email send: {} >> {}'.format(id, email))
+    print('email confirm register send: {} : {}'.format(id, emp_email))
 
 
 
@@ -169,7 +169,7 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
            'https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/{}/\n\n' \
            'ขอบคุณที่ท่านให้ความร่วมมือในการฝ่าวิกฤติ COVID-19\n\n' \
            'PEA COVID-19\n' \
-           'By PEA Innovation Hub'.format(name, id,startdate, enddate, total_date, id, boss, total_date)
+           'By PEA Innovation Hub'.format(name, id, startdate, enddate, total_date, id, boss, total_date)
     m = Message(account=account,
                 subject=subject,
                 body=body,
@@ -177,11 +177,11 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
     # print('message created')
     m.send_and_save()
     # print(m)
-    print('email send: {} >> {}'.format(id, email_boss))
+    print('email wfh request send: {} >> {}'.format(id, email_boss))
 
 
-def send_email_confrim_wfh(boss, email):
-    recipient_list = [email]
+def send_email_confrim_wfh(boss, emp_email):
+    recipient_list = [emp_email]
     # print('receipient list', recipient_list)
     # subject = 'ยืนยันการสมัคร'
     # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
@@ -205,7 +205,7 @@ def send_email_confrim_wfh(boss, email):
     # print('message created')
     m.send_and_save()
     # print(m)
-    print('email send: {} >> {}'.format(boss, email))
+    print('email confrim wfh send: {} >> {}'.format(boss, emp_email))
 
 
 def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):

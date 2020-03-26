@@ -414,8 +414,8 @@ def register(request,id):
             user_data.save()
             print('model save: {}'.format(emp_id))
             connection.close()
-            email = get_user_email(emp_id)
-            send_email_confrim_register(id=id, email=email)
+            emp_email = get_user_email(emp_id)
+            send_email_confrim_register(id=id, emp_email=emp_email)
             return redirect(daily_update,emp_id)
 
     return render(request, 'myworkplace/formregister.html', context)
@@ -501,8 +501,8 @@ def WFH_approve(request, id, boss, total_date):
     user.save()
     connection.close()
 
-    email = get_user_email(id)
-    send_email_confrim_wfh(boss=boss, email=email)
+    emp_email = get_user_email(id)
+    send_email_confrim_wfh(boss=boss, emp_email=emp_email)
     return render(request, 'myworkplace/test2.html')
 
 
