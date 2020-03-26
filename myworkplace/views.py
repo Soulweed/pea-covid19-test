@@ -89,7 +89,6 @@ def daily_update(request, id):
                 return redirect(meet_doc2, id)
         except:
             remove_emp_id(id)
-
     return render(request, 'myworkplace/daily_update.html')
 
 def LEAVE_request(request, id):
@@ -229,8 +228,6 @@ def personal_info(request, id):
 
 
 def checkin(request, id):
-    user = employee.objects.get(employee_ID=str(id))
-    context = {'data': user.__dict__}
 
     if request.method == "POST":
         action_type = request.POST.get("type")
@@ -240,22 +237,31 @@ def checkin(request, id):
         if(action_type == "checkin"):
             obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-            data = json.loads(user.activity_checkin)
-            data.append(obj)
-            user.activity_checkin = json.dumps(data, ensure_ascii=False)
-            user.save()
-            connection.close()
+            try:
+                user = employee.objects.get(employee_ID=str(id))
+                data = json.loads(user.activity_checkin)
+                data.append(obj)
+                user.activity_checkin = json.dumps(data, ensure_ascii=False)
+                user.save()
+                connection.close()
+            except:
+                remove_emp_id(id)
             return redirect(tscheckin, obj['datetime'])
         elif(action_type == "checkout"):
             obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-            data = json.loads(user.activity_checkout)
-            data.append(obj)
-            user.activity_checkout = json.dumps(data, ensure_ascii=False)
-            user.save()
-            connection.close()
+            try:
+                user = employee.objects.get(employee_ID=str(id))
+
+                data = json.loads(user.activity_checkout)
+                data.append(obj)
+                user.activity_checkout = json.dumps(data, ensure_ascii=False)
+                user.save()
+                connection.close()
+            except:
+                remove_emp_id(id)
             return redirect(tscheckout, obj['datetime'])
-    return render(request, 'myworkplace/timestamp.html', context)
+    return render(request, 'myworkplace/timestamp.html')
 
 
 
@@ -289,7 +295,6 @@ def resultscreen3(request):
 
 def quarantine(request,id, existing_health):
     context={'data':existing_health}
-    print(context)
     if request.method == "POST":
         return redirect(LEAVE_request, id)
 
@@ -431,9 +436,7 @@ def register(request,id):
 
 def randomquestions(request, id):
     ranquestions = question.objects.get(pk=random.randint(0, len(question.objects.all()) - 1))
-
     context = {'data': ranquestions}
-
     if request.method == "POST":
         answer = request.POST.get("exampleRadios")
         correct = request.POST.get("correct")
@@ -507,7 +510,6 @@ def WFH_approve(request, id, boss, total_date):
     user.approved_status='Idle'
     user.save()
     connection.close()
-
     emp_email = get_user_email(id)
     send_email_confrim_wfh(boss=boss, emp_email=emp_email)
     return render(request, 'myworkplace/test2.html')
