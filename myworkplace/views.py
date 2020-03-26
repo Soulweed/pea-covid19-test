@@ -283,12 +283,12 @@ def tscheckout(request, time):
 
 def normal1(request, id):
     if request.method == "POST":
-        return redirect(formwfh2, id)
+        return redirect(formwfh1, id)
     return render(request, 'myworkplace/normal1.html')
 
 def normal2(request, id):
     if request.method == "POST":
-        return redirect(formwfh2, id)
+        return redirect(formwfh1, id)
     return render(request, 'myworkplace/normal2.html')
 
 def resultscreen2(request):
