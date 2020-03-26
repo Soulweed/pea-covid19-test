@@ -79,7 +79,7 @@ def print_non_replies(emails, agents):
 def get_user_email(id):
     url = "http://pealife-ms.pea.co.th/api/Covid19/GetEmployeeDetail/"
 
-    payload = "{EmployeeID:\"%d\",ApiKey:\"fHC25Bp7cOj4oFuTF3dBMozOjMH1O8xj\"}\n" %(id)
+    payload = "{EmployeeID:\"%s\",ApiKey:\"fHC25Bp7cOj4oFuTF3dBMozOjMH1O8xj\"}\n" %(id)
     headers = {
         'Content-Type': 'application/json'
     }
@@ -94,7 +94,6 @@ def get_user_email(id):
     dept_upper = response['data']['dataDetail'][0]['dept_upper']
     sub_region = response['data']['dataDetail'][0]['sub_region']
     email = response['data']['dataDetail'][0]['email']
-
 
     return first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email
 

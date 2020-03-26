@@ -2,126 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/.idm.json.icloud" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/summary_list.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/css/main.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/css/util.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-Bold.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-BoldItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-ExtraBold.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-Italic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-Light.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-LightItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-Regular.otf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-Regular.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-SemiBold.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/OpenSans/OpenSans-SemiBoldItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/HELP-US-OUT.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/css/font-awesome.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/fonts/FontAwesome.otf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/animated.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/bordered-pulled.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/core.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/fixed-width.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/font-awesome.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/icons.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/larger.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/list.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/mixins.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/path.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/rotated-flipped.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/screen-reader.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/stacked.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/less/variables.less" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_animated.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_core.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_icons.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_larger.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_list.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_mixins.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_path.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_stacked.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/_variables.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/font-awesome-4.7.0/scss/font-awesome.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-Black.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-BlackItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-Bold.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-BoldItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-ExtraBold.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-ExtraBoldItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-ExtraLight.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-ExtraLightItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-Italic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-Light.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-LightItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-Medium.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-MediumItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-Regular.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-SemiBold.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-SemiBoldItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-Thin.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/kanit/Kanit-ThinItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-Black.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-BlackItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-Bold.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-BoldItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-ExtraBold.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-ExtraBoldItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-ExtraLight.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-ExtraLightItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-Italic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-Light.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-LightItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-Medium.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-MediumItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-Regular.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-SemiBold.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-SemiBoldItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-Thin.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/fonts/poppins/Poppins-ThinItalic.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/images/icons/favicon.ico" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/js/main.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/animate/animate.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap-grid.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap-grid.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap-grid.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap-grid.min.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap-reboot.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap-reboot.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap-reboot.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap-reboot.min.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap.min.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/js/bootstrap.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/js/bootstrap.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/js/popper.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/js/popper.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/bootstrap/js/tooltip.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/jquery/jquery-3.2.1.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/perfect-scrollbar/perfect-scrollbar.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/perfect-scrollbar/perfect-scrollbar.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/select2/select2.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/select2/select2.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/select2/select2.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/summarylist/vendor/select2/select2.min.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/idm.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
       <change beforePath="$PROJECT_DIR$/send_email/views.py" afterPath="$PROJECT_DIR$/send_email/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,10 +22,11 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="116" column="26" lean-forward="false" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
+            <state relative-caret-position="149">
+              <caret line="209" column="108" lean-forward="false" selection-start-line="209" selection-start-column="104" selection-end-line="209" selection-end-column="108" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#3885#6367#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -174,8 +55,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/send_email/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="83" column="42" lean-forward="true" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+            <state relative-caret-position="170">
+              <caret line="81" column="31" lean-forward="false" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
               <folding>
                 <element signature="e#1327#2134#0" expanded="false" />
               </folding>
@@ -196,7 +77,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>send_email_confrim_register</find>
-      <find>formwfh2</find>
       <find>email confirm register send</find>
       <find>send</find>
       <find>regis</find>
@@ -223,8 +103,9 @@
       <find>contain</find>
       <find>get_user_email</find>
       <find>get_emp</find>
-      <find>get_</find>
+      <find>formwfh2</find>
       <find>get_user</find>
+      <find>get_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -992,16 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="116" column="26" lean-forward="false" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1010,10 +881,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="209" column="108" lean-forward="false" selection-start-line="209" selection-start-column="104" selection-end-line="209" selection-end-column="108" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#3885#6367#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/send_email/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="83" column="42" lean-forward="true" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+        <state relative-caret-position="170">
+          <caret line="81" column="31" lean-forward="false" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
           <folding>
             <element signature="e#1327#2134#0" expanded="false" />
           </folding>
