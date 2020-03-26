@@ -560,10 +560,10 @@ def removeid(request):
     #     employee.objects.filter()
     #     context['data'].append(line_id)
 
-    for item in employee.objects.filter(employee_line_ID='U31b86969da2b249fcfb30164065d513b'):
-        context['data'].append(item)
+    # for item in employee.objects.filter(employee_line_ID='U31b86969da2b249fcfb30164065d513b'):
+    #     context['data'].append(item)
 
 
-    # context['data'].append(employee.objects.filter(pk__in=[1, 2, 3]))
-
+    context['data'].append(employee.objects.filter(employee_line_ID='U31b86969da2b249fcfb30164065d513b').values_list(flat=True ))
+    connection.close()
     return render(request,'myworkplace/removeid.html', context)
