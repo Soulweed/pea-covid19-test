@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,16 +21,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="586" column="0" lean-forward="true" selection-start-line="586" selection-start-column="0" selection-end-line="586" selection-end-column="0" />
+            <state relative-caret-position="188">
+              <caret line="290" column="18" lean-forward="false" selection-start-line="290" selection-start-column="14" selection-end-line="290" selection-end-column="18" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#3737#5947#0" expanded="false" />
-                <element signature="e#5981#6103#0" expanded="false" />
-                <element signature="e#6135#8566#0" expanded="false" />
+                <element signature="e#3865#6075#0" expanded="false" />
+                <element signature="e#6109#6231#0" expanded="false" />
+                <element signature="e#6263#8694#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -66,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quarantine.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="quarantine.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="29" />
+            <state relative-caret-position="372">
+              <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -111,7 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>daily</find>
       <find>meet_d</find>
       <find>normal</find>
       <find>meet</find>
@@ -141,6 +142,7 @@
       <find>quarantine</find>
       <find>copy</find>
       <find>qua</find>
+      <find>exist</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -197,9 +199,9 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/removeid.html" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/line_bot/views.py" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" />
         <option value="$PROJECT_DIR$/myworkplace/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" />
       </list>
     </option>
   </component>
@@ -740,24 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/line_bot/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-929">
@@ -777,14 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/peacovid19v2/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
@@ -793,16 +769,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line_bot/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="586" column="0" lean-forward="true" selection-start-line="586" selection-start-column="0" selection-end-line="586" selection-end-column="0" />
+        <state relative-caret-position="188">
+          <caret line="290" column="18" lean-forward="false" selection-start-line="290" selection-start-column="14" selection-end-line="290" selection-end-column="18" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#3737#5947#0" expanded="false" />
-            <element signature="e#5981#6103#0" expanded="false" />
-            <element signature="e#6135#8566#0" expanded="false" />
+            <element signature="e#3865#6075#0" expanded="false" />
+            <element signature="e#6109#6231#0" expanded="false" />
+            <element signature="e#6263#8694#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="58" column="37" lean-forward="true" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

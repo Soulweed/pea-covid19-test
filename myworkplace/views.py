@@ -69,23 +69,27 @@ def daily_update(request, id):
         elif (group1 == 1 and group2 > 1) or (group1 > 1 and group2 > 1):
             health = 'hospital'
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        user = employee.objects.get(employee_ID=id)
-        data = json.loads(user.activity_daily_update)
-        data.append(obj)
-        user.activity_daily_update = json.dumps(data)
-        existing_health=user.healthy
-        user.healthy=health
-        user.daily_update=True
-        user.save()
-        connection.close()
-        if health == 'normal':
-            return redirect(normal1, id)
-        elif health == 'flu':
-            return redirect(normal2, id)
-        elif health =='quarantine':
-            return redirect(quarantine, id, existing_health)
-        elif health =='hospital':
-            return redirect(meet_doc2, id)
+        try:
+            user = employee.objects.get(employee_ID=id)
+            data = json.loads(user.activity_daily_update)
+            data.append(obj)
+            user.activity_daily_update = json.dumps(data)
+            existing_health=user.healthy
+            user.healthy=health
+            user.daily_update=True
+            user.save()
+            connection.close()
+            if health == 'normal':
+                return redirect(normal1, id)
+            elif health == 'flu':
+                return redirect(normal2, id)
+            elif health =='quarantine':
+                return redirect(quarantine, id, existing_health)
+            elif health =='hospital':
+                return redirect(meet_doc2, id)
+        except:
+            remove_emp_id(id)
+
     return render(request, 'myworkplace/daily_update.html')
 
 def LEAVE_request(request, id):

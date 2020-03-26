@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    {% if data == 'quarantine' %}
+    {% if data != 'quarantine' %}
         <form method="POST">
             {% csrf_token %}
             <div class="px-4 py-3">
