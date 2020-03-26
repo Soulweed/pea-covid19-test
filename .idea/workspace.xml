@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/send_email/views.py" afterPath="$PROJECT_DIR$/send_email/views.py" />
+      <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,10 +23,23 @@
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="149">
-              <caret line="209" column="108" lean-forward="false" selection-start-line="209" selection-start-column="104" selection-end-line="209" selection-end-column="108" />
+              <caret line="112" column="105" lean-forward="true" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="105" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#3885#6367#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/line_bot/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="76" column="20" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+              <folding>
+                <element signature="e#5714#11121#0" expanded="false" />
+                <element signature="e#11277#11438#0" expanded="false" />
+                <element signature="e#11518#17239#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -52,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/send_email/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="81" column="31" lean-forward="false" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+            <state relative-caret-position="293">
+              <caret line="125" column="23" lean-forward="false" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="23" />
               <folding>
                 <element signature="e#1327#2134#0" expanded="false" />
               </folding>
@@ -76,11 +89,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>send_email_confrim_register</find>
       <find>email confirm register send</find>
       <find>send</find>
       <find>regis</find>
-      <find>send_email_register</find>
       <find>quarantine</find>
       <find>copy</find>
       <find>qua</find>
@@ -105,6 +116,8 @@
       <find>get_emp</find>
       <find>formwfh2</find>
       <find>get_user</find>
+      <find>rec</find>
+      <find>send_email_register</find>
       <find>get_</find>
     </findStrings>
   </component>
@@ -155,7 +168,6 @@
         <option value="$PROJECT_DIR$/peacovid19v2/settings.py" />
         <option value="$PROJECT_DIR$/peacovid19v2/wsgi.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/removeid.html" />
-        <option value="$PROJECT_DIR$/line_bot/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/confirm_WFH.html" />
         <option value="$PROJECT_DIR$/myworkplace/urls.py" />
@@ -165,6 +177,7 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
+        <option value="$PROJECT_DIR$/line_bot/views.py" />
       </list>
     </option>
   </component>
@@ -778,18 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/line_bot/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1036">
-          <caret line="256" column="35" lean-forward="false" selection-start-line="256" selection-start-column="31" selection-end-line="256" selection-end-column="35" />
-          <folding>
-            <element signature="e#5630#11037#0" expanded="false" />
-            <element signature="e#11193#11354#0" expanded="false" />
-            <element signature="e#11434#17155#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/summarylist/vendor/bootstrap/css/bootstrap-grid.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-29">
@@ -881,23 +882,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+    <entry file="file://$PROJECT_DIR$/send_email/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="209" column="108" lean-forward="false" selection-start-line="209" selection-start-column="104" selection-end-line="209" selection-end-column="108" />
+        <state relative-caret-position="293">
+          <caret line="125" column="23" lean-forward="false" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="23" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#3885#6367#0" expanded="false" />
+            <element signature="e#1327#2134#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/send_email/views.py">
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="81" column="31" lean-forward="false" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+        <state relative-caret-position="149">
+          <caret line="112" column="105" lean-forward="true" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="105" />
           <folding>
-            <element signature="e#1327#2134#0" expanded="false" />
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line_bot/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="76" column="20" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
+          <folding>
+            <element signature="e#5714#11121#0" expanded="false" />
+            <element signature="e#11277#11438#0" expanded="false" />
+            <element signature="e#11518#17239#0" expanded="false" />
           </folding>
         </state>
       </provider>
