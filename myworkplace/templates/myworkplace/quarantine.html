@@ -7,8 +7,8 @@
 
     <div class="Surface"></div>
 
-{#    <img src="{% static 'images/form.png' %}" srcset="form@2x.png 2x,#}
-{#    form@3x.png 3x" class="form">#}
+    {#    <img src="{% static 'images/form.png' %}" srcset="form@2x.png 2x,#}
+    {#    form@3x.png 3x" class="form">#}
 
     <br>
     <br>
@@ -43,7 +43,6 @@
                     โปรดเข้าร่วมโครงการ Work from home เพื่อทำการแยกตัวออกจากผู้อื่น เป็นเวลา 14 วัน
                     <br>
                     <br>
-
                     หากมีอาการไข้ ร่วมกับไอ หรือมีน้ำมูก หรือ เจ็บคอ หายใจไม่สะดวก ให้ไปพบแพทย์โดยด่วน
                     <br>
 
@@ -51,17 +50,20 @@
             </div>
         </div>
     </div>
-    <form method="POST">
-        {% csrf_token %}
-        <div class="px-4 py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 text-center"><input class="w-100 mapbtn" type="submit" value="ดำเนินการต่อ">
+
+    {% if data == 'quarantine' %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="px-4 py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center"><input class="w-100 mapbtn" type="submit" value="ดำเนินการต่อ">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
+    {% endif %}
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

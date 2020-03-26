@@ -63,7 +63,6 @@ def handle_text_message(event):
     #                            # TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดกรอกรหัสพนักงาน 6 ตัว'))
     #                            TextSendMessage(
     #                                text='ตอนนี้ระบบปิดทำการชั่วคราวเพื่อปรับปรุงคร่าาา จะกลับมาอีกทีเร็วๆนี้'))
-
     if dict_message['text'].isnumeric() and (
             len(dict_message['text']) == 6 or len(dict_message['text']) == 7):
         ##### function create email กับ content ข้างใน

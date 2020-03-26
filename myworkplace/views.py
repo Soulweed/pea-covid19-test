@@ -73,6 +73,7 @@ def daily_update(request, id):
         data = json.loads(user.activity_daily_update)
         data.append(obj)
         user.activity_daily_update = json.dumps(data)
+        existing_health=user.healthy.copy()
         user.healthy=health
         user.daily_update=True
         user.save()
@@ -82,7 +83,7 @@ def daily_update(request, id):
         elif health == 'flu':
             return redirect(normal2, id)
         elif health =='quarantine':
-            return redirect(quarantine, id)
+            return redirect(quarantine, id, existing_health)
         elif health =='hospital':
             return redirect(meet_doc2, id)
     return render(request, 'myworkplace/daily_update.html')
@@ -282,10 +283,13 @@ def resultscreen2(request):
 def resultscreen3(request):
     return render(request, 'myworkplace/resultscreen3.html')
 
-def quarantine(request,id):
+def quarantine(request,id, existing_health):
+    context={'data':existing_health}
+    print(context)
     if request.method == "POST":
         return redirect(LEAVE_request, id)
-    return render(request, 'myworkplace/quarantine.html')
+
+    return render(request, 'myworkplace/quarantine.html', context)
 
 # API
 from rest_framework import viewsets
@@ -567,4 +571,12 @@ def removeid(request):
         employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
         context['data2'].append(employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)))
     connection.close()
+
+    # line_id=''
+    # context['data1'].append(employee.objects.filter(employee_line_ID=line_id).values_list(flat=True))
+    # employee.objects.filter(
+    #     pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)[1:]).delete()
+    # context['data2'].append(
+    #     employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)))
+
     return render(request,'myworkplace/removeid.html', context)
