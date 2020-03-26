@@ -124,7 +124,7 @@ def send_email_register(emp_email, line_id, id):
     print('email register send: {} : {}'.format(id, emp_email))
 
 
-def send_email_confrim_register(id, emp_email):
+def send_email_confrim_register(emp_id, emp_email):
     recipient_list = [emp_email]
     print('receipient list', recipient_list)
     # subject = 'ยืนยันการสมัคร'
@@ -147,7 +147,7 @@ def send_email_confrim_register(id, emp_email):
     # print('message created')
     m.send_and_save()
     # print(m)
-    print('email confirm register send: {} : {}'.format(id, emp_email))
+    print('email confirm register send: {} : {}'.format(emp_id, emp_email))
 
 
 

@@ -415,7 +415,7 @@ def register(request,id):
             print('model save: {}'.format(emp_id))
             connection.close()
             emp_email = get_user_email(emp_id)
-            send_email_confrim_register(id=id, emp_email=emp_email)
+            send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
             return redirect(daily_update,emp_id)
 
     return render(request, 'myworkplace/formregister.html', context)
@@ -563,17 +563,10 @@ def removeid(request):
     # for item in employee.objects.filter(employee_line_ID='U31b86969da2b249fcfb30164065d513b'):
     #     context['data'].append(item)
 
-
-
-
-    context['data1'].append(employee.objects.filter(employee_line_ID='U31b86969da2b249fcfb30164065d513b').values_list(flat=True ))
-    # employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID='U31b86969da2b249fcfb30164065d513b').values_list('id', flat=True )[1:]).delete()
-    # context['data2'].append(employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID='U31b86969da2b249fcfb30164065d513b').values_list('id', flat=True )))
-
-
-
-
-    context['data2'].append(employee.objects.filter(employee_line_ID='U31b86969da2b249fcfb30164065d513b').values_list(flat=True ))
+    for line_id in employee.objects.values_list('employee_line_ID', flat=True).distinct():
+        context['data1'].append(employee.objects.filter(employee_line_ID=line_id).values_list(flat=True ))
+        employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
+        context['data2'].append(employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)))
 
     connection.close()
     return render(request,'myworkplace/removeid.html', context)
