@@ -149,25 +149,25 @@ def formwfh2(request,id):
     if request.method == "POST":
         page = request.POST.get("page")
         if (page == "1"):
-            print(page)
+            # print(page)
             id_boss = request.POST.get("director")
             get_startdate = request.POST.get("startdate")
             get_enddate = request.POST.get("enddate")
-            print('startdate: ', get_startdate)
-            print(type(get_startdate))
-            print('enddate ', get_enddate)
-            print(type(get_enddate))
+            # print('startdate: ', get_startdate)
+            # print(type(get_startdate))
+            # print('enddate ', get_enddate)
+            # print(type(get_enddate))
             startdate = datetime.strptime(get_startdate, "%Y-%m-%d").date()
             enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
             delta = enddate - startdate
             total_date = delta.days + 1
-            print('total date', total_date)
+            # print('total date', total_date)
             email = get_user_email(id_boss)
             FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender = get_employee_profile(
                 id_boss)
             context={'Boss_name':'{} {}'.format(FirstName, LastName), 'Boss_position':PositionDescShort, 'Gender':Gender,
                      'startdate':get_startdate, 'enddate':get_enddate, 'total_date':total_date, 'email_boss': email}
-            print(context)
+            # print(context)
             return render(request, 'myworkplace/formwfh3.html', context)
         if (page=="2"):
             email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
@@ -542,7 +542,7 @@ def get_employee_profile(id):
     res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
     o = xmltodict.parse(res.text)
     jsonconvert = dict(o)
-    print(jsonconvert)
+    # print(jsonconvert)
     authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
         'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
 
@@ -555,8 +555,10 @@ def test(request):
 
 def removeid(request):
     context={'data':[]}
-    for line_id in employee.objects.values_list('employee_line_ID', flat=True).distinct():
-        # Email.objects.filter(pk__in=Email.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
-        context['data'].append(line_id)
+    # for line_id in employee.objects.values_list('employee_line_ID', flat=True).distinct():
+    #     # Email.objects.filter(pk__in=Email.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
+    #     employee.objects.filter()
+    #     context['data'].append(line_id)
+    context['data'].append(employee.objects.filter(pk__in=[1, 2, 3]))
 
     return render(request,'myworkplace/removeid.html', context)

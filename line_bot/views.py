@@ -42,7 +42,7 @@ def callback(request):
     print('Here is callback function')
     signature = request.META['HTTP_X_LINE_SIGNATURE']
     body = request.body.decode('utf-8')
-    print(body)
+    # print(body)
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
@@ -104,7 +104,7 @@ def handle_text_message(event):
                                            ])
     else:
         try:
-            print(dict_source['user_id'])
+            # print(dict_source['user_id'])
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
             connection.close()
 
@@ -256,7 +256,7 @@ def handle_text_message(event):
                                                }
                                            ))
             elif dict_message['text'] == 'ข้อมูลส่วนตัว':
-                print('list profile')
+                # print('list profile')
                 d, t = user_employee.last_daily_update()
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
