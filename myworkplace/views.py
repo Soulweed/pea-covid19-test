@@ -428,7 +428,9 @@ def register(request,id):
 
             )
             user_data.save()
+            print('------------------------')
             print('model save: {}'.format(emp_id))
+            print('------------------------')
             connection.close()
             emp_email = get_user_email(emp_id)
             send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)

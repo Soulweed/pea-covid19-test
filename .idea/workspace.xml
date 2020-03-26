@@ -22,8 +22,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="288" column="25" lean-forward="true" selection-start-line="288" selection-start-column="25" selection-end-line="288" selection-end-column="25" />
+            <state relative-caret-position="211">
+              <caret line="421" column="8" lean-forward="true" selection-start-line="421" selection-start-column="8" selection-end-line="421" selection-end-column="8" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#3864#6074#0" expanded="false" />
@@ -64,9 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>resultscreen2</find>
-      <find>WFH_</find>
-      <find>send_email</find>
       <find>send_email_wfh_request</find>
       <find>WFH_request</find>
       <find>send_email_wfh14day_request</find>
@@ -89,11 +86,14 @@
       <find>qua</find>
       <find>exist</find>
       <find>confirm</find>
-      <find>data</find>
       <find>checkin</find>
-      <find>wfh2</find>
       <find>formwfh1</find>
       <find>normal1</find>
+      <find>data</find>
+      <find>wfh2</find>
+      <find>model</find>
+      <find>model save:</find>
+      <find>model save</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -719,14 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="128" column="63" lean-forward="false" selection-start-line="128" selection-start-column="63" selection-end-line="128" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -735,10 +727,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="128" column="63" lean-forward="false" selection-start-line="128" selection-start-column="63" selection-end-line="128" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="288" column="25" lean-forward="true" selection-start-line="288" selection-start-column="25" selection-end-line="288" selection-end-column="25" />
+        <state relative-caret-position="211">
+          <caret line="421" column="8" lean-forward="true" selection-start-line="421" selection-start-column="8" selection-end-line="421" selection-end-column="8" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#3864#6074#0" expanded="false" />
