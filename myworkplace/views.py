@@ -151,7 +151,11 @@ def formwfh2(request,id):
             # print(page)
             id_boss = request.POST.get("director")
             get_startdate = request.POST.get("startdate")
+            print('-----------------------')
+            print(get_startdate)
             get_enddate = request.POST.get("enddate")
+            print(get_enddate)
+
             # print('startdate: ', get_startdate)
             # print(type(get_startdate))
             # print('enddate ', get_enddate)
