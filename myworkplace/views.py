@@ -70,14 +70,14 @@ def daily_update(request, id):
             health = 'hospital'
         obj = {'type': 'daily_update', 'health': health, 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
         try:
-            user = employee.objects.get(employee_ID=id)
-            data = json.loads(user.activity_daily_update)
+            user_DU = employee.objects.get(employee_ID=id)
+            data = json.loads(user_DU.activity_daily_update)
             data.append(obj)
-            user.activity_daily_update = json.dumps(data)
-            existing_health=user.healthy
-            user.healthy=health
-            user.daily_update=True
-            user.save()
+            user_DU.activity_daily_update = json.dumps(data)
+            existing_health=user_DU.healthy
+            user_DU.healthy=health
+            user_DU.daily_update=True
+            user_DU.save()
             connection.close()
             if health == 'normal':
                 return redirect(normal1, id)
@@ -126,15 +126,18 @@ def LEAVE_request(request, id):
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
             obj = {'type': 'wfh14days_request', 'startdate': startdate, 'enddate':enddate,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-            user = employee.objects.get(employee_ID=str(id))
-            data = json.loads(user.activity_text)
-            data.append(obj)
-            user.activity_text = json.dumps(data, ensure_ascii=False)
-            user.approved_status = 'Leave'
-            user.save()
-            connection.close()
-            send_email_wfh14day_request(id=id, email_boss=email, name=user.emplyee_name, startdate=startdate, enddate=enddate)
-            return render(request, 'myworkplace/formleave4.html', context)
+            try:
+                user_LEAVE_request = employee.objects.get(employee_ID=str(id))
+                data = json.loads(user_LEAVE_request.activity_text)
+                data.append(obj)
+                user_LEAVE_request.activity_text = json.dumps(data, ensure_ascii=False)
+                user_LEAVE_request.approved_status = 'Leave'
+                user_LEAVE_request.save()
+                connection.close()
+                send_email_wfh14day_request(id=id, email_boss=email, name=user_LEAVE_request.emplyee_name, startdate=startdate, enddate=enddate)
+                return render(request, 'myworkplace/formleave4.html', context)
+            except:
+                pass
     return render(request, 'myworkplace/formleave1.html', context)
 
 
@@ -180,17 +183,19 @@ def formwfh2(request,id):
             obj = {'type': 'wfh_request', 'startdate': get_startdate, 'enddate':get_enddate,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
-            user = employee.objects.get(employee_ID=str(id))
-            data = json.loads(user.activity_text)
-            data.append(obj)
-            user.activity_text = json.dumps(data, ensure_ascii=False)
-            user.approved_status = 'WFH'
-            user.WFH_start_date=get_startdate
-            user.WFH_end_date=get_enddate
-            user.save()
-            connection.close()
-            send_email_wfh_request(id=id, email_boss=email, total_date=get_total_date, name=user.emplyee_name, startdate=get_startdate, enddate=get_enddate)
-
+            try:
+                user_formwfh2 = employee.objects.get(employee_ID=str(id))
+                data = json.loads(user_formwfh2.activity_text)
+                data.append(obj)
+                user_formwfh2.activity_text = json.dumps(data, ensure_ascii=False)
+                user_formwfh2.approved_status = 'WFH'
+                user_formwfh2.WFH_start_date=get_startdate
+                user_formwfh2.WFH_end_date=get_enddate
+                user_formwfh2.save()
+                connection.close()
+                send_email_wfh_request(id=id, email_boss=email, total_date=get_total_date, name=user_formwfh2.emplyee_name, startdate=get_startdate, enddate=get_enddate)
+            except:
+                pass
             return render(request, 'myworkplace/formwfh4.html')
     return render(request, 'myworkplace/formwfh2drange.html', context)
 
@@ -208,27 +213,32 @@ def meet_doc2(request,id):
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y/%m/%d")
             obj = {'type': 'meet_doc_request', 'startdate': startdate, 'enddate':enddate,
                    'datetime': datetime.now().strftime("%Y/%m/%d (%H:%M:%S)")}
-            user = employee.objects.get(employee_ID=str(id))
-            data = json.loads(user.activity_text)
-            data.append(obj)
-            user.activity_text = json.dumps(data, ensure_ascii=False)
-            user.active_status = 'LEAVE'
-            user.approved_status = 'Idle'
-            user.LEAVE_start_date=startdate
-            user.LEAVE_end_date=enddate
-            user.save()
-            connection.close()
-            send_email_meetdoc_request(id=id, email_boss=email, name=user.emplyee_name )
-
+            try:
+                user_meet_doc2 = employee.objects.get(employee_ID=str(id))
+                data = json.loads(user_meet_doc2.activity_text)
+                data.append(obj)
+                user_meet_doc2.activity_text = json.dumps(data, ensure_ascii=False)
+                user_meet_doc2.active_status = 'LEAVE'
+                user_meet_doc2.approved_status = 'Idle'
+                user_meet_doc2.LEAVE_start_date=startdate
+                user_meet_doc2.LEAVE_end_date=enddate
+                user_meet_doc2.save()
+                connection.close()
+                send_email_meetdoc_request(id=id, email_boss=email, name=user_meet_doc2.emplyee_name )
+            except:
+                pass
         return render(request, 'myworkplace/formseedoc3.html', context)
     return render(request, 'myworkplace/formseedoc2.html', context)
 
 
 def personal_info(request, id):
-    data = employee.objects.get(employee_line_ID=id).__dict__
-    context = {'data': data}
-    connection.close()
-    return render(request, 'myworkplace/personal_info.html', context)
+    try:
+        data_personal_info = employee.objects.get(employee_line_ID=id)
+        context = {'data': data_personal_info.__dict__}
+        connection.close()
+        return render(request, 'myworkplace/personal_info.html', context)
+    except:
+        pass
 
 
 def checkin(request, id):
@@ -242,11 +252,11 @@ def checkin(request, id):
             obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             try:
-                user = employee.objects.get(employee_ID=str(id))
-                data = json.loads(user.activity_checkin)
+                user_checkin = employee.objects.get(employee_ID=str(id))
+                data = json.loads(user_checkin.activity_checkin)
                 data.append(obj)
-                user.activity_checkin = json.dumps(data, ensure_ascii=False)
-                user.save()
+                user_checkin.activity_checkin = json.dumps(data, ensure_ascii=False)
+                user_checkin.save()
                 connection.close()
             except:
                 remove_emp_id(id)
@@ -255,12 +265,12 @@ def checkin(request, id):
             obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             try:
-                user = employee.objects.get(employee_ID=str(id))
+                user_checkout = employee.objects.get(employee_ID=str(id))
 
-                data = json.loads(user.activity_checkout)
+                data = json.loads(user_checkout.activity_checkout)
                 data.append(obj)
-                user.activity_checkout = json.dumps(data, ensure_ascii=False)
-                user.save()
+                user_checkout.activity_checkout = json.dumps(data, ensure_ascii=False)
+                user_checkout.save()
                 connection.close()
             except:
                 remove_emp_id(id)
@@ -450,11 +460,11 @@ def randomquestions(request, id):
         longitude = request.POST.get("longitude")
         obj = {'type': 'question', 'answer':answer==correct, 'latitude': latitude, 'longitude': longitude,
                'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        user = employee.objects.get(employee_ID=str(id))
-        data = json.loads(user.activity_challenge)
+        user_question = employee.objects.get(employee_ID=str(id))
+        data = json.loads(user_question.activity_challenge)
         data.append(obj)
-        user.activity_text = json.dumps(data, ensure_ascii=False)
-        user.save()
+        user_question.activity_text = json.dumps(data, ensure_ascii=False)
+        user_question.save()
         connection.close()
         if (answer == correct):
             return render(request, 'myworkplace/correct.html')
@@ -469,18 +479,22 @@ def correct(request):
     return render(request, 'myworkplace/correct.html')
 
 def miss3d_du(request, id):
-    data = employee.objects.get(employee_ID=str(id)).__dict__
-    context = {'data': data}
-    connection.close()
-    return render(request, 'myworkplace/miss3d_du_id.html', context)
-
+    try:
+        data_miss3d_du = employee.objects.get(employee_ID=str(id)).__dict__
+        context = {'data': data_miss3d_du}
+        connection.close()
+        return render(request, 'myworkplace/miss3d_du_id.html', context)
+    except:
+        pass
 
 def miss3d_ts(request, id):
-    data = employee.objects.get(employee_ID=str(id)).__dict__
-    context = {'data': data, 'number':40}
-    connection.close()
-
-    return render(request, 'myworkplace/miss3d_ts_id.html', context)
+    try:
+        data_miss3d_ts = employee.objects.get(employee_ID=str(id)).__dict__
+        context = {'data': data_miss3d_ts, 'number':40}
+        connection.close()
+        return render(request, 'myworkplace/miss3d_ts_id.html', context)
+    except:
+        pass
 
 # def WFH_request(request, id, boss):
 #     day=10
@@ -507,19 +521,20 @@ def WFH_approve(request, id, boss, total_date):
            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
            'finish_date': (datetime.now() + timedelta(days=int(total_date))).strftime("%Y-%m-%d"),
            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
-    user = employee.objects.get(employee_ID=str(id))
-    data = json.loads(user.activity_text)
-    data.append(obj)
-    user.activity_text = json.dumps(data, ensure_ascii=False)
-    user.active_status='WFH'
-    user.approved_status='Idle'
-    user.save()
-    connection.close()
-    emp_email = get_user_email(id)
-    send_email_confrim_wfh(boss=boss, emp_email=emp_email)
-    return render(request, 'myworkplace/test2.html')
-
+    try:
+        user_WFH_approve = employee.objects.get(employee_ID=str(id))
+        data = json.loads(user_WFH_approve.activity_text)
+        data.append(obj)
+        user_WFH_approve.activity_text = json.dumps(data, ensure_ascii=False)
+        user_WFH_approve.active_status='WFH'
+        user_WFH_approve.approved_status='Idle'
+        user_WFH_approve.save()
+        connection.close()
+        emp_email = get_user_email(id)
+        send_email_confrim_wfh(boss=boss, emp_email=emp_email)
+        return render(request, 'myworkplace/test2.html')
+    except:
+        pass
 
 def LEAVE_approve(request, id, boss):
     day=14
@@ -528,16 +543,18 @@ def LEAVE_approve(request, id, boss):
            'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
     # send_email_LEAVE(email=, line_id=, id=)
-    user = employee.objects.get(employee_ID=str(id))
-    data = json.loads(user.activity_text)
-    data.append(obj)
-    user.activity_text = json.dumps(data, ensure_ascii=False)
-    user.active_status = 'LEAVE'
-    user.save()
-    user.close()
-    context={'data': 'Leave request'}
-    return render(request, 'myworkplace/test.html',context )
-
+    try:
+        user_LEAVE_approve = employee.objects.get(employee_ID=str(id))
+        data = json.loads(user_LEAVE_approve.activity_text)
+        data.append(obj)
+        user_LEAVE_approve.activity_text = json.dumps(data, ensure_ascii=False)
+        user_LEAVE_approve.active_status = 'LEAVE'
+        user_LEAVE_approve.save()
+        connection.close()
+        context={'data': 'Leave request'}
+        return render(request, 'myworkplace/test.html',context )
+    except:
+        pass
 
 
 def get_employee_profile(id):
