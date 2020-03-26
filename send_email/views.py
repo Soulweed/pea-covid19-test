@@ -77,6 +77,31 @@ def print_non_replies(emails, agents):
 
 
 def get_user_email(id):
+    url = "http://pealife-ms.pea.co.th/api/Covid19/GetEmployeeDetail/"
+
+    payload = "{EmployeeID:\"%d\",ApiKey:\"fHC25Bp7cOj4oFuTF3dBMozOjMH1O8xj\"}\n" %(id)
+    headers = {
+        'Content-Type': 'application/json'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload).json()
+
+    first_name = response['data']['dataDetail'][0]['first_name']
+    last_name = response['data']['dataDetail'][0]['last_name']
+    sex_desc = response['data']['dataDetail'][0]['sex_desc']
+    posi_text_short = response['data']['dataDetail'][0]['posi_text_short']
+    dept_sap = response['data']['dataDetail'][0]['dept_sap']
+    dept_upper = response['data']['dataDetail'][0]['dept_upper']
+    sub_region = response['data']['dataDetail'][0]['sub_region']
+    email = response['data']['dataDetail'][0]['email']
+
+
+    return first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email
+
+
+
+
+def get_user_email2(id):
     url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
     headers = {'content-type': 'text/xml'}
     xmltext = '''<?xml version="1.0" encoding="utf-8"?>
@@ -557,4 +582,3 @@ def send_email_activity_warning(request, id, boss, day):
     m.send_and_save()
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
-

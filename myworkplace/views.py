@@ -110,13 +110,13 @@ def LEAVE_request(request, id):
 
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
             # print(id_boss)
-            email = get_user_email(id_boss)
+            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id_boss)
             # print(email)
 
-            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
-                id_boss)
+            # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
+            #     id_boss)
             context={'id_boss': id_boss, 'email_boss': email, 'total_day': total_day,'startdate':startdate, 'enddate':enddate,
-                            'boss_name': '{} {}'.format(FirstName, LastName), 'JobDesc': PositionDescShort, 'Gender':Gender}
+                            'boss_name': '{} {}'.format(first_name, last_name), 'JobDesc': posi_text_short, 'Gender':sex_desc}
             return render(request, 'myworkplace/formleave3.html', context)
 
         if (page == "3"):
@@ -168,10 +168,11 @@ def formwfh2(request,id):
             delta = enddate - startdate
             total_date = delta.days + 1
             # print('total date', total_date)
-            email = get_user_email(id_boss)
-            FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender = get_employee_profile(
-                id_boss)
-            context={'Boss_name':'{} {}'.format(FirstName, LastName), 'Boss_position':PositionDescShort, 'Gender':Gender,
+            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
+
+            # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender = get_employee_profile(
+            #     id_boss)
+            context={'Boss_name':'{} {}'.format(first_name, last_name), 'Boss_position':posi_text_short, 'Gender':sex_desc,
                      'startdate':get_startdate, 'enddate':get_enddate, 'total_date':total_date, 'email_boss': email}
             # print(context)
             return render(request, 'myworkplace/formwfh3.html', context)
@@ -206,7 +207,7 @@ def meet_doc2(request,id):
         if(page == "1"):
 
             id_boss = request.POST.get("director")
-            email = get_user_email(id_boss)
+            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
 
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y/%m/%d")
 
@@ -224,7 +225,7 @@ def meet_doc2(request,id):
                 user_meet_doc2.LEAVE_end_date=enddate
                 user_meet_doc2.save()
                 connection.close()
-                send_email_meetdoc_request(id=id, email_boss=email, name=user_meet_doc2.emplyee_name )
+                send_email_meetdoc_request(id=id, email_boss=email, name=user_meet_doc2.emplyee_name)
             except:
                 pass
         return render(request, 'myworkplace/formseedoc3.html', context)
@@ -344,9 +345,12 @@ def register(request,id):
     #     connection.close()
     #     return redirect(home)
     # except:
-        FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
-        context ={'EmployeeID': emp_id, 'FirstName':FirstName, 'LastName':LastName, 'DepartmentShort':DepartmentShort,
-                  'PositionDescShort':PositionDescShort, 'LevelDesc':LevelDesc, 'Gender':Gender}
+        first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(emp_id)
+
+    # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
+
+        context ={'EmployeeID': emp_id, 'FirstName':first_name, 'LastName':last_name, 'DepartmentShort':dept_sap,
+                  'PositionDescShort':posi_text_short,  'Gender':sex_desc}
         sex = ''
         age = ''
         tel = ''
@@ -413,7 +417,7 @@ def register(request,id):
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
 
             user_data = employee(
-                emplyee_name='{} {}'.format(FirstName, LastName),
+                emplyee_name='{} {}'.format(first_name, last_name),
                 employee_ID=emp_id,
                 employee_line_ID=line_id,
                 activity_text=json.dumps([obj], ensure_ascii=False),
@@ -442,7 +446,7 @@ def register(request,id):
             print('model save: {}'.format(emp_id))
             print('------------------------')
             connection.close()
-            emp_email = get_user_email(emp_id)
+            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)
             send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
             return redirect(daily_update,emp_id)
 
@@ -530,7 +534,7 @@ def WFH_approve(request, id, boss, total_date):
         user_WFH_approve.approved_status='Idle'
         user_WFH_approve.save()
         connection.close()
-        emp_email = get_user_email(id)
+        first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id)
         send_email_confrim_wfh(boss=boss, emp_email=emp_email)
         return render(request, 'myworkplace/test2.html')
     except:
@@ -612,5 +616,12 @@ def remove_emp_id(emp_id):
 def remove_line_id(line_id):
     employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
     connection.close()
+
+def summarylist(request):
+    context = {'date_data': "26/03/2020",
+               'director': "นายเสริมชัย จา..",
+                'position_dir': "อก."}
+
+    return render(request, 'myworkplace/summary_list.html', context)
 
 
