@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.core.exceptions import MultipleObjectsReturned
 from django.db import connection
 from .models import employee, question, emailemployee
 from send_email.views import send_email_wfh_request
@@ -41,7 +42,6 @@ def home(request):
                'no_daily_update':employee.objects.filter(daily_update=False).count(),
                'update_date':datetime.now().strftime("%Y-%m-%d")}
     print(context)
-
     return render(request, 'myworkplace/home.html', context)
 
 def daily_update(request, id):
@@ -118,14 +118,10 @@ def LEAVE_request(request, id):
         if (page == "3"):
             # print("OK3")
             email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
-
-
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
-
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
             obj = {'type': 'wfh14days_request', 'startdate': startdate, 'enddate':enddate,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
             data.append(obj)
@@ -135,7 +131,6 @@ def LEAVE_request(request, id):
             connection.close()
             send_email_wfh14day_request(id=id, email_boss=email, name=user.emplyee_name, startdate=startdate, enddate=enddate)
             return render(request, 'myworkplace/formleave4.html', context)
-
     return render(request, 'myworkplace/formleave1.html', context)
 
 
@@ -311,16 +306,20 @@ from django.views.decorators.csrf import csrf_exempt
 def register(request,id):
     emp_id = id[33:]
     line_id = id[0:33]
-    try:
-        user=employee.objects.get(employee_line_ID=line_id)
-        connection.close()
-        return redirect(home)
-    except:
-        FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
 
+    employee_line_id_list=employee.objects.filter(employee_line_ID=line_id).values_list(flat=True ).distinct()
+    if line_id in employee_line_id_list:
+        return redirect(home)
+    else:
+    #
+    # try:
+    #     user=employee.objects.get(employee_line_ID=line_id)
+    #     connection.close()
+    #     return redirect(home)
+    # except:
+        FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
         context ={'EmployeeID': emp_id, 'FirstName':FirstName, 'LastName':LastName, 'DepartmentShort':DepartmentShort,
                   'PositionDescShort':PositionDescShort, 'LevelDesc':LevelDesc, 'Gender':Gender}
-
         sex = ''
         age = ''
         tel = ''
