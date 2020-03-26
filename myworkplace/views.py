@@ -157,8 +157,8 @@ def formwfh2(request,id):
             # print(type(get_startdate))
             # print('enddate ', get_enddate)
             # print(type(get_enddate))
-            startdate = datetime.strptime(get_startdate, "%Y/%m/%d").date()
-            enddate = datetime.strptime(get_enddate, "%Y/%m/%d").date()
+            startdate = datetime.strptime(get_startdate, "%Y-%m-%d").date()
+            enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
             delta = enddate - startdate
             total_date = delta.days + 1
             # print('total date', total_date)
@@ -567,6 +567,5 @@ def removeid(request):
         context['data1'].append(employee.objects.filter(employee_line_ID=line_id).values_list(flat=True ))
         employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
         context['data2'].append(employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)))
-
     connection.close()
     return render(request,'myworkplace/removeid.html', context)
