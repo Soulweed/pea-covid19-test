@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,26 +19,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="291" column="50" lean-forward="false" selection-start-line="291" selection-start-column="40" selection-end-line="291" selection-end-column="50" />
+            <state relative-caret-position="188">
+              <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <element signature="e#3744#5954#0" expanded="false" />
-                <element signature="e#5988#6110#0" expanded="false" />
-                <element signature="e#6142#8573#0" expanded="false" />
+                <element signature="e#3737#5947#0" expanded="false" />
+                <element signature="e#5981#6103#0" expanded="false" />
+                <element signature="e#6135#8566#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quarantine.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/peacovid19v2/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="158" column="20" lean-forward="true" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quarantine.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="44" column="24" lean-forward="false" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+            <state relative-caret-position="327">
+              <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -49,9 +57,22 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="-929">
               <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="16" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/send_email/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5371">
+              <caret line="101" column="42" lean-forward="false" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#1327#2134#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,8 +176,8 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/removeid.html" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/line_bot/views.py" />
-        <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html" />
+        <option value="$PROJECT_DIR$/myworkplace/views.py" />
       </list>
     </option>
   </component>
@@ -651,16 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/peacovid19v2/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="154" column="24" lean-forward="false" selection-start-line="154" selection-start-column="19" selection-end-line="154" selection-end-column="24" />
-          <folding>
-            <element signature="e#313#322#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -713,17 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/send_email/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="101" column="42" lean-forward="false" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#1327#2134#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-85">
@@ -736,32 +736,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+    <entry file="file://$PROJECT_DIR$/send_email/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="291" column="50" lean-forward="false" selection-start-line="291" selection-start-column="40" selection-end-line="291" selection-end-column="50" />
+        <state relative-caret-position="-5371">
+          <caret line="101" column="42" lean-forward="false" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="42" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#3744#5954#0" expanded="false" />
-            <element signature="e#5988#6110#0" expanded="false" />
-            <element signature="e#6142#8573#0" expanded="false" />
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#1327#2134#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="-929">
           <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peacovid19v2/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="158" column="20" lean-forward="true" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/quarantine.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="44" column="24" lean-forward="false" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+        <state relative-caret-position="327">
+          <caret line="53" column="29" lean-forward="false" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#3737#5947#0" expanded="false" />
+            <element signature="e#5981#6103#0" expanded="false" />
+            <element signature="e#6135#8566#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

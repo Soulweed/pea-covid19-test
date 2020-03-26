@@ -73,7 +73,7 @@ def daily_update(request, id):
         data = json.loads(user.activity_daily_update)
         data.append(obj)
         user.activity_daily_update = json.dumps(data)
-        existing_health=user.healthy.copy()
+        existing_health=user.healthy
         user.healthy=health
         user.daily_update=True
         user.save()
