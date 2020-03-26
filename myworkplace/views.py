@@ -556,9 +556,14 @@ def test(request):
 def removeid(request):
     context={'data':[]}
     # for line_id in employee.objects.values_list('employee_line_ID', flat=True).distinct():
-    #     # Email.objects.filter(pk__in=Email.objects.filter(email=email).values_list('id', flat=True)[1:]).delete()
+    #     # Email.objects.filter( pk__in=Email.objects.filter( email=email ).values_list('id', flat=True)[1:] ).delete()
     #     employee.objects.filter()
     #     context['data'].append(line_id)
-    context['data'].append(employee.objects.filter(pk__in=[1, 2, 3]))
+
+    for item in employee.objects.filter(employee_line_ID='U31b86969da2b249fcfb30164065d513b'):
+        context['data'].append(item)
+
+
+    # context['data'].append(employee.objects.filter(pk__in=[1, 2, 3]))
 
     return render(request,'myworkplace/removeid.html', context)
