@@ -157,8 +157,8 @@ def formwfh2(request,id):
             # print(type(get_startdate))
             # print('enddate ', get_enddate)
             # print(type(get_enddate))
-            startdate = datetime.strptime(get_startdate, "%Y-%m-%d").date()
-            enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
+            startdate = datetime.strptime(get_startdate, "%Y/%m/%d").date()
+            enddate = datetime.strptime(get_enddate, "%Y/%m/%d").date()
             delta = enddate - startdate
             total_date = delta.days + 1
             # print('total date', total_date)
@@ -200,11 +200,11 @@ def meet_doc2(request,id):
             id_boss = request.POST.get("director")
             email = get_user_email(id_boss)
 
-            startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
+            startdate=(datetime.now() + timedelta(days=1)).strftime("%Y/%m/%d")
 
-            enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
+            enddate=(datetime.now() + timedelta(days=15)).strftime("%Y/%m/%d")
             obj = {'type': 'meet_doc_request', 'startdate': startdate, 'enddate':enddate,
-                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+                   'datetime': datetime.now().strftime("%Y/%m/%d (%H:%M:%S)")}
             user = employee.objects.get(employee_ID=str(id))
             data = json.loads(user.activity_text)
             data.append(obj)
