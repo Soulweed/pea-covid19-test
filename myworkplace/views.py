@@ -240,7 +240,6 @@ def personal_info(request, id):
         print('Remove personal info  wfh request : {}'.format(id))
 
 def checkin(request, id):
-
     if request.method == "POST":
         action_type = request.POST.get("type")
         checkin_status=request.POST.get("checkinStatus")
@@ -434,6 +433,7 @@ def register(request,id):
                 employee_ID=emp_id,
                 employee_line_ID=line_id,
                 activity_text=json.dumps([obj], ensure_ascii=False),
+
                 employee_tel=ext,
                 tel=mobile_phone,
                 work_building = building,
