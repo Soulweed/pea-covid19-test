@@ -528,7 +528,7 @@ def handle_text_message(event):
                                                                        },
                                                                        {
                                                                            "type": "text",
-                                                                           "text": "{}".format(status),
+                                                                           "text": "status",
                                                                            "color": "#111111",
                                                                            "size": "md",
                                                                            "align": "end",
