@@ -147,7 +147,7 @@ def send_email_register(emp_email, line_id, id):
                 body=body,
                 to_recipients=recipient_list)
     m.send_and_save()
-    m.close()
+    # m.close()
     print('email register send: {} : {}'.format(id, emp_email))
 
 
@@ -293,14 +293,10 @@ def send_email_meetdoc_request(id, email_boss, name):
                 subject=subject,
                 body=body,
                 to_recipients=recipient_list)
-    try:
-        m.send_and_save()
-    except UnauthorizedError:
-        print('Unauthorize error')
-    except TransportError:
-        print('Transport error')
-    except:
-        print('anything else error')
+    # print('message created')
+    m.close_connections()
+    m.send_and_save()
+    m.close_connections()
     # print(m)
     print('email send: {} >> {}'.format(id, email_boss))
 
