@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,8 +22,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="650" column="32" lean-forward="true" selection-start-line="650" selection-start-column="0" selection-end-line="651" selection-end-column="0" />
+            <state relative-caret-position="124">
+              <caret line="651" column="0" lean-forward="false" selection-start-line="650" selection-start-column="0" selection-end-line="651" selection-end-column="0" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#6958#7080#0" expanded="false" />
@@ -35,31 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="personal_info.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/personal_info.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="688">
-              <caret line="46" column="33" lean-forward="false" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="49" column="15" lean-forward="true" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="15" />
+              <caret line="49" column="15" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -68,17 +46,27 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/line_bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="266" column="20" lean-forward="true" selection-start-line="266" selection-start-column="20" selection-end-line="266" selection-end-column="20" />
+            <state relative-caret-position="94">
+              <caret line="79" column="37" lean-forward="true" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#5864#11748#0" expanded="false" />
-                <element signature="e#6091#11658#0" expanded="false" />
-                <element signature="e#11814#11975#0" expanded="false" />
-                <element signature="e#12054#17811#0" expanded="false" />
-                <element signature="e#51768#70509#0" expanded="false" />
-                <element signature="e#71731#71954#0" expanded="false" />
+                <element signature="e#5853#11737#0" expanded="false" />
+                <element signature="e#6080#11647#0" expanded="false" />
+                <element signature="e#11803#11964#0" expanded="false" />
+                <element signature="e#12043#17800#0" expanded="false" />
+                <element signature="e#51757#70498#0" expanded="false" />
+                <element signature="e#71720#71943#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/send_email/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="144" column="23" lean-forward="false" selection-start-line="144" selection-start-column="16" selection-end-line="144" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,8 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>wfh</find>
-      <find>times</find>
       <find>background-position:</find>
       <find>checkin_complete</find>
       <find>challengebg</find>
@@ -125,6 +111,8 @@
       <find>active</find>
       <find>quarantine</find>
       <find>this line id has more than two account</find>
+      <find>no email in system</find>
+      <find>send_email_register</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -223,16 +211,6 @@
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="line_bot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
@@ -719,16 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/send_email/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
@@ -777,14 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/personal_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="688">
@@ -793,18 +753,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/personal_info.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="49" column="15" lean-forward="true" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="15" />
+        <state relative-caret-position="240">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="650" column="32" lean-forward="true" selection-start-line="650" selection-start-column="0" selection-end-line="651" selection-end-column="0" />
+        <state relative-caret-position="124">
+          <caret line="651" column="0" lean-forward="false" selection-start-line="650" selection-start-column="0" selection-end-line="651" selection-end-column="0" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#6958#7080#0" expanded="false" />
@@ -813,18 +773,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="49" column="15" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/send_email/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="144" column="23" lean-forward="false" selection-start-line="144" selection-start-column="16" selection-end-line="144" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="266" column="20" lean-forward="true" selection-start-line="266" selection-start-column="20" selection-end-line="266" selection-end-column="20" />
+        <state relative-caret-position="94">
+          <caret line="79" column="37" lean-forward="true" selection-start-line="79" selection-start-column="37" selection-end-line="79" selection-end-column="37" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#5864#11748#0" expanded="false" />
-            <element signature="e#6091#11658#0" expanded="false" />
-            <element signature="e#11814#11975#0" expanded="false" />
-            <element signature="e#12054#17811#0" expanded="false" />
-            <element signature="e#51768#70509#0" expanded="false" />
-            <element signature="e#71731#71954#0" expanded="false" />
+            <element signature="e#5853#11737#0" expanded="false" />
+            <element signature="e#6080#11647#0" expanded="false" />
+            <element signature="e#11803#11964#0" expanded="false" />
+            <element signature="e#12043#17800#0" expanded="false" />
+            <element signature="e#51757#70498#0" expanded="false" />
+            <element signature="e#71720#71943#0" expanded="false" />
           </folding>
         </state>
       </provider>
