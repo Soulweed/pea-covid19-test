@@ -73,8 +73,8 @@ def handle_text_message(event):
             connection.close()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
-        except ObjectDoesNotExist:
 
+        except ObjectDoesNotExist:
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
             if emp_email is not None:
@@ -106,6 +106,10 @@ def handle_text_message(event):
                                                    preview_image_url='https://www.imag.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
                                                )
                                            ])
+
+        except MultipleObjectsReturned:
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))
     else:
         try:
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
@@ -698,10 +702,14 @@ def handle_text_message(event):
                                                     '4. “ข้อมูลส่วนตัว” เพื่อจัดการข้อมูลส่วนตัวของคุณ\n'
                                                     '5. “สถานการณ์” เพื่อเกาะติดสถานการณ์ COVID-19\n'
                                                     '6. “ใบเซ็นชื่อ” เพื่อเข้าระบบลงชื่อเข้าและเลิกทำงาน\nอย่าลืมเพิ่มระยะห่างทางสังคมนะครับ ถ้าเราไม่ติดกัน เราจะไม่ติดเชื้อ'))
-        except:
+        except ObjectDoesNotExist:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดพิมพ์รหัสพนักงาน 6 ตัว'))
             print('this line id has not registered yet')
+        except MultipleObjectsReturned:
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))
+            print('this line id has more than two account')
 
 
 def send_question():
