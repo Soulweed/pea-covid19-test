@@ -364,10 +364,11 @@ def register(request,id):
     try:
         user=employee.objects.get(employee_line_ID=line_id)
         connection.close()
+        return redirect(home)
+    except MultipleObjectsReturned:
         print('ERROR register duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove register duplicate id: {}'.format(id))
-        return redirect(home)
     except ObjectDoesNotExist:
         first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(emp_id)
 

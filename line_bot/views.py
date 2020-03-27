@@ -104,10 +104,8 @@ def handle_text_message(event):
                                            ])
     else:
         try:
-            # print(dict_source['user_id'])
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
             connection.close()
-
             if dict_message['text'] == 'ขออนุมัติ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
@@ -685,14 +683,10 @@ def handle_text_message(event):
                                                     '4. “ข้อมูลส่วนตัว” เพื่อจัดการข้อมูลส่วนตัวของคุณ\n'
                                                     '5. “สถานการณ์” เพื่อเกาะติดสถานการณ์ COVID-19\n'
                                                     '6. “ใบเซ็นชื่อ” เพื่อเข้าระบบลงชื่อเข้าและเลิกทำงาน\nอย่าลืมเพิ่มระยะห่างทางสังคมนะครับ ถ้าเราไม่ติดกัน เราจะไม่ติดเชื้อ'))
-
         except:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดพิมพ์รหัสพนักงาน 6 ตัว'))
             print('this line id has not registered yet')
-            # TextSendMessage(text='ตอนนี้ระบบปิดทำการชั่วคราวเพื่อปรับปรุงคร่าาา จะกลับมาอีกทีเร็วๆนี้'))
-
-            # push message for question quarantile person
 def send_question():
     to = 'Ud5a85712fadd31a77c26f24b0e73b74d'
     line_bot_api.push_message(to, TextSendMessage(text='Hello World!'))
