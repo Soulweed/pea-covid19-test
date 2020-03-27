@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="608" column="28" lean-forward="false" selection-start-line="608" selection-start-column="22" selection-end-line="608" selection-end-column="28" />
+            <state relative-caret-position="355">
+              <caret line="611" column="15" lean-forward="true" selection-start-line="611" selection-start-column="15" selection-end-line="611" selection-end-column="15" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#1091#1620#0" expanded="false" />
@@ -53,19 +52,18 @@
                 <element signature="e#24806#25819#0" expanded="false" />
                 <element signature="e#25856#27177#0" expanded="false" />
                 <element signature="e#27202#27249#0" expanded="false" />
-                <element signature="e#27278#28303#0" expanded="false" />
-                <element signature="e#28874#29067#0" expanded="false" />
-                <marker date="1585296272180" expanded="true" signature="16761:16851" ph="..." />
+                <element signature="e#28935#29128#0" expanded="false" />
+                <marker date="1585296571906" expanded="true" signature="16761:16851" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="43" column="35" lean-forward="false" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+            <state relative-caret-position="378">
+              <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -170,8 +168,8 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/line_bot/views.py" />
-        <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/urls.py" />
+        <option value="$PROJECT_DIR$/myworkplace/views.py" />
       </list>
     </option>
   </component>
@@ -795,10 +793,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="608" column="28" lean-forward="false" selection-start-line="608" selection-start-column="22" selection-end-line="608" selection-end-column="28" />
+        <state relative-caret-position="355">
+          <caret line="611" column="15" lean-forward="true" selection-start-line="611" selection-start-column="15" selection-end-line="611" selection-end-column="15" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#1091#1620#0" expanded="false" />
@@ -827,18 +833,9 @@
             <element signature="e#24806#25819#0" expanded="false" />
             <element signature="e#25856#27177#0" expanded="false" />
             <element signature="e#27202#27249#0" expanded="false" />
-            <element signature="e#27278#28303#0" expanded="false" />
-            <element signature="e#28874#29067#0" expanded="false" />
-            <marker date="1585296272180" expanded="true" signature="16761:16851" ph="..." />
+            <element signature="e#28935#29128#0" expanded="false" />
+            <marker date="1585296571906" expanded="true" signature="16761:16851" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="43" column="35" lean-forward="false" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
