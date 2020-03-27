@@ -440,7 +440,7 @@ def handle_text_message(event):
                                                                        user_employee.employee_posi_text_short),
                                                                    "size": "sm",
                                                                    "color": "#aaaaaa",
-                                                                   "wrap": true
+                                                                   "wrap": 'True'
                                                                },
                                                                {
                                                                    "type": "separator",
@@ -725,7 +725,7 @@ def handle_text_message(event):
                                                        },
                                                        "styles": {
                                                            "footer": {
-                                                               "separator": true
+                                                               "separator": 'True'
                                                            }
                                                        }
                                                    }

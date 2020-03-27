@@ -56,15 +56,15 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/line_bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="706" column="73" lean-forward="true" selection-start-line="706" selection-start-column="73" selection-end-line="706" selection-end-column="73" />
+            <state relative-caret-position="164">
+              <caret line="727" column="82" lean-forward="false" selection-start-line="727" selection-start-column="82" selection-end-line="727" selection-end-column="82" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#5864#11748#0" expanded="false" />
                 <element signature="e#6091#11658#0" expanded="false" />
                 <element signature="e#11814#11975#0" expanded="false" />
                 <element signature="e#12054#17811#0" expanded="false" />
-                <element signature="e#80740#80963#0" expanded="false" />
+                <element signature="e#80744#80967#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -815,15 +815,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="706" column="73" lean-forward="true" selection-start-line="706" selection-start-column="73" selection-end-line="706" selection-end-column="73" />
+        <state relative-caret-position="164">
+          <caret line="727" column="82" lean-forward="false" selection-start-line="727" selection-start-column="82" selection-end-line="727" selection-end-column="82" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#5864#11748#0" expanded="false" />
             <element signature="e#6091#11658#0" expanded="false" />
             <element signature="e#11814#11975#0" expanded="false" />
             <element signature="e#12054#17811#0" expanded="false" />
-            <element signature="e#80740#80963#0" expanded="false" />
+            <element signature="e#80744#80967#0" expanded="false" />
           </folding>
         </state>
       </provider>
