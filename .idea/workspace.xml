@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/home3.html" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
+      <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,12 +22,11 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+            <state relative-caret-position="161">
+              <caret line="107" column="76" lean-forward="false" selection-start-line="107" selection-start-column="62" selection-end-line="107" selection-end-column="76" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#1091#1620#0" expanded="false" />
-                <element signature="e#4059#6921#0" expanded="false" />
                 <element signature="e#4212#4327#0" expanded="false" />
                 <element signature="e#6954#7076#0" expanded="false" />
                 <element signature="e#7108#10009#0" expanded="false" />
@@ -69,29 +65,17 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/line_bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="66" column="22" lean-forward="true" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+            <state relative-caret-position="113">
+              <caret line="74" column="54" lean-forward="false" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
               <folding>
-                <element signature="e#1998#2027#0" expanded="false" />
-                <element signature="e#5768#11335#0" expanded="false" />
-                <element signature="e#11491#11652#0" expanded="false" />
-                <element signature="e#17563#29243#0" expanded="false" />
-                <element signature="e#29539#32158#0" expanded="false" />
-                <element signature="e#32225#50966#0" expanded="false" />
-                <element signature="e#51159#52138#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-              <folding>
-                <element signature="e#425#431#0#HTML" expanded="true" />
-                <element signature="e#431#437#0#HTML" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#2078#2107#0" expanded="false" />
+                <element signature="e#5884#11451#0" expanded="false" />
+                <element signature="e#11607#11768#0" expanded="false" />
+                <element signature="e#17679#29359#0" expanded="false" />
+                <element signature="e#29655#32274#0" expanded="false" />
+                <element signature="e#32341#51082#0" expanded="false" />
+                <element signature="e#51275#52254#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -117,13 +101,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="group-2-group-2-copy-group-2-copy-2-mask@3x.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/images/group-2-group-2-copy-group-2-copy-2-mask@3x.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="home3.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/home3.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -146,9 +123,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>= em</find>
-      <find>= emp</find>
-      <find>href=&quot;</find>
       <find>header</find>
       <find>table</find>
       <find>contain</find>
@@ -175,7 +149,10 @@
       <find>get_user</find>
       <find>#1f1</find>
       <find>sub_region</find>
+      <find>except</find>
       <find>homebg</find>
+      <find>get_use</find>
+      <find>dept_sap, dept_upper, sub_region, emp_email = get_user_email(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -230,11 +207,11 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
-        <option value="$PROJECT_DIR$/line_bot/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/home 2.html" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/line_bot/views.py" />
       </list>
     </option>
   </component>
@@ -804,14 +781,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/home3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1648">
+          <caret line="103" column="103" lean-forward="false" selection-start-line="103" selection-start-column="86" selection-end-line="103" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <folding>
+            <element signature="e#425#431#0#HTML" expanded="true" />
+            <element signature="e#431#437#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/images/group-2-group-2-copy-group-2-copy-2-mask@3x.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="300" column="32" lean-forward="false" selection-start-line="300" selection-start-column="32" selection-end-line="300" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="42" column="44" lean-forward="false" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+        <state relative-caret-position="161">
+          <caret line="107" column="76" lean-forward="false" selection-start-line="107" selection-start-column="62" selection-end-line="107" selection-end-column="76" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#1091#1620#0" expanded="false" />
-            <element signature="e#4059#6921#0" expanded="false" />
             <element signature="e#4212#4327#0" expanded="false" />
             <element signature="e#6954#7076#0" expanded="false" />
             <element signature="e#7108#10009#0" expanded="false" />
@@ -846,58 +862,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="21" column="23" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/home3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1648">
-          <caret line="103" column="103" lean-forward="false" selection-start-line="103" selection-start-column="86" selection-end-line="103" selection-end-column="103" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding>
-            <element signature="e#425#431#0#HTML" expanded="true" />
-            <element signature="e#431#437#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/group-2-group-2-copy-group-2-copy-2-mask@3x.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="300" column="32" lean-forward="false" selection-start-line="300" selection-start-column="32" selection-end-line="300" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="66" column="22" lean-forward="true" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+        <state relative-caret-position="113">
+          <caret line="74" column="54" lean-forward="false" selection-start-line="74" selection-start-column="54" selection-end-line="74" selection-end-column="54" />
           <folding>
-            <element signature="e#1998#2027#0" expanded="false" />
-            <element signature="e#5768#11335#0" expanded="false" />
-            <element signature="e#11491#11652#0" expanded="false" />
-            <element signature="e#17563#29243#0" expanded="false" />
-            <element signature="e#29539#32158#0" expanded="false" />
-            <element signature="e#32225#50966#0" expanded="false" />
-            <element signature="e#51159#52138#0" expanded="false" />
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#2078#2107#0" expanded="false" />
+            <element signature="e#5884#11451#0" expanded="false" />
+            <element signature="e#11607#11768#0" expanded="false" />
+            <element signature="e#17679#29359#0" expanded="false" />
+            <element signature="e#29655#32274#0" expanded="false" />
+            <element signature="e#32341#51082#0" expanded="false" />
+            <element signature="e#51275#52254#0" expanded="false" />
           </folding>
         </state>
       </provider>
