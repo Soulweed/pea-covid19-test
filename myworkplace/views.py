@@ -365,6 +365,9 @@ def register(request,id):
     try:
         user=employee.objects.get(employee_line_ID=line_id)
         connection.close()
+        print('ERROR register duplicate id: {}'.foramt(id))
+        remove_emp_id(id)
+        print('Remove register duplicate id: {}'.foramt(id))
         return redirect(home)
     except ObjectDoesNotExist:
         first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(emp_id)
@@ -506,7 +509,7 @@ def miss3d_du(request, id):
         return render(request, 'myworkplace/miss3d_du_id.html', context)
     except MultipleObjectsReturned:
         print('ERROR miss3d_du duplicate id: {}'.foramt(id))
-        print('Error miss3d_du'.format(id))
+        remove_emp_id(id)
         print('Remove miss3d_du duplicate id: {}'.foramt(id))
 
 
@@ -518,7 +521,7 @@ def miss3d_ts(request, id):
         return render(request, 'myworkplace/miss3d_ts_id.html', context)
     except MultipleObjectsReturned:
         print('ERROR miss3d_ts duplicate id: {}'.foramt(id))
-        print('Error miss3d_ts {}'.format(id))
+        remove_emp_id(id)
         print('Remove miss3d_ts duplicate id: {}'.foramt(id))
 
 
@@ -561,7 +564,7 @@ def WFH_approve(request, id, boss, total_date):
         return render(request, 'myworkplace/test2.html')
     except:
         print('ERROR WFH_approve duplicate id: {}'.foramt(id))
-        print('Error WFH_approve {}'.format(id))
+        remove_emp_id(id)
         print('Remove WFH_approve duplicate id: {}'.foramt(id))
 
 def LEAVE_approve(request, id, boss):
@@ -583,7 +586,7 @@ def LEAVE_approve(request, id, boss):
         return render(request, 'myworkplace/test.html',context )
     except:
         print('ERROR LEAVE_approve duplicate id: {}'.foramt(id))
-        print('Error LEAVE_approve {}'.format(id))
+        remove_emp_id(id)
         print('Remove LEAVE_approve duplicate id: {}'.foramt(id))
 
 
