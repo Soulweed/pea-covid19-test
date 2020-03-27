@@ -14,8 +14,8 @@ def connect(server, email, username, password):
     Get Exchange account cconnection with server
     """
     creds = Credentials(username=username, password=password)
-    config = Configuration(server=server, credentials=creds)
-    return Account(primary_smtp_address=email, autodiscover=False, config=config, access_type=DELEGATE, verify_ssl=False)
+    config = Configuration(server=server, credentials=creds, service_endpoint='https://email.pea.co.th/EWS/Exchange.asmx')
+    return Account(primary_smtp_address=email, autodiscover=False, config=config, access_type=DELEGATE)
 
 
 def print_tree(account):
@@ -294,7 +294,6 @@ def send_email_meetdoc_request(id, email_boss, name):
                 body=body,
                 to_recipients=recipient_list)
     # print('message created')
-    ()
     m.send_and_save()
     close_connections()
     # print(m)
