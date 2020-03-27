@@ -15,7 +15,7 @@ def connect(server, email, username, password):
     """
     creds = Credentials(username=username, password=password)
     config = Configuration(server=server, credentials=creds)
-    return Account(primary_smtp_address=email, autodiscover=False, config=config, access_type=DELEGATE)
+    return Account(primary_smtp_address=email, autodiscover=False, config=config, access_type=DELEGATE, verify_ssl=False)
 
 
 def print_tree(account):
