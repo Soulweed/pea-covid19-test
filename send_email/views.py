@@ -90,12 +90,13 @@ def get_user_email(id):
     last_name = response['data']['dataDetail'][0]['last_name']
     sex_desc = response['data']['dataDetail'][0]['sex_desc']
     posi_text_short = response['data']['dataDetail'][0]['posi_text_short']
+    dept_sap_short=response['data']['dataDetail'][0]['dept_sap_short']
     dept_sap = response['data']['dataDetail'][0]['dept_sap']
     dept_upper = response['data']['dataDetail'][0]['dept_upper']
     sub_region = response['data']['dataDetail'][0]['sub_region']
     email = response['data']['dataDetail'][0]['email']
 
-    return first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email
+    return first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email
 
 
 

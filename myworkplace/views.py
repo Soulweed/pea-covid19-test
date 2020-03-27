@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.core.exceptions import MultipleObjectsReturned
 from django.db import connection
 from .models import employee, question, emailemployee
-from send_email.views import send_email_wfh_request
+from send_email.views import send_email_wfh_request,get_user_email, send_email_wfh14day_request, send_email_confrim_register, \
+    send_email_meetdoc_request, send_email_confrim_wfh
 import json
 from datetime import datetime, timedelta, date
 import getpass
@@ -19,11 +20,6 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 # importing email library
 from django.core.mail import send_mail
 from django.conf import settings
-from send_email.views import send_email_register, get_user_email, send_email_wfh14day_request, send_email_confrim_register, \
-    send_email_meetdoc_request, send_email_confrim_wfh
-
-
-
 from django import forms
 
 
@@ -109,7 +105,7 @@ def LEAVE_request(request, id):
             total_day = 14
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
-            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id_boss)
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id_boss)
             # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
             #     id_boss)
             context={'id_boss': id_boss, 'email_boss': email, 'total_day': total_day,'startdate':startdate, 'enddate':enddate,
@@ -161,7 +157,7 @@ def formwfh2(request,id):
             enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
             delta = enddate - startdate
             total_date = delta.days + 1
-            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
 
             # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender = get_employee_profile(
             #     id_boss)
@@ -207,7 +203,7 @@ def meet_doc2(request,id):
             boss_email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
             id_boss=request.POST.get("id_boss")
 
-            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short,dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y/%m/%d")
 
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y/%m/%d")
@@ -364,11 +360,11 @@ def register(request,id):
         remove_emp_id(id)
         print('Remove register duplicate id: {}'.format(id))
     except ObjectDoesNotExist:
-        first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(emp_id)
+        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email = get_user_email(emp_id)
 
     # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
 
-        context ={'EmployeeID': emp_id, 'FirstName':first_name, 'LastName':last_name, 'DepartmentShort':dept_sap,
+        context ={'EmployeeID': emp_id, 'FirstName':first_name, 'LastName':last_name, 'DepartmentShort':dept_sap_short,
                   'PositionDescShort':posi_text_short,  'Gender':sex_desc}
         sex = ''
         age = ''
@@ -455,7 +451,7 @@ def register(request,id):
             print('model save: {}'.format(emp_id))
             print('------------------------')
             connection.close()
-            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)
             send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
             return redirect(daily_update,emp_id)
         return render(request, 'myworkplace/formregister.html', context)
@@ -553,7 +549,7 @@ def WFH_approve(request, id, boss, total_date):
         user_WFH_approve.approved_status='Idle'
         user_WFH_approve.save()
         connection.close()
-        first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id)
+        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id)
         send_email_confrim_wfh(boss=boss, emp_email=emp_email)
         return render(request, 'myworkplace/test2.html')
     except MultipleObjectsReturned:
