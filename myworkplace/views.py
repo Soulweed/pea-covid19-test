@@ -243,39 +243,43 @@ def checkin(request, id):
 
     if request.method == "POST":
         action_type = request.POST.get("type")
-        latitude = request.POST.get("latitude")
-        longitude = request.POST.get("longitude")
-
-        if(action_type == "checkin"):
-            obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
-                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-            try:
-                user_checkin = employee.objects.get(employee_ID=str(id))
-                data = json.loads(user_checkin.activity_checkin)
-                data.append(obj)
-                user_checkin.activity_checkin = json.dumps(data, ensure_ascii=False)
-                user_checkin.save()
-                connection.close()
-                return redirect(tscheckin, obj['datetime'])
-            except MultipleObjectsReturned:
-                print('ERROR Checkin duplicate id: {}'.format(id))
-                remove_emp_id(id)
-                print('Remove Checkin duplicate id: {}'.format(id))
-        elif(action_type == "checkout"):
-            obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
-                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-            try:
-                user_checkout = employee.objects.get(employee_ID=str(id))
-                data = json.loads(user_checkout.activity_checkout)
-                data.append(obj)
-                user_checkout.activity_checkout = json.dumps(data, ensure_ascii=False)
-                user_checkout.save()
-                connection.close()
-                return redirect(tscheckout, obj['datetime'])
-            except MultipleObjectsReturned:
-                print('ERROR Checkin duplicate id: {}'.format(id))
-                remove_emp_id(id)
-                print('Remove Checkin duplicate id: {}'.format(id))
+        checkin_status=request.POST.get("checkinStatus")
+        checkout_status = request.POST.get("checkoutStatus")
+        if (checkin_status == 'not' and action_type == 'checkin') or (checkout_status == 'not' and action_type == 'checkout'):
+            return render(request, 'myworkplace/timestamp_lock.html')
+        else:
+            latitude = request.POST.get("latitude")
+            longitude = request.POST.get("longitude")
+            if(action_type == "checkin"):
+                obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
+                       'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+                try:
+                    user_checkin = employee.objects.get(employee_ID=str(id))
+                    data = json.loads(user_checkin.activity_checkin)
+                    data.append(obj)
+                    user_checkin.activity_checkin = json.dumps(data, ensure_ascii=False)
+                    user_checkin.save()
+                    connection.close()
+                    return redirect(tscheckin, obj['datetime'])
+                except MultipleObjectsReturned:
+                    print('ERROR Checkin duplicate id: {}'.format(id))
+                    remove_emp_id(id)
+                    print('Remove Checkin duplicate id: {}'.format(id))
+            elif(action_type == "checkout"):
+                obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
+                       'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+                try:
+                    user_checkout = employee.objects.get(employee_ID=str(id))
+                    data = json.loads(user_checkout.activity_checkout)
+                    data.append(obj)
+                    user_checkout.activity_checkout = json.dumps(data, ensure_ascii=False)
+                    user_checkout.save()
+                    connection.close()
+                    return redirect(tscheckout, obj['datetime'])
+                except MultipleObjectsReturned:
+                    print('ERROR Checkin duplicate id: {}'.format(id))
+                    remove_emp_id(id)
+                    print('Remove Checkin duplicate id: {}'.format(id))
     return render(request, 'myworkplace/timestamp.html')
 
 def tscheckin(request, time):

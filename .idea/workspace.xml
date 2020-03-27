@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp_lock.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +25,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="579" column="38" lean-forward="false" selection-start-line="579" selection-start-column="38" selection-end-line="579" selection-end-column="38" />
+            <state relative-caret-position="303">
+              <caret line="269" column="43" lean-forward="false" selection-start-line="269" selection-start-column="35" selection-end-line="269" selection-end-column="43" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -32,46 +34,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
+      <file leaf-file-name="timestamp.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="147" column="25" lean-forward="false" selection-start-line="147" selection-start-column="8" selection-end-line="147" selection-end-column="25" />
+            <state relative-caret-position="87">
+              <caret line="136" column="13" lean-forward="true" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="removeid.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/removeid.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/line_bot/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="421" column="20" lean-forward="false" selection-start-line="421" selection-start-column="20" selection-end-line="421" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <element signature="e#2078#2107#0" expanded="false" />
-                <element signature="e#3168#3976#0" expanded="false" />
-                <element signature="e#4011#5444#0" expanded="false" />
-                <element signature="e#5864#11748#0" expanded="false" />
-                <element signature="e#6091#11658#0" expanded="false" />
-                <element signature="e#11814#11975#0" expanded="false" />
-                <element signature="e#12054#17811#0" expanded="false" />
-                <element signature="e#12281#17764#0" expanded="false" />
-                <element signature="e#18211#30045#0" expanded="false" />
-                <element signature="e#30780#33399#0" expanded="false" />
-                <element signature="e#33466#52207#0" expanded="false" />
-                <element signature="e#52400#53379#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -88,8 +56,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>contain</find>
-      <find>get_user_email</find>
       <find>get_emp</find>
       <find>formwfh2</find>
       <find>get_</find>
@@ -118,6 +84,8 @@
       <find>dept_sap, dept_upper, sub_region, emp_email = get_user_email(</find>
       <find>regis</find>
       <find>last_daily_update</find>
+      <find>last_daily_update()</find>
+      <find>form</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -126,7 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/myworkplace/serializers.py" />
         <option value="$PROJECT_DIR$/myworkplace/admin.py" />
         <option value="$PROJECT_DIR$/send_email/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/form.py" />
@@ -157,7 +124,6 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/see_doctor.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/resultscreen2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/resultscreen3.html" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html" />
         <option value="$PROJECT_DIR$/peacovid19v2/settings.py" />
         <option value="$PROJECT_DIR$/peacovid19v2/wsgi.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/removeid.html" />
@@ -175,8 +141,10 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/myworkplace/urls.py" />
-        <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/line_bot/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp_lock.html" />
+        <option value="$PROJECT_DIR$/myworkplace/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html" />
       </list>
     </option>
   </component>
@@ -216,11 +184,6 @@
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="line_bot" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
@@ -365,7 +328,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="715" y="0" width="725" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.49713877" order="6" side_tool="false" content_ui="tabs" />
@@ -373,8 +336,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.8927039" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3560794" sideWeight="0.5143061" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18097281" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03349876" sideWeight="0.5143061" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42020497" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34739456" sideWeight="0.48569384" order="1" side_tool="false" content_ui="tabs" />
@@ -427,11 +390,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/images/bgheader.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/images/caret.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -607,14 +565,6 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#h1#3;n#center#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="128" column="63" lean-forward="false" selection-start-line="128" selection-start-column="63" selection-end-line="128" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -796,16 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="579" column="38" lean-forward="false" selection-start-line="579" selection-start-column="38" selection-end-line="579" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/removeid.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -817,7 +757,7 @@
     <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
-          <caret line="421" column="20" lean-forward="false" selection-start-line="421" selection-start-column="20" selection-end-line="421" selection-end-column="20" />
+          <caret line="421" column="0" lean-forward="false" selection-start-line="421" selection-start-column="0" selection-end-line="421" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#2078#2107#0" expanded="false" />
@@ -829,10 +769,39 @@
             <element signature="e#12054#17811#0" expanded="false" />
             <element signature="e#12281#17764#0" expanded="false" />
             <element signature="e#18211#30045#0" expanded="false" />
-            <element signature="e#30780#33399#0" expanded="false" />
-            <element signature="e#33466#52207#0" expanded="false" />
-            <element signature="e#52400#53379#0" expanded="false" />
+            <element signature="e#30760#33379#0" expanded="false" />
+            <element signature="e#33446#52187#0" expanded="false" />
+            <element signature="e#52380#53359#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp_lock.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+          <folding>
+            <element signature="e#280#286#0#HTML" expanded="true" />
+            <element signature="e#314#320#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="269" column="43" lean-forward="false" selection-start-line="269" selection-start-column="35" selection-end-line="269" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="136" column="13" lean-forward="true" selection-start-line="136" selection-start-column="13" selection-end-line="136" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
