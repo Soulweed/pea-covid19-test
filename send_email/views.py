@@ -294,7 +294,7 @@ def send_email_meetdoc_request(id, email_boss, name):
                 body=body,
                 to_recipients=recipient_list)
     # print('message created')
-    close_connections()
+    ()
     m.send_and_save()
     close_connections()
     # print(m)
