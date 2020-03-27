@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.db import connection
 from exchangelib import Configuration, Account, DELEGATE, Credentials
 from exchangelib import Message, Mailbox, FileAttachment
+from exchangelib.errors import UnauthorizedError, TransportError, RedirectError, RelativeRedirect
 import requests, xmltodict
 from datetime import datetime, timedelta
 from myworkplace.models import employee, emailemployee
@@ -293,7 +294,10 @@ def send_email_meetdoc_request(id, email_boss, name):
                 body=body,
                 to_recipients=recipient_list)
     # print('message created')
-    m.send_and_save()
+    try:
+        m.send_and_save()
+    except TransportError:
+        print('Transport error')
     # print(m)
     print('email send: {} >> {}'.format(id, email_boss))
 
