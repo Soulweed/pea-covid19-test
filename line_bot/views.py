@@ -67,12 +67,13 @@ def handle_text_message(event):
             len(dict_message['text']) == 6 or len(dict_message['text']) == 7):
         ##### function create email กับ content ข้างใน
         try:
-            user_employee=employee.objects.get(employee_line_ID=dict_source['user_id'])
+            user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
             connection.close()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
         except:
-            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id=dict_message['text'])
+            first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
+                id=dict_message['text'])
             if emp_email is not None:
                 try:
                     send_email_register(emp_email=emp_email, line_id=dict_source['user_id'], id=dict_message['text'])
@@ -135,7 +136,8 @@ def handle_text_message(event):
                                                                        "action": {
                                                                            "type": "uri",
                                                                            "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/formwfh1/{}/".format(user_employee.employee_ID)
+                                                                           "uri": "https://pea-covid19-test.herokuapp.com/formwfh1/{}/".format(
+                                                                               user_employee.employee_ID)
                                                                        },
                                                                        "aspectRatio": "1040:174"
                                                                    }
@@ -166,7 +168,8 @@ def handle_text_message(event):
                                                                        "action": {
                                                                            "type": "uri",
                                                                            "label": "action",
-                                                                           "uri": "https://pea-covid19-test.herokuapp.com/meet_doc2/{}/".format(user_employee.employee_ID)
+                                                                           "uri": "https://pea-covid19-test.herokuapp.com/meet_doc2/{}/".format(
+                                                                               user_employee.employee_ID)
                                                                        }
                                                                    }
                                                                ],
@@ -199,7 +202,7 @@ def handle_text_message(event):
                                                                        "size": "full",
                                                                        "aspectMode": "cover",
                                                                        "gravity": "center",
-                                                                       "url": "https://sv1.picz.in.th/images/2020/03/19/QgvtPI.png",
+                                                                       "url": "https://s3-ap-southeast-1.amazonaws.com/img-in-th/c4ab0fa44c5e576502ec90d88b2bbbe5.png",
                                                                        "aspectRatio": "1:1"
                                                                    },
                                                                    {
@@ -251,6 +254,7 @@ def handle_text_message(event):
                                                        }
                                                    ]
                                                }
+
                                            ))
             elif dict_message['text'] == 'ข้อมูลส่วนตัว':
                 # print('list profile')
@@ -300,7 +304,11 @@ def handle_text_message(event):
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "{}".format({'normal':'ไม่เข้าเกณฑ์', 'flu':'ไม่เข้าเกณฑ์', 'quarantine':'แยกตัว','hospital':'ควรพบแพทย์'}[user_employee.healthy]),
+                                                                       "text": "{}".format({'normal': 'ไม่เข้าเกณฑ์',
+                                                                                            'flu': 'ไม่เข้าเกณฑ์',
+                                                                                            'quarantine': 'แยกตัว',
+                                                                                            'hospital': 'ควรพบแพทย์'}[
+                                                                                               user_employee.healthy]),
                                                                        "size": "xl"
                                                                    }
                                                                ],
@@ -317,7 +325,11 @@ def handle_text_message(event):
                                                                    },
                                                                    {
                                                                        "type": "text",
-                                                                       "text": "{}".format({'PEA':'ปฏิบัติงานตามปกติ', 'WFH':'Work from home','LEAVE':'ลาป่วย', 'COVID':'COVID'}[user_employee.active_status]),
+                                                                       "text": "{}".format({'PEA': 'ปฏิบัติงานตามปกติ',
+                                                                                            'WFH': 'Work from home',
+                                                                                            'LEAVE': 'ลาป่วย',
+                                                                                            'COVID': 'COVID'}[
+                                                                                               user_employee.active_status]),
                                                                        "size": "xl"
                                                                    }
                                                                ],
@@ -687,6 +699,8 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดพิมพ์รหัสพนักงาน 6 ตัว'))
             print('this line id has not registered yet')
+
+
 def send_question():
     to = 'Ud5a85712fadd31a77c26f24b0e73b74d'
     line_bot_api.push_message(to, TextSendMessage(text='Hello World!'))

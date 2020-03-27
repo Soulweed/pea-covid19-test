@@ -138,7 +138,6 @@ def LEAVE_request(request, id):
 
     return render(request, 'myworkplace/formleave1.html', context)
 
-
 def formwfh1(request, id):
     if request.method == "POST":
         return redirect(formwfh2, id)
@@ -191,7 +190,6 @@ def formwfh2(request,id):
                 print('ERROR wfh request id: {}'.format(id))
                 remove_emp_id(id)
                 print('Remove duplicate wfh request : {}'.format(id))
-
     return render(request, 'myworkplace/formwfh2drange.html', context)
 
 def meet_doc2(request,id):
@@ -230,7 +228,6 @@ def meet_doc2(request,id):
                 print('Remove duplicate meet doc request : {}'.format(id))
     return render(request, 'myworkplace/formseedoc2.html', context)
 
-
 def personal_info(request, id):
     try:
         data_personal_info = employee.objects.get(employee_line_ID=id)
@@ -241,7 +238,6 @@ def personal_info(request, id):
         print('ERROR personal info  id: {}'.format(id))
         remove_emp_id(id)
         print('Remove personal info  wfh request : {}'.format(id))
-
 
 def checkin(request, id):
 
@@ -281,7 +277,6 @@ def checkin(request, id):
                 remove_emp_id(id)
                 print('Remove Checkin duplicate id: {}'.format(id))
     return render(request, 'myworkplace/timestamp.html')
-
 
 def tscheckin(request, time):
     d=time.split()[0]
@@ -513,26 +508,6 @@ def miss3d_ts(request, id):
         print('ERROR miss3d_ts duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove miss3d_ts duplicate id: {}'.format(id))
-
-
-# def WFH_request(request, id, boss):
-#     day=10
-#     obj = {'type': 'WFH_request', 'approved_by': boss,
-#            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
-#            'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
-#            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-#
-#     send_email_wfh_request(id=id, boss=boss)
-#     user = employee.objects.get(employee_ID=str(id))
-#     data = json.loads(user.activity_text)
-#     data.append(obj)
-#     user.activity_text = json.dumps(data, ensure_ascii=False)
-#     user.approved_status = 'WFH'
-#     user.save()
-#     connection.close()
-#     context = {'data': 'WFH request'}
-#     return render(request, 'myworkplace/test.html', context)
-
 
 def WFH_approve(request, id, boss, total_date):
 
