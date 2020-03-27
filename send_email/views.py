@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db import connection
 from exchangelib import Configuration, Account, DELEGATE, Credentials
-from exchangelib import Message, Mailbox, FileAttachment
+from exchangelib import Message, Mailbox, FileAttachment, close_connections
 from exchangelib.errors import UnauthorizedError, TransportError, RedirectError, RelativeRedirect
 import requests, xmltodict
 from datetime import datetime, timedelta
@@ -294,9 +294,9 @@ def send_email_meetdoc_request(id, email_boss, name):
                 body=body,
                 to_recipients=recipient_list)
     # print('message created')
-    m.close_connections()
+    close_connections()
     m.send_and_save()
-    m.close_connections()
+    close_connections()
     # print(m)
     print('email send: {} >> {}'.format(id, email_boss))
 
