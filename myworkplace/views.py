@@ -433,7 +433,7 @@ def register(request,id):
                 employee_ID=emp_id,
                 employee_line_ID=line_id,
                 activity_text=json.dumps([obj], ensure_ascii=False),
-
+                # posi_text_short=posi_text_short,
                 employee_tel=ext,
                 tel=mobile_phone,
                 work_building = building,
@@ -608,13 +608,10 @@ def remove_duplicate_emp_id(request, emp_id):
     if request.method == "POST":
         remove_emp_id(emp_id)
         context = {'data1': []}
-        context['data1'].append(employee.objects.filter(employee_ID=emp_id))
+        context['data1'].append(employee.objects.filter(employee_ID=emp_id).__dict__)
         connection.close()
         return render(request, 'myworkplace/remove_duplicate_id.html', context)
     return render(request, 'myworkplace/remove_duplicate_id.html', context)
-
-
-
 
 def remove_line_id(emp_line_id):
     employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=emp_line_id).values_list('id', flat=True)).delete()
