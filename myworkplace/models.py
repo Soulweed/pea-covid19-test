@@ -67,8 +67,8 @@ class employee(models.Model):
     quarantined = models.BooleanField(default=False, blank=True)
     infected = models.BooleanField(default=False, blank=True)
 
-    employee_id_up_1 = models.CharField(max_length= 200,blank=True )
-    employee_id_up_2 = models.CharField(max_length= 200,blank=True )
+    employee_id_up_1 = models.CharField(max_length= 200,blank=True, null=True)
+    employee_id_up_2 = models.CharField(max_length= 200,blank=True, null=True)
     employee_age = models.IntegerField (default=0 ,blank= True)
     employee_gender = models.CharField(max_length=6, choices=GENDER_CHOICES,blank= True)
     employee_tel = models.CharField(max_length=10 , blank=True )
