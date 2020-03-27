@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
+      <change beforePath="$PROJECT_DIR$/send_email/views.py" afterPath="$PROJECT_DIR$/send_email/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,26 +26,24 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="368" column="29" lean-forward="false" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="29" />
+            <state relative-caret-position="121">
+              <caret line="167" column="37" lean-forward="true" selection-start-line="167" selection-start-column="37" selection-end-line="167" selection-end-column="37" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#1144#1673#0" expanded="false" />
-                <element signature="e#4266#4381#0" expanded="false" />
-                <element signature="e#4420#5355#0" expanded="false" />
-                <element signature="e#5394#6696#0" expanded="false" />
-                <element signature="e#7083#8430#0" expanded="false" />
-                <marker date="1585284102363" expanded="true" signature="16340:16430" ph="..." />
+                <element signature="e#1790#4074#0" expanded="false" />
+                <element signature="e#4265#4380#0" expanded="false" />
+                <marker date="1585288392731" expanded="true" signature="16772:16862" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <file leaf-file-name="formseedoc2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="20" />
+            <state relative-caret-position="368">
+              <caret line="65" column="51" lean-forward="false" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -51,29 +52,10 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/send_email/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="169" column="21" lean-forward="false" selection-start-line="169" selection-start-column="19" selection-end-line="169" selection-end-column="21" />
+            <state relative-caret-position="222">
+              <caret line="198" column="19" lean-forward="false" selection-start-line="198" selection-start-column="9" selection-end-line="198" selection-end-column="19" />
               <folding>
                 <element signature="e#1327#2134#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/line_bot/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="77" column="39" lean-forward="false" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="39" />
-              <folding>
-                <element signature="e#1998#2027#0" expanded="false" />
-                <element signature="e#5749#11156#0" expanded="false" />
-                <element signature="e#11312#11473#0" expanded="false" />
-                <element signature="e#11552#17273#0" expanded="false" />
-                <element signature="e#17348#28274#0" expanded="false" />
-                <element signature="e#28570#31189#0" expanded="false" />
-                <element signature="e#31256#49997#0" expanded="false" />
-                <element signature="e#50190#51169#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -91,8 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>normal1</find>
-      <find>data</find>
       <find>wfh2</find>
       <find>model</find>
       <find>model save:</find>
@@ -111,7 +91,6 @@
       <find>get_</find>
       <find>rec</find>
       <find>get_u</find>
-      <find>wfh</find>
       <find>send_email_register</find>
       <find>.distinct()</find>
       <find>exce</find>
@@ -121,6 +100,9 @@
       <find>quaran</find>
       <find>foramt</find>
       <find>register</find>
+      <find>wfh</find>
+      <find>id_boss</find>
+      <find>WFH_approve</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -152,14 +134,11 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckin.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckout.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc3.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh1.html" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/test.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/test2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/normal1.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/see_doctor.html" />
@@ -177,8 +156,11 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/summary_list.html" />
         <option value="$PROJECT_DIR$/static/summarylist/css/main.css" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html" />
-        <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/line_bot/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html" />
+        <option value="$PROJECT_DIR$/send_email/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
       </list>
     </option>
@@ -223,22 +205,7 @@
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="line_bot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
               <item name="send_email" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -494,13 +461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="79" column="22" lean-forward="false" selection-start-line="79" selection-start-column="22" selection-end-line="79" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/images/Mask+Rectangle+Rectangle+Group16Mask3.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -515,13 +475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="28" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -740,14 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="110" column="42" lean-forward="false" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1834">
@@ -772,24 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/send_email/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="169" column="21" lean-forward="false" selection-start-line="169" selection-start-column="19" selection-end-line="169" selection-end-column="21" />
-          <folding>
-            <element signature="e#1327#2134#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="16" column="20" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -807,18 +734,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="143" column="76" lean-forward="false" selection-start-line="143" selection-start-column="69" selection-end-line="143" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="140" column="60" lean-forward="false" selection-start-line="140" selection-start-column="53" selection-end-line="140" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="65" column="51" lean-forward="false" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/send_email/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="198" column="19" lean-forward="false" selection-start-line="198" selection-start-column="9" selection-end-line="198" selection-end-column="19" />
+          <folding>
+            <element signature="e#1327#2134#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="368" column="29" lean-forward="false" selection-start-line="368" selection-start-column="21" selection-end-line="368" selection-end-column="29" />
+        <state relative-caret-position="121">
+          <caret line="167" column="37" lean-forward="true" selection-start-line="167" selection-start-column="37" selection-end-line="167" selection-end-column="37" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#1144#1673#0" expanded="false" />
-            <element signature="e#4266#4381#0" expanded="false" />
-            <element signature="e#4420#5355#0" expanded="false" />
-            <element signature="e#5394#6696#0" expanded="false" />
-            <element signature="e#7083#8430#0" expanded="false" />
-            <marker date="1585284102363" expanded="true" signature="16340:16430" ph="..." />
+            <element signature="e#1790#4074#0" expanded="false" />
+            <element signature="e#4265#4380#0" expanded="false" />
+            <marker date="1585288392731" expanded="true" signature="16772:16862" ph="..." />
           </folding>
         </state>
       </provider>

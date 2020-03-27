@@ -100,41 +100,37 @@ def LEAVE_request(request, id):
     email=''
     if request.method == "POST":
         page = request.POST.get("page")
-
         if (page == "1"):
             # print(page)
             # print("OK1")
             return render(request, 'myworkplace/formleave2.html', context)
         if (page == "2"):
-            # print(page)
-            # print("OK2")
             id_boss = request.POST.get("id_boss")
             total_day = 14
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
-
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
-            # print(id_boss)
             first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id_boss)
-            # print(email)
-
             # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
             #     id_boss)
             context={'id_boss': id_boss, 'email_boss': email, 'total_day': total_day,'startdate':startdate, 'enddate':enddate,
                             'boss_name': '{} {}'.format(first_name, last_name), 'JobDesc': posi_text_short, 'Gender':sex_desc}
             return render(request, 'myworkplace/formleave3.html', context)
         if (page == "3"):
-            # print("OK3")
-            email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+            # email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+            boss_email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+            id_boss=request.POST.get("id_boss")
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
             obj = {'type': 'wfh14days_request', 'startdate': startdate, 'enddate':enddate,
-                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)"), 'sent_request_to':{'id':id_boss, 'email':boss_email}}
             try:
                 user_LEAVE_request = employee.objects.get(employee_ID=str(id))
                 data = json.loads(user_LEAVE_request.activity_text)
                 data.append(obj)
                 user_LEAVE_request.activity_text = json.dumps(data, ensure_ascii=False)
                 user_LEAVE_request.approved_status = 'Leave'
+                user_LEAVE_request.employee_id_up_1=id_boss
+                user_LEAVE_request.employee_id_up_2=boss_email
                 user_LEAVE_request.save()
                 connection.close()
                 send_email_wfh14day_request(id=id, email_boss=email, name=user_LEAVE_request.emplyee_name, startdate=startdate, enddate=enddate)
@@ -160,36 +156,27 @@ def formwfh2(request,id):
             # print(page)
             id_boss = request.POST.get("director")
             get_startdate = request.POST.get("startdate")
-            print('-----------------------')
-            print(get_startdate)
             get_enddate = request.POST.get("enddate")
-            print(get_enddate)
-
-            # print('startdate: ', get_startdate)
-            # print(type(get_startdate))
-            # print('enddate ', get_enddate)
-            # print(type(get_enddate))
             startdate = datetime.strptime(get_startdate, "%Y-%m-%d").date()
             enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
             delta = enddate - startdate
             total_date = delta.days + 1
-            # print('total date', total_date)
             first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
 
             # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender = get_employee_profile(
             #     id_boss)
             context={'Boss_name':'{} {}'.format(first_name, last_name), 'Boss_position':posi_text_short, 'Gender':sex_desc,
-                     'startdate':get_startdate, 'enddate':get_enddate, 'total_date':total_date, 'email_boss': email}
+                     'startdate':get_startdate, 'enddate':get_enddate, 'total_date':total_date, 'email_boss': email, 'id_boss':id_boss}
             # print(context)
             return render(request, 'myworkplace/formwfh3.html', context)
         if (page=="2"):
-            email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+            boss_email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+            id_boss=request.POST.get("id_boss")
             get_total_date =request.POST.get("total_date")
             get_startdate =request.POST.get("startdate")
             get_enddate =request.POST.get("enddate")
             obj = {'type': 'wfh_request', 'startdate': get_startdate, 'enddate':get_enddate,
-                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
+                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)"), 'sent_request_to':{'id':id_boss, 'email':boss_email}}
             try:
                 user_formwfh2 = employee.objects.get(employee_ID=str(id))
                 data = json.loads(user_formwfh2.activity_text)
@@ -198,9 +185,11 @@ def formwfh2(request,id):
                 user_formwfh2.approved_status = 'WFH'
                 user_formwfh2.WFH_start_date=get_startdate
                 user_formwfh2.WFH_end_date=get_enddate
+                user_formwfh2.employee_id_up_1=id_boss
+                user_formwfh2.employee_id_up_2=boss_email
                 user_formwfh2.save()
                 connection.close()
-                send_email_wfh_request(id=id, email_boss=email, total_date=get_total_date, name=user_formwfh2.emplyee_name, startdate=get_startdate, enddate=get_enddate)
+                send_email_wfh_request(id=id, email_boss=boss_email, total_date=get_total_date, name=user_formwfh2.emplyee_name, startdate=get_startdate, enddate=get_enddate)
                 return render(request, 'myworkplace/formwfh4.html')
             except MultipleObjectsReturned:
                 print('ERROR wfh request id: {}'.format(id))
@@ -214,13 +203,16 @@ def meet_doc2(request,id):
     if request.method == 'POST':
         page = request.POST.get('page')
         if(page == "1"):
-            id_boss = request.POST.get("director")
+            # id_boss = request.POST.get("director")
+            boss_email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+            id_boss=request.POST.get("id_boss")
+
             first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y/%m/%d")
 
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y/%m/%d")
             obj = {'type': 'meet_doc_request', 'startdate': startdate, 'enddate':enddate,
-                   'datetime': datetime.now().strftime("%Y/%m/%d (%H:%M:%S)")}
+                   'datetime': datetime.now().strftime("%Y/%m/%d (%H:%M:%S)"), 'sent_request_to':{'id':id_boss, 'email':boss_email}}
             try:
                 user_meet_doc2 = employee.objects.get(employee_ID=str(id))
                 data = json.loads(user_meet_doc2.activity_text)
@@ -230,6 +222,8 @@ def meet_doc2(request,id):
                 user_meet_doc2.approved_status = 'Idle'
                 user_meet_doc2.LEAVE_start_date=startdate
                 user_meet_doc2.LEAVE_end_date=enddate
+                user_meet_doc2.employee_id_up_1=id_boss
+                user_meet_doc2.employee_id_up_2=boss_email
                 user_meet_doc2.save()
                 connection.close()
                 send_email_meetdoc_request(id=id, email_boss=email, name=user_meet_doc2.emplyee_name)
