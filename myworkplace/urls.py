@@ -39,8 +39,9 @@ urlpatterns = [
     path('resultscreen3/', views.resultscreen3, name='resultscreen3'),
     path('formleave/<id>', views.LEAVE_request, name='formleave'),
     path('test/', views.test, name='test'),
-    path('removeid/', views.removeid, name='removeid'),
     path('summarylist/', views.summarylist, name='summarylist'),
-    path('remove_one_emp_id/<emp_id>/', views.remove_one_emp_id, name='remove_one_emp_id'),
-    path('remove_duplicate_emp_id/<emp_id>', views.remove_duplicate_emp_id, name='remove_duplicate_emp_id'),
+    path('remove_duplicate_all/', views.remove_duplicate_all, name='remove_duplicate_all'),
+    path('remove_duplicate_emp_id/<emp_id>/', views.remove_duplicate_emp_id, name='remove_duplicate_emp_id'),
+    path('remove_line_emp_id/<emp_line_id>/', views.remove_line_emp_id, name='remove_line_emp_id'),
+
 ]

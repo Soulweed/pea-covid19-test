@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
@@ -22,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="616" column="27" lean-forward="false" selection-start-line="616" selection-start-column="4" selection-end-line="616" selection-end-column="27" />
+            <state relative-caret-position="343">
+              <caret line="622" column="22" lean-forward="false" selection-start-line="622" selection-start-column="4" selection-end-line="622" selection-end-column="22" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#6954#7076#0" expanded="false" />
@@ -36,22 +35,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="remove_duplicate_id.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/line_bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="12" column="75" lean-forward="false" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+            <state relative-caret-position="-445">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/send_email/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="-29">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,10 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>person</find>
-      <find>exce</find>
-      <find>send_email_wfh_request</find>
-      <find>get_user</find>
       <find>#1f1</find>
       <find>sub_region</find>
       <find>except</find>
@@ -98,6 +107,10 @@
       <find>res</find>
       <find>form</find>
       <find>employee_id_up_2</find>
+      <find>remove_one_emp_id</find>
+      <find>employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=emp_line_id).values_list('id', flat=True)).delete()</find>
+      <find>remove_duplicate_emp_id</find>
+      <find>remove_duplicate_all</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,10 +166,10 @@
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/resultscreen2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/resultscreen3.html" />
         <option value="$PROJECT_DIR$/myworkplace/models.py" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html" />
-        <option value="$PROJECT_DIR$/myworkplace/views.py" />
-        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formleave1.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html" />
+        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
+        <option value="$PROJECT_DIR$/myworkplace/views.py" />
       </list>
     </option>
   </component>
@@ -200,6 +213,11 @@
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
+              <item name="line_bot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
               <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -207,6 +225,11 @@
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
               <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
+              <item name="send_email" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
@@ -397,22 +420,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="140" column="60" lean-forward="false" selection-start-line="140" selection-start-column="53" selection-end-line="140" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh4.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-29">
@@ -741,7 +748,7 @@
         <state relative-caret-position="-1214">
           <caret line="70" column="20" lean-forward="false" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="20" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -762,31 +769,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+    <entry file="file://$PROJECT_DIR$/send_email/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="-29">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="75" lean-forward="false" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+        <state relative-caret-position="224">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line_bot/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-445">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="616" column="27" lean-forward="false" selection-start-line="616" selection-start-column="4" selection-end-line="616" selection-end-column="27" />
+        <state relative-caret-position="343">
+          <caret line="622" column="22" lean-forward="false" selection-start-line="622" selection-start-column="4" selection-end-line="622" selection-end-column="22" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#6954#7076#0" expanded="false" />
             <element signature="e#7108#10009#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

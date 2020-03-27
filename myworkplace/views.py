@@ -586,7 +586,7 @@ def get_employee_profile(id):
 def test(request):
     return render(request, 'myworkplace/test.html')
 
-def removeid(request):
+def remove_duplicate_all(request):
     context={'data1':[],
              'data2':[]}              
     for line_id in employee.objects.values_list('employee_line_ID', flat=True).distinct():
@@ -594,7 +594,6 @@ def removeid(request):
         employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
         context['data2'].append(employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)))
     connection.close()
-
     return render(request,'myworkplace/removeid.html', context)
 
 
@@ -602,33 +601,34 @@ def remove_emp_id(emp_id):
     employee.objects.filter(pk__in=employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True )[1:]).delete()
     connection.close()
 
-def remove_one_emp_id(request, emp_id):
-    context={'data1':[],
-             'data2':[]}
-    context['data1'].append(employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True))
-    employee.objects.filter(
-        pk__in=employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True)).delete()
-    connection.close()
-    context['data2'].append(employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True))
-    connection.close()
-    return render(request, 'myworkplace/removeid.html', context)
-
 def remove_duplicate_emp_id(request, emp_id):
     context={'data1':[]}
-    context['data1'].append(employee.objects.filter(employee_ID=emp_id).values_list(flat=True))
+    context['data1'].append(employee.objects.filter(employee_ID=emp_id))
     connection.close()
     if request.method == "POST":
         remove_emp_id(emp_id)
         context = {'data1': []}
-        context['data1'].append(employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True))
+        context['data1'].append(employee.objects.filter(employee_ID=emp_id))
         connection.close()
         return render(request, 'myworkplace/remove_duplicate_id.html', context)
     return render(request, 'myworkplace/remove_duplicate_id.html', context)
 
-def remove_line_id(line_id):
-    employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
+
+
+
+def remove_line_id(emp_line_id):
+    employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=emp_line_id).values_list('id', flat=True)).delete()
     connection.close()
 
+def remove_line_emp_id(request, emp_line_id):
+    context={'data1':[],
+             'data2':[]}
+    context['data1'].append(employee.objects.filter(employee_line_ID=emp_line_id))
+    connection.close()
+    remove_line_id(emp_line_id)
+    context['data2'].append(employee.objects.filter(employee_ID=emp_line_id))
+    connection.close()
+    return render(request, 'myworkplace/removeid.html', context)
 
 
 
