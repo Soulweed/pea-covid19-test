@@ -78,12 +78,16 @@ def daily_update(request, id):
             user_DU.save()
             connection.close()
             if health == 'normal':
+
                 return redirect(normal1, id)
             elif health == 'flu':
+
                 return redirect(normal2, id)
             elif health =='quarantine':
+
                 return redirect(quarantine, id, existing_health)
             elif health =='hospital':
+
                 return redirect(meet_doc2, id)
         except MultipleObjectsReturned:
             print('ERROR DU dubplicate id: {}'.format(id))
@@ -644,19 +648,26 @@ def summarylist1(request, dept_sap):
 
 def update_employee_profile(request):
 
-    user =employee.objects.get(emplyee_id=='233124')
-    print(user.employee_posi_text_short)
+    # user =employee.objects.get(employee_ID='233124')
+    # print(user.employee_posi_text_short)
+    # print(type(user.employee_posi_text_short))
+    # print(user.employee_posi_text_short == None)
+    # print(user.employee_posi_text_short == 'None')
 
-
-    # first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
-    #     user_data.employee_id)
-    # user_data.employee_posi_text_short = posi_text_short
-    # user_data.employee_dept_sap_short = dept_sap_short
-    # user_data.employee_dept_sap = dept_sap
-    # user_data.employee_dept_upper = dept_upper
-    # user_data.employee_sub_region = sub_region
-    # user_data.employee_emp_email = emp_email
-    # user_data.save
-
+    users = employee.objects.filter(employee_posi_text_short=None)
+    total_num=len(users)
+    i=1
+    for item in users:
+        print('{}/{}'.format(i,total_num))
+        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
+            item.employee_ID)
+        item.employee_posi_text_short = posi_text_short
+        item.employee_dept_sap_short = dept_sap_short
+        item.employee_dept_sap = dept_sap
+        item.employee_dept_upper = dept_upper
+        item.employee_sub_region = sub_region
+        item.employee_emp_email = emp_email
+        item.save()
+        i=i+1
 
     return render(request, 'myworkplace/home.html')
