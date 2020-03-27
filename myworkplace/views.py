@@ -156,12 +156,12 @@ def formwfh2(request,id):
             enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
             delta = enddate - startdate
             total_date = delta.days + 1
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region,emp_email = get_user_email(id_boss)
 
             # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender = get_employee_profile(
             #     id_boss)
             context={'Boss_name':'{} {}'.format(first_name, last_name), 'Boss_position':posi_text_short, 'Gender':sex_desc,
-                     'startdate':get_startdate, 'enddate':get_enddate, 'total_date':total_date, 'email_boss': email, 'id_boss':id_boss}
+                     'startdate':get_startdate, 'enddate':get_enddate, 'total_date':total_date, 'email_boss':emp_email, 'id_boss':id_boss}
             # print(context)
             return render(request, 'myworkplace/formwfh3.html', context)
         if (page=="2"):
@@ -358,7 +358,7 @@ def register(request,id):
         remove_emp_id(id)
         print('Remove register duplicate id: {}'.format(id))
     except ObjectDoesNotExist:
-        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email = get_user_email(emp_id)
+        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)
 
     # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
 
@@ -418,15 +418,9 @@ def register(request,id):
             lastname_ref_1 = request.POST.get("lastname_ref_1")
             mobile_ref_1 = request.POST.get("mobile_ref_1")
             relation_ref_1 = request.POST.get("relation_ref_1")
-            # firstname_ref_2 = request.POST.get("firstname_ref_2")
-            # lastname_ref_2 = request.POST.get("lastname_ref_2")
-            # mobile_ref_2 = request.POST.get("mobile_ref_2")
-            # relation_ref_2 = request.POST.get("relation_ref_2")
-            # firstname_ref_3 = request.POST.get("firstname_ref_3")
-            # lastname_ref_3 = request.POST.get("lastname_ref_3")
-            # mobile_ref_3 = request.POST.get("mobile_ref_3")
-            # relation_ref_3 = request.POST.get("relation_ref_3")
 
+
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             user_data = employee(
                 emplyee_name='{} {}'.format(first_name, last_name),
@@ -434,6 +428,12 @@ def register(request,id):
                 employee_line_ID=line_id,
                 activity_text=json.dumps([obj], ensure_ascii=False),
                 # posi_text_short=posi_text_short,
+                employee_posi_text_short=posi_text_short,
+                employee_dept_sap_short = dept_sap_short,
+                employee_dept_sap = dept_sap,
+                employee_dept_upper = dept_upper,
+                employee_sub_region = sub_region,
+                employee_emp_email = emp_email,
                 employee_tel=ext,
                 tel=mobile_phone,
                 work_building = building,
@@ -450,7 +450,6 @@ def register(request,id):
             print('model save: {}'.format(emp_id))
             print('------------------------')
             connection.close()
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)
             send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
             return redirect(daily_update,emp_id)
         return render(request, 'myworkplace/formregister.html', context)

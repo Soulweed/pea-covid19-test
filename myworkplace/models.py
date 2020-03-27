@@ -136,6 +136,13 @@ class employee(models.Model):
     emergency_two_tel = models.CharField(max_length=255, blank=True)
     emergency_two_relationship=models.CharField(max_length=255, blank=True)
 
+    employee_posi_text_short=models.CharField(max_length=255, blank=True, null=True)
+    employee_dept_sap_short =models.CharField(max_length=255, blank=True, null=True)
+    employee_dept_sap=models.CharField(max_length=255, blank=True, null=True)
+    employee_dept_upper=models.CharField(max_length=255, blank=True, null=True)
+    employee_sub_region=models.CharField(max_length=255, blank=True, null=True)
+    employee_emp_email=models.CharField(max_length=255, blank=True, null=True)
+
     def __str__(self):
         return "{}-{}".format(self.employee_ID, self.emplyee_name)
 
