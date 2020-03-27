@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/remove_duplicate_id.html" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="622" column="22" lean-forward="false" selection-start-line="622" selection-start-column="4" selection-end-line="622" selection-end-column="22" />
+            <state relative-caret-position="155">
+              <caret line="599" column="17" lean-forward="false" selection-start-line="599" selection-start-column="4" selection-end-line="599" selection-end-column="17" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#6954#7076#0" expanded="false" />
@@ -47,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="354">
-              <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+              <caret line="46" column="1" lean-forward="false" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -81,9 +79,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>#1f1</find>
-      <find>sub_region</find>
-      <find>except</find>
       <find>homebg</find>
       <find>get_use</find>
       <find>dept_sap, dept_upper, sub_region, emp_email = get_user_email(</find>
@@ -111,6 +106,9 @@
       <find>employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=emp_line_id).values_list('id', flat=True)).delete()</find>
       <find>remove_duplicate_emp_id</find>
       <find>remove_duplicate_all</find>
+      <find>remove_line_emp_id</find>
+      <find>personal</find>
+      <find>remove_emp_id</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -797,23 +795,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="46" column="1" lean-forward="false" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="622" column="22" lean-forward="false" selection-start-line="622" selection-start-column="4" selection-end-line="622" selection-end-column="22" />
+        <state relative-caret-position="155">
+          <caret line="599" column="17" lean-forward="false" selection-start-line="599" selection-start-column="4" selection-end-line="599" selection-end-column="17" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#6954#7076#0" expanded="false" />
             <element signature="e#7108#10009#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>

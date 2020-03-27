@@ -641,3 +641,6 @@ def summarylist(request):
     return render(request, 'myworkplace/summary_list.html', context)
 
 
+
+
+
