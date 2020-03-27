@@ -579,7 +579,6 @@ def get_employee_profile(id):
     return authData.get("FirstName"), authData.get("LastName"), authData.get("DepartmentShort"), \
            authData.get("PositionDescShort"), authData.get("LevelDesc"), authData.get("Gender")
 
-
 def test(request):
     return render(request, 'myworkplace/test.html')
 

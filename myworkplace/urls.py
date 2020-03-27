@@ -41,5 +41,5 @@ urlpatterns = [
     path('test/', views.test, name='test'),
     path('removeid/', views.removeid, name='removeid'),
     path('summarylist/', views.summarylist, name='summarylist'),
-    path('remove_one_emp_id/<id>/', views.remove_one_emp_id, name='remove_one_emp_id'),
+    path('remove_one_emp_id/<emp_id>/', views.remove_one_emp_id, name='remove_one_emp_id'),
 ]
