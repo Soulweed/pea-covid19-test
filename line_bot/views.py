@@ -269,95 +269,226 @@ def handle_text_message(event):
                     line_bot_api.reply_message(event.reply_token,
                                                FlexSendMessage(
                                                    alt_text='hello',
-                                                   contents={
+                                                   contents=
+                                                   # {
+                                                   #     "type": "bubble",
+                                                   #     "hero": {
+                                                   #         "type": "image",
+                                                   #         "url": "https://sv1.picz.in.th/images/2020/03/19/QiOkcu.png",
+                                                   #         "size": "full",
+                                                   #         "action": {
+                                                   #             "type": "uri",
+                                                   #             "uri": "http://linecorp.com/"
+                                                   #         },
+                                                   #         "aspectMode": "cover",
+                                                   #         "aspectRatio": "1040:677"
+                                                   #     },
+                                                   #     "body": {
+                                                   #         "type": "box",
+                                                   #         "layout": "vertical",
+                                                   #         "contents": [
+                                                   #             {
+                                                   #                 "type": "text",
+                                                   #                 "text": "{}".format(user_employee.emplyee_name),
+                                                   #                 "weight": "bold",
+                                                   #                 "size": "xl",
+                                                   #                 "align": "center"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "text",
+                                                   #                 "text": "{}".format(user_employee.employee_ID),
+                                                   #                 "align": "center",
+                                                   #                 "size": "xl",
+                                                   #                 "weight": "bold"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "box",
+                                                   #                 "layout": "horizontal",
+                                                   #                 "contents": [
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "ความเสี่ยง :",
+                                                   #                         "size": "xl"
+                                                   #                     },
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "{}".format({'normal': 'ไม่เข้าเกณฑ์',
+                                                   #                                              'flu': 'ไม่เข้าเกณฑ์',
+                                                   #                                              'quarantine': 'แยกตัว',
+                                                   #                                              'hospital': 'ควรพบแพทย์'}[
+                                                   #                                                 user_employee.healthy]),
+                                                   #                         "size": "xl"
+                                                   #                     }
+                                                   #                 ],
+                                                   #                 "margin": "md"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "box",
+                                                   #                 "layout": "horizontal",
+                                                   #                 "contents": [
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "สถานะ :",
+                                                   #                         "size": "xl"
+                                                   #                     },
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "{}".format({'PEA': 'ปฏิบัติงานตามปกติ',
+                                                   #                                              'WFH': 'Work from home',
+                                                   #                                              'LEAVE': 'ลาป่วย',
+                                                   #                                              'COVID': 'COVID'}[
+                                                   #                                                 user_employee.active_status]),
+                                                   #                         "size": "xl"
+                                                   #                     }
+                                                   #                 ],
+                                                   #                 "margin": "sm"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "box",
+                                                   #                 "layout": "horizontal",
+                                                   #                 "contents": [
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "วันที่ประเมิน :",
+                                                   #                         "size": "xl"
+                                                   #                     },
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "{}".format(d),
+                                                   #                         "size": "xl"
+                                                   #                     }
+                                                   #                 ],
+                                                   #                 "margin": "sm"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "box",
+                                                   #                 "layout": "horizontal",
+                                                   #                 "contents": [
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "เวลา",
+                                                   #                         "size": "xl",
+                                                   #                         "align": "start"
+                                                   #                     },
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "{} น.".format(t),
+                                                   #                         "size": "xl"
+                                                   #                     }
+                                                   #                 ],
+                                                   #                 "margin": "sm"
+                                                   #             },
+                                                   #             # {
+                                                   #             #     "type": "box",
+                                                   #             #     "layout": "horizontal",
+                                                   #             #     "contents": [
+                                                   #             #         {
+                                                   #             #             "type": "text",
+                                                   #             #             "text": "เหลือเวลา",
+                                                   #             #             "size": "xl"
+                                                   #             #         },
+                                                   #             #         {
+                                                   #             #             "type": "text",
+                                                   #             #             "text": "12 วัน",
+                                                   #             #             "size": "xl"
+                                                   #             #         }
+                                                   #             #     ],
+                                                   #             #     "margin": "sm"
+                                                   #             # },
+                                                   #             {
+                                                   #                 "type": "separator",
+                                                   #                 "margin": "xl"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "button",
+                                                   #                 "action": {
+                                                   #                     "type": "uri",
+                                                   #                     "label": "รายละเอียดเพิ่มเติม",
+                                                   #                     "uri": "http://pea-covid19-test.herokuapp.com/test/"
+                                                   #                 },
+                                                   #                 "margin": "xxl"
+                                                   #             }
+                                                   #         ],
+                                                   #         "offsetTop": "-10px"
+                                                   #     },
+                                                   #     "size": "mega"
+                                                   # }
+                                                   {
                                                        "type": "bubble",
-                                                       "hero": {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/19/QiOkcu.png",
-                                                           "size": "full",
-                                                           "action": {
-                                                               "type": "uri",
-                                                               "uri": "http://linecorp.com/"
-                                                           },
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "1040:677"
-                                                       },
+                                                       "size": "giga",
                                                        "body": {
                                                            "type": "box",
                                                            "layout": "vertical",
                                                            "contents": [
                                                                {
                                                                    "type": "text",
-                                                                   "text": "{}".format(user_employee.emplyee_name),
+                                                                   "text": "ข้อมูลส่วนตัว (My Profile)",
                                                                    "weight": "bold",
-                                                                   "size": "xl",
-                                                                   "align": "center"
+                                                                   "color": "#8448FF",
+                                                                   "size": "md"
                                                                },
                                                                {
                                                                    "type": "text",
-                                                                   "text": "{}".format(user_employee.employee_ID),
-                                                                   "align": "center",
-                                                                   "size": "xl",
-                                                                   "weight": "bold"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "horizontal",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "ความเสี่ยง :",
-                                                                           "size": "xl"
-                                                                       },
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "{}".format({'normal': 'ไม่เข้าเกณฑ์',
-                                                                                                'flu': 'ไม่เข้าเกณฑ์',
-                                                                                                'quarantine': 'แยกตัว',
-                                                                                                'hospital': 'ควรพบแพทย์'}[
-                                                                                                   user_employee.healthy]),
-                                                                           "size": "xl"
-                                                                       }
-                                                                   ],
+                                                                   "text": "{}".format(user_employee.emplyee_name),
+                                                                   "weight": "bold",
+                                                                   "size": "xxl",
                                                                    "margin": "md"
                                                                },
                                                                {
-                                                                   "type": "box",
-                                                                   "layout": "horizontal",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "สถานะ :",
-                                                                           "size": "xl"
-                                                                       },
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "{}".format({'PEA': 'ปฏิบัติงานตามปกติ',
-                                                                                                'WFH': 'Work from home',
-                                                                                                'LEAVE': 'ลาป่วย',
-                                                                                                'COVID': 'COVID'}[
-                                                                                                   user_employee.active_status]),
-                                                                           "size": "xl"
-                                                                       }
-                                                                   ],
-                                                                   "margin": "sm"
+                                                                   "type": "text",
+                                                                   "text": "ผวจ. กวจ. ฝวพ.".format(
+                                                                       user_employee.employee_posi_text_short),
+                                                                   "size": "sm",
+                                                                   "color": "#aaaaaa",
+                                                                   "wrap": true
+                                                               },
+                                                               {
+                                                                   "type": "separator",
+                                                                   "margin": "xxl"
                                                                },
                                                                {
                                                                    "type": "box",
                                                                    "layout": "horizontal",
+                                                                   "margin": "md",
                                                                    "contents": [
                                                                        {
                                                                            "type": "text",
-                                                                           "text": "วันที่ประเมิน :",
-                                                                           "size": "xl"
+                                                                           "text": "ความเสี่ยง",
+                                                                           "size": "md",
+                                                                           "color": "#111111",
+                                                                           "flex": 0
+                                                                       },
+                                                                       {
+                                                                           "type": "text",
+                                                                           "text": "{}".format(user_employee.healthy),
+                                                                           "color": "#111111",
+                                                                           "size": "md",
+                                                                           "align": "end",
+                                                                           "weight": "bold"
+                                                                       }
+                                                                   ]
+                                                               },
+                                                               {
+                                                                   "type": "box",
+                                                                   "layout": "horizontal",
+                                                                   "margin": "md",
+                                                                   "contents": [
+                                                                       {
+                                                                           "type": "text",
+                                                                           "text": "ประเมินล่าสุด",
+                                                                           "size": "md",
+                                                                           "color": "#aaaaaa",
+                                                                           "flex": 0
                                                                        },
                                                                        {
                                                                            "type": "text",
                                                                            "text": "{}".format(d),
-                                                                           "size": "xl"
+                                                                           "color": "#111111",
+                                                                           "size": "md",
+                                                                           "align": "end",
+                                                                           "weight": "regular"
                                                                        }
-                                                                   ],
-                                                                   "margin": "sm"
+                                                                   ]
                                                                },
                                                                {
                                                                    "type": "box",
@@ -366,52 +497,239 @@ def handle_text_message(event):
                                                                        {
                                                                            "type": "text",
                                                                            "text": "เวลา",
-                                                                           "size": "xl",
-                                                                           "align": "start"
+                                                                           "size": "md",
+                                                                           "color": "#aaaaaa"
                                                                        },
                                                                        {
                                                                            "type": "text",
-                                                                           "text": "{} น.".format(t),
-                                                                           "size": "xl"
+                                                                           "text": "{}".format(t),
+                                                                           "size": "md",
+                                                                           "color": "#111111",
+                                                                           "align": "end"
                                                                        }
                                                                    ],
-                                                                   "margin": "sm"
+                                                                   "margin": "md"
                                                                },
-                                                               # {
-                                                               #     "type": "box",
-                                                               #     "layout": "horizontal",
-                                                               #     "contents": [
-                                                               #         {
-                                                               #             "type": "text",
-                                                               #             "text": "เหลือเวลา",
-                                                               #             "size": "xl"
-                                                               #         },
-                                                               #         {
-                                                               #             "type": "text",
-                                                               #             "text": "12 วัน",
-                                                               #             "size": "xl"
-                                                               #         }
-                                                               #     ],
-                                                               #     "margin": "sm"
-                                                               # },
                                                                {
                                                                    "type": "separator",
-                                                                   "margin": "xl"
+                                                                   "margin": "xxl"
+                                                               },
+                                                               {
+                                                                   "type": "box",
+                                                                   "layout": "horizontal",
+                                                                   "margin": "md",
+                                                                   "contents": [
+                                                                       {
+                                                                           "type": "text",
+                                                                           "text": "สถานะ",
+                                                                           "size": "md",
+                                                                           "color": "#111111",
+                                                                           "flex": 0
+                                                                       },
+                                                                       {
+                                                                           "type": "text",
+                                                                           "text": "{}".format(status),
+                                                                           "color": "#111111",
+                                                                           "size": "md",
+                                                                           "align": "end",
+                                                                           "weight": "bold"
+                                                                       }
+                                                                   ]
+                                                               },
+                                                               {
+                                                                   "type": "box",
+                                                                   "layout": "vertical",
+                                                                   "margin": "md",
+                                                                   "spacing": "sm",
+                                                                   "contents": [
+                                                                       {
+                                                                           "type": "box",
+                                                                           "layout": "horizontal",
+                                                                           "contents": [
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "วันเริ่มต้น",
+                                                                                   "size": "md",
+                                                                                   "color": "#aaaaaa"
+                                                                               },
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "27/03/2020",
+                                                                                   "size": "md",
+                                                                                   "color": "#111111",
+                                                                                   "align": "end"
+                                                                               }
+                                                                           ]
+                                                                       },
+                                                                       {
+                                                                           "type": "box",
+                                                                           "layout": "horizontal",
+                                                                           "contents": [
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "วันที่สิ้นสุด",
+                                                                                   "size": "md",
+                                                                                   "color": "#aaaaaa"
+                                                                               },
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "12/04/2020",
+                                                                                   "size": "md",
+                                                                                   "color": "#111111",
+                                                                                   "align": "end"
+                                                                               }
+                                                                           ]
+                                                                       },
+                                                                       {
+                                                                           "type": "box",
+                                                                           "layout": "horizontal",
+                                                                           "margin": "md",
+                                                                           "contents": [
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "รวม (วัน)",
+                                                                                   "size": "md",
+                                                                                   "color": "#aaaaaa"
+                                                                               },
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "14",
+                                                                                   "size": "md",
+                                                                                   "color": "#111111",
+                                                                                   "align": "end"
+                                                                               }
+                                                                           ]
+                                                                       },
+                                                                       {
+                                                                           "type": "box",
+                                                                           "layout": "horizontal",
+                                                                           "contents": [
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "สถานะอนุมัติ",
+                                                                                   "size": "md",
+                                                                                   "color": "#aaaaaa"
+                                                                               },
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "อนุมัติแล้ว",
+                                                                                   "size": "md",
+                                                                                   "color": "#111111",
+                                                                                   "align": "end"
+                                                                               }
+                                                                           ]
+                                                                       },
+                                                                       {
+                                                                           "type": "separator",
+                                                                           "margin": "xxl"
+                                                                       },
+                                                                       {
+                                                                           "type": "box",
+                                                                           "layout": "horizontal",
+                                                                           "contents": [
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "วันที่ปฏิบัติงาน",
+                                                                                   "size": "md",
+                                                                                   "color": "#111111",
+                                                                                   "flex": 0
+                                                                               },
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "27/03/2020",
+                                                                                   "size": "md",
+                                                                                   "color": "#111111",
+                                                                                   "align": "end",
+                                                                                   "weight": "bold"
+                                                                               }
+                                                                           ],
+                                                                           "margin": "md"
+                                                                       },
+                                                                       {
+                                                                           "type": "box",
+                                                                           "layout": "horizontal",
+                                                                           "contents": [
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "เวลาเข้างาน",
+                                                                                   "size": "md",
+                                                                                   "color": "#aaaaaa"
+                                                                               },
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "07:10:23",
+                                                                                   "size": "md",
+                                                                                   "color": "#111111",
+                                                                                   "align": "end"
+                                                                               }
+                                                                           ]
+                                                                       },
+                                                                       {
+                                                                           "type": "box",
+                                                                           "layout": "horizontal",
+                                                                           "contents": [
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "เวลาเลิกงาน",
+                                                                                   "size": "md",
+                                                                                   "color": "#aaaaaa"
+                                                                               },
+                                                                               {
+                                                                                   "type": "text",
+                                                                                   "text": "18:20:45",
+                                                                                   "size": "md",
+                                                                                   "color": "#111111",
+                                                                                   "align": "end"
+                                                                               }
+                                                                           ],
+                                                                           "margin": "none"
+                                                                       }
+                                                                   ]
+                                                               }
+                                                           ],
+                                                           "paddingBottom": "20px"
+                                                       },
+                                                       "footer": {
+                                                           "type": "box",
+                                                           "layout": "vertical",
+                                                           "contents": [
+                                                               {
+                                                                   "type": "button",
+                                                                   "action": {
+                                                                       "type": "uri",
+                                                                       "label": "สรุปการลงเวลางาน",
+                                                                       "uri": "http://linecorp.com/"
+                                                                   },
+                                                                   "color": "#8448FF"
+                                                               },
+                                                               {
+                                                                   "type": "button",
+                                                                   "action": {
+                                                                       "type": "uri",
+                                                                       "label": "ส่งใบรับรองแพทย์",
+                                                                       "uri": "http://linecorp.com/"
+                                                                   },
+                                                                   "color": "#8448FF"
                                                                },
                                                                {
                                                                    "type": "button",
                                                                    "action": {
                                                                        "type": "uri",
                                                                        "label": "รายละเอียดเพิ่มเติม",
-                                                                       "uri": "http://pea-covid19-test.herokuapp.com/test/"
+                                                                       "uri": "http://linecorp.com/"
                                                                    },
-                                                                   "margin": "xxl"
+                                                                   "style": "primary",
+                                                                   "color": "#8448FF"
                                                                }
-                                                           ],
-                                                           "offsetTop": "-10px"
+                                                           ]
                                                        },
-                                                       "size": "mega"
+                                                       "styles": {
+                                                           "footer": {
+                                                               "separator": true
+                                                           }
+                                                       }
                                                    }
+
                                                )
                                                )
                 except IndexError:

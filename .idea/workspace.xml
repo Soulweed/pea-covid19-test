@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/personal_info.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/personal_info.html" />
+      <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +22,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="235" column="57" lean-forward="false" selection-start-line="235" selection-start-column="44" selection-end-line="235" selection-end-column="57" />
+            <state relative-caret-position="155">
+              <caret line="214" column="44" lean-forward="false" selection-start-line="214" selection-start-column="31" selection-end-line="214" selection-end-column="44" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#6954#7076#0" expanded="false" />
@@ -33,7 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="personal_info.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="personal_info.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/personal_info.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="96">
@@ -47,24 +47,24 @@
         <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="233">
-              <caret line="143" column="78" lean-forward="true" selection-start-line="138" selection-start-column="4" selection-end-line="143" selection-end-column="78" />
+              <caret line="143" column="78" lean-forward="false" selection-start-line="138" selection-start-column="4" selection-end-line="143" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/line_bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="290" column="114" lean-forward="true" selection-start-line="290" selection-start-column="79" selection-end-line="290" selection-end-column="114" />
+            <state relative-caret-position="265">
+              <caret line="706" column="73" lean-forward="true" selection-start-line="706" selection-start-column="73" selection-end-line="706" selection-end-column="73" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#5864#11748#0" expanded="false" />
                 <element signature="e#6091#11658#0" expanded="false" />
                 <element signature="e#11814#11975#0" expanded="false" />
                 <element signature="e#12054#17811#0" expanded="false" />
-                <element signature="e#53409#53632#0" expanded="false" />
+                <element signature="e#80740#80963#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -82,7 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>last_daily_update</find>
       <find>last_daily_update()</find>
       <find>daily_</find>
       <find>wfh</find>
@@ -112,6 +111,7 @@
       <find>email</find>
       <find>first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)</find>
       <find>person</find>
+      <find>active</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,7 +145,6 @@
         <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/home 2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/home.html" />
-        <option value="$PROJECT_DIR$/line_bot/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp_lock.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/timestamp.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/tscheckin.html" />
@@ -171,6 +170,7 @@
         <option value="$PROJECT_DIR$/myworkplace/models.py" />
         <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/personal_info.html" />
+        <option value="$PROJECT_DIR$/line_bot/views.py" />
       </list>
     </option>
   </component>
@@ -788,35 +788,8 @@
     <entry file="file://$PROJECT_DIR$/myworkplace/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
-          <caret line="143" column="78" lean-forward="true" selection-start-line="138" selection-start-column="4" selection-end-line="143" selection-end-column="78" />
+          <caret line="143" column="78" lean-forward="false" selection-start-line="138" selection-start-column="4" selection-end-line="143" selection-end-column="78" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/line_bot/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="290" column="114" lean-forward="true" selection-start-line="290" selection-start-column="79" selection-end-line="290" selection-end-column="114" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#5864#11748#0" expanded="false" />
-            <element signature="e#6091#11658#0" expanded="false" />
-            <element signature="e#11814#11975#0" expanded="false" />
-            <element signature="e#12054#17811#0" expanded="false" />
-            <element signature="e#53409#53632#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="235" column="57" lean-forward="false" selection-start-line="235" selection-start-column="44" selection-end-line="235" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <element signature="e#6954#7076#0" expanded="false" />
-            <element signature="e#7108#10015#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -825,6 +798,33 @@
         <state relative-caret-position="96">
           <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="214" column="44" lean-forward="false" selection-start-line="214" selection-start-column="31" selection-end-line="214" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#6954#7076#0" expanded="false" />
+            <element signature="e#7108#10015#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line_bot/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="706" column="73" lean-forward="true" selection-start-line="706" selection-start-column="73" selection-end-line="706" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#5864#11748#0" expanded="false" />
+            <element signature="e#6091#11658#0" expanded="false" />
+            <element signature="e#11814#11975#0" expanded="false" />
+            <element signature="e#12054#17811#0" expanded="false" />
+            <element signature="e#80740#80963#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
