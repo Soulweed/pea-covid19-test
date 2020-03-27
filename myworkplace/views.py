@@ -627,14 +627,17 @@ def remove_line_emp_id(request, emp_line_id):
     return render(request, 'myworkplace/removeid.html', context)
 
 
-
-
-
 def summarylist(request):
     context = {'date_data': "26/03/2020",
                'director': "นายเสริมชัย จา..",
                 'position_dir': "อก."}
     return render(request, 'myworkplace/summary_list.html', context)
+
+
+def summarylist1(request, dept_sap):
+    employee.objects.filter(dept_sap=dept_sap)
+    context={'data':employee}
+    return render(request, 'myworkplace/summary_list1.html', context)
 
 
 
