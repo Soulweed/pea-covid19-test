@@ -122,7 +122,6 @@ def LEAVE_request(request, id):
             context={'id_boss': id_boss, 'email_boss': email, 'total_day': total_day,'startdate':startdate, 'enddate':enddate,
                             'boss_name': '{} {}'.format(first_name, last_name), 'JobDesc': posi_text_short, 'Gender':sex_desc}
             return render(request, 'myworkplace/formleave3.html', context)
-
         if (page == "3"):
             # print("OK3")
             email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
@@ -273,9 +272,9 @@ def checkin(request, id):
                 connection.close()
                 return redirect(tscheckin, obj['datetime'])
             except MultipleObjectsReturned:
-                print('ERROR Checkin duplicate id: {}'.foramt(id))
+                print('ERROR Checkin duplicate id: {}'.format(id))
                 remove_emp_id(id)
-                print('Remove Checkin duplicate id: {}'.foramt(id))
+                print('Remove Checkin duplicate id: {}'.format(id))
         elif(action_type == "checkout"):
             obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
@@ -288,9 +287,9 @@ def checkin(request, id):
                 connection.close()
                 return redirect(tscheckout, obj['datetime'])
             except MultipleObjectsReturned:
-                print('ERROR Checkin duplicate id: {}'.foramt(id))
+                print('ERROR Checkin duplicate id: {}'.format(id))
                 remove_emp_id(id)
-                print('Remove Checkin duplicate id: {}'.foramt(id))
+                print('Remove Checkin duplicate id: {}'.format(id))
     return render(request, 'myworkplace/timestamp.html')
 
 
@@ -365,9 +364,9 @@ def register(request,id):
     try:
         user=employee.objects.get(employee_line_ID=line_id)
         connection.close()
-        print('ERROR register duplicate id: {}'.foramt(id))
+        print('ERROR register duplicate id: {}'.format(id))
         remove_emp_id(id)
-        print('Remove register duplicate id: {}'.foramt(id))
+        print('Remove register duplicate id: {}'.format(id))
         return redirect(home)
     except ObjectDoesNotExist:
         first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(emp_id)
@@ -490,9 +489,9 @@ def randomquestions(request, id):
             else:
                 return render(request, 'myworkplace/wrong.html')
         except MultipleObjectsReturned:
-            print('ERROR randomquestions duplicate id: {}'.foramt(id))
+            print('ERROR randomquestions duplicate id: {}'.format(id))
             remove_emp_id(id)
-            print('Remove randomquestions duplicate id: {}'.foramt(id))
+            print('Remove randomquestions duplicate id: {}'.format(id))
     return render(request, 'myworkplace/challenge2.html', context)
 
 def wrong(request):
@@ -508,9 +507,9 @@ def miss3d_du(request, id):
         connection.close()
         return render(request, 'myworkplace/miss3d_du_id.html', context)
     except MultipleObjectsReturned:
-        print('ERROR miss3d_du duplicate id: {}'.foramt(id))
+        print('ERROR miss3d_du duplicate id: {}'.format(id))
         remove_emp_id(id)
-        print('Remove miss3d_du duplicate id: {}'.foramt(id))
+        print('Remove miss3d_du duplicate id: {}'.format(id))
 
 
 def miss3d_ts(request, id):
@@ -520,9 +519,9 @@ def miss3d_ts(request, id):
         connection.close()
         return render(request, 'myworkplace/miss3d_ts_id.html', context)
     except MultipleObjectsReturned:
-        print('ERROR miss3d_ts duplicate id: {}'.foramt(id))
+        print('ERROR miss3d_ts duplicate id: {}'.format(id))
         remove_emp_id(id)
-        print('Remove miss3d_ts duplicate id: {}'.foramt(id))
+        print('Remove miss3d_ts duplicate id: {}'.format(id))
 
 
 # def WFH_request(request, id, boss):
@@ -563,9 +562,9 @@ def WFH_approve(request, id, boss, total_date):
         send_email_confrim_wfh(boss=boss, emp_email=emp_email)
         return render(request, 'myworkplace/test2.html')
     except:
-        print('ERROR WFH_approve duplicate id: {}'.foramt(id))
+        print('ERROR WFH_approve duplicate id: {}'.format(id))
         remove_emp_id(id)
-        print('Remove WFH_approve duplicate id: {}'.foramt(id))
+        print('Remove WFH_approve duplicate id: {}'.format(id))
 
 def LEAVE_approve(request, id, boss):
     day=14
@@ -585,9 +584,9 @@ def LEAVE_approve(request, id, boss):
         context={'data': 'Leave request'}
         return render(request, 'myworkplace/test.html',context )
     except:
-        print('ERROR LEAVE_approve duplicate id: {}'.foramt(id))
+        print('ERROR LEAVE_approve duplicate id: {}'.format(id))
         remove_emp_id(id)
-        print('Remove LEAVE_approve duplicate id: {}'.foramt(id))
+        print('Remove LEAVE_approve duplicate id: {}'.format(id))
 
 
 def get_employee_profile(id):
