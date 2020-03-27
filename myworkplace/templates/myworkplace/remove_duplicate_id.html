@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title_bl %} daily update{% endblock %}
+{% block body_bl %}
+
+
+
+    <h>{{ data1 }}</h>
+    <form method="POST">
+        {% csrf_token %}
+        <input id="mapbtn" class="w-100 mapbtn" type="submit" value="กดสิ">
+    </form>
+{% endblock %}
+
+
+
