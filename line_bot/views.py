@@ -78,19 +78,20 @@ def handle_text_message(event):
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
             if emp_email is not None:
-                # try:
-                send_email_register(emp_email=emp_email, line_id=dict_source['user_id'], id=dict_message['text'])
                 line_bot_api.reply_message(event.reply_token,
-                                           TextSendMessage(
-                                               text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
-                                                    '(username คือรหัสพนักงาน 6 หลัก)'),
-                                           )
+                                           TextSendMessage(text='ขณะนี้เรากำลังปรับปรุงระบบลงทะเบียนเพื่อรองรับผู้ใช้งานจำนวนมาก กรุณาลงทะเบียนอีกครั้งภายหลัง'))
+                print('{} no email in system'.format(dict_message['text']))
+                # try:
+                # send_email_register(emp_email=emp_email, line_id=dict_source['user_id'], id=dict_message['text'])
+                # line_bot_api.reply_message(event.reply_token,
+                #                            TextSendMessage(
+                #                                text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
+                #                                     '(username คือรหัสพนักงาน 6 หลัก)'),
+                #                            )
                 # except:
                 #     line_bot_api.reply_message(event.reply_token,
                 #                                TextSendMessage(text='ลองอีกครั้ง'))
                 #     print('{} no email in system'.format(dict_message['text']))
-
-
 
             else:
                 line_bot_api.reply_message(event.reply_token,

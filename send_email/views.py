@@ -146,6 +146,7 @@ def send_email_register(emp_email, line_id, id):
                 body=body,
                 to_recipients=recipient_list)
     m.send_and_save()
+    m.close()
     print('email register send: {} : {}'.format(id, emp_email))
 
 
