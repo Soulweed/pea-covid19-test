@@ -584,20 +584,12 @@ def test(request):
 
 def removeid(request):
     context={'data1':[],
-             'data2':[]}
-
+             'data2':[]}              
     for line_id in employee.objects.values_list('employee_line_ID', flat=True).distinct():
         context['data1'].append(employee.objects.filter(employee_line_ID=line_id).values_list(flat=True ))
         employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
         context['data2'].append(employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)))
     connection.close()
-
-    # line_id=''
-    # context['data1'].append(employee.objects.filter(employee_line_ID=line_id).values_list(flat=True))
-    # employee.objects.filter(
-    #     pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)[1:]).delete()
-    # context['data2'].append(
-    #     employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)))
 
     return render(request,'myworkplace/removeid.html', context)
 
@@ -607,10 +599,14 @@ def remove_emp_id(emp_id):
     connection.close()
 
 def remove_one_emp_id(request, emp_id):
+    context={'data1':[],
+             'data2':[]}
+    context['data1'].append(employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True))
     employee.objects.filter(
         pk__in=employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True)).delete()
     connection.close()
-    return render(request, 'myworkplace/home.html')
+    context['data2'].append(employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True))
+    return render(request, 'myworkplace/removeid.html', context)
 
 def remove_line_id(line_id):
     employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
