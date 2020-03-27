@@ -607,6 +607,11 @@ def remove_emp_id(emp_id):
     employee.objects.filter(pk__in=employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True )[1:]).delete()
     connection.close()
 
+def remove_one_emp_id(emp_id):
+    employee.objects.filter(
+        pk__in=employee.objects.filter(employee_ID=emp_id).values_list('id', flat=True)).delete()
+    connection.close()
+
 def remove_line_id(line_id):
     employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
     connection.close()
