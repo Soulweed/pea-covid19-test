@@ -270,149 +270,149 @@ def handle_text_message(event):
                                                FlexSendMessage(
                                                    alt_text='hello',
                                                    contents=
-                                                   {
-                                                       "type": "bubble",
-                                                       "hero": {
-                                                           "type": "image",
-                                                           "url": "https://sv1.picz.in.th/images/2020/03/19/QiOkcu.png",
-                                                           "size": "full",
-                                                           "action": {
-                                                               "type": "uri",
-                                                               "uri": "http://linecorp.com/"
-                                                           },
-                                                           "aspectMode": "cover",
-                                                           "aspectRatio": "1040:677"
-                                                       },
-                                                       "body": {
-                                                           "type": "box",
-                                                           "layout": "vertical",
-                                                           "contents": [
-                                                               {
-                                                                   "type": "text",
-                                                                   "text": "{}".format(user_employee.emplyee_name),
-                                                                   "weight": "bold",
-                                                                   "size": "xl",
-                                                                   "align": "center"
-                                                               },
-                                                               {
-                                                                   "type": "text",
-                                                                   "text": "{}".format(user_employee.employee_ID),
-                                                                   "align": "center",
-                                                                   "size": "xl",
-                                                                   "weight": "bold"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "horizontal",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "ความเสี่ยง :",
-                                                                           "size": "xl"
-                                                                       },
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "{}".format({'normal': 'ไม่เข้าเกณฑ์',
-                                                                                                'flu': 'ไม่เข้าเกณฑ์',
-                                                                                                'quarantine': 'แยกตัว',
-                                                                                                'hospital': 'ควรพบแพทย์'}[
-                                                                                                   user_employee.healthy]),
-                                                                           "size": "xl"
-                                                                       }
-                                                                   ],
-                                                                   "margin": "md"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "horizontal",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "สถานะ :",
-                                                                           "size": "xl"
-                                                                       },
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "{}".format({'PEA': 'ปฏิบัติงานตามปกติ',
-                                                                                                'WFH': 'Work from home',
-                                                                                                'LEAVE': 'ลาป่วย',
-                                                                                                'COVID': 'COVID'}[
-                                                                                                   user_employee.active_status]),
-                                                                           "size": "xl"
-                                                                       }
-                                                                   ],
-                                                                   "margin": "sm"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "horizontal",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "วันที่ประเมิน :",
-                                                                           "size": "xl"
-                                                                       },
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "{}".format(d),
-                                                                           "size": "xl"
-                                                                       }
-                                                                   ],
-                                                                   "margin": "sm"
-                                                               },
-                                                               {
-                                                                   "type": "box",
-                                                                   "layout": "horizontal",
-                                                                   "contents": [
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "เวลา",
-                                                                           "size": "xl",
-                                                                           "align": "start"
-                                                                       },
-                                                                       {
-                                                                           "type": "text",
-                                                                           "text": "{} น.".format(t),
-                                                                           "size": "xl"
-                                                                       }
-                                                                   ],
-                                                                   "margin": "sm"
-                                                               },
-                                                               # {
-                                                               #     "type": "box",
-                                                               #     "layout": "horizontal",
-                                                               #     "contents": [
-                                                               #         {
-                                                               #             "type": "text",
-                                                               #             "text": "เหลือเวลา",
-                                                               #             "size": "xl"
-                                                               #         },
-                                                               #         {
-                                                               #             "type": "text",
-                                                               #             "text": "12 วัน",
-                                                               #             "size": "xl"
-                                                               #         }
-                                                               #     ],
-                                                               #     "margin": "sm"
-                                                               # },
-                                                               {
-                                                                   "type": "separator",
-                                                                   "margin": "xl"
-                                                               },
-                                                               {
-                                                                   "type": "button",
-                                                                   "action": {
-                                                                       "type": "uri",
-                                                                       "label": "รายละเอียดเพิ่มเติม",
-                                                                       "uri": "http://pea-covid19-test.herokuapp.com/test/"
-                                                                   },
-                                                                   "margin": "xxl"
-                                                               }
-                                                           ],
-                                                           "offsetTop": "-10px"
-                                                       },
-                                                       "size": "mega"
-                                                   }
+                                                   # {
+                                                   #     "type": "bubble",
+                                                   #     "hero": {
+                                                   #         "type": "image",
+                                                   #         "url": "https://sv1.picz.in.th/images/2020/03/19/QiOkcu.png",
+                                                   #         "size": "full",
+                                                   #         "action": {
+                                                   #             "type": "uri",
+                                                   #             "uri": "http://linecorp.com/"
+                                                   #         },
+                                                   #         "aspectMode": "cover",
+                                                   #         "aspectRatio": "1040:677"
+                                                   #     },
+                                                   #     "body": {
+                                                   #         "type": "box",
+                                                   #         "layout": "vertical",
+                                                   #         "contents": [
+                                                   #             {
+                                                   #                 "type": "text",
+                                                   #                 "text": "{}".format(user_employee.emplyee_name),
+                                                   #                 "weight": "bold",
+                                                   #                 "size": "xl",
+                                                   #                 "align": "center"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "text",
+                                                   #                 "text": "{}".format(user_employee.employee_ID),
+                                                   #                 "align": "center",
+                                                   #                 "size": "xl",
+                                                   #                 "weight": "bold"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "box",
+                                                   #                 "layout": "horizontal",
+                                                   #                 "contents": [
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "ความเสี่ยง :",
+                                                   #                         "size": "xl"
+                                                   #                     },
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "{}".format({'normal': 'ไม่เข้าเกณฑ์',
+                                                   #                                              'flu': 'ไม่เข้าเกณฑ์',
+                                                   #                                              'quarantine': 'แยกตัว',
+                                                   #                                              'hospital': 'ควรพบแพทย์'}[
+                                                   #                                                 user_employee.healthy]),
+                                                   #                         "size": "xl"
+                                                   #                     }
+                                                   #                 ],
+                                                   #                 "margin": "md"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "box",
+                                                   #                 "layout": "horizontal",
+                                                   #                 "contents": [
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "สถานะ :",
+                                                   #                         "size": "xl"
+                                                   #                     },
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "{}".format({'PEA': 'ปฏิบัติงานตามปกติ',
+                                                   #                                              'WFH': 'Work from home',
+                                                   #                                              'LEAVE': 'ลาป่วย',
+                                                   #                                              'COVID': 'COVID'}[
+                                                   #                                                 user_employee.active_status]),
+                                                   #                         "size": "xl"
+                                                   #                     }
+                                                   #                 ],
+                                                   #                 "margin": "sm"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "box",
+                                                   #                 "layout": "horizontal",
+                                                   #                 "contents": [
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "วันที่ประเมิน :",
+                                                   #                         "size": "xl"
+                                                   #                     },
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "{}".format(d),
+                                                   #                         "size": "xl"
+                                                   #                     }
+                                                   #                 ],
+                                                   #                 "margin": "sm"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "box",
+                                                   #                 "layout": "horizontal",
+                                                   #                 "contents": [
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "เวลา",
+                                                   #                         "size": "xl",
+                                                   #                         "align": "start"
+                                                   #                     },
+                                                   #                     {
+                                                   #                         "type": "text",
+                                                   #                         "text": "{} น.".format(t),
+                                                   #                         "size": "xl"
+                                                   #                     }
+                                                   #                 ],
+                                                   #                 "margin": "sm"
+                                                   #             },
+                                                   #             # {
+                                                   #             #     "type": "box",
+                                                   #             #     "layout": "horizontal",
+                                                   #             #     "contents": [
+                                                   #             #         {
+                                                   #             #             "type": "text",
+                                                   #             #             "text": "เหลือเวลา",
+                                                   #             #             "size": "xl"
+                                                   #             #         },
+                                                   #             #         {
+                                                   #             #             "type": "text",
+                                                   #             #             "text": "12 วัน",
+                                                   #             #             "size": "xl"
+                                                   #             #         }
+                                                   #             #     ],
+                                                   #             #     "margin": "sm"
+                                                   #             # },
+                                                   #             {
+                                                   #                 "type": "separator",
+                                                   #                 "margin": "xl"
+                                                   #             },
+                                                   #             {
+                                                   #                 "type": "button",
+                                                   #                 "action": {
+                                                   #                     "type": "uri",
+                                                   #                     "label": "รายละเอียดเพิ่มเติม",
+                                                   #                     "uri": "http://pea-covid19-test.herokuapp.com/test/"
+                                                   #                 },
+                                                   #                 "margin": "xxl"
+                                                   #             }
+                                                   #         ],
+                                                   #         "offsetTop": "-10px"
+                                                   #     },
+                                                   #     "size": "mega"
+                                                   # }
 
                     {
                         "type": "bubble",
