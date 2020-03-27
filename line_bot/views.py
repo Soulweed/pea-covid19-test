@@ -721,7 +721,7 @@ def handle_text_message(event):
                         },
                         "styles": {
                             "footer": {
-                                "separator": true
+                                "separator": True
                             }
                         }
                     }
