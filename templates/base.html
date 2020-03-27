@@ -60,24 +60,42 @@
     .timestampbg {
       background-image: url("{% static 'images/Mask+Rectangle+Rectangle+Group16Mask3.png' %}");
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
+      background-position: top center;
+      width: 100%;
+      height: 300px;
     }
+
+    @media only screen and (min-width: 450px) {
+            .timestampbg {
+                width: 100%;
+                background-size: contain;
+            }
+        }
 
     hr {
       border-width: 2px;
       border-color: rgb(84, 82, 85, 0.4);
     }
 
+    .slider {
+        height: 100px;
+    }
+
     #checkin {
       background-color: #0bb07b;
-      border-radius: 5px;
+      border-radius: 10px;
       color: white;
+      padding: 8px;
+      border-style: none;
     }
 
     #checkout {
       background-color: #cd87eb;
-      border-radius: 5px;
+      border-radius: 10px;
       color: white;
+      padding: 8px;
+      border-style: none;
     }
 
     .greentext {
@@ -87,6 +105,11 @@
 
     .purpletext {
       color: #756d78;
+    }
+
+    .lightgreytext{
+      color: #1f1722;
+      font-family: "Kanit-Light";
     }
 
     #yessirin {
@@ -106,14 +129,46 @@
       color: white;
     }
 
+    .checkin_complete{
+      width: 100px;
+      height: 100px;
+      position: center;
+    }
+
     /* timestamp css end */
 
     /* formregister1 css start */
     .formregisterbg {
       background-image: url("{% static 'images/register@3x.png' %}");
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
+      background-position: top center;
+      width: 100%;
+      height: 300px;
     }
+
+    @media only screen and (min-width: 450px) {
+            .formregisterbg {
+                width: 100%;
+                background-size: contain;
+            }
+        }
+
+    #missingbg {
+      background-image: url("{% static 'images/missingbg.png' %}");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: top center;
+      width: 100%;
+      height: 300px;
+    }
+
+    @media only screen and (min-width: 450px) {
+            .formregisterbg {
+                width: 100%;
+                background-size: contain;
+            }
+        }
 
     #unedited {
       font-family: "Kanit-Light";
@@ -230,12 +285,21 @@
     .wfhbg {
       background-image: url("{%static 'images/wfh@3x.png' %}");
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: contain;
+      background-position: top center;
+      width: 100%;
+      height: 300px;
     }
+
+    @media only screen and (min-width: 450px) {
+            .wfhbg {
+                width: 100%;
+                background-size: contain;
+            }
+        }
 
     .formwfhtext {
       font-family: "Kanit-Regular";
-        text-align: left;
     }
 
     .brightpurpletext {
@@ -291,21 +355,19 @@
 
     .covidleavebg {
       background-image: url("{% static 'images/covid-leave@3x.png' %}");
-      background-repeat: no-repeat;
+       background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top center;
+        width: 100%;
+        height: 300px;
     }
 
 
     .homebg {
             background-image: url("{% static 'images/group-2-group-2-copy-group-2-copy-2-mask@3x.png' %}");
             background-repeat: no-repeat;
-            background-size: 80%;
+            background-size: 100%;
         }
-
-        {##bg_home {#}
-        {#    background-image: url("{% static 'images/group-2-group-2-copy-group-2-copy-2-mask@3x.png' %}");#}
-        {#    background-repeat: no-repeat;#}
-        {#    background-size: 100%;#}
-        {#}#}
 
         #status {
             font-family: "Kanit-Light";
@@ -342,24 +404,23 @@
             border-radius: 15px;
         }
 
-      /* daily_update css start */
+        /* daily_update css start */
         #headerbg {
       background-image:url("{% static 'images/header_form.png' %}");
       background-repeat: no-repeat;
-      width: 100%;
-      height: 300px;
-      background-size: contain;
-      background-position: center;
-      color: white;
+        background-size: contain;
+        background-position: top center;
+        width: 100%;
+        height: 300px;
     }
-    @media only screen and (min-width: 350px) {
+    @media only screen and (min-width: 450px) {
             #headerbg {
                 width: 100%;
                 background-size: contain;
             }
         }
 
-    #submit {
+        #submit {
       background-color: #7248C8;
       border-radius: 5px;
       color: white;
@@ -390,7 +451,16 @@
         padding: 15px;
     }
 
-    .question{
+        .resultbg {
+          background-image: url("{% static 'images/mask-rectangle-rectangle-group-16-mask@3x.png' %}");
+          background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top center;
+        width: 100%;
+        height: 300px;
+        }
+
+        .question{
         font-family: "Kanit-Medium";
         font-size: 18px;
         font-weight: 500;
@@ -410,10 +480,24 @@
     }
         /* daily_update css end */
 
-      #challengebg {
-          background-image: url("{% static 'images/challenge@3x.png' %}");
-      background-repeat: no-repeat;
-      background-size: cover;
+    #challengebg {
+        background-image: url("{% static 'images/challenge@3x.png' %}");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: top center;
+        width: 100%;
+        height: 300px;
+    }
+    @media only screen and (min-width: 450px) {
+            #challengebg {
+                width: 100%;
+                background-size: contain;
+            }
+        }
+
+      #headerquiz {
+          background-color: #8448ff;
+          color: white
       }
   </style>
 </head>
@@ -421,12 +505,6 @@
 <body>
   {% block body_bl %}
   {% endblock %}
-
-{#  <div class="container-fluid" id="footer">#}
-{#    <p id="credit">#}
-{#      <small>Created by PEA Innovation Hub<br>MARCH 16 2020</small>#}
-{#    </p>#}
-{#  </div>#}
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

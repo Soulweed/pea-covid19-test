@@ -1,79 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/v4-shims.css">
-  <title>แจ้งหาย 3 วัน - Timestamp</title>
+{% block title_bl %} Missing 3 Day Timestamp {% endblock %}
+{% block body_bl %}
 
-  <style>
-    /* fonts */
-    @font-face {
-      font-family: "Kanit-Black";
-      src: url('../fonts/Kanit-Black.ttf') format("truetype");
-    }
-
-    @font-face {
-      font-family: "Kanit-Bold";
-      src: url('../fonts/Kanit-Black.ttf') format("truetype");
-    }
-
-    @font-face {
-      font-family: "Kanit-Light";
-      src: url('../fonts/Kanit-Light.ttf') format("truetype");
-    }
-
-    @font-face {
-      font-family: "Kanit-Medium";
-      src: url('../fonts/Kanit-Medium.ttf') format("truetype");
-    }
-
-    @font-face {
-      font-family: "Kanit-Regular";
-      src: url('../fonts/Kanit-Regular.ttf') format("truetype");
-    }
-
-    @font-face {
-      font-family: "Kanit-SemiBold";
-      src: url('../fonts/Kanit-SemiBold.ttf') format("truetype");
-    }
-    /* fonts */
-    
-    body {
-      font-family: "Kanit-Medium";
-    }
-
-    #missingbg {
-      background-image: url('missingbg.png');
-
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
-
-    .brightpurpletext {
-      color: #8448FF;
-    }
-
-    #submitit {
-      background-color: #8448FF;
-      border-radius: 5px;
-      color: white;
-    }
-
-    #submitmit {
-      background-color: white;
-      border-color: #8448FF;
-      border-radius: 5px;
-      color: #8448FF;
-    }
-  </style>
-</head>
-
-<body>
   <div class="px-5 py-5 text-center" id="missingbg">
     <div class="px-5 py-5 container">
       <div class="px-5 py-5 row">
@@ -103,15 +33,18 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-2"></div>
-        <div class="col-4">
+        <div class="col-5">
           <h6 class="text-left">รหัสพนักงาน</h6>
-          <h6 class="text-left">เบอร์ติดต่อฉุกเฉิน</h6>
+          <h6 class="text-left">เบอร์ติดต่อ :</h6>
+            <h6 class="text-left">เบอร์ติดต่อฉุกเฉิน 1 :</h6>
+
         </div>
         <div class="col-4">
           <h6 class="text-left">409930</h6>
           <h6 class="text-left">0981236789</h6>
+            <h6 class="text-left">0981236789</h6>
         </div>
-        <div class="col-2"></div>
+        <div class="col-1"></div>
       </div>
     </div>
   </div>
@@ -128,7 +61,7 @@
     <div class="py-3">
       <div class="container">
         <div class="row">
-          <div class="col-12 text-center"><input id="submitit" class="w-75 btn" type="submit" value="ติดต่อได้แล้ว">
+          <div class="col-12 text-center"><input id="submitit" class="w-75 mapbtn" type="submit" value="ติดต่อได้แล้ว">
           </div>
         </div>
       </div>
@@ -136,7 +69,7 @@
     <div class="py-0">
       <div class="container">
         <div class="row">
-          <div class="col-12 text-center"><input id="submitmit" class="w-75 btn" type="submit" value="ยังไม่สามารถติดต่อได้">
+          <div class="col-12 text-center"><input id="submitmit" class="w-75 mapbtnreverse" type="submit" value="ยังไม่สามารถติดต่อได้">
           </div>
         </div>
       </div>
@@ -151,15 +84,5 @@
       </div>
     </div>
   </form>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
-</body>
 
-</html>
+{% endblock %}

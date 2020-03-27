@@ -33,28 +33,53 @@
         {% csrf_token %}
         <div class="">
             <div class="px-5 container">
-                <div class="py-2 form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                           value="{{ data.answer_1 }}" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                        <h5> &nbsp; {{ data.answer_1 }}</h5>
-                    </label>
+                <div class="col-12">
+            <ul>
+              <li>
+                <input type="radio" id="a-option" name="selector">
+                <label for="a-option">{{ data.answer_1 }}</label>
+                <div class="check"></div>
+              </li>
+              <li>
+                <input type="radio" id="b-option" name="selector">
+                <label for="b-option">{{ data.answer_2 }}</label>
+                <div class="check">
+                  <div class="inside"></div>
                 </div>
-                <div class="py-2 form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                           value="{{ data.answer_2 }}">
-                    <label class="form-check-label" for="exampleRadios2">
-                        <h5> &nbsp; {{ data.answer_2 }}</h5>
-                    </label>
+              </li>
+                <li>
+                <input type="radio" id="c-option" name="selector">
+                <label for="c-option">{{ data.answer_3 }}</label>
+                <div class="check">
+                  <div class="inside"></div>
                 </div>
-                <div class="py-2 form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
-                           value="{{ data.answer_3 }}">
-                    <label class="form-check-label" for="exampleRadios3">
-                        <h5> &nbsp; {{ data.answer_3 }}</h5>
-                    </label>
-                </div>
-                <input name="correct" value="{{ data.correct_answer }}" hidden='true'>
+              </li>
+            </ul>
+          </div>
+       <input name="correct" value="{{ data.correct_answer }}" hidden='true'>
+        </div>
+{#                <div class="py-2 form-check">#}
+{#                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"#}
+{#                           value="{{ data.answer_1 }}" checked>#}
+{#                    <label class="form-check-label" for="exampleRadios1">#}
+{#                        <h5> &nbsp; {{ data.answer_1 }}</h5>#}
+{#                    </label>#}
+{#                </div>#}
+{#                <div class="py-2 form-check">#}
+{#                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"#}
+{#                           value="{{ data.answer_2 }}">#}
+{#                    <label class="form-check-label" for="exampleRadios2">#}
+{#                        <h5> &nbsp; {{ data.answer_2 }}</h5>#}
+{#                    </label>#}
+{#                </div>#}
+{#                <div class="py-2 form-check">#}
+{#                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"#}
+{#                           value="{{ data.answer_3 }}">#}
+{#                    <label class="form-check-label" for="exampleRadios3">#}
+{#                        <h5> &nbsp; {{ data.answer_3 }}</h5>#}
+{#                    </label>#}
+{#                </div>#}
+{#                <input name="correct" value="{{ data.correct_answer }}" hidden='true'>#}
             </div>
             <div class="py-3">
                 <div class="container">
