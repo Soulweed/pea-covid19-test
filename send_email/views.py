@@ -159,8 +159,7 @@ def send_email_confrim_register(emp_id, emp_email):
     password = 'peacovid19'
     account = connect(server, email, username, password)
     subject = 'ยืนยันการลงทะเบียน'
-    body='ขอบคุณที่ร่วมลงทะเบียนกับเรา \n\n' \ 
-         'รหัสพนักงานของท่านได้ทำการลงทะเบียนในระบบ PEA COVID-19 LINE Official Account สำเร็จแล้ว\n\n' \
+    body='ขอบคุณที่ร่วมลงทะเบียนกับเรา \n\nรหัสพนักงานของท่านได้ทำการลงทะเบียนในระบบ PEA COVID-19 LINE Official Account สำเร็จแล้ว\n\n' \
          'วิธีการใช้งานเบื้องต้น\n\n'\
          'เพื่อการใช้งานที่ต่อเนื่อง และมีประสิทธิภาพ หากอุปกรณ์ของคุณไม่รองรับปุ่มเมนู (เช่นใช้งานบน Tablet, iPad, LINE PC)\n\n' \
          'คุณสามารถเข้าถึงเมนูของเราเพียง พิมพ์ข้อความ\n\n' \
