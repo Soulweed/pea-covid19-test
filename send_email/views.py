@@ -293,11 +293,14 @@ def send_email_meetdoc_request(id, email_boss, name):
                 subject=subject,
                 body=body,
                 to_recipients=recipient_list)
-    # print('message created')
     try:
         m.send_and_save()
+    except UnauthorizedError:
+        print('Unauthorize error')
     except TransportError:
         print('Transport error')
+    except:
+        print('anything else error')
     # print(m)
     print('email send: {} >> {}'.format(id, email_boss))
 
