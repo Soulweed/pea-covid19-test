@@ -556,8 +556,8 @@ def WFH_approve(request, id, boss, total_date):
         first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id)
         send_email_confrim_wfh(boss=boss, emp_email=emp_email)
         return render(request, 'myworkplace/test2.html')
-    except:
-        print('ERROR WFH_approve duplicate id: {}'.format(id))
+    except MultipleObjectsReturned:
+        ('ERROR WFH_approve duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove WFH_approve duplicate id: {}'.format(id))
 
@@ -578,7 +578,7 @@ def LEAVE_approve(request, id, boss):
         connection.close()
         context={'data': 'Leave request'}
         return render(request, 'myworkplace/test.html',context )
-    except:
+    except MultipleObjectsReturned:
         print('ERROR LEAVE_approve duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove LEAVE_approve duplicate id: {}'.format(id))
