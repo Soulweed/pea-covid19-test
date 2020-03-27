@@ -635,8 +635,7 @@ def summarylist(request):
 
 
 def summarylist1(request, dept_sap):
-    employee.objects.filter(dept_sap=dept_sap)
-    context={'data':employee}
+    context={'data':employee.objects.filter(employee_dept_sap=dept_sap)}
     return render(request, 'myworkplace/summary_list1.html', context)
 
 

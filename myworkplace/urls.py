@@ -44,5 +44,4 @@ urlpatterns = [
     path('remove_duplicate_all/', views.remove_duplicate_all, name='remove_duplicate_all'),
     path('remove_duplicate_emp_id/<emp_id>/', views.remove_duplicate_emp_id, name='remove_duplicate_emp_id'),
     path('remove_line_emp_id/<emp_line_id>/', views.remove_line_emp_id, name='remove_line_emp_id'),
-
 ]
