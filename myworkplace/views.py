@@ -590,17 +590,7 @@ def remove_duplicate_all(request):
              'data2':[]}              
     for line_id in employee.objects.values_list('employee_line_ID', flat=True).distinct():
         context['data1'].append(employee.objects.filter(employee_line_ID=line_id).values_list(flat=True ))
-        user_data=employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:])
-        user_data.delete()
-        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
-            user_data.employee_id)
-        user_data.employee_posi_text_short=posi_text_short
-        user_data.employee_dept_sap_short = dept_sap_short
-        user_data.employee_dept_sap = dept_sap
-        user_data.employee_dept_upper = dept_upper
-        user_data.employee_sub_region = sub_region
-        user_data.employee_emp_email = emp_email
-        user_data.save
+        employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True )[1:]).delete()
         connection.close()
         context['data2'].append(employee.objects.filter(pk__in=employee.objects.filter(employee_line_ID=line_id).values_list('id', flat=True)))
     connection.close()
@@ -654,4 +644,19 @@ def summarylist1(request, dept_sap):
 
 def update_employee_profile(request):
 
-    pass
+    user =employee.objects.get(emplyee_id=='233124')
+    print(user.employee_posi_text_short)
+
+
+    # first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
+    #     user_data.employee_id)
+    # user_data.employee_posi_text_short = posi_text_short
+    # user_data.employee_dept_sap_short = dept_sap_short
+    # user_data.employee_dept_sap = dept_sap
+    # user_data.employee_dept_upper = dept_upper
+    # user_data.employee_sub_region = sub_region
+    # user_data.employee_emp_email = emp_email
+    # user_data.save
+
+
+    return render(request, 'myworkplace/home.html')
