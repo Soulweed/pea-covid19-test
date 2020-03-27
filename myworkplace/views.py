@@ -13,6 +13,8 @@ import base64
 import requests, xmltodict
 import random
 
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+
 
 # importing email library
 from django.core.mail import send_mail
@@ -87,8 +89,10 @@ def daily_update(request, id):
                 return redirect(quarantine, id, existing_health)
             elif health =='hospital':
                 return redirect(meet_doc2, id)
-        except:
+        except MultipleObjectsReturned:
+            print('ERROR DU dubplicate id: {}'.format(id))
             remove_emp_id(id)
+            print('DU dubplicate id: {} is removed'.format(id))
     return render(request, 'myworkplace/daily_update.html')
 
 def LEAVE_request(request, id):
@@ -136,8 +140,11 @@ def LEAVE_request(request, id):
                 connection.close()
                 send_email_wfh14day_request(id=id, email_boss=email, name=user_LEAVE_request.emplyee_name, startdate=startdate, enddate=enddate)
                 return render(request, 'myworkplace/formleave4.html', context)
-            except:
-                pass
+            except MultipleObjectsReturned:
+                print('ERROR LEAVE request : {}'.format(id))
+                remove_emp_id(id)
+                print('Remove duplicate LEAVE request : {}'.format(id))
+
     return render(request, 'myworkplace/formleave1.html', context)
 
 
@@ -195,9 +202,12 @@ def formwfh2(request,id):
                 user_formwfh2.save()
                 connection.close()
                 send_email_wfh_request(id=id, email_boss=email, total_date=get_total_date, name=user_formwfh2.emplyee_name, startdate=get_startdate, enddate=get_enddate)
-            except:
-                pass
-            return render(request, 'myworkplace/formwfh4.html')
+                return render(request, 'myworkplace/formwfh4.html')
+            except MultipleObjectsReturned:
+                print('ERROR wfh request id: {}'.format(id))
+                remove_emp_id(id)
+                print('Remove duplicate wfh request : {}'.format(id))
+
     return render(request, 'myworkplace/formwfh2drange.html', context)
 
 def meet_doc2(request,id):
@@ -205,10 +215,8 @@ def meet_doc2(request,id):
     if request.method == 'POST':
         page = request.POST.get('page')
         if(page == "1"):
-
             id_boss = request.POST.get("director")
             first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(id_boss)
-
             startdate=(datetime.now() + timedelta(days=1)).strftime("%Y/%m/%d")
 
             enddate=(datetime.now() + timedelta(days=15)).strftime("%Y/%m/%d")
@@ -226,9 +234,11 @@ def meet_doc2(request,id):
                 user_meet_doc2.save()
                 connection.close()
                 send_email_meetdoc_request(id=id, email_boss=email, name=user_meet_doc2.emplyee_name)
-            except:
-                pass
-        return render(request, 'myworkplace/formseedoc3.html', context)
+                return render(request, 'myworkplace/formseedoc3.html', context)
+            except MultipleObjectsReturned:
+                print('ERROR meet doc request id: {}'.format(id))
+                remove_emp_id(id)
+                print('Remove duplicate meet doc request : {}'.format(id))
     return render(request, 'myworkplace/formseedoc2.html', context)
 
 
@@ -238,8 +248,10 @@ def personal_info(request, id):
         context = {'data': data_personal_info.__dict__}
         connection.close()
         return render(request, 'myworkplace/personal_info.html', context)
-    except:
-        pass
+    except MultipleObjectsReturned:
+        print('ERROR personal info  id: {}'.format(id))
+        remove_emp_id(id)
+        print('Remove personal info  wfh request : {}'.format(id))
 
 
 def checkin(request, id):
@@ -259,25 +271,27 @@ def checkin(request, id):
                 user_checkin.activity_checkin = json.dumps(data, ensure_ascii=False)
                 user_checkin.save()
                 connection.close()
-            except:
+                return redirect(tscheckin, obj['datetime'])
+            except MultipleObjectsReturned:
+                print('ERROR Checkin duplicate id: {}'.foramt(id))
                 remove_emp_id(id)
-            return redirect(tscheckin, obj['datetime'])
+                print('Remove Checkin duplicate id: {}'.foramt(id))
         elif(action_type == "checkout"):
             obj = {'type': action_type, 'latitude': latitude, 'longitude': longitude,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             try:
                 user_checkout = employee.objects.get(employee_ID=str(id))
-
                 data = json.loads(user_checkout.activity_checkout)
                 data.append(obj)
                 user_checkout.activity_checkout = json.dumps(data, ensure_ascii=False)
                 user_checkout.save()
                 connection.close()
-            except:
+                return redirect(tscheckout, obj['datetime'])
+            except MultipleObjectsReturned:
+                print('ERROR Checkin duplicate id: {}'.foramt(id))
                 remove_emp_id(id)
-            return redirect(tscheckout, obj['datetime'])
+                print('Remove Checkin duplicate id: {}'.foramt(id))
     return render(request, 'myworkplace/timestamp.html')
-
 
 
 def tscheckin(request, time):
@@ -312,7 +326,6 @@ def quarantine(request,id, existing_health):
     context={'data':existing_health}
     if request.method == "POST":
         return redirect(LEAVE_request, id)
-
     return render(request, 'myworkplace/quarantine.html', context)
 
 # API
@@ -335,16 +348,25 @@ def register(request,id):
     emp_id = id[33:]
     line_id = id[0:33]
 
-    employee_line_id_list=employee.objects.filter(employee_line_ID=line_id).values_list(flat=True ).distinct()
-    if line_id in employee_line_id_list:
-        return redirect(home)
-    else:
-    #
-    # try:
-    #     user=employee.objects.get(employee_line_ID=line_id)
-    #     connection.close()
+    # employee_line_id_list=employee.objects.filter(employee_line_ID=line_id).values_list(flat=True).distinct()
+    # connection.close()
+    # if line_id in employee_line_id_list:
     #     return redirect(home)
-    # except:
+    # else:
+    # try:
+    #     n = Oficio.objects.get(numero=number)
+    #     # number already exists
+    #     return False
+    # except ObjectDoesNotExist:
+    #     # number does not exist
+    #     oficio = Oficio(numero=number)
+    #     oficio.save()
+    #     return True
+    try:
+        user=employee.objects.get(employee_line_ID=line_id)
+        connection.close()
+        return redirect(home)
+    except ObjectDoesNotExist:
         first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, email = get_user_email(emp_id)
 
     # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
@@ -393,29 +415,28 @@ def register(request,id):
         emergency_two_tel = ''
 
         if request.method == "POST":
-            emp_name = request.POST.get("first-last name")
+            # emp_name = request.POST.get("first-last name")
             ext = request.POST.get("ext")  # หมายเลขโทรศัพท์ภายใน
             mobile_phone = request.POST.get("mobile_phone")  # หมายเลขโทรศัพท์มือถือ
             building = request.POST.get("building")  # อาคาร
             floor = request.POST.get("floor")  # ชั้น
             address = request.POST.get("address")
-            selector = request.POST.get("selector")
+            # selector = request.POST.get("selector")
             addition_address = request.POST.get("addition_address")
             firstname_ref_1 = request.POST.get("firstname_ref_1")
             lastname_ref_1 = request.POST.get("lastname_ref_1")
             mobile_ref_1 = request.POST.get("mobile_ref_1")
             relation_ref_1 = request.POST.get("relation_ref_1")
-            firstname_ref_2 = request.POST.get("firstname_ref_2")
-            lastname_ref_2 = request.POST.get("lastname_ref_2")
-            mobile_ref_2 = request.POST.get("mobile_ref_2")
-            relation_ref_2 = request.POST.get("relation_ref_2")
-            firstname_ref_3 = request.POST.get("firstname_ref_3")
-            lastname_ref_3 = request.POST.get("lastname_ref_3")
-            mobile_ref_3 = request.POST.get("mobile_ref_3")
-            relation_ref_3 = request.POST.get("relation_ref_3")
+            # firstname_ref_2 = request.POST.get("firstname_ref_2")
+            # lastname_ref_2 = request.POST.get("lastname_ref_2")
+            # mobile_ref_2 = request.POST.get("mobile_ref_2")
+            # relation_ref_2 = request.POST.get("relation_ref_2")
+            # firstname_ref_3 = request.POST.get("firstname_ref_3")
+            # lastname_ref_3 = request.POST.get("lastname_ref_3")
+            # mobile_ref_3 = request.POST.get("mobile_ref_3")
+            # relation_ref_3 = request.POST.get("relation_ref_3")
 
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-
             user_data = employee(
                 emplyee_name='{} {}'.format(first_name, last_name),
                 employee_ID=emp_id,
@@ -431,15 +452,6 @@ def register(request,id):
                 workmate_last_name=lastname_ref_1,
                 workmate_tel=mobile_ref_1,
                 workmate_id=relation_ref_1,
-                # emergency_one_first_name=firstname_ref_2,
-                # emergency_one_last_name=lastname_ref_2,
-                # emergency_one_tel=mobile_ref_2,
-                # emergency_one_relationship=relation_ref_2,
-                # emergency_two_first_name=firstname_ref_3,
-                # emergency_two_last_name=lastname_ref_3,
-                # emergency_two_tel=mobile_ref_3,
-                # emergency_two_relationship=relation_ref_3,
-
             )
             user_data.save()
             print('------------------------')
@@ -449,8 +461,7 @@ def register(request,id):
             first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)
             send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
             return redirect(daily_update,emp_id)
-
-    return render(request, 'myworkplace/formregister.html', context)
+        return render(request, 'myworkplace/formregister.html', context)
 
 ######## challenge
 
@@ -464,16 +475,21 @@ def randomquestions(request, id):
         longitude = request.POST.get("longitude")
         obj = {'type': 'question', 'answer':answer==correct, 'latitude': latitude, 'longitude': longitude,
                'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-        user_question = employee.objects.get(employee_ID=str(id))
-        data = json.loads(user_question.activity_challenge)
-        data.append(obj)
-        user_question.activity_text = json.dumps(data, ensure_ascii=False)
-        user_question.save()
-        connection.close()
-        if (answer == correct):
-            return render(request, 'myworkplace/correct.html')
-        else:
-            return render(request, 'myworkplace/wrong.html')
+        try:
+            user_question = employee.objects.get(employee_ID=str(id))
+            data = json.loads(user_question.activity_challenge)
+            data.append(obj)
+            user_question.activity_text = json.dumps(data, ensure_ascii=False)
+            user_question.save()
+            connection.close()
+            if (answer == correct):
+                return render(request, 'myworkplace/correct.html')
+            else:
+                return render(request, 'myworkplace/wrong.html')
+        except MultipleObjectsReturned:
+            print('ERROR randomquestions duplicate id: {}'.foramt(id))
+            remove_emp_id(id)
+            print('Remove randomquestions duplicate id: {}'.foramt(id))
     return render(request, 'myworkplace/challenge2.html', context)
 
 def wrong(request):
@@ -484,21 +500,27 @@ def correct(request):
 
 def miss3d_du(request, id):
     try:
-        data_miss3d_du = employee.objects.get(employee_ID=str(id)).__dict__
-        context = {'data': data_miss3d_du}
+        data_miss3d_du = employee.objects.get(employee_ID=str(id))
+        context = {'data': data_miss3d_du.__dict__}
         connection.close()
         return render(request, 'myworkplace/miss3d_du_id.html', context)
-    except:
-        pass
+    except MultipleObjectsReturned:
+        print('ERROR miss3d_du duplicate id: {}'.foramt(id))
+        print('Error miss3d_du'.format(id))
+        print('Remove miss3d_du duplicate id: {}'.foramt(id))
+
 
 def miss3d_ts(request, id):
     try:
-        data_miss3d_ts = employee.objects.get(employee_ID=str(id)).__dict__
-        context = {'data': data_miss3d_ts, 'number':40}
+        data_miss3d_ts = employee.objects.get(employee_ID=str(id))
+        context = {'data': data_miss3d_ts.__dict__, 'number':40}
         connection.close()
         return render(request, 'myworkplace/miss3d_ts_id.html', context)
-    except:
-        pass
+    except MultipleObjectsReturned:
+        print('ERROR miss3d_ts duplicate id: {}'.foramt(id))
+        print('Error miss3d_ts {}'.format(id))
+        print('Remove miss3d_ts duplicate id: {}'.foramt(id))
+
 
 # def WFH_request(request, id, boss):
 #     day=10
@@ -538,7 +560,9 @@ def WFH_approve(request, id, boss, total_date):
         send_email_confrim_wfh(boss=boss, emp_email=emp_email)
         return render(request, 'myworkplace/test2.html')
     except:
-        pass
+        print('ERROR WFH_approve duplicate id: {}'.foramt(id))
+        print('Error WFH_approve {}'.format(id))
+        print('Remove WFH_approve duplicate id: {}'.foramt(id))
 
 def LEAVE_approve(request, id, boss):
     day=14
@@ -558,7 +582,9 @@ def LEAVE_approve(request, id, boss):
         context={'data': 'Leave request'}
         return render(request, 'myworkplace/test.html',context )
     except:
-        pass
+        print('ERROR LEAVE_approve duplicate id: {}'.foramt(id))
+        print('Error LEAVE_approve {}'.format(id))
+        print('Remove LEAVE_approve duplicate id: {}'.foramt(id))
 
 
 def get_employee_profile(id):
