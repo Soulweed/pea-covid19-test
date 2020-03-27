@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.db import connection
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+
 from myworkplace.models import employee
 from send_email.views import send_email_register, get_user_email
 
@@ -71,7 +73,7 @@ def handle_text_message(event):
             connection.close()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
-        except:
+        except ObjectDoesNotExist:
             first_name, last_name, sex_desc, posi_text_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
             if emp_email is not None:

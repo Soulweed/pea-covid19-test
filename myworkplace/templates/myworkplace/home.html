@@ -1,115 +1,107 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title_bl %} homepage{% endblock %}
+{% block title_bl %} Home | PEA COVID-19 {% endblock %}
 {% block body_bl %}
 
-    <div class="homebg">
-        <div class="container">
-            <div class="py-1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <h4 class="py-3 text-center">สรุปสถานะพนักงาน PEA
-                                <br>ตามแบบประเมิน <font color="red">COVID-19</font> ทั่วประเทศวันนี้<br></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="px-0 py-1 mx-0">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="pr-1 row">
-                                <div class="pt-2 pb-3 card-body" id="status">
-                                    <blockquote class="blockquote mb-0 text-center">
-                                        <p><br></p>
-                                        <h6 class="text-center text-white">
-                                            <small>ต้องรีบพบแพทย์</small>
-                                        </h6>
-                                        <p><br></p>
-                                        <h1 class="display-4 text-white text-center"
-                                            style="font-family: Kanit-Bold;" >{{ high_risk }}
-                                        </h1>
-                                        <p><br></p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <div class="px-2 pb-2 col-12">
-                                    <div class="card-body" id="normalcard">
-                                        <blockquote class="py-2 blockquote mb-0 text-center">
-                                            <h6 class="text-center text-white">
-                                                <small>ไม่เข้าเกณฑ์+WFH</small>
-                                            </h6>
-                                            <h2 class="text-white text-center">{{ normal_wfh }}</h2>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="px-2 pb-2 col-12">
-                                    <div class="card-body" id="yellowcard">
-                                        <blockquote class="py-2 blockquote mb-0 text-center">
-                                            <h6 class="text-center text-white">
-                                                <small>เสี่ยง+WFH</small>
-                                            </h6>
-                                            <h2 class="text-white text-center">{{ risk_wfh }}</h2>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <div class="px-1 pb-2 col-12">
-                                    <div class="card-body" id="purplecard">
-                                        <blockquote class="py-2 blockquote mb-0 text-center">
-                                            <h6 class="text-center text-white">
-                                                <small>มาทำงานปกติ</small>
-                                            </h6>
-                                            <h2 class="text-white text-center">{{ pea_office }}</h2>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="px-1 pb-2 col-12">
-                                    <div class="px-0 card-body" id="graycard">
-                                        <blockquote class="py-2 blockquote mb-0 text-center">
-                                            <h6 class="text-center text-white">
-                                                <small>ไม่ประเมินความเสี่ยง</small>
-                                            </h6>
-                                            <h2 class="text-white text-center">{{ no_daily_update }}</h2>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="homebg pt-1 pb-5 ">
+        <div class="py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="{% static 'images/oval@3x.png' %}" alt="purploval" width="10px"><span id="status"> &nbsp;&nbsp;
+                        อัปเดตล่าสุด {{ update_date }} </span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="py-1">
+        <div class="pt-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
-                        <h6 class="text-right" id="opentextcf">*ข้อมูลล่าสุด ณ วันที่ {{ update_date }}</h6>
+                    <div class="col-12 text-right">
+                        <h3 class="formwfhtext text-right">สรุปตัวเลขพนักงาน PEA</h3>
+                        <h3 class="formwfhtext text-right">กลุ่มเสี่ยง COVID-19 ทั้วประเทศ</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <h6 class=""><small>อ้างอิงจาก แบบฟอร์มประเมินความเสี่ยงเพื่อคัดกรองกลุ่มเสี่ยง</small></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <h3 class="formwfhtext text-right">กลุ่มเสี่ยงต้องรีบพบแพทย์</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <h1 class="display-1 darkredtext">{{ high_risk }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pt-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="px-2 pb-2 col-12">
+                                <div class="card-body" id="normalcard">
+                                    <blockquote class="py-3 blockquote mb-0 text-center">
+                                        <h6 class="text-center text-white"><small>ไม่เข้าเกณฑ์+WFH</small></h6>
+                                        <h1 class="display-3 text-white text-center"><xx-larger>{{ normal_wfh }}</xx-larger></h1>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="px-2 pb-2 col-12">
+                                <div class="card-body" id="yellowcard">
+                                    <blockquote class="py-3 blockquote mb-0 text-center">
+                                        <h6 class="text-center text-white"><small>แยกกักตัว + WFH</small></h6>
+                                        <h1 class="display-3 text-white text-center"><xx-larger>{{ risk_wfh }}</xx-larger></h1>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="px-2 pb-2 col-12">
+                                <div class="card-body" id="purplecard">
+                                    <blockquote class="py-3 blockquote mb-0 text-center">
+                                        <h6 class="text-center text-white"><small>ปฏิบัติงานตามปกติ</small></h6>
+                                        <h1 class="display-3 text-white text-center"><xx-larger>{{ pea_office }}</xx-larger></h1>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="px-2 pb-2 col-12">
+                                <div class="card-body" id="graycard">
+                                    <blockquote class="py-3 blockquote mb-0 text-center">
+                                        <h6 class="text-center text-white"><small><font color="#545255">ไม่ประเมินความเสี่ยง</font></small></h6>
+                                        <h1 class="display-3 text-white text-center"><xx-larger><font color="#545255">{{ no_daily_update }}</font></xx-larger></h1>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
 
 {% endblock %}
