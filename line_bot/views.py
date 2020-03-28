@@ -280,8 +280,8 @@ def handle_text_message(event):
                                            ))
             elif dict_message['text'] == 'ข้อมูลส่วนตัว':
                 try:
-                    line_bot_api.reply_message(event.reply_token,
-                                               TextSendMessage(text='ฟังก์ชั่นนี้อยู่ระหว่างการพัฒนา อดใจรอสักครู่'))
+                    # line_bot_api.reply_message(event.reply_token,
+                    #                            TextSendMessage(text='ฟังก์ชั่นนี้อยู่ระหว่างการพัฒนา อดใจรอสักครู่'))
                     d, t = user_employee.last_daily_update()
                     if user_employee.active_status=='WFH':
                         start_date=user_employee.WFH_start_date
