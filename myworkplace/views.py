@@ -383,17 +383,19 @@ def quarantine(request, id, existing_health):
 
 # API
 from rest_framework import viewsets
-from .serializers import QuestionSerializer, EmailSerializer
-
+from .serializers import QuestionSerializer, EmailSerializer ,EmployeeSerializer
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = question.objects.all().order_by('question_text')
     serializer_class = QuestionSerializer
 
-
 class EmailViewSet(viewsets.ModelViewSet):
     queryset = emailemployee.objects.all().order_by('employeeid')
     serializer_class = EmailSerializer
+
+class EmployeeViewSet(viewsets.ModelViewSet):
+    queryset = emailemployee.objects.all().order_by('employee_ID')
+    serializer_class = EmployeeSerializer
 
 
 from django.http import HttpResponseForbidden, HttpResponse
@@ -900,18 +902,29 @@ def update_employee_profile2(request):
     i = 1
 
     for item in users:
-        print(item.employee_dept_sap_short)
-        print(type(item.employee_dept_sap_short))
+        # print(item.__dict__)
+        # print(item.employee_dept_sap_short)
+        # print(type(item.employee_dept_sap_short))
 
         if item.employee_dept_sap_short.find('สรก.') == -1 and item.employee_dept_sap_short.find('สดด.') ==-1\
                 and  item.employee_dept_sap_short.find('กจท.') ==-1 and item.employee_dept_sap_short.find('กบว.') ==-1\
-                and item.employee_dept_sap_short.find('กฟส.อ.วว.') ==-1 and item.employee_dept_sap_short.find('กฟภ.อ.ทมก.') \
-                and item.employee_dept_sap_short.find('รผก.(ว)'):
+                and item.employee_dept_sap_short.find('กฟส.อ.วว.') ==-1 and item.employee_dept_sap_short.find('กฟภ.อ.ทมก.') ==-1 \
+                and item.employee_dept_sap_short.find('รผก.(ว)')==-1 and item.employee_dept_sap_short.find('สวก.')==-1 \
+                and item.employee_dept_sap_short.find('รผก.(ย)') == -1 and item.employee_dept_sap_short.find('สกม.')==-1 \
+                and item.employee_dept_sap_short.find('กมฟ.') == -1 and item.employee_dept_sap_short.find('กฟจ.สค.2') == -1\
+                and item.employee_dept_sap_short.find('รผก.(ส)') == -1 and item.employee_dept_sap_short.find('กฟจ.สค.2') == -1\
+                and item.employee_dept_sap_short.find('สตภ.') ==-1:
 
-            if (item.employee_dept_sap_short.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
-                                                       "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]):
-                director = Director_4_Emails.objects.filter(ref2=item.employee_dept_sap_short.split('/')[-3],
-                                                         ref1=item.employee_dept_sap_short.split('/')[-2])[0]
+            if  len(item.employee_dept_sap_short.split('/')) == 1:
+                director = Director_Governer_Emails.objects.get(lastref=item.employee_dept_sap_short.split('/')[-1])
+
+            elif len(item.employee_dept_sap_short.split('/')) == 2 and item.employee_dept_sap_short.split('/')[
+                    0] in ["สวก.", "สตภ.", "สกม."]:
+                director = Director_Agency_Emails.objects.get(ref1=item.employee_dept_sap_short.split('/')[-2])
+            elif len(item.employee_dept_sap_short.split('/')) == 2 and item.employee_dept_sap_short.split('/')[0] not in ["สวก.", "สตภ.",
+                                                                                                        "สกม."]:
+                director = Director_Governer_Emails.objects.get(lastref=item.employee_dept_sap_short.split('/')[-1])
+
             elif len(item.employee_dept_sap_short.split('/')) == 4 and item.employee_dept_sap_short.split('/')[0] in ["สชก.(ว)", "สชก.(ย)",
                                                                                                     "สชก.(ธ)",
                                                                                                     "สชก.(วศ)", "สชก.(ทส)",
@@ -922,21 +935,15 @@ def update_employee_profile2(request):
                 director = Director_GA_Emails.objects.filter(ref2=item.employee_dept_sap_short.split('/')[-3],
                                                           ref1=item.employee_dept_sap_short.split('/')[-2])[0]
 
+            elif (item.employee_dept_sap_short.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
+                                                       "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]):
+                director = Director_4_Emails.objects.filter(ref2=item.employee_dept_sap_short.split('/')[-3],
+                                                         ref1=item.employee_dept_sap_short.split('/')[-2])[0]
 
-
-            elif len(item.employee_dept_sap_short.split('/')) == 2 and item.employee_dept_sap_short.split('/')[0] in ["สวก.", "สตภ.", "สกม."]:
-                director = Director_Agency_Emails.objects.get(ref1=item.employee_dept_sap_short.split('/')[-2])
-
-            elif len(item.employee_dept_sap_short.split('/')) == 2 and item.employee_dept_sap_short.split('/')[0] not in ["สวก.", "สตภ.",
-                                                                                                        "สกม."]:
-                director = Director_Governer_Emails.objects.get(lastref=item.employee_dept_sap_short.split('/')[-1])
-
-            elif len(item.employee_dept_sap_short.split('/')) == 1:
-                director = Director_Governer_Emails.objects.get(lastref=item.employee_dept_sap_short.split('/')[-1])
 
             elif len(item.employee_dept_sap_short.split('/')) >=4 :
 
-                if (item.employee_dept_sap_short.split('/')[-4] in ["กอก.(น1)", "กอก.(น2)", "กอก.(น3)", "กอก.(ฉ1)", "กอก.(ฉ2)", "กอก.(ฉ3)",
+                if (item.employee_dept_sap_short.split('/')[-4] in ["กอก.", "กอก.(น1)", "กอก.(น2)", "กอก.(น3)", "กอก.(ฉ1)", "กอก.(ฉ2)", "กอก.(ฉ3)",
                                                                   "กอก.(ก1)", "กอก.(ก2)", "กอก.(ก3)", "กอก.(ต1)", "กอก.(ต2)", "กอก.(ต3)"]) or (
                     item.employee_level_code == 'S1' and item.employee_dept_sap_short.split('/')[0]
                     not in ["ผชก.(ว)", "ผชก.(ย)", "ผชก.(ธ)", "ผชก.(วศ)", "ผชก.(ทส)", "ผชก.(กบ)", "ผชก.(ป)", "ผชก.(อ)",
@@ -945,12 +952,12 @@ def update_employee_profile2(request):
                     director = Director_Area_Emails.objects.filter(ref2=item.employee_dept_sap_short.split('/')[-3],
                                                                 ref1=item.employee_dept_sap_short.split('/')[-2])[0]
                 else:
-                    print('here')
+                    # print('here')
                     director = Director_3_Emails.objects.get(ref3=item.employee_dept_sap_short.split('/')[-4],
                                                                  ref2=item.employee_dept_sap_short.split('/')[-3],
                                                                  ref1=item.employee_dept_sap_short.split('/')[-2])
 
-            print(director.__dict__)
+            # print(director.__dict__)
             item.director_approve_email = director.email
             item.director_approve_id = director.employee_id
             item.director_approve_name = director.name

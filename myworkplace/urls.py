@@ -8,6 +8,10 @@ router = routers.DefaultRouter()
 router.register(r'questions', views.QuestionViewSet)
 router1 = routers.DefaultRouter()
 router1.register(r'emailemployees', views.EmailViewSet)
+router2 = routers.DefaultRouter()
+router2.register(r'employee', views.EmployeeViewSet)
+
+
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -22,6 +26,7 @@ urlpatterns = [
     path('personal_info/<id>/', views.personal_info, name='personal_info'),
     path('api/', include(router.urls)),
     path('api1', include(router1.urls)),
+    path('api2', include(router2.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('challenge2/<id>/', views.randomquestions, name='challenge'),
     path('correct/', views.correct, name='correct'),

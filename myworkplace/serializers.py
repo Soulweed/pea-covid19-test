@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import question ,emailemployee
+from .models import question ,emailemployee ,employee
 
 class QuestionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -10,3 +10,8 @@ class EmailSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = emailemployee
         fields = ('employeeid', 'employeeemail' )
+
+class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = employee
+        fields = ('employee_ID', 'emplyee_name' ,'activity_text','activity_daily_update','activity_challenge',' activity_checkin',' activity_checkout')
