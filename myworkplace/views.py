@@ -799,3 +799,9 @@ def upload_director_email(request):
                              ref2=ref2,ref1=ref1,lastref=lastref,email=Email)
         b.save()
     return render(requests, 'myworkplace/home.html')
+
+
+
+def update_directror_email(request, id):
+    user = employee.objects.get(employee_ID=id)
+
