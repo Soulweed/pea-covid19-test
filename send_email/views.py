@@ -166,13 +166,17 @@ def send_email_register(emp_email, line_id, id):
 def send_email_confrim_register(emp_id, emp_email):
     recipient_list = [emp_email]
     print('receipient list', recipient_list)
-    # subject = 'ยืนยันการสมัคร'
-    # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
+
     server = 'email.pea.co.th'
+    # server = '202.151.5.104'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
     password = 'peacovid19'
     account = connect(server, email, username, password)
+
+    BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+    BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
     subject = 'ยืนยันการลงทะเบียน'
     body='ขอบคุณที่ร่วมลงทะเบียนกับเรา \n\nรหัสพนักงานของท่านได้ทำการลงทะเบียนในระบบ PEA COVID-19 LINE Official Account สำเร็จแล้ว\n\n' \
          'วิธีการใช้งานเบื้องต้น\n\n'\
@@ -206,10 +210,15 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
     print('receipient list', recipient_list)
 
     server = 'email.pea.co.th'
+    # server = '202.151.5.104'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
     password = 'peacovid19'
     account = connect(server, email, username, password)
+
+    BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+    BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
     # email_boss = boss + '@pea.co.th'
     boss=email_boss[0:-5]
     subject = 'ขออนุมัติ Work from Home'
@@ -235,14 +244,18 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
 
 def send_email_confrim_wfh(boss, emp_email):
     recipient_list = [emp_email]
-    # print('receipient list', recipient_list)
-    # subject = 'ยืนยันการสมัคร'
-    # message = ' กดที่ link  https://pea-covid19-test.herokuapp.com/confirm_registration/{}{}'.format(line_id, id)
+    print('receipient list', recipient_list)
+
     server = 'email.pea.co.th'
+    # server = '202.151.5.104'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
     password = 'peacovid19'
     account = connect(server, email, username, password)
+
+    BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+    BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
     subject = 'แจ้งผลการอนุมัติ Work from home'
     body='คำร้องการขอปฏิบัติงานแบบ Work From Home ของท่านได้รับการอนุมัติจากผู้บังคับบัญชาต้นสังกัดแล้ว\n\n' \
          'สามารถดูข้อมูลเพิ่มเติมได้ที่ LINE: PEA COVID-19 โดยเข้าไปที่เมนู "ข้อมูลส่วนตัว"\n\n' \
@@ -265,12 +278,18 @@ def send_email_confrim_wfh(boss, emp_email):
 
 def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
     recipient_list = [email_boss]
-    # print('receipient list', recipient_list)
+    print('receipient list', recipient_list)
+
     server = 'email.pea.co.th'
+    # server = '202.151.5.104'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
     password = 'peacovid19'
     account = connect(server, email, username, password)
+
+    BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+    BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
     # email_boss = boss + '@pea.co.th'
     subject = 'ขออนุมัติ Work from home เพื่อแยกตัวเอง 14 วัน'
     body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก {} รหัสพนักงาน {} \n\n' \
@@ -294,40 +313,38 @@ def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
 
 
 def send_email_meetdoc_request(id, email_boss, name):
-    try:
-        recipient_list = [email_boss]
-        # print('receipient list', recipient_list)
-        server = 'email.pea.co.th'
-        email = 'peacovid19@pea.co.th'
-        username = 'peacovid19'
-        password = 'peacovid19'
+    recipient_list = [email_boss]
+    print('receipient list', recipient_list)
 
-        BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
-        BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+    server = 'email.pea.co.th'
+    # server = '202.151.5.104'
+    email = 'peacovid19@pea.co.th'
+    username = 'peacovid19'
+    password = 'peacovid19'
+    account = connect(server, email, username, password)
 
-        account = connect(server, email, username, password)
-        # email_boss = boss + '@pea.co.th'
-        subject = 'ขอลาป่วย 14 วัน'
-        body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก  {}  รหัส {} ซึ่งเป็นพนักงานในสังกัดของท่าน มีความเสี่ยงในการติดเชื้อ COVID-19 ต้องแยกตัวเอง เพื่อเฝ้าดูอาการและควรพบแพทย์\n\n' \
-               'ขอให้ท่านติดตามอาการพนักงานในสังกัดของท่านอย่างใกล้ชิด \n\n' \
-               'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n' \
-               'PEA COVID-19\n' \
-               'By PEA Innovation Hub'.format(name, id)
-        m = Message(account=account,
-                    subject=subject,
-                    body=body,
-                    to_recipients=recipient_list)
-        # print('message created')
+    BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+    BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
 
-        m.send_and_save()
-        protocol.close_connections()
-        print('email send: {} >> {}'.format(id, email_boss))
-        return True
-        # print(m)
+    # email_boss = boss + '@pea.co.th'
+    subject = 'ขอลาป่วย 14 วัน'
+    body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก  {}  รหัส {} ซึ่งเป็นพนักงานในสังกัดของท่าน มีความเสี่ยงในการติดเชื้อ COVID-19 ต้องแยกตัวเอง เพื่อเฝ้าดูอาการและควรพบแพทย์\n\n' \
+           'ขอให้ท่านติดตามอาการพนักงานในสังกัดของท่านอย่างใกล้ชิด \n\n' \
+           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n' \
+           'PEA COVID-19\n' \
+           'By PEA Innovation Hub'.format(name, id)
+    m = Message(account=account,
+                subject=subject,
+                body=body,
+                to_recipients=recipient_list)
+    # print('message created')
 
-    except Exception as e:
-        print(" >>>> Fail: {}".format(e))
-        return False
+    m.send_and_save()
+    protocol.close_connections()
+    print('email send: {} >> {}'.format(id, email_boss))
+    return True
+    # print(m)
+
 
 
 ########################################### แจ้ง Boss ##########################################################

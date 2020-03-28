@@ -87,10 +87,13 @@ def handle_text_message(event):
                 #                            TextSendMessage(text='ขณะนี้เรากำลังปรับปรุงระบบลงทะเบียนเพื่อรองรับผู้ใช้งานจำนวนมาก กรุณาลงทะเบียนอีกครั้งภายหลัง'))
                 # print('{} no email in system'.format(dict_message['text']))
                 for i in range(3):
+
+
                     try:
 
 
                         send_email_register(emp_email=emp_email, line_id=dict_source['user_id'], id=dict_message['text'])
+
                         line_bot_api.reply_message(event.reply_token,
                                                    TextSendMessage(
                                                        text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
