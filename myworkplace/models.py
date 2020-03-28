@@ -69,6 +69,7 @@ class employee(models.Model):
 
     employee_id_up_1 = models.CharField(max_length= 200,blank=True, null=True)
     employee_id_up_2 = models.CharField(max_length= 200,blank=True, null=True)
+
     employee_age = models.IntegerField (default=0 ,blank= True)
     employee_gender = models.CharField(max_length=6, choices=GENDER_CHOICES,blank= True)
     employee_tel = models.CharField(max_length=10 , blank=True )
@@ -142,6 +143,11 @@ class employee(models.Model):
     employee_dept_upper=models.CharField(max_length=255, blank=True, null=True)
     employee_sub_region=models.CharField(max_length=255, blank=True, null=True)
     employee_emp_email=models.CharField(max_length=255, blank=True, null=True)
+
+    director_approve_name=models.CharField(max_length=255, blank=True, null=True)
+    director_approve_id=models.CharField(max_length=255, blank=True, null=True)
+    director_approve_email=models.CharField(max_length=255, blank=True, null=True)
+    director_approve_position=models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return "{}-{}".format(self.employee_ID, self.emplyee_name)

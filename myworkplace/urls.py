@@ -47,5 +47,7 @@ urlpatterns = [
     path('update_employee_profile/', views.update_employee_profile, name='update_employee_profile'),
 
 
-    path('upload_director_email/', views.upload_director_email, name='upload_director_email'),
+    # path('upload_director_email/', views.upload_director_email, name='upload_director_email'),
+    path('update_directror_email/<id>/', views.update_directror_email, name='update_directror_email'),
+
 ]

@@ -502,6 +502,20 @@ def register(request, id):
 
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
                 emp_id)
+            dept_sap_short
+
+
+            if dept_sap_short.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
+                                                               "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]:
+                director = Director_4_Emails.objects.get(ref2=dept_sap_short.split('/')[-3],
+                                                         ref1=dept_sap_short.split('/')[-2])
+            else:
+
+                director = Director_3_Emails.objects.get(ref3=dept_sap_short.split('/')[-4],
+                                                         ref2=dept_sap_short.split('/')[-3],
+                                                         ref1=dept_sap_short.split('/')[-2])
+
+
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             user_data = employee(
                 emplyee_name='{} {}'.format(first_name, last_name),
@@ -525,7 +539,12 @@ def register(request, id):
                 workmate_last_name=lastname_ref_1,
                 workmate_tel=mobile_ref_1,
                 workmate_id=relation_ref_1,
+                director_approve_email=director.email,
+                director_approve_id = director.employee_id,
+                director_approve_name = director.name,
+                director_approve_position = director.position,
             )
+
             user_data.save()
             print('------------------------')
             print('model save: {}'.format(emp_id))
@@ -798,10 +817,25 @@ def upload_director_email(request):
         b= Director_4_Emails(position=position, name=name,employee_id=employee_id,
                              ref2=ref2,ref1=ref1,lastref=lastref,email=Email)
         b.save()
-    return render(requests, 'myworkplace/home.html')
-
+    return render(request, 'myworkplace/home.html')
 
 
 def update_directror_email(request, id):
     user = employee.objects.get(employee_ID=id)
 
+    if user.employee_dept_sap_short.split('/')[-3]  in ["ฝบส.","ฝวก.","ฝวต.","ฝตล.","ฝตส.","ฝนก.","ฝคส.","ฝวธ(ภ1).","ฝวธ(ภ2).","ฝวธ(ภ3).","ฝวธ(ภ4)."]:
+
+        director=Director_4_Emails.objects.get(ref2=user.employee_dept_sap_short.split('/')[-3],
+                                                 ref1=user.employee_dept_sap_short.split('/')[-2])
+    else:
+
+        director=Director_3_Emails.objects.get(ref3=user.employee_dept_sap_short.split('/')[-4], ref2=user.employee_dept_sap_short.split('/')[-3],
+                                                 ref1=user.employee_dept_sap_short.split('/')[-2])
+
+    user.director_approve_email=director.email
+    user.director_approve_id=director.employee_id
+    user.director_approve_name=director.name
+    user.director_approve_position=director.position
+    user.save()
+
+    return render(request, 'myworkplace/home.html')
