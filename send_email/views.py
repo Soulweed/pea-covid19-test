@@ -151,6 +151,8 @@ def send_email_register(emp_email, line_id, id):
                 body=body,
                 to_recipients=recipient_list)
     m.send_and_save()
+    protocol.close_connections()
+
     # m.close()
     print('email register send: {} : {}'.format(id, emp_email))
 
@@ -187,6 +189,8 @@ def send_email_confrim_register(emp_id, emp_email):
                 to_recipients=recipient_list)
     # print('message created')
     m.send_and_save()
+    protocol.close_connections()
+
     # print(m)
     print('email confirm register send: {} : {}'.format(emp_id, emp_email))
 
@@ -218,6 +222,8 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
                 to_recipients=recipient_list)
     # print('message created')
     m.send_and_save()
+    protocol.close_connections()
+
     # print(m)
     print('email wfh request send: {} >> {}'.format(id, email_boss))
 
@@ -246,6 +252,8 @@ def send_email_confrim_wfh(boss, emp_email):
                 to_recipients=recipient_list)
     # print('message created')
     m.send_and_save()
+    protocol.close_connections()
+
     # print(m)
     print('email confrim wfh send: {} >> {}'.format(boss, emp_email))
 
@@ -274,6 +282,8 @@ def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
                 to_recipients=recipient_list)
     # print('message created')
     m.send_and_save()
+    protocol.close_connections()
+
     # print(m)
     print('email send: {} >> {}'.format(id, email_boss))
 
