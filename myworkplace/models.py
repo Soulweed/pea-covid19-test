@@ -175,3 +175,32 @@ class emailemployee(models.Model):
 
     def __str__(self):
         return "{}".format(self.employeeid)
+
+
+
+class Director_3_Emails(models.Model):
+    position = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    employee_id = models.CharField(max_length=255)
+    ref3 = models.CharField(max_length=255)
+    ref2 = models.CharField(max_length=255)
+    ref1 = models.CharField(max_length=255)
+    lastref = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "{}-{}".format(self.employee_id, self.name)
+
+
+
+class Director_4_Emails(models.Model):
+    position = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    employee_id = models.CharField(max_length=255)
+    ref2 = models.CharField(max_length=255)
+    ref1 = models.CharField(max_length=255)
+    lastref = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "{}-{}".format(self.employee_id, self.name)
