@@ -370,7 +370,7 @@ def register(request,id):
     #     oficio.save()
     #     return True
     try:
-        user=employee.objects.get(employee_line_ID=line_id)
+        employee.objects.get(employee_line_ID=line_id)
         connection.close()
         return redirect(home)
     except MultipleObjectsReturned:
