@@ -195,7 +195,6 @@ def send_email_confrim_register(emp_id, emp_email):
     print('email confirm register send: {} : {}'.format(emp_id, emp_email))
 
 
-
 def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
     recipient_list = [email_boss]
     print('receipient list', recipient_list)
