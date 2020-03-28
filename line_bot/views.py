@@ -79,25 +79,28 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
             print('this Line ID is reistered')
-        except employee.DoesNotExist:
-            print('ObjectDoesNotExist')
+        except ObjectDoesNotExist:
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
             if emp_email is not None:
                 # line_bot_api.reply_message(event.reply_token,
                 #                            TextSendMessage(text='ขณะนี้เรากำลังปรับปรุงระบบลงทะเบียนเพื่อรองรับผู้ใช้งานจำนวนมาก กรุณาลงทะเบียนอีกครั้งภายหลัง'))
                 # print('{} no email in system'.format(dict_message['text']))
-                try:
-                    send_email_register(emp_email=emp_email, line_id=dict_source['user_id'], id=dict_message['text'])
-                    line_bot_api.reply_message(event.reply_token,
-                                               TextSendMessage(
-                                                   text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
-                                                        '(username คือรหัสพนักงาน 6 หลัก)'),
-                                               )
-                except:
-                    line_bot_api.reply_message(event.reply_token,
-                                               TextSendMessage(text='ขณะนี้เรากำลังปรับปรุงระบบลงทะเบียนเพื่อรองรับผู้ใช้งานจำนวนมาก กรุณาลงทะเบียนอีกครั้งภายหลัง'))
-                    print('{} no email in system'.format(dict_message['text']))
+                for i in range(3):
+                    try:
+
+
+                        send_email_register(emp_email=emp_email, line_id=dict_source['user_id'], id=dict_message['text'])
+                        line_bot_api.reply_message(event.reply_token,
+                                                   TextSendMessage(
+                                                       text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
+                                                            '(username คือรหัสพนักงาน 6 หลัก)'),
+                                                   )
+                        break
+                    except:
+                        line_bot_api.reply_message(event.reply_token,
+                                                   TextSendMessage(text='ขณะนี้เรากำลังปรับปรุงระบบลงทะเบียนเพื่อรองรับผู้ใช้งานจำนวนมาก กรุณาลงทะเบียนอีกครั้งภายหลัง'))
+                        print('{} no email in system'.format(dict_message['text']))
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            [TextSendMessage(
@@ -116,7 +119,7 @@ def handle_text_message(event):
                                                )
                                            ])
 
-        except employee.MultipleObjectsReturned:
+        except MultipleObjectsReturned:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))
     else:
@@ -744,13 +747,6 @@ def handle_text_message(event):
                                                TextSendMessage(
                                                    text='โปรดอัพเดท Daily update ก่อนนะครับ'))
                     print('Error profile: No daily update')
-
-            elif dict_message['text'] == 'tracking':
-                pass
-            elif dict_message['text'] == 'สถานการณ์':
-                pass
-            elif dict_message['text'] == 'ช่วยเหลือ':
-                pass
             elif dict_message['text'] == 'ใบเซ็นชื่อ':
 
                 line_bot_api.reply_message(event.reply_token,
@@ -1034,11 +1030,11 @@ def handle_text_message(event):
                                                     '4. “ข้อมูลส่วนตัว” เพื่อจัดการข้อมูลส่วนตัวของคุณ\n'
                                                     '5. “สถานการณ์” เพื่อเกาะติดสถานการณ์ COVID-19\n'
                                                     '6. “ใบเซ็นชื่อ” เพื่อเข้าระบบลงชื่อเข้าและเลิกทำงาน\nอย่าลืมเพิ่มระยะห่างทางสังคมนะครับ ถ้าเราไม่ติดกัน เราจะไม่ติดเชื้อ'))
-        except employee.DoesNotExist:
+        except ObjectDoesNotExist:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดพิมพ์รหัสพนักงาน 6 ตัว'))
             print('this line id has not registered yet')
-        except employee.MultipleObjectsReturned:
+        except MultipleObjectsReturned:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin ผ่านช่องทาง facebook PEA INNOVATION HUB https://www.facebook.com/peaihub/'))
             print('this line id has more than two account')
