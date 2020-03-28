@@ -64,6 +64,7 @@ def handle_text_message(event):
     # print(dict_event)
     dict_source = dict_event['source'].__dict__
     dict_message = dict_event['message'].__dict__
+    print(dict_source, dict_message)
     # print(dict_message['text'])
     # line_bot_api.reply_message(event.reply_token,
     #                            # TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดกรอกรหัสพนักงาน 6 ตัว'))
@@ -73,12 +74,12 @@ def handle_text_message(event):
             len(dict_message['text']) == 6 or len(dict_message['text']) == 7):
         ##### function create email กับ content ข้างใน
         try:
-            user_reister=employee.objects.get(employee_line_ID=dict_source['user_id'])
+            user_register=employee.objects.get(employee_line_ID=dict_source['user_id'])
             # connection.close()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
             print('this Line ID is reistered')
-        except user_reister.DoesNotExist:
+        except user_register.DoesNotExist:
             print('ObjectDoesNotExist')
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
@@ -115,13 +116,13 @@ def handle_text_message(event):
                                                )
                                            ])
 
-        except user_reister.MultipleObjectsReturned:
+        except user_register.MultipleObjectsReturned:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))
     else:
         try:
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
-            connection.close()
+            # connection.close()
             if dict_message['text'] == 'ขออนุมัติ':
                 line_bot_api.reply_message(event.reply_token,
                                            FlexSendMessage(
