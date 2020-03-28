@@ -135,8 +135,8 @@ def send_email_register(emp_email, line_id, id):
     recipient_list = [emp_email]
     print('receipient list', recipient_list)
 
-    # server = 'email.pea.co.th'
-    server = '202.151.5.104'
+    server = 'email.pea.co.th'
+    # server = '202.151.5.104'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
     password = 'peacovid19'
