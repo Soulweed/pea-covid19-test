@@ -13,6 +13,8 @@ from myworkplace.models import employee, emailemployee
 # Create your views here.
 
 
+
+
 def connect(server, email, username, password):
     """
     Get Exchange account cconnection with server
@@ -133,11 +135,16 @@ def send_email_register(emp_email, line_id, id):
     recipient_list = [emp_email]
     print('receipient list', recipient_list)
 
-    server = 'email.pea.co.th'
+    # server = 'email.pea.co.th'
+    server = '202.151.5.104'
     email = 'peacovid19@pea.co.th'
     username = 'peacovid19'
     password = 'peacovid19'
     account = connect(server, email, username, password)
+
+    BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+    BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
     subject = 'ยืนยันการลงทะเบียน'
     body = 'รหัสพนักงานของท่าน {} ได้มีการลงทะเบียนกับ PEA COVID-19\n\n' \
            'กรุณาเริ่มต้นการใช้งาน โดยยืนยันตัวตนของท่านผ่านข้อความฉบับนี้ โดยคลิกตาม link ด้านล่างนี้\n\n ' \
@@ -152,7 +159,6 @@ def send_email_register(emp_email, line_id, id):
                 to_recipients=recipient_list)
     m.send_and_save()
     protocol.close_connections()
-
     # m.close()
     print('email register send: {} : {}'.format(id, emp_email))
 
