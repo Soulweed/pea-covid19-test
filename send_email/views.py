@@ -90,7 +90,6 @@ def get_user_email(id):
     headers = {
         'Content-Type': 'application/json'
     }
-
     response = requests.request("POST", url, headers=headers, data=payload).json()
 
     first_name = response['data']['dataDetail'][0]['first_name']
@@ -161,7 +160,6 @@ def send_email_register(emp_email, line_id, id):
     protocol.close_connections()
     # m.close()
     print('email register send: {} : {}'.format(id, emp_email))
-
 
 def send_email_confrim_register(emp_id, emp_email):
     recipient_list = [emp_email]
@@ -638,3 +636,43 @@ def send_email_activity_warning(request, id, boss, day):
     m.send_and_save()
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
+
+
+import asyncio
+
+
+
+def send_test_email():
+    try:
+        recipient_list = ['pornchai.cha@pea.co.th']
+        print('receipient list', recipient_list)
+        server = '202.151.5.104'
+        # server = 'email.pea.co.th'
+        email = 'peacovid19@pea.co.th'
+        username = 'peacovid19'
+        password = 'peacovid19'
+
+        BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+        BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
+        account = connect(server, email, username, password)
+        subject = 'ยืนยันการลงทะเบียน'
+        body = 'ทดสอบ'
+        m = Message(account=account,
+                    subject=subject,
+                    body=body,
+                    to_recipients=recipient_list)
+        m.send_and_save()
+
+        protocol.close_connections()
+        print('email register send')
+        return True
+
+    except Exception as e:
+        print(" >>>> Fail: {}".format(e))
+        return False
+
+
+
+
+
