@@ -101,10 +101,10 @@ def get_user_email(id):
     dept_upper = response['data']['dataDetail'][0]['dept_upper']
     sub_region = response['data']['dataDetail'][0]['sub_region']
     email = response['data']['dataDetail'][0]['email']
+    level_code = response['data']['dataDetail'][0]['level_code']
 
-    return first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email
 
-
+    return first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email, level_code
 
 
 def get_user_email2(id):

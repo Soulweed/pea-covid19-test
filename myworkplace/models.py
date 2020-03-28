@@ -143,11 +143,15 @@ class employee(models.Model):
     employee_dept_upper=models.CharField(max_length=255, blank=True, null=True)
     employee_sub_region=models.CharField(max_length=255, blank=True, null=True)
     employee_emp_email=models.CharField(max_length=255, blank=True, null=True)
+    employee_level_code=models.CharField(max_length=255, blank=True, null=True)
+
 
     director_approve_name=models.CharField(max_length=255, blank=True, null=True)
     director_approve_id=models.CharField(max_length=255, blank=True, null=True)
     director_approve_email=models.CharField(max_length=255, blank=True, null=True)
     director_approve_position=models.CharField(max_length=255, blank=True, null=True)
+
+
 
     def __str__(self):
         return "{}-{}".format(self.employee_ID, self.emplyee_name)
@@ -205,6 +209,66 @@ class Director_4_Emails(models.Model):
     employee_id = models.CharField(max_length=255)
     ref2 = models.CharField(max_length=255)
     ref1 = models.CharField(max_length=255)
+    lastref = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "{}-{}".format(self.employee_id, self.name)
+
+
+class Director_GA_Emails(models.Model):
+    position = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    employee_id = models.CharField(max_length=255)
+    ref2 = models.CharField(max_length=255)
+    ref1 = models.CharField(max_length=255)
+    lastref = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "{}-{}".format(self.employee_id, self.name)
+
+class Director_Area_Emails(models.Model):
+    position = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    employee_id = models.CharField(max_length=255)
+    ref2 = models.CharField(max_length=255)
+    ref1 = models.CharField(max_length=255)
+    lastref = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "{}-{}".format(self.employee_id, self.name)
+
+
+class Director_Agency_Emails(models.Model):
+    position = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    employee_id = models.CharField(max_length=255)
+    ref1 = models.CharField(max_length=255)
+    lastref = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "{}-{}".format(self.employee_id, self.name)
+
+
+class Director_DP_Emails(models.Model):
+    position = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    employee_id = models.CharField(max_length=255)
+    ref1 = models.CharField(max_length=255)
+    lastref = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+
+    def __str__(self):
+        return "{}-{}".format(self.employee_id, self.name)
+
+
+class Director_Governer_Emails(models.Model):
+    position = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    employee_id = models.CharField(max_length=255)
     lastref = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
 

@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from django.db import connection
-from .models import employee, question, emailemployee, Director_3_Emails, Director_4_Emails
+from .models import employee, question, emailemployee, Director_3_Emails, \
+    Director_4_Emails, Director_GA_Emails, Director_Area_Emails, Director_Agency_Emails, Director_Governer_Emails, \
+    Director_DP_Emails
 from send_email.views import send_email_wfh_request, get_user_email, send_email_wfh14day_request, \
     send_email_confrim_register, \
     send_email_meetdoc_request, send_email_confrim_wfh
@@ -23,6 +25,7 @@ from django.conf import settings
 from django import forms
 
 import pandas as pd
+
 
 class CheckinForm(forms.Form):
     content = forms.CharField(max_length=150)
@@ -101,7 +104,8 @@ def daily_update(request, id):
 
 def LEAVE_request(request, id):
     context = {'EmployeeID': id, }
-    email = ''
+    user_LEAVE_request = employee.objects.get(employee_ID=str(id))
+    context.update({'director_name': user_LEAVE_request.director_approve_name})
     if request.method == "POST":
         page = request.POST.get("page")
         if (page == "1"):
@@ -132,7 +136,6 @@ def LEAVE_request(request, id):
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)"),
                    'sent_request_to': {'id': id_boss, 'email': boss_email}}
             try:
-                user_LEAVE_request = employee.objects.get(employee_ID=str(id))
                 data = json.loads(user_LEAVE_request.activity_text)
                 data.append(obj)
                 user_LEAVE_request.activity_text = json.dumps(data, ensure_ascii=False)
@@ -180,52 +183,41 @@ def formwfh1(request, id):
 
 def formwfh2(request, id):
     context = {'id': id}
+    user_formwfh2 = employee.objects.get(employee_ID=str(id))
+    context.update({'director_name': user_formwfh2.director_approve_name})
     if request.method == "POST":
         page = request.POST.get("page")
         if (page == "1"):
-            # print(page)
-            id_boss = request.POST.get("director")
             get_startdate = request.POST.get("startdate")
             get_enddate = request.POST.get("enddate")
             startdate = datetime.strptime(get_startdate, "%Y-%m-%d").date()
             enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
             delta = enddate - startdate
             total_date = delta.days + 1
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
-                id_boss)
-
-            # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender = get_employee_profile(
-            #     id_boss)
-            context = {'Boss_name': '{} {}'.format(first_name, last_name), 'Boss_position': posi_text_short,
-                       'Gender': sex_desc,
-                       'startdate': get_startdate, 'enddate': get_enddate, 'total_date': total_date,
-                       'email_boss': emp_email, 'id_boss': id_boss}
-            # print(context)
+            context = {'startdate': get_startdate, 'enddate': get_enddate, 'total_date': total_date,
+                       'director_name': user_formwfh2.director_approve_name,
+                       'director_position': user_formwfh2.director_approve_position}
             return render(request, 'myworkplace/formwfh3.html', context)
         if (page == "2"):
-            boss_email = request.POST.get("email_boss")  # เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
-            id_boss = request.POST.get("id_boss")
             get_total_date = request.POST.get("total_date")
             get_startdate = request.POST.get("startdate")
             get_enddate = request.POST.get("enddate")
             obj = {'type': 'wfh_request', 'startdate': get_startdate, 'enddate': get_enddate,
                    'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)"),
-                   'sent_request_to': {'id': id_boss, 'email': boss_email}}
+                   'sent_request_to': {'director_id': user_formwfh2.director_approve_id}}
             try:
-                user_formwfh2 = employee.objects.get(employee_ID=str(id))
                 data = json.loads(user_formwfh2.activity_text)
                 data.append(obj)
                 user_formwfh2.activity_text = json.dumps(data, ensure_ascii=False)
                 user_formwfh2.approved_status = 'WFH'
                 user_formwfh2.WFH_start_date = get_startdate
                 user_formwfh2.WFH_end_date = get_enddate
-                user_formwfh2.employee_id_up_1 = id_boss
-                user_formwfh2.employee_id_up_2 = boss_email
                 user_formwfh2.save()
                 connection.close()
                 for i in range(5):
                     try:
-                        send_email_wfh_request(id=id, email_boss=boss_email, total_date=get_total_date,
+                        send_email_wfh_request(id=id, email_boss=user_formwfh2.director_approve_email,
+                                               total_date=get_total_date,
                                                name=user_formwfh2.emplyee_name, startdate=get_startdate,
                                                enddate=get_enddate)
                         send_complete = 1
@@ -275,7 +267,8 @@ def meet_doc2(request, id):
 
                 for i in range(5):
                     try:
-                        send_email_meetdoc_request(id=id, email_boss=email, name=user_meet_doc2.emplyee_name)
+                        send_email_meetdoc_request(id=id, email_boss=user_meet_doc2.director_approve_email,
+                                                   name=user_meet_doc2.emplyee_name)
 
                         send_complete = 1
                         break
@@ -437,9 +430,8 @@ def register(request, id):
         return redirect(home)
 
     except ObjectDoesNotExist:
-        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
+        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
             emp_id)
-
         # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
 
         context = {'EmployeeID': emp_id, 'FirstName': first_name, 'LastName': last_name,
@@ -500,21 +492,41 @@ def register(request, id):
             mobile_ref_1 = request.POST.get("mobile_ref_1")
             relation_ref_1 = request.POST.get("relation_ref_1")
 
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
                 emp_id)
-            dept_sap_short
 
-
-            if dept_sap_short.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
-                                                               "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]:
+            if (dept_sap_short.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
+                                                  "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]):
                 director = Director_4_Emails.objects.get(ref2=dept_sap_short.split('/')[-3],
                                                          ref1=dept_sap_short.split('/')[-2])
-            else:
+            elif len(dept_sap_short.split('/')) == 3 and dept_sap_short.split('/')[0] \
+                    in ["ผชก.(ว)","ผชก.(ย)","ผชก.(ธ)","ผชก.(วศ)","ผชก.(ทส)","ผชก.(กบ)","ผชก.(ป)",
+                        "ผชก.(อ)","ผชก.(บ)","ผชก.(ท)","ผชก.(ส)"]:
 
+                director = Director_GA_Emails.objects.get(ref2=dept_sap_short.split('/')[-3],
+                                                          ref1=dept_sap_short.split('/')[-2])
+            elif (dept_sap_short.split('/')[-4] == "กอก.") or (
+                    level_code == 'S1' and dept_sap_short.split('/')[0]
+                    not in ["ผชก.(ว)", "ผชก.(ย)", "ผชก.(ธ)", "ผชก.(วศ)", "ผชก.(ทส)", "ผชก.(กบ)", "ผชก.(ป)", "ผชก.(อ)",
+                            "ผชก.(บ)", "ผชก.(ท)", "ผชก.(ส)"]):
+                director = Director_Area_Emails.objects.get(ref2=dept_sap_short.split('/')[-3],
+                                                            ref1=dept_sap_short.split('/')[-2])
+
+            elif len(dept_sap_short.split('/')) == 2 and dept_sap_short.split('/')[0] in ["สวก.", "สตภ.",
+                                                                                          "สกม."]:
+                director = Director_Agency_Emails.objects.get(ref1=dept_sap_short.split('/')[-2])
+
+            elif len(dept_sap_short.split('/')) == 2 and dept_sap_short.split('/')[0] not in ["สวก.", "สตภ.",
+                                                                                              "สกม."]:
+                director = Director_Governer_Emails.objects.get(lastref=dept_sap_short.split('/')[-1])
+
+            elif len(dept_sap_short.split('/')) == 1:
+                director = Director_Governer_Emails.objects.get(lastref=dept_sap_short.split('/')[-1])
+
+            else:
                 director = Director_3_Emails.objects.get(ref3=dept_sap_short.split('/')[-4],
                                                          ref2=dept_sap_short.split('/')[-3],
                                                          ref1=dept_sap_short.split('/')[-2])
-
 
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             user_data = employee(
@@ -539,10 +551,12 @@ def register(request, id):
                 workmate_last_name=lastname_ref_1,
                 workmate_tel=mobile_ref_1,
                 workmate_id=relation_ref_1,
+                employee_level_code=level_code,
                 director_approve_email=director.email,
-                director_approve_id = director.employee_id,
-                director_approve_name = director.name,
-                director_approve_position = director.position,
+                director_approve_id=director.employee_id,
+                director_approve_name=director.name,
+                director_approve_position=director.position,
+
             )
 
             user_data.save()
@@ -566,7 +580,6 @@ def register(request, id):
 
 
 ######## challenge
-
 def randomquestions(request, id):
     ranquestions = question.objects.get(pk=random.randint(0, len(question.objects.all()) - 1))
     context = {'data': ranquestions}
@@ -644,7 +657,7 @@ def WFH_approve(request, id, boss, total_date):
         user_WFH_approve.approved_status = 'Idle'
         user_WFH_approve.save()
         connection.close()
-        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
+        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
             id)
         for i in range(5):
             try:
@@ -785,7 +798,7 @@ def update_employee_profile(request):
     i = 1
     for item in users:
         print('{}/{}'.format(i, total_num))
-        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
+        first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
             item.employee_ID)
         item.employee_posi_text_short = posi_text_short
         item.employee_dept_sap_short = dept_sap_short
@@ -793,49 +806,147 @@ def update_employee_profile(request):
         item.employee_dept_upper = dept_upper
         item.employee_sub_region = sub_region
         item.employee_emp_email = emp_email
+        item.employee_level_code = level_code
+
         item.save()
         i = i + 1
 
     return render(request, 'myworkplace/home.html')
 
 
-
-
-
 def upload_director_email(request):
-    df1=pd.read_excel('myworkplace/output.xlsx',sheet_name='directref4')
-    df2=pd.read_excel('myworkplace/output.xlsx', sheet_name='directref3')
-
-    for position,name,employee_id,ref3,ref2,ref1,lastref,Email in zip(
-            df1['position'], df1['name'],df1['employee_id'],df1['ref3'],df1['ref2'],df1['ref1'],df1['lastref'],df1['Email']):
-        a= Director_3_Emails(position=position, name=name,employee_id=employee_id,ref3=ref3,
-                             ref2=ref2,ref1=ref1,lastref=lastref,email=Email)
+    df1 = pd.read_excel('myworkplace/output.xlsx', sheet_name='directref4')
+    df2 = pd.read_excel('myworkplace/output.xlsx', sheet_name='directref3')
+    for position, name, employee_id, ref3, ref2, ref1, lastref, Email in zip(
+            df1['position'], df1['name'], df1['employee_id'], df1['ref3'], df1['ref2'], df1['ref1'], df1['lastref'],
+            df1['Email']):
+        a = Director_3_Emails(position=position, name=name, employee_id=employee_id, ref3=ref3,
+                              ref2=ref2, ref1=ref1, lastref=lastref, email=Email)
         a.save()
 
-    for position,name,employee_id,ref2,ref1,lastref,Email in zip(
-            df2['position'], df2['name'],df2['employee_id'],df2['ref2'],df2['ref1'],df2['lastref'],df2['Email']):
-        b= Director_4_Emails(position=position, name=name,employee_id=employee_id,
-                             ref2=ref2,ref1=ref1,lastref=lastref,email=Email)
+    for position, name, employee_id, ref2, ref1, lastref, Email in zip(
+            df2['position'], df2['name'], df2['employee_id'], df2['ref2'], df2['ref1'], df2['lastref'], df2['Email']):
+        b = Director_4_Emails(position=position, name=name, employee_id=employee_id,
+                              ref2=ref2, ref1=ref1, lastref=lastref, email=Email)
         b.save()
+    return render(request, 'myworkplace/home.html')
+
+
+def upload_director_email2(request):
+    df1 = pd.read_excel('myworkplace/output1.xlsx', sheet_name='Sheet2')
+    for position, name, employee_id, ref2, ref1, lastref, Email in zip(
+            df1['position'], df1['name'], df1['employee_id'], df1['ref2'], df1['ref1'], df1['lastref'], df1['Email']):
+        a = Director_GA_Emails(position=position, name=name, employee_id=employee_id,
+                               ref2=ref2, ref1=ref1, lastref=lastref, email=Email)
+        a.save()
+
+    return render(request, 'myworkplace/home.html')
+
+
+def upload_director_email3(request):
+    df1 = pd.read_excel('myworkplace/output5.xlsx', sheet_name='Sheet1')
+    for position, name, employee_id, ref2, ref1, lastref, Email in zip(
+            df1['position'], df1['name'], df1['employee_id'], df1['ref2'], df1['ref1'], df1['lastref'], df1['Email']):
+        a = Director_Area_Emails(position=position, name=name, employee_id=employee_id,
+                                 ref2=ref2, ref1=ref1, lastref=lastref, email=Email)
+        a.save()
+
+    return render(request, 'myworkplace/home.html')
+
+
+def upload_director_email4(request):
+    df1 = pd.read_excel('myworkplace/output6.xlsx', sheet_name='Sheet1')
+    for position, name, employee_id, ref2, ref1, lastref, Email in zip(
+            df1['position'], df1['name'], df1['employee_id'], df1['ref1'], df1['lastref'], df1['Email']):
+        a = Director_DP_Emails(position=position, name=name, employee_id=employee_id,
+                               ref1=ref1, lastref=lastref, email=Email)
+        a.save()
+
     return render(request, 'myworkplace/home.html')
 
 
 def update_directror_email(request, id):
     user = employee.objects.get(employee_ID=id)
-
-    if user.employee_dept_sap_short.split('/')[-3]  in ["ฝบส.","ฝวก.","ฝวต.","ฝตล.","ฝตส.","ฝนก.","ฝคส.","ฝวธ(ภ1).","ฝวธ(ภ2).","ฝวธ(ภ3).","ฝวธ(ภ4)."]:
-
-        director=Director_4_Emails.objects.get(ref2=user.employee_dept_sap_short.split('/')[-3],
+    if user.employee_dept_sap_short.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
+                                                       "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]:
+        director = Director_4_Emails.objects.get(ref2=user.employee_dept_sap_short.split('/')[-3],
                                                  ref1=user.employee_dept_sap_short.split('/')[-2])
     else:
-
-        director=Director_3_Emails.objects.get(ref3=user.employee_dept_sap_short.split('/')[-4], ref2=user.employee_dept_sap_short.split('/')[-3],
+        director = Director_3_Emails.objects.get(ref3=user.employee_dept_sap_short.split('/')[-4],
+                                                 ref2=user.employee_dept_sap_short.split('/')[-3],
                                                  ref1=user.employee_dept_sap_short.split('/')[-2])
-
-    user.director_approve_email=director.email
-    user.director_approve_id=director.employee_id
-    user.director_approve_name=director.name
-    user.director_approve_position=director.position
+    user.director_approve_email = director.email
+    user.director_approve_id = director.employee_id
+    user.director_approve_name = director.name
+    user.director_approve_position = director.position
     user.save()
+    return render(request, 'myworkplace/home.html')
 
+
+def get_user_level_code(id):
+    url = "http://pealife-ms.pea.co.th/api/Covid19/GetEmployeeDetail/"
+
+    payload = "{EmployeeID:\"%s\",ApiKey:\"fHC25Bp7cOj4oFuTF3dBMozOjMH1O8xj\"}\n" % (id)
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    response = requests.request("POST", url, headers=headers, data=payload).json()
+
+    level_code = response['data']['dataDetail'][0]['level_code']
+
+    return level_code
+
+
+def update_employee_profile2(request):
+    users = employee.objects.filter(director_approve_id=None)
+    total_num = len(users)
+    i = 1
+    for item in users:
+        print(item.__dict__)
+
+        if (item.dept_sap_short.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
+                                                   "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]):
+            director = Director_4_Emails.objects.get(ref2=item.dept_sap_short.split('/')[-3],
+                                                     ref1=item.dept_sap_short.split('/')[-2])
+        elif len(item.dept_sap_short.split('/')) == 3 and item.dept_sap_short.split('/')[0] in ["ผชก.(ว)", "ผชก.(ย)",
+                                                                                                "ผชก.(ธ)",
+                                                                                                "ผชก.(วศ)", "ผชก.(ทส)",
+                                                                                                "ผชก.(กบ)", "ผชก.(ป)",
+                                                                                                "ผชก.(อ)",
+                                                                                                "ผชก.(บ)", "ผชก.(ท)",
+                                                                                                "ผชก.(ส)"]:
+            director = Director_GA_Emails.objects.get(ref2=item.dept_sap_short.split('/')[-3],
+                                                      ref1=item.dept_sap_short.split('/')[-2])
+
+        elif (item.dept_sap_short.split('/')[-4] == "กอก.") or (
+                item.employee_level_code == 'S1' and item.dept_sap_short.split('/')[0]
+                not in ["ผชก.(ว)", "ผชก.(ย)", "ผชก.(ธ)", "ผชก.(วศ)", "ผชก.(ทส)", "ผชก.(กบ)", "ผชก.(ป)", "ผชก.(อ)",
+                        "ผชก.(บ)", "ผชก.(ท)", "ผชก.(ส)"]):
+
+            director = Director_Area_Emails.objects.get(ref2=item.dept_sap_short.split('/')[-3],
+                                                        ref1=item.dept_sap_short.split('/')[-2])
+
+        elif len(item.dept_sap_short.split('/')) == 2 and item.dept_sap_short.split('/')[0] in ["สวก.", "สตภ.", "สกม."]:
+            director = Director_Agency_Emails.objects.get(ref1=item.dept_sap_short.split('/')[-2])
+
+        elif len(item.dept_sap_short.split('/')) == 2 and item.dept_sap_short.split('/')[0] not in ["สวก.", "สตภ.",
+                                                                                                    "สกม."]:
+            director = Director_Governer_Emails.objects.get(lastref=item.dept_sap_short.split('/')[-1])
+
+        elif len(item.dept_sap_short.split('/')) == 1:
+            director = Director_Governer_Emails.objects.get(lastref=item.dept_sap_short.split('/')[-1])
+        else:
+            director = Director_3_Emails.objects.get(ref3=item.dept_sap_short.split('/')[-4],
+                                                     ref2=item.dept_sap_short.split('/')[-3],
+                                                     ref1=item.dept_sap_short.split('/')[-2])
+
+        item.director_approve_email = director.email
+        item.director_approve_id = director.employee_id
+        item.director_approve_name = director.name
+        item.director_approve_position = director.position
+        item.employee_level_code = get_user_level_code(item.employee_ID)
+        item.save()
+
+        i = i + 1
+        print(i)
     return render(request, 'myworkplace/home.html')

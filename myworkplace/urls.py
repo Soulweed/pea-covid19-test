@@ -44,10 +44,11 @@ urlpatterns = [
     path('remove_duplicate_all/', views.remove_duplicate_all, name='remove_duplicate_all'),
     path('remove_duplicate_emp_id/<emp_id>/', views.remove_duplicate_emp_id, name='remove_duplicate_emp_id'),
     path('remove_line_emp_id/<emp_line_id>/', views.remove_line_emp_id, name='remove_line_emp_id'),
-    path('update_employee_profile/', views.update_employee_profile, name='update_employee_profile'),
-
+    # path('update_employee_profile/', views.update_employee_profile, name='update_employee_profile'),
+    path('update_employee_profile2/', views.update_employee_profile2, name='update_employee_profile2'),
 
     # path('upload_director_email/', views.upload_director_email, name='upload_director_email'),
-    path('update_directror_email/<id>/', views.update_directror_email, name='update_directror_email'),
+    path('upload_director_email3/', views.upload_director_email3, name='upload_director_email3'),
+    # path('update_directror_email/<id>/', views.update_directror_email, name='update_directror_email'),
 
 ]
