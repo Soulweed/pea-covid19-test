@@ -236,6 +236,7 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
                 to_recipients=recipient_list)
     # print('message created')
     m.send_and_save()
+    
     protocol.close_connections()
 
     # print(m)

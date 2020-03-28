@@ -372,10 +372,13 @@ def register(request,id):
         user_register = employee.objects.get(employee_line_ID=line_id)
         connection.close()
         return redirect(home)
+
     except MultipleObjectsReturned:
         print('ERROR register duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove register duplicate id: {}'.format(id))
+        return redirect(home)
+
     except ObjectDoesNotExist:
         first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)
 
@@ -502,6 +505,7 @@ def randomquestions(request, id):
             print('ERROR randomquestions duplicate id: {}'.format(id))
             remove_emp_id(id)
             print('Remove randomquestions duplicate id: {}'.format(id))
+            return redirect(home)
     return render(request, 'myworkplace/challenge2.html', context)
 
 def wrong(request):
@@ -520,6 +524,8 @@ def miss3d_du(request, id):
         print('ERROR miss3d_du duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove miss3d_du duplicate id: {}'.format(id))
+        return redirect(home)
+
 
 
 def miss3d_ts(request, id):
@@ -532,6 +538,8 @@ def miss3d_ts(request, id):
         print('ERROR miss3d_ts duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove miss3d_ts duplicate id: {}'.format(id))
+        return redirect(home)
+
 
 def WFH_approve(request, id, boss, total_date):
 
@@ -555,6 +563,8 @@ def WFH_approve(request, id, boss, total_date):
         ('ERROR WFH_approve duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove WFH_approve duplicate id: {}'.format(id))
+        return redirect(home)
+
 
 def LEAVE_approve(request, id, boss):
     day=14
@@ -577,6 +587,8 @@ def LEAVE_approve(request, id, boss):
         print('ERROR LEAVE_approve duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove LEAVE_approve duplicate id: {}'.format(id))
+        return redirect(home)
+
 
 
 def get_employee_profile(id):
@@ -661,8 +673,6 @@ def summarylist1(request, dept_sap):
 
 
 def update_employee_profile(request):
-
-
     users = employee.objects.filter(employee_posi_text_short=None)
     total_num=len(users)
     i=1

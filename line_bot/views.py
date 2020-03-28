@@ -288,11 +288,7 @@ def handle_text_message(event):
                     else:
                         start_date = '--------'
                         end_date = '--------'
-                    line_bot_api.reply_message(event.reply_token,
-                                               FlexSendMessage(
-                                                   alt_text='hello',
-                                                   contents=
-                                                   {
+                    line_bot_api.reply_message(event.reply_token,FlexSendMessage(alt_text='hello',contents={
                                                        "type": "bubble",
                                                        "size": "giga",
                                                        "body": {
@@ -617,10 +613,7 @@ def handle_text_message(event):
                                                                "separator": True
                                                            }
                                                        }
-                                                   }
-
-                                               )
-                                               )
+                                                   }))
                 except IndexError:
                     line_bot_api.reply_message(event.reply_token,
                                                TextSendMessage(
