@@ -12,14 +12,12 @@ router2 = routers.DefaultRouter()
 router2.register(r'employee', views.EmployeeViewSet)
 
 
-
 urlpatterns = [
     path('', views.home, name='home'),
     path('daily_update/<id>/', views.daily_update, name='daily_update'),
     path('normal1/<id>/', views.normal1, name='normal1'),
     path('normal2/<id>/', views.normal2, name='normal2'),
     path('quarantine/<id>/<existing_health>/', views.quarantine, name='quarantine'),
-    # path('see_doctor/', views.see_doctor, name='see_doctor'),
     path('checkin/<id>/', views.checkin, name='checkin'),
     path('tscheckin/<time>/', views.tscheckin, name='tscheckin'),
     path('tscheckout/<time>/', views.tscheckout, name='tscheckin'),
