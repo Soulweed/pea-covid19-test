@@ -394,9 +394,8 @@ class EmailViewSet(viewsets.ModelViewSet):
     serializer_class = EmailSerializer
 
 class EmployeeViewSet(viewsets.ModelViewSet):
-    queryset = emailemployee.objects.all().order_by('employee_ID')
+    queryset = employee.objects.all().order_by('employee_ID')
     serializer_class = EmployeeSerializer
-
 
 from django.http import HttpResponseForbidden, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
