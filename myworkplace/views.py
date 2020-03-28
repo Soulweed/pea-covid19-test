@@ -145,13 +145,13 @@ def LEAVE_request(request, id):
 
     return render(request, 'myworkplace/formleave1.html', context)
 
-async def send_email_meetdoc_request_async(id, email_boss, name):
-    flag = False
-    while flag == False:
-        flag = send_email_meetdoc_request(id=id, email_boss=email_boss,name=name)
-        if flag == True:
-            break
-        time.sleep(5)
+# async def send_email_meetdoc_request_async(id, email_boss, name):
+#     flag = False
+#     while flag == False:
+#         flag = send_email_meetdoc_request(id=id, email_boss=email_boss,name=name)
+#         if flag == True:
+#             break
+#         time.sleep(5)
 
 
 def formwfh1(request, id):
@@ -236,7 +236,9 @@ def meet_doc2(request,id):
                 user_meet_doc2.employee_id_up_2=boss_email
                 user_meet_doc2.save()
                 connection.close()
-                send_email_meetdoc_request_async(id=id, email_boss=email, name=user_meet_doc2.emplyee_name)
+
+                send_email_meetdoc_request(id=id, email_boss=email, name=user_meet_doc2.emplyee_name)
+
                 # send_email_meetdoc_request(id=id, email_boss=email, name=user_meet_doc2.emplyee_name)
 
                 return render(request, 'myworkplace/formseedoc3.html', context)
