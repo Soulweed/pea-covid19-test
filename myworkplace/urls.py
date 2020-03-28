@@ -45,4 +45,7 @@ urlpatterns = [
     path('remove_duplicate_emp_id/<emp_id>/', views.remove_duplicate_emp_id, name='remove_duplicate_emp_id'),
     path('remove_line_emp_id/<emp_line_id>/', views.remove_line_emp_id, name='remove_line_emp_id'),
     path('update_employee_profile/', views.update_employee_profile, name='update_employee_profile'),
+
+
+    path('upload_director_email/', views.upload_director_email, name='upload_director_email'),
 ]

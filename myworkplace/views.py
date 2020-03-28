@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from django.db import connection
-from .models import employee, question, emailemployee
+from .models import employee, question, emailemployee, Director_3_Emails, Director_4_Emails
 from send_email.views import send_email_wfh_request, get_user_email, send_email_wfh14day_request, \
     send_email_confrim_register, \
     send_email_meetdoc_request, send_email_confrim_wfh
@@ -22,6 +22,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django import forms
 
+import pandas as pd
 
 class CheckinForm(forms.Form):
     content = forms.CharField(max_length=150)
@@ -777,3 +778,24 @@ def update_employee_profile(request):
         i = i + 1
 
     return render(request, 'myworkplace/home.html')
+
+
+
+
+
+def upload_director_email(request):
+    df1=pd.read_excel('myworkplace/output.xlsx',sheet_name='directref4')
+    df2=pd.read_excel('myworkplace/output.xlsx', sheet_name='directref3')
+
+    for position,name,employee_id,ref3,ref2,ref1,lastref,Email in zip(
+            df1['position'], df1['name'],df1['employee_id'],df1['ref3'],df1['ref2'],df1['ref1'],df1['lastref'],df1['Email']):
+        a= Director_3_Emails(position=position, name=name,employee_id=employee_id,ref3=ref3,
+                             ref2=ref2,ref1=ref1,lastref=lastref,email=Email)
+        a.save()
+
+    for position,name,employee_id,ref2,ref1,lastref,Email in zip(
+            df2['position'], df2['name'],df2['employee_id'],df2['ref2'],df2['ref1'],df2['lastref'],df2['Email']):
+        b= Director_4_Emails(position=position, name=name,employee_id=employee_id,
+                             ref2=ref2,ref1=ref1,lastref=lastref,email=Email)
+        b.save()
+    return render(requests, 'myworkplace/home.html')

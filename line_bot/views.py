@@ -320,7 +320,7 @@ def handle_text_message(event):
                                                                {
                                                                    "type": "text",
                                                                    "text": "{}".format(
-                                                                       user_employee.employee_posi_text_short),
+                                                                       user_employee.employee_dept_sap_short),
                                                                    "size": "sm",
                                                                    "color": "#aaaaaa"
                                                                },
