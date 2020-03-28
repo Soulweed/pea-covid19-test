@@ -79,7 +79,7 @@ def handle_text_message(event):
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
             print('this Line ID is reistered')
-        except user_register.DoesNotExist:
+        except employee.DoesNotExist:
             print('ObjectDoesNotExist')
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
@@ -116,7 +116,7 @@ def handle_text_message(event):
                                                )
                                            ])
 
-        except user_register.MultipleObjectsReturned:
+        except employee.MultipleObjectsReturned:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))
     else:
@@ -1034,11 +1034,11 @@ def handle_text_message(event):
                                                     '4. “ข้อมูลส่วนตัว” เพื่อจัดการข้อมูลส่วนตัวของคุณ\n'
                                                     '5. “สถานการณ์” เพื่อเกาะติดสถานการณ์ COVID-19\n'
                                                     '6. “ใบเซ็นชื่อ” เพื่อเข้าระบบลงชื่อเข้าและเลิกทำงาน\nอย่าลืมเพิ่มระยะห่างทางสังคมนะครับ ถ้าเราไม่ติดกัน เราจะไม่ติดเชื้อ'))
-        except user_employee.DoesNotExist:
+        except employee.DoesNotExist:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดพิมพ์รหัสพนักงาน 6 ตัว'))
             print('this line id has not registered yet')
-        except user_employee.MultipleObjectsReturned:
+        except employee.MultipleObjectsReturned:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin ผ่านช่องทาง facebook PEA INNOVATION HUB https://www.facebook.com/peaihub/'))
             print('this line id has more than two account')
