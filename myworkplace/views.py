@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.core.exceptions import MultipleObjectsReturned
+from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 from django.db import connection
 from .models import employee, question, emailemployee
 from send_email.views import send_email_wfh_request,get_user_email, send_email_wfh14day_request, send_email_confrim_register, \
@@ -17,7 +17,6 @@ import time
 import asyncio
 
 
-# from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 
 # importing email library
@@ -92,7 +91,7 @@ def daily_update(request, id):
             elif health =='hospital':
 
                 return redirect(meet_doc2, id)
-        except user_DU.MultipleObjectsReturned:
+        except MultipleObjectsReturned:
             print('ERROR DU dubplicate id: {}'.format(id))
             remove_emp_id(id)
             print('DU dubplicate id: {} is removed'.format(id))
@@ -138,7 +137,7 @@ def LEAVE_request(request, id):
                 connection.close()
                 send_email_wfh14day_request(id=id, email_boss=email, name=user_LEAVE_request.emplyee_name, startdate=startdate, enddate=enddate)
                 return render(request, 'myworkplace/formleave4.html', context)
-            except user_LEAVE_request.MultipleObjectsReturned:
+            except MultipleObjectsReturned:
                 print('ERROR LEAVE request : {}'.format(id))
                 remove_emp_id(id)
                 print('Remove duplicate LEAVE request : {}'.format(id))
@@ -242,7 +241,7 @@ def meet_doc2(request,id):
                 # send_email_meetdoc_request(id=id, email_boss=email, name=user_meet_doc2.emplyee_name)
 
                 return render(request, 'myworkplace/formseedoc3.html', context)
-            except user_meet_doc2.MultipleObjectsReturned:
+            except MultipleObjectsReturned:
                 print('ERROR meet doc request id: {}'.format(id))
                 remove_emp_id(id)
                 print('Remove duplicate meet doc request : {}'.format(id))
@@ -254,7 +253,7 @@ def personal_info(request, id):
         context = {'data': data_personal_info.__dict__}
         connection.close()
         return render(request, 'myworkplace/personal_info.html', context)
-    except data_personal_info.MultipleObjectsReturned:
+    except MultipleObjectsReturned:
         print('ERROR personal info  id: {}'.format(id))
         remove_emp_id(id)
         print('Remove personal info  wfh request : {}'.format(id))
@@ -280,7 +279,7 @@ def checkin(request, id):
                     user_checkin.save()
                     connection.close()
                     return redirect(tscheckin, obj['datetime'])
-                except user_checkin.MultipleObjectsReturned:
+                except MultipleObjectsReturned:
                     print('ERROR Checkin duplicate id: {}'.format(id))
                     remove_emp_id(id)
                     print('Remove Checkin duplicate id: {}'.format(id))
@@ -295,7 +294,7 @@ def checkin(request, id):
                     user_checkout.save()
                     connection.close()
                     return redirect(tscheckout, obj['datetime'])
-                except user_checkout.MultipleObjectsReturned:
+                except MultipleObjectsReturned:
                     print('ERROR Checkin duplicate id: {}'.format(id))
                     remove_emp_id(id)
                     print('Remove Checkin duplicate id: {}'.format(id))
@@ -373,11 +372,11 @@ def register(request,id):
         user_register = employee.objects.get(employee_line_ID=line_id)
         connection.close()
         return redirect(home)
-    except user_register.MultipleObjectsReturned:
+    except MultipleObjectsReturned:
         print('ERROR register duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove register duplicate id: {}'.format(id))
-    except user_register.DoesNotExist:
+    except ObjectDoesNotExist:
         first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(emp_id)
 
     # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc, Gender= get_employee_profile(emp_id)
@@ -470,7 +469,9 @@ def register(request,id):
             print('model save: {}'.format(emp_id))
             print('------------------------')
             connection.close()
+
             send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
+
             return redirect(daily_update,emp_id)
         return render(request, 'myworkplace/formregister.html', context)
 
@@ -497,7 +498,7 @@ def randomquestions(request, id):
                 return render(request, 'myworkplace/correct.html')
             else:
                 return render(request, 'myworkplace/wrong.html')
-        except user_question.MultipleObjectsReturned:
+        except MultipleObjectsReturned:
             print('ERROR randomquestions duplicate id: {}'.format(id))
             remove_emp_id(id)
             print('Remove randomquestions duplicate id: {}'.format(id))
@@ -515,7 +516,7 @@ def miss3d_du(request, id):
         context = {'data': data_miss3d_du.__dict__}
         connection.close()
         return render(request, 'myworkplace/miss3d_du_id.html', context)
-    except data_miss3d_du.MultipleObjectsReturned:
+    except MultipleObjectsReturned:
         print('ERROR miss3d_du duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove miss3d_du duplicate id: {}'.format(id))
@@ -527,7 +528,7 @@ def miss3d_ts(request, id):
         context = {'data': data_miss3d_ts.__dict__, 'number':40}
         connection.close()
         return render(request, 'myworkplace/miss3d_ts_id.html', context)
-    except data_miss3d_ts.MultipleObjectsReturned:
+    except MultipleObjectsReturned:
         print('ERROR miss3d_ts duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove miss3d_ts duplicate id: {}'.format(id))
@@ -550,7 +551,7 @@ def WFH_approve(request, id, boss, total_date):
         first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(id)
         send_email_confrim_wfh(boss=boss, emp_email=emp_email)
         return render(request, 'myworkplace/test2.html')
-    except user_WFH_approve.MultipleObjectsReturned:
+    except MultipleObjectsReturned:
         ('ERROR WFH_approve duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove WFH_approve duplicate id: {}'.format(id))
@@ -572,7 +573,7 @@ def LEAVE_approve(request, id, boss):
         connection.close()
         context={'data': 'Leave request'}
         return render(request, 'myworkplace/test.html',context )
-    except user_LEAVE_approve.MultipleObjectsReturned:
+    except MultipleObjectsReturned:
         print('ERROR LEAVE_approve duplicate id: {}'.format(id))
         remove_emp_id(id)
         print('Remove LEAVE_approve duplicate id: {}'.format(id))
