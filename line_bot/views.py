@@ -434,7 +434,7 @@ def handle_text_message(event):
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "27/03/2020",
+                                                    "text": "{}".format(start_date),
                                                     "size": "md",
                                                     "color": "#111111",
                                                     "align": "end"
@@ -453,7 +453,7 @@ def handle_text_message(event):
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "12/04/2020",
+                                                    "text": "{}".format(end_date),
                                                     "size": "md",
                                                     "color": "#111111",
                                                     "align": "end"
@@ -515,7 +515,7 @@ def handle_text_message(event):
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "-------",
+                                                    "text": "--------",
                                                     "size": "md",
                                                     "color": "#111111",
                                                     "align": "end",
@@ -536,7 +536,7 @@ def handle_text_message(event):
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "------",
+                                                    "text": "--------",
                                                     "size": "md",
                                                     "color": "#111111",
                                                     "align": "end"
@@ -555,7 +555,7 @@ def handle_text_message(event):
                                                 },
                                                 {
                                                     "type": "text",
-                                                    "text": "------",
+                                                    "text": "--------",
                                                     "size": "md",
                                                     "color": "#111111",
                                                     "align": "end"
@@ -576,7 +576,7 @@ def handle_text_message(event):
                                     "action": {
                                         "type": "uri",
                                         "label": "สรุปการลงเวลางาน",
-                                        "uri": "http://linecorp.com/"
+                                        "uri": "https://pea-covid19-test.herokuapp.com/test/"
                                     },
                                     "color": "#8448FF"
                                 },
@@ -585,7 +585,7 @@ def handle_text_message(event):
                                     "action": {
                                         "type": "uri",
                                         "label": "ส่งใบรับรองแพทย์",
-                                        "uri": "http://linecorp.com/"
+                                        "uri": "https://pea-covid19-test.herokuapp.com/test/"
                                     },
                                     "color": "#8448FF"
                                 },
@@ -594,7 +594,7 @@ def handle_text_message(event):
                                     "action": {
                                         "type": "uri",
                                         "label": "รายละเอียดเพิ่มเติม",
-                                        "uri": "http://linecorp.com/"
+                                        "uri": "https://pea-covid19-test.herokuapp.com/test/"
                                     },
                                     "style": "primary",
                                     "color": "#8448FF",
