@@ -74,7 +74,7 @@ def handle_text_message(event):
         ##### function create email กับ content ข้างใน
         try:
             user_reister=employee.objects.get(employee_line_ID=dict_source['user_id'])
-            connection.close()
+            # connection.close()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
             print('this Line ID is reistered')
