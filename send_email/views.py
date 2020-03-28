@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.db import connection
+
+
 from exchangelib import Configuration, Account, DELEGATE, Credentials
-from exchangelib import Message, Mailbox, FileAttachment, close_connections
+from exchangelib import Message, Mailbox, FileAttachment, protocol
 from exchangelib.errors import UnauthorizedError, TransportError, RedirectError, RelativeRedirect
+from exchangelib.protocol import BaseProtocol, NoVerifyHTTPAdapter
+
 import requests, xmltodict
 from datetime import datetime, timedelta
 from myworkplace.models import employee, emailemployee
@@ -14,7 +18,7 @@ def connect(server, email, username, password):
     Get Exchange account cconnection with server
     """
     creds = Credentials(username=username, password=password)
-    config = Configuration(server=server, credentials=creds, service_endpoint='https://email.pea.co.th/EWS/Exchange.asmx')
+    config = Configuration(server=server, credentials=creds)
     return Account(primary_smtp_address=email, autodiscover=False, config=config, access_type=DELEGATE)
 
 
@@ -275,29 +279,40 @@ def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
 
 
 def send_email_meetdoc_request(id, email_boss, name):
-    recipient_list = [email_boss]
-    # print('receipient list', recipient_list)
-    server = 'email.pea.co.th'
-    email = 'peacovid19@pea.co.th'
-    username = 'peacovid19'
-    password = 'peacovid19'
-    account = connect(server, email, username, password)
-    # email_boss = boss + '@pea.co.th'
-    subject = 'ขอลาป่วย 14 วัน'
-    body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก  {}  รหัส {} ซึ่งเป็นพนักงานในสังกัดของท่าน มีความเสี่ยงในการติดเชื้อ COVID-19 ต้องแยกตัวเอง เพื่อเฝ้าดูอาการและควรพบแพทย์\n\n' \
-           'ขอให้ท่านติดตามอาการพนักงานในสังกัดของท่านอย่างใกล้ชิด \n\n' \
-           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n' \
-           'PEA COVID-19\n' \
-           'By PEA Innovation Hub'.format(name, id)
-    m = Message(account=account,
-                subject=subject,
-                body=body,
-                to_recipients=recipient_list)
-    # print('message created')
-    m.send_and_save()
-    close_connections()
-    # print(m)
-    print('email send: {} >> {}'.format(id, email_boss))
+    try:
+        recipient_list = [email_boss]
+        # print('receipient list', recipient_list)
+        server = 'email.pea.co.th'
+        email = 'peacovid19@pea.co.th'
+        username = 'peacovid19'
+        password = 'peacovid19'
+
+        BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+        BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
+        account = connect(server, email, username, password)
+        # email_boss = boss + '@pea.co.th'
+        subject = 'ขอลาป่วย 14 วัน'
+        body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก  {}  รหัส {} ซึ่งเป็นพนักงานในสังกัดของท่าน มีความเสี่ยงในการติดเชื้อ COVID-19 ต้องแยกตัวเอง เพื่อเฝ้าดูอาการและควรพบแพทย์\n\n' \
+               'ขอให้ท่านติดตามอาการพนักงานในสังกัดของท่านอย่างใกล้ชิด \n\n' \
+               'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n' \
+               'PEA COVID-19\n' \
+               'By PEA Innovation Hub'.format(name, id)
+        m = Message(account=account,
+                    subject=subject,
+                    body=body,
+                    to_recipients=recipient_list)
+        # print('message created')
+
+        m.send_and_save()
+        protocol.close_connections()
+        print('email send: {} >> {}'.format(id, email_boss))
+        return True
+        # print(m)
+
+    except Exception as e:
+        print(" >>>> Fail: {}".format(e))
+        return False
 
 
 ########################################### แจ้ง Boss ##########################################################
