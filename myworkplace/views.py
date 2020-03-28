@@ -660,16 +660,8 @@ def summarylist1(request, dept_sap):
     return render(request, 'myworkplace/summary_list1.html', context)
 
 
-
-
-
 def update_employee_profile(request):
 
-    # user =employee.objects.get(employee_ID='233124')
-    # print(user.employee_posi_text_short)
-    # print(type(user.employee_posi_text_short))
-    # print(user.employee_posi_text_short == None)
-    # print(user.employee_posi_text_short == 'None')
 
     users = employee.objects.filter(employee_posi_text_short=None)
     total_num=len(users)
