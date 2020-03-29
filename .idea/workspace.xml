@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7370c266-3aa9-466c-9af5-bd35363a27e4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/line_bot/views.py" afterPath="$PROJECT_DIR$/line_bot/views.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html" />
       <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" />
-      <change beforePath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html" afterPath="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html" />
+      <change beforePath="$PROJECT_DIR$/myworkplace/urls.py" afterPath="$PROJECT_DIR$/myworkplace/urls.py" />
       <change beforePath="$PROJECT_DIR$/myworkplace/views.py" afterPath="$PROJECT_DIR$/myworkplace/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,67 +26,23 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1155">
-              <caret line="486" column="24" lean-forward="true" selection-start-line="486" selection-start-column="24" selection-end-line="486" selection-end-column="24" />
+            <state relative-caret-position="346">
+              <caret line="904" column="26" lean-forward="false" selection-start-line="904" selection-start-column="4" selection-end-line="904" selection-end-column="26" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#49035#49163#0" expanded="false" />
+                <element signature="e#51140#52681#0" expanded="false" />
+                <element signature="e#52745#53990#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="formregister.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="124" column="14" lean-forward="false" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
-              <folding>
-                <element signature="e#3248#3945#0#HTML" expanded="false" />
-                <element signature="e#3954#4618#0#HTML" expanded="false" />
-                <element signature="e#4627#4921#0#HTML" expanded="false" />
-                <element signature="e#4930#5366#0#HTML" expanded="false" />
-                <element signature="e#5375#5710#0#HTML" expanded="false" />
-                <element signature="e#5719#6032#0#HTML" expanded="false" />
-                <element signature="e#6072#6994#0#HTML" expanded="false" />
-                <element signature="e#7007#7407#0#HTML" expanded="false" />
-                <element signature="e#7420#7787#0#HTML" expanded="false" />
-                <element signature="e#7800#8110#0#HTML" expanded="false" />
-                <element signature="e#8123#8755#0#HTML" expanded="false" />
-                <element signature="e#8768#9418#0#HTML" expanded="false" />
-                <element signature="e#9431#9825#0#HTML" expanded="false" />
-                <element signature="e#9838#10187#0#HTML" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="formseedoc2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="58" column="8" lean-forward="true" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="formwfh2drange.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="76" column="47" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-              <folding>
-                <marker date="1585459377258" expanded="false" signature="3005:3011" ph=" " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/peacovid19v2/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-95">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="557">
+              <caret line="54" column="97" lean-forward="false" selection-start-line="54" selection-start-column="97" selection-end-line="54" selection-end-column="97" />
               <folding />
             </state>
           </provider>
@@ -104,8 +60,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user_register</find>
-      <find>employee.objects.g</find>
       <find>except</find>
       <find>end_date</find>
       <find>test/</find>
@@ -133,7 +87,9 @@
       <find>get_employee_profile</find>
       <find>get_user_email(</find>
       <find>register(</find>
+      <find>no email in system</find>
       <find>page</find>
+      <find>formwfh2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -185,14 +141,14 @@
         <option value="$PROJECT_DIR$/myworkplace/models.py" />
         <option value="$PROJECT_DIR$/send_email/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/serializers.py" />
-        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
         <option value="$PROJECT_DIR$/myworkplace/admin.py" />
-        <option value="$PROJECT_DIR$/line_bot/views.py" />
         <option value="$PROJECT_DIR$/line_bot/urls.py" />
-        <option value="$PROJECT_DIR$/myworkplace/views.py" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html" />
-        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" />
         <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html" />
+        <option value="$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html" />
+        <option value="$PROJECT_DIR$/line_bot/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/views.py" />
+        <option value="$PROJECT_DIR$/myworkplace/urls.py" />
       </list>
     </option>
   </component>
@@ -243,19 +199,6 @@
             <path>
               <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
               <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="peacovid19v2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="peacovid19v2" type="462c0819:PsiDirectoryNode" />
-              <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="myworkplace" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -393,7 +336,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5781866" sideWeight="0.24117647" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285151" sideWeight="0.10735294" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2982917" sideWeight="0.7588235" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14586072" sideWeight="0.7588235" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25220588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -418,15 +361,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4079602" sideWeight="0.50572246" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.8927039" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5781866" sideWeight="0.24117647" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285151" sideWeight="0.10735294" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34034166" sideWeight="0.5143061" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20882353" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14586072" sideWeight="0.7588235" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25220588" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34739456" sideWeight="0.48569384" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34691197" sideWeight="0.48308823" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24981578" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -722,14 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="51" column="100" lean-forward="false" selection-start-line="51" selection-start-column="100" selection-end-line="51" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -737,14 +672,6 @@
           <folding>
             <element signature="e#0#32#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/peacovid19v2/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -756,39 +683,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="76" column="47" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-          <folding>
-            <marker date="1585459377258" expanded="false" signature="3005:3011" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/send_email/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-184">
           <caret line="85" column="19" lean-forward="false" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/line_bot/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="937" column="12" lean-forward="true" selection-start-line="937" selection-start-column="0" selection-end-line="938" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#2719#7023#0" expanded="false" />
-            <element signature="e#5349#6828#0" expanded="false" />
-            <element signature="e#7238#13122#0" expanded="false" />
-            <element signature="e#7465#13032#0" expanded="false" />
-            <element signature="e#13188#13349#0" expanded="false" />
-            <element signature="e#13428#19185#0" expanded="false" />
-            <element signature="e#48707#51326#0" expanded="false" />
-            <element signature="e#51393#70134#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -802,44 +701,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1155">
-          <caret line="486" column="24" lean-forward="true" selection-start-line="486" selection-start-column="24" selection-end-line="486" selection-end-column="24" />
+        <state relative-caret-position="289">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/line_bot/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="122" column="57" lean-forward="false" selection-start-line="122" selection-start-column="57" selection-end-line="122" selection-end-column="57" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#5358#6837#0" expanded="false" />
+            <element signature="e#7247#13131#0" expanded="false" />
+            <element signature="e#7474#13041#0" expanded="false" />
+            <element signature="e#13197#13358#0" expanded="false" />
+            <element signature="e#13437#19194#0" expanded="false" />
+            <element signature="e#48716#51335#0" expanded="false" />
+            <element signature="e#51402#70143#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formseedoc2.html">
+    <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formwfh2drange.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="58" column="8" lean-forward="true" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="230">
+          <caret line="76" column="47" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding>
+            <marker date="1585459377258" expanded="false" signature="3005:3011" ph=" " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/templates/myworkplace/formregister.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="124" column="14" lean-forward="false" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
+        <state relative-caret-position="240">
+          <caret line="93" column="24" lean-forward="true" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
           <folding>
-            <element signature="e#3248#3945#0#HTML" expanded="false" />
-            <element signature="e#3954#4618#0#HTML" expanded="false" />
-            <element signature="e#4627#4921#0#HTML" expanded="false" />
-            <element signature="e#4930#5366#0#HTML" expanded="false" />
-            <element signature="e#5375#5710#0#HTML" expanded="false" />
-            <element signature="e#5719#6032#0#HTML" expanded="false" />
-            <element signature="e#6072#6994#0#HTML" expanded="false" />
-            <element signature="e#7007#7407#0#HTML" expanded="false" />
-            <element signature="e#7420#7787#0#HTML" expanded="false" />
-            <element signature="e#7800#8110#0#HTML" expanded="false" />
-            <element signature="e#8123#8755#0#HTML" expanded="false" />
-            <element signature="e#8768#9418#0#HTML" expanded="false" />
-            <element signature="e#9431#9825#0#HTML" expanded="false" />
-            <element signature="e#9838#10187#0#HTML" expanded="false" />
+            <element signature="e#159#440#0#HTML" expanded="false" />
+            <element signature="e#445#684#0#HTML" expanded="false" />
+            <element signature="e#689#1046#0#HTML" expanded="false" />
+            <element signature="e#1051#1484#0#HTML" expanded="false" />
+            <element signature="e#1489#1889#0#HTML" expanded="false" />
+            <element signature="e#1894#2297#0#HTML" expanded="false" />
+            <element signature="e#2302#2953#0#HTML" expanded="false" />
+            <element signature="e#2958#3188#0#HTML" expanded="false" />
+            <element signature="e#3247#3944#0#HTML" expanded="false" />
+            <element signature="e#3953#4617#0#HTML" expanded="false" />
+            <element signature="e#4626#4920#0#HTML" expanded="false" />
+            <element signature="e#4929#5365#0#HTML" expanded="false" />
+            <element signature="e#5374#5709#0#HTML" expanded="false" />
+            <element signature="e#5718#6031#0#HTML" expanded="false" />
+            <element signature="e#6071#6993#0#HTML" expanded="false" />
+            <element signature="e#7006#7406#0#HTML" expanded="false" />
+            <element signature="e#7419#7786#0#HTML" expanded="false" />
+            <element signature="e#7799#8109#0#HTML" expanded="false" />
+            <element signature="e#8122#8754#0#HTML" expanded="false" />
+            <element signature="e#8767#9417#0#HTML" expanded="false" />
+            <element signature="e#9430#9824#0#HTML" expanded="false" />
+            <element signature="e#9837#10186#0#HTML" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/peacovid19v2/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="904" column="26" lean-forward="false" selection-start-line="904" selection-start-column="4" selection-end-line="904" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#49035#49163#0" expanded="false" />
+            <element signature="e#51140#52681#0" expanded="false" />
+            <element signature="e#52745#53990#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myworkplace/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="54" column="97" lean-forward="false" selection-start-line="54" selection-start-column="97" selection-end-line="54" selection-end-column="97" />
+          <folding />
         </state>
       </provider>
     </entry>

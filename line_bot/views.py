@@ -120,7 +120,7 @@ def handle_text_message(event):
                     line_bot_api.reply_message(event.reply_token,
                                                TextSendMessage(
                                                    text='ขณะนี้เรากำลังปรับปรุงระบบลงทะเบียนเพื่อรองรับผู้ใช้งานจำนวนมาก กรุณาลงทะเบียนอีกครั้งภายหลัง'))
-                    print('{} no email in system'.format(dict_message['text']))
+                    print('{} please register again later'.format(dict_message['text']))
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            [TextSendMessage(
