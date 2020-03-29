@@ -1016,3 +1016,14 @@ def update_employee_profile2(request):
         i = i + 1
         print('{}/{}'.format(i,total_num))
     return render(request, 'myworkplace/home.html')
+
+
+def update_employee_profile3(request):
+    users = employee.objects.filter(employee_level_code=None)
+    print(len(users))
+    for item in users:
+        item.employee_level_code = get_user_level_code(item.employee_ID)
+        item.save()
+
+    return render(request, 'myworkplace/home.html')
+

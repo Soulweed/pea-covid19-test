@@ -11,5 +11,6 @@ admin.site.register(Director_3_Emails)
 admin.site.register(Director_Area_Emails)
 admin.site.register(Director_GA_Emails)
 admin.site.register(Director_Agency_Emails)
+admin.site.register(Director_DP_Emails)
 admin.site.register(Director_Governer_Emails)
 
