@@ -686,14 +686,15 @@ def handle_text_message(event):
                                            )
                                            )
             elif dict_message['text'] == 'test2':
-                first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
-                sub_region, emp_email, level_code = get_user_email(499959)
-                line_bot_api.reply_message(event.reply_token,
-                                           TextSendMessage(
-                                               text='เรียนคุณ {} {} สังกัด {} กรุณากดที่ link เพื่อลงทะเบียนยืนยันตัวตน หากไม่ใช้กรุณาแจ้ง admin '
-                                                    'https://pea-covid19-test.herokuapp.com/register/{}{}/'.format(first_name,
-                                                                                                            last_name, dept_sap_short,dict_source['user_id'] ,499959)),
-                                           )
+                pass:
+                # first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
+                # sub_region, emp_email, level_code = get_user_email(499959)
+                # line_bot_api.reply_message(event.reply_token,
+                #                            TextSendMessage(
+                #                                text='เรียนคุณ {} {} สังกัด {} กรุณากดที่ link เพื่อลงทะเบียนยืนยันตัวตน หากไม่ใช้กรุณาแจ้ง admin '
+                #                                     'https://pea-covid19-test.herokuapp.com/register/{}{}/'.format(first_name,
+                #                                                                                             last_name, dept_sap_short,dict_source['user_id'] ,499959)),
+                #                            )
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
