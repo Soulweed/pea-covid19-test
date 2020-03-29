@@ -88,9 +88,14 @@ def handle_text_message(event):
             print('this Line ID is reistered')
 
         elif num_results==0:
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
+            print('start get user  email')
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
+            sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
+            print('get user  email')
+
             if emp_email is not None:
+                print('start send email')
                 for i in range(5):
                     try:
                         print('email: ',emp_email, 'line id: ', dict_source['user_id'], 'emp id: ', dict_message['text'])
