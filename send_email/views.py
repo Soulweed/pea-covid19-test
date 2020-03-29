@@ -707,7 +707,7 @@ def send_test_email():
 
 
 
-def send_email_register_async(emp_email, line_id, id):
+def send_email_register_async(emp_email, emp_line_id, emp_id):
     async def main(body):
         loop = asyncio.get_event_loop()
 
@@ -764,7 +764,7 @@ def send_email_register_async(emp_email, line_id, id):
             pass
 
     try:
-        body={'email':emp_email, 'emp_line_id':line_id, 'emp_id':id}
+        body={'email':emp_email, 'emp_line_id':emp_line_id, 'emp_id':emp_id}
 
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
