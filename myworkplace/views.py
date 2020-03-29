@@ -145,8 +145,8 @@ def LEAVE_request(request, id):
                 user_LEAVE_request.save()
                 connection.close()
                 send_complete = 0
-                r=0
-                while ((send_complete==0) and (r < 6)):
+                r = 0
+                while ((send_complete == 0) and (r < 6)):
                     # for i in range(5):
 
                     try:
@@ -154,8 +154,8 @@ def LEAVE_request(request, id):
                                                     startdate=startdate, enddate=enddate)
                         send_complete = 1
                     except:
-                        send_complete=0
-                        r = r+1
+                        send_complete = 0
+                        r = r + 1
 
                 if send_complete:
                     return render(request, 'myworkplace/formleave4.html', context)
@@ -227,10 +227,11 @@ def formwfh2(request, id):
                                                total_date=get_total_date,
                                                name=user_formwfh2.emplyee_name, startdate=get_startdate,
                                                enddate=get_enddate)
+                        print('Sending email completed')
                         send_complete = 1
                     except:
                         # send_complete = 0
-
+                        print('Sending email failed')
                         r = r + 1
 
                 if send_complete:
@@ -278,7 +279,7 @@ def meet_doc2(request, id):
                 send_complete = 0
                 r = 0
                 while ((send_complete == 0) and (r < 6)):
-                # for i in range(5):
+                    # for i in range(5):
                     try:
                         send_email_meetdoc_request(id=id, email_boss=user_meet_doc2.director_approve_email,
                                                    name=user_meet_doc2.emplyee_name)
@@ -286,7 +287,7 @@ def meet_doc2(request, id):
                         send_complete = 1
                     except:
                         # send_complete = 0
-                        r=r+1
+                        r = r + 1
 
                 if send_complete:
                     return render(request, 'myworkplace/formseedoc3.html', context)
@@ -396,19 +397,23 @@ def quarantine(request, id, existing_health):
 
 # API
 from rest_framework import viewsets
-from .serializers import QuestionSerializer, EmailSerializer ,EmployeeSerializer
+from .serializers import QuestionSerializer, EmailSerializer, EmployeeSerializer
+
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = question.objects.all().order_by('question_text')
     serializer_class = QuestionSerializer
 
+
 class EmailViewSet(viewsets.ModelViewSet):
     queryset = emailemployee.objects.all().order_by('employeeid')
     serializer_class = EmailSerializer
 
+
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = employee.objects.all().order_by('employee_ID')
     serializer_class = EmployeeSerializer
+
 
 from django.http import HttpResponseForbidden, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -491,10 +496,6 @@ def register(request, id):
         emergency_two_first_name = ''
         emergency_two_last_name = ''
         emergency_two_tel = ''
-
-
-
-
 
         if request.method == "POST":
             # emp_name = request.POST.get("first-last name")
@@ -589,8 +590,9 @@ def register(request, id):
                     if (section.split('/')[-4]).find("กอก.") != -1:
                         print('case 1')
                         director = \
-                        Director_Area_Emails.objects.filter(ref2=section.split('/')[-3], ref1=section.split('/')[-2])[
-                            0]  # พนง. ภายใต้ กอก.
+                            Director_Area_Emails.objects.filter(ref2=section.split('/')[-3],
+                                                                ref1=section.split('/')[-2])[
+                                0]  # พนง. ภายใต้ กอก.
 
                     elif (section.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
                                                      "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4).", "ฝวธ.(ภ1)",
@@ -607,17 +609,16 @@ def register(request, id):
                                                                     ref2=section.split('/')[-3],
                                                                     ref1=section.split('/')[-2])[0]
 
-                director_email=director.email
-                director_employee_id=director.employee_id
-                director_name= director.name
-                director_position=director.position
+                director_email = director.email
+                director_employee_id = director.employee_id
+                director_name = director.name
+                director_position = director.position
 
             else:
                 director_email = ''
                 director_employee_id = ''
                 director_name = ''
                 director_position = ''
-
 
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
             user_data = employee(
@@ -655,17 +656,17 @@ def register(request, id):
             print('model save: {}'.format(emp_id))
             print('------------------------')
             connection.close()
-            send_complete=0
-            r=0
+            send_complete = 0
+            r = 0
             while ((send_complete == 0) and (r < 6)):
-            # for i in range(5):
+                # for i in range(5):
                 try:
                     send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
 
                     send_complete = 1
                     # break
                 except:
-                    r=r+1
+                    r = r + 1
                     # send_complete = 0
 
             if send_complete:
@@ -756,14 +757,14 @@ def WFH_approve(request, id, boss, total_date):
         send_complete = 0
         r = 0
         while ((send_complete == 0) and (r < 6)):
-        # for i in range(5):
+            # for i in range(5):
             try:
                 send_email_confrim_wfh(boss=boss, emp_email=emp_email)
                 send_complete = 1
                 # break
             except:
                 # send_complete = 0
-                r=r+1
+                r = r + 1
 
         if send_complete:
             return render(request, 'myworkplace/test2.html')
@@ -910,6 +911,7 @@ def update_employee_profile(request):
 
     return render(request, 'myworkplace/home.html')
 
+
 def upload_director_email(request):
     df1 = pd.read_excel('myworkplace/output.xlsx', sheet_name='directref4')
     df2 = pd.read_excel('myworkplace/output.xlsx', sheet_name='directref3')
@@ -927,12 +929,13 @@ def upload_director_email(request):
         b.save()
     return render(request, 'myworkplace/home.html')
 
+
 def upload_director_email1(request):
     df1 = pd.read_excel('myworkplace/output1.xlsx', sheet_name='Sheet3')
-    for position, name, employee_id,  ref1, lastref, Email in zip(
-            df1['position'], df1['name'], df1['employee_id'],  df1['ref1'], df1['lastref'], df1['Email']):
+    for position, name, employee_id, ref1, lastref, Email in zip(
+            df1['position'], df1['name'], df1['employee_id'], df1['ref1'], df1['lastref'], df1['Email']):
         a = Director_Agency_Emails(position=position, name=name, employee_id=employee_id,
-                                ref1=ref1, lastref=lastref, email=Email)
+                                   ref1=ref1, lastref=lastref, email=Email)
         a.save()
     return render(request, 'myworkplace/home.html')
 
@@ -947,6 +950,7 @@ def upload_director_email2(request):
 
     return render(request, 'myworkplace/home.html')
 
+
 def upload_director_email3(request):
     df1 = pd.read_excel('myworkplace/output5.xlsx', sheet_name='Sheet1')
     for position, name, employee_id, ref2, ref1, lastref, Email in zip(
@@ -956,6 +960,7 @@ def upload_director_email3(request):
         a.save()
     return render(request, 'myworkplace/home.html')
 
+
 def upload_director_email4(request):
     df1 = pd.read_excel('myworkplace/output6.xlsx', sheet_name='Sheet1')
     for position, name, employee_id, ref1, lastref, Email in zip(
@@ -964,6 +969,7 @@ def upload_director_email4(request):
                                ref1=ref1, lastref=lastref, email=Email)
         a.save()
     return render(request, 'myworkplace/home.html')
+
 
 def update_directror_email(request, id):
     user = employee.objects.get(employee_ID=id)
@@ -1008,14 +1014,16 @@ def update_employee_profile2(request):
         section = item.employee_dept_sap_short
         position = item.employee_level_code
 
-        agencylist = ["สวก.", "สตภ.", "สกม.","สรก.(ว)"]
+        agencylist = ["สวก.", "สตภ.", "สกม.", "สรก.(ว)"]
         pglist = ["สชก.(ว)", "สชก.(ย)", "สชก.(ธ)", "สชก.(วศ)", "สชก.(ทส)", "สชก.(กบ)", "สชก.(ป)", "สชก.(อ)", "สชก.(บ)",
                   "สชก.(ท)", "สชก.(ส)"]
 
         arealist = ["กฟน.1", "กฟน.2", "กฟน.3", "กฟฉ.1", "กฟฉ.2", "กฟฉ.3", "กฟก.1", "กฟก.2", "กฟก.3", "กฟต.1", "กฟต.2",
                     "กฟต.3"]
 
-        if section.find('กฟอ.สดด.') == -1:
+        if section.find('กฟอ.สดด.') == -1 \
+                and section.find('กฟส.อ.วว.') == -1 and section.find('กฟภ.อ.ทมก.') == -1 \
+                and section.find('กฟจ.สค.2(บพว') == -1:
 
             if len(section.split('/')) == 1:  # รผก. ประจำสำนัก ผชช.
                 director = Director_Governer_Emails.objects.get(lastref=section.split('/')[-1])
@@ -1028,7 +1036,7 @@ def update_employee_profile2(request):
                     director = Director_Governer_Emails.objects.get(lastref=section.split('/')[-1])  # อฝ. ภายใต้ สวก.
 
             elif len(section.split('/')) == 3:
-                print('position: ',position)
+                print('position: ', position)
                 if position == 'S2':
                     print('case: 1')
                     director = Director_DP_Emails.objects.get(ref1=section.split('/')[-2])  # อข. ผชช.13 ผชก.
@@ -1060,7 +1068,8 @@ def update_employee_profile2(request):
                                                                    ref1=section.split('/')[-2])[0]  # อก.อก ภายใต้ อข.
 
                 elif (section.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
-                "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4).", "ฝวธ.(ภ1)", "ฝวธ.(ภ2)", "ฝวธ.(ภ3)","ฝวธ.(ภ4)"]):
+                                                 "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4).", "ฝวธ.(ภ1)", "ฝวธ.(ภ2)",
+                                                 "ฝวธ.(ภ3)", "ฝวธ.(ภ4)"]):
                     director = Director_4_Emails.objects.filter(ref2=section.split('/')[-3],
                                                                 ref1=section.split('/')[-2])[0]
 
@@ -1072,12 +1081,15 @@ def update_employee_profile2(request):
             elif len(section.split('/')) > 4:
                 print('here we are')
                 print((section.split('/')[-4]).find("กอก."))
-                if (section.split('/')[-4]).find("กอก.")!=-1:
+                if (section.split('/')[-4]).find("กอก.") != -1:
                     print('case 1')
-                    director = Director_Area_Emails.objects.filter(ref2=section.split('/')[-3],ref1=section.split('/')[-2])[0]  # พนง. ภายใต้ กอก.
+                    director = \
+                    Director_Area_Emails.objects.filter(ref2=section.split('/')[-3], ref1=section.split('/')[-2])[
+                        0]  # พนง. ภายใต้ กอก.
 
                 elif (section.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
-                "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4).", "ฝวธ.(ภ1)", "ฝวธ.(ภ2)", "ฝวธ.(ภ3)","ฝวธ.(ภ4)"]):
+                                                 "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4).", "ฝวธ.(ภ1)", "ฝวธ.(ภ2)",
+                                                 "ฝวธ.(ภ3)", "ฝวธ.(ภ4)"]):
                     print('case 2')
                     director = Director_4_Emails.objects.filter(ref2=section.split('/')[-3],
                                                                 ref1=section.split('/')[-2])[0]
@@ -1085,8 +1097,8 @@ def update_employee_profile2(request):
                     print('case 3')
 
                     director = Director_3_Emails.objects.filter(ref3=section.split('/')[-4],
-                                                             ref2=section.split('/')[-3],
-                                                             ref1=section.split('/')[-2])[0]
+                                                                ref2=section.split('/')[-3],
+                                                                ref1=section.split('/')[-2])[0]
 
                 # print(director.__dict__)
             item.director_approve_email = director.email
@@ -1100,6 +1112,7 @@ def update_employee_profile2(request):
         print('{}/{}'.format(i, total_num))
     return render(request, 'myworkplace/home.html')
 
+
 def update_employee_profile3(request):
     users = employee.objects.filter(employee_level_code=None)
     print(len(users))
@@ -1108,4 +1121,3 @@ def update_employee_profile3(request):
         item.save()
 
     return render(request, 'myworkplace/home.html')
-
