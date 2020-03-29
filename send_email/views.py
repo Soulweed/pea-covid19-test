@@ -721,11 +721,7 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
                     print('Async Event mail Sending', recipient_list)
                     account = Account(primary_smtp_address=email, autodiscover=False, config=config,
                                    access_type=DELEGATE)
-
-
                     print('receipient list', recipient_list)
-
-
 
                     # BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
                     # BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
@@ -744,14 +740,16 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
                                 body=body_text,
                                 to_recipients=recipient_list)
                     m.send_and_save()
+                    print('Async send email success: ', recipient_list)
+
                     protocol.close_connections()
                     del account
                     flag = True
-
-
             except Exception as err:
+                print('Create account {} fail'.format(body['emp_email']))
                 time.sleep(10)
                 sendmq(body)
+
 
         try:
 
@@ -762,6 +760,7 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
 
     try:
         body={'emp_email':emp_email, 'emp_line_id':emp_line_id, 'emp_id':emp_id}
+
         print(body)
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)

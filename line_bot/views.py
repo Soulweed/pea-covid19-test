@@ -67,11 +67,12 @@ def handle_text_message(event):
     emp_line_id=dict_source['user_id']
 
     print(dict_source, dict_message)
-    # print(dict_message['text'])
+    print(dict_message['text'])
     # line_bot_api.reply_message(event.reply_token,
     #                            # TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดกรอกรหัสพนักงาน 6 ตัว'))
     #                            TextSendMessage(
-    #                                text='ตอนนี้ระบบปิดทำการชั่วคราวเพื่อปรับปรุงคร่าาา จะกลับมาอีกทีเร็วๆนี้'))
+    #                                text='ตอนนี้ระบบปิดปรับปรุงเพื่อรองรับผู้ใช้งานจำนวนมาก จะกลับมาอีกทีเร็วๆนี้'))
+    # if False:
     if dict_message['text'].isnumeric() and (
             len(dict_message['text']) == 6 or len(dict_message['text']) == 7):
         ##### function create email กับ content ข้างใน
@@ -94,15 +95,28 @@ def handle_text_message(event):
 
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
             sub_region, emp_email, level_code = get_user_email(dict_message['text'])
+            # first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
+            # sub_region, emp_email, level_code = get_user_email(499959)
 
             if emp_email is not None:
-                print('Employee id: ',dict_message['text'], 'Email :', emp_email)
-                send_email_register_async(emp_line_id=dict_source['user_id'], emp_email=emp_email, emp_id=dict_message['text'])
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
-                                               text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
-                                                    '(username คือรหัสพนักงาน 6 หลัก)')
+                                               text='เรียนคุณ {} {} สังกัด {} โปรดตรวจสอบความถูกต้องของข้อมูล \n'
+                                                    'หากข้อมูลถูกต้อง โปรดคลิกตาม link ด้านล่าง เพื่อลงทะเบียนยืนยันตัวตน \n'
+                                                    'หาก "ไม่ใช่" กรุณาพิมพ์รหัสพนักงานอีกครั้ง\n'
+                                                    '"1 Mobile 1 LINE ID"'
+                                                    'https://pea-covid19-test.herokuapp.com/register/{}{}/'.format(
+                                                   first_name,
+                                                   last_name, dept_sap_short, dict_source['user_id'], dict_message['text'])),
                                            )
+
+                # print('Employee id: ',dict_message['text'], 'Email :', emp_email)
+                # send_email_register_async(emp_line_id=dict_source['user_id'], emp_email=emp_email, emp_id=dict_message['text'])
+                # line_bot_api.reply_message(event.reply_token,
+                #                            TextSendMessage(
+                #                                text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
+                #                                     '(username คือรหัสพนักงาน 6 หลัก)')
+                #                            )
 
 
         elif num_results>1:
@@ -645,14 +659,7 @@ def handle_text_message(event):
                                            )
             elif dict_message['text'] == 'test2':
                 pass
-                # first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
-                # sub_region, emp_email, level_code = get_user_email(499959)
-                # line_bot_api.reply_message(event.reply_token,
-                #                            TextSendMessage(
-                #                                text='เรียนคุณ {} {} สังกัด {} กรุณากดที่ link เพื่อลงทะเบียนยืนยันตัวตน หากไม่ใช้กรุณาแจ้ง admin '
-                #                                     'https://pea-covid19-test.herokuapp.com/register/{}{}/'.format(first_name,
-                #                                                                                             last_name, dept_sap_short,dict_source['user_id'] ,499959)),
-                #                            )
+
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
