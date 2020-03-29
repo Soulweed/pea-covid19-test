@@ -515,9 +515,7 @@ def register(request, id):
                         "กฟต.2",
                         "กฟต.3"]
 
-            if section.find('กฟอ.สดด.') == -1 \
-                    and section.find('กฟส.อ.วว.') == -1 and section.find('กฟภ.อ.ทมก.') == -1 \
-                    and section.find('กฟจ.สค.2(บพว') == -1:
+            if True:
 
                 if len(section.split('/')) == 1:  # รผก. ประจำสำนัก ผชช.
                     director = Director_Governer_Emails.objects.get(lastref=section.split('/')[-1])
@@ -611,6 +609,41 @@ def register(request, id):
                 director_position = ''
 
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+            user_data = employee(
+                emplyee_name='{} {}'.format(first_name, last_name),
+                employee_ID=emp_id,
+                employee_line_ID=line_id,
+                healthy='normal',
+                activity_text=json.dumps([obj], ensure_ascii=False),
+                # posi_text_short=posi_text_short,
+                employee_posi_text_short=posi_text_short,
+                employee_dept_sap_short=dept_sap_short,
+                employee_dept_sap=dept_sap,
+                employee_dept_upper=dept_upper,
+                employee_sub_region=sub_region,
+                employee_emp_email=emp_email,
+                employee_tel=ext,
+                tel=mobile_phone,
+                work_building=building,
+                work_floor=floor,
+                address_type=address,
+                address_to_live=addition_address,
+                workmate_first_name=firstname_ref_1,
+                workmate_last_name=lastname_ref_1,
+                workmate_tel=mobile_ref_1,
+                workmate_id=relation_ref_1,
+                employee_level_code=level_code,
+                director_approve_email=director_email,
+                director_approve_id=director_employee_id,
+                director_approve_name=director_name,
+                director_approve_position=director_position,
+            )
+
+            user_data.save()
+            print('------------------------')
+            print('model save: {}'.format(emp_id))
+            print('------------------------')
+            connection.close()
 
             send_complete = 0
             r = 0
@@ -619,41 +652,7 @@ def register(request, id):
                 try:
                     send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
                     send_complete = 1
-                    user_data = employee(
-                        emplyee_name='{} {}'.format(first_name, last_name),
-                        employee_ID=emp_id,
-                        employee_line_ID=line_id,
-                        healthy='normal',
-                        activity_text=json.dumps([obj], ensure_ascii=False),
-                        # posi_text_short=posi_text_short,
-                        employee_posi_text_short=posi_text_short,
-                        employee_dept_sap_short=dept_sap_short,
-                        employee_dept_sap=dept_sap,
-                        employee_dept_upper=dept_upper,
-                        employee_sub_region=sub_region,
-                        employee_emp_email=emp_email,
-                        employee_tel=ext,
-                        tel=mobile_phone,
-                        work_building=building,
-                        work_floor=floor,
-                        address_type=address,
-                        address_to_live=addition_address,
-                        workmate_first_name=firstname_ref_1,
-                        workmate_last_name=lastname_ref_1,
-                        workmate_tel=mobile_ref_1,
-                        workmate_id=relation_ref_1,
-                        employee_level_code=level_code,
-                        director_approve_email=director_email,
-                        director_approve_id=director_employee_id,
-                        director_approve_name=director_name,
-                        director_approve_position=director_position,
-                    )
 
-                    user_data.save()
-                    print('------------------------')
-                    print('model save: {}'.format(emp_id))
-                    print('------------------------')
-                    connection.close()
 
                     # break
                 except:
@@ -1024,9 +1023,10 @@ def update_employee_profile2(request):
         arealist = ["กฟน.1", "กฟน.2", "กฟน.3", "กฟฉ.1", "กฟฉ.2", "กฟฉ.3", "กฟก.1", "กฟก.2", "กฟก.3", "กฟต.1", "กฟต.2",
                     "กฟต.3"]
 
-        if section.find('กฟอ.สดด.') == -1 \
-                and section.find('กฟส.อ.วว.') == -1 and section.find('กฟภ.อ.ทมก.') == -1 \
-                and section.find('กฟจ.สค.2(บพว') == -1:
+        # if section.find('กฟอ.สดด.') == -1 \
+        #         and section.find('กฟส.อ.วว.') == -1 and section.find('กฟภ.อ.ทมก.') == -1 \
+        #         and section.find('กฟจ.สค.2(บพว') == -1:
+        if True:
 
             if len(section.split('/')) == 1:  # รผก. ประจำสำนัก ผชช.
                 director = Director_Governer_Emails.objects.get(lastref=section.split('/')[-1])
