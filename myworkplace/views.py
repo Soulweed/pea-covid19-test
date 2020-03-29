@@ -221,8 +221,6 @@ def formwfh2(request, id):
                 r = 0
                 while ((send_complete == 0) and (r < 6)):
                     try:
-                        # for i in range(5):
-
                         send_email_wfh_request(id=id, email_boss=user_formwfh2.director_approve_email,
                                                total_date=get_total_date,
                                                name=user_formwfh2.emplyee_name, startdate=get_startdate,
@@ -240,7 +238,9 @@ def formwfh2(request, id):
             except MultipleObjectsReturned:
                 print('ERROR wfh request id: {}'.format(id))
                 remove_emp_id(id)
+
                 print('Remove duplicate wfh request : {}'.format(id))
+
     return render(request, 'myworkplace/formwfh2drange.html', context)
 
 
