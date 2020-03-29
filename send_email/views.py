@@ -703,10 +703,6 @@ def send_test_email():
         return False
 
 
-
-
-
-
 def send_email_register_async(emp_email, emp_line_id, emp_id):
     async def main(body):
         loop = asyncio.get_event_loop()
@@ -714,7 +710,6 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
         def sendmq(body):
             flag = False
             try:
-
                 while not flag:
                     server = 'email.pea.co.th'
                     # server = '202.151.5.104'
@@ -725,7 +720,6 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
                     config = Configuration(server=server, credentials=creds)
                     account = Account(primary_smtp_address=email, autodiscover=False, config=config,
                                    access_type=DELEGATE)
-
                     recipient_list = [body['emp_id']]
                     print('receipient list', recipient_list)
 
@@ -734,7 +728,7 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
                     # BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
 
                     subject = 'ยืนยันการลงทะเบียน'
-                    body = 'รหัสพนักงานของท่าน {} ได้มีการลงทะเบียนกับ PEA COVID-19\n\n' \
+                    body_text = 'รหัสพนักงานของท่าน {} ได้มีการลงทะเบียนกับ PEA COVID-19\n\n' \
                            'กรุณาเริ่มต้นการใช้งาน โดยยืนยันตัวตนของท่านผ่านข้อความฉบับนี้ โดยคลิกตาม link ด้านล่างนี้\n\n ' \
                            'https://pea-covid19-test.herokuapp.com/register/{}{}/ \n\n' \
                            'เพื่อกรอกข้อมูลส่วนตัว และประเมินความเสี่ยงเบื้องต้น \n\n' \
@@ -744,7 +738,7 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
 
                     m = Message(account=account,
                                 subject=subject,
-                                body=body,
+                                body=body_text,
                                 to_recipients=recipient_list)
                     m.send_and_save()
                     protocol.close_connections()
