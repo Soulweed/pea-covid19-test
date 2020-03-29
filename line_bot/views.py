@@ -84,27 +84,22 @@ def handle_text_message(event):
                 #                            TextSendMessage(text='ขณะนี้เรากำลังปรับปรุงระบบลงทะเบียนเพื่อรองรับผู้ใช้งานจำนวนมาก กรุณาลงทะเบียนอีกครั้งภายหลัง'))
                 # print('{} no email in system'.format(dict_message['text']))
                 for i in range(3):
-
                     try:
-                        for i in range(5):
-                            try:
-                                print('email: ',emp_email, 'line id: ', dict_source['user_id'], 'emp id: ', dict_message['text'])
-                                send_email_register(emp_email=emp_email, line_id=dict_source['user_id'],
-                                                    id=dict_message['text'])
-                                send_complete = 1
-                                break
-                            except:
-                                send_complete = 0
+                        try:
+                            print('email: ',emp_email, 'line id: ', dict_source['user_id'], 'emp id: ', dict_message['text'])
+                            send_email_register(emp_email=emp_email, line_id=dict_source['user_id'],
+                                                id=dict_message['text'])
+                            send_complete = 1
+                        except:
+                            send_complete = 0
 
                         if send_complete:
-
-
                             line_bot_api.reply_message(event.reply_token,
                                                        TextSendMessage(
                                                            text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
                                                                 '(username คือรหัสพนักงาน 6 หลัก)'),
                                                        )
-                        break
+                            break
                     except:
                         line_bot_api.reply_message(event.reply_token,
                                                    TextSendMessage(
