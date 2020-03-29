@@ -3,7 +3,7 @@ from django.db import connection
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 from myworkplace.models import employee
-from send_email.views import send_email_register, get_user_email
+from send_email.views import send_email_register, get_user_email, send_email_register_async
 import asyncio
 
 import time
@@ -89,46 +89,21 @@ def handle_text_message(event):
 
         if num_results== 1:
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
-            print('this Line ID is reistered')
 
         elif num_results==0:
 
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
             sub_region, emp_email, level_code = get_user_email(dict_message['text'])
 
-            print('start get user  email')
-            print(dict_message['text'])
-            print(emp_id)
-
-
             if emp_email is not None:
-                print('start send email')
-                send_complete = 0
-                r = 0
-                while ((send_complete == 0) and (r < 6)):
+                send_email_register_async(emp_line_id=dict_source['user_id'], emp_email=emp_email, emp_id=dict_message['text'])
 
-                # for i in range(5):
-                    try:
-                        print('email: ',emp_email, 'line id: ', dict_source['user_id'], 'emp id: ', dict_message['text'])
-                        send_email_register(emp_email=emp_email, line_id=dict_source['user_id'],
-                                            id=dict_message['text'])
-                        send_complete = 1
-                    except:
-                        # send_complete = 0
-                        r=r+1
-                    if send_complete:
-                        line_bot_api.reply_message(event.reply_token,
-                                                   TextSendMessage(
-                                                       text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
-                                                            '(username คือรหัสพนักงาน 6 หลัก)'),
-                                                   )
-                        # break
-                if send_complete==0:
-                    line_bot_api.reply_message(event.reply_token,
-                                               TextSendMessage(
-                                                   text='ขณะนี้เรากำลังปรับปรุงระบบลงทะเบียนเพื่อรองรับผู้ใช้งานจำนวนมาก กรุณาลงทะเบียนอีกครั้งภายหลัง'))
-                    print('{} please register again later'.format(dict_message['text']))
-            else:
+                line_bot_api.reply_message(event.reply_token,
+                                           TextSendMessage(
+                                               text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
+                                                    '(username คือรหัสพนักงาน 6 หลัก)'),
+                                           )
+
                 line_bot_api.reply_message(event.reply_token,
                                            [TextSendMessage(
                                                text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'),
@@ -646,7 +621,7 @@ def handle_text_message(event):
                 except IndexError:
                     line_bot_api.reply_message(event.reply_token,
                                                TextSendMessage(
-                                                   text='โปรดอัพเดท Daily update ก่อนนะครับ'))
+                                                   text='โปรดประเมินความเสี่ยงประจำวัน'))
                     print('Error profile: No daily update')
             elif dict_message['text'] == 'ใบเซ็นชื่อ':
 
@@ -687,7 +662,6 @@ def handle_text_message(event):
                                            )
             elif dict_message['text'] == 'test2':
                 pass
-
                 # first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
                 # sub_region, emp_email, level_code = get_user_email(499959)
                 # line_bot_api.reply_message(event.reply_token,

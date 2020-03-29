@@ -11,7 +11,7 @@ import requests, xmltodict
 from datetime import datetime, timedelta
 from myworkplace.models import employee, emailemployee
 # Create your views here.
-
+import time
 
 
 
@@ -701,3 +701,75 @@ def send_test_email():
     except Exception as e:
         print(" >>>> Fail: {}".format(e))
         return False
+
+
+
+
+
+
+def send_email_register_async(emp_email, line_id, id):
+    async def main(body):
+        loop = asyncio.get_event_loop()
+
+        def sendmq(body):
+            flag = False
+            try:
+
+                while not flag:
+                    server = 'email.pea.co.th'
+                    # server = '202.151.5.104'
+                    email = 'peacovid19@pea.co.th'
+                    username = 'peacovid19'
+                    password = 'peacovid19'
+                    creds = Credentials(username=username, password=password)
+                    config = Configuration(server=server, credentials=creds)
+                    account = Account(primary_smtp_address=email, autodiscover=False, config=config,
+                                   access_type=DELEGATE)
+
+                    recipient_list = [body['emp_id']]
+                    print('receipient list', recipient_list)
+
+
+                    # BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+                    # BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
+                    subject = 'ยืนยันการลงทะเบียน'
+                    body = 'รหัสพนักงานของท่าน {} ได้มีการลงทะเบียนกับ PEA COVID-19\n\n' \
+                           'กรุณาเริ่มต้นการใช้งาน โดยยืนยันตัวตนของท่านผ่านข้อความฉบับนี้ โดยคลิกตาม link ด้านล่างนี้\n\n ' \
+                           'https://pea-covid19-test.herokuapp.com/register/{}{}/ \n\n' \
+                           'เพื่อกรอกข้อมูลส่วนตัว และประเมินความเสี่ยงเบื้องต้น \n\n' \
+                           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
+                           'PEA COVID-19 \n' \
+                           'By PEA Innovation Hub'.format(body['emp_id'], body['emp_line_id'], body['emp_id'])
+
+                    m = Message(account=account,
+                                subject=subject,
+                                body=body,
+                                to_recipients=recipient_list)
+                    m.send_and_save()
+                    protocol.close_connections()
+                    del account
+                    flag = True
+
+
+            except Exception as err:
+                time.sleep(10)
+                sendmq(body)
+
+        try:
+
+            loop.run_in_executor(None, sendmq, body)
+            # response1 = await future1
+        except Exception as e:
+            pass
+
+    try:
+        body={'email':emp_email, 'emp_line_id':line_id, 'emp_id':id}
+
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(main(body=body))
+
+    except Exception as err:
+        pass

@@ -6,7 +6,7 @@ from .models import employee, question, emailemployee, Director_3_Emails, \
     Director_DP_Emails
 from send_email.views import send_email_wfh_request, get_user_email, send_email_wfh14day_request, \
     send_email_confrim_register, \
-    send_email_meetdoc_request, send_email_confrim_wfh
+    send_email_meetdoc_request, send_email_confrim_wfh, send_email_register_async
 import json
 from datetime import datetime, timedelta, date
 import getpass
@@ -409,24 +409,13 @@ from django.http import HttpResponseForbidden, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
 
+
+
+
 def register(request, id):
     emp_id = id[33:]
     line_id = id[0:33]
 
-    # employee_line_id_list=employee.objects.filter(employee_line_ID=line_id).values_list(flat=True).distinct()
-    # connection.close()
-    # if line_id in employee_line_id_list:
-    #     return redirect(home)
-    # else:
-    # try:
-    #     n = Oficio.objects.get(numero=number)
-    #     # number already exists
-    #     return False
-    # except ObjectDoesNotExist:
-    #     # number does not exist
-    #     oficio = Oficio(numero=number)
-    #     oficio.save()
-    #     return True
     try:
         user_register = employee.objects.get(employee_line_ID=line_id)
         connection.close()
@@ -647,19 +636,8 @@ def register(request, id):
 
             send_complete = 0
             r = 0
-            while ((send_complete == 0) and (r < 6)):
-                # for i in range(5):
-                try:
-                    send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
-                    send_complete = 1
-                    # break
-                except:
-                    r = r + 1
-                    # send_complete = 0
-            if send_complete:
-                return redirect(daily_update, emp_id)
-            else:
-                return redirect(test3)
+            return redirect(daily_update, emp_id)
+
         return render(request, 'myworkplace/formregister.html', context)
 
 
