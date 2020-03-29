@@ -58,6 +58,7 @@ def callback(request):
 def handle_text_message(event):
     print('Here is handle_text_message function')
     dict_event = event.__dict__
+    print(dict_event)
     # print(dict_event)
     dict_source = dict_event['source'].__dict__
     dict_message = dict_event['message'].__dict__
@@ -70,12 +71,14 @@ def handle_text_message(event):
     if dict_message['text'].isnumeric() and (
             len(dict_message['text']) == 6 or len(dict_message['text']) == 7):
         ##### function create email กับ content ข้างใน
+        print('start registration')
         try:
-            user_register = employee.objects.get(employee_line_ID=dict_source['user_id'])
-            # connection.close()
+            employee.objects.get(employee_line_ID=dict_source['user_id'])
+            connection.close()
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
             print('this Line ID is reistered')
+
         except ObjectDoesNotExist:
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
