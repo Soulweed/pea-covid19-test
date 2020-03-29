@@ -4,340 +4,262 @@
 {% block title_bl %} Formregister | 1 / 3 {% endblock %}
 {% block body_bl %}
 
-<title>PEA COVID-19</title>
+    <title>PEA COVID-19</title>
 
-  <div class="py-5 formregisterbg">
-    <div class="py-4 container">
-      <div class="row">
-        <div class="col-12">
-          <h1> &nbsp; </h1>
-          <h1> &nbsp; </h1>
+    <div class="py-5 formregisterbg">
+        <div class="py-4 container">
+            <div class="row">
+                <div class="col-12">
+                    <h1> &nbsp; </h1>
+                    <h1> &nbsp; </h1>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h4>1. ข้อมูลพนักงาน/ลูกจ้าง</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h6 id="unedited">รหัสพนักงาน</h6>
-          <input class="w-100 text-white unedited" type="text" value={{ EmployeeID }} disabled="disabled">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h6 id="unedited">ชื่อ-นามสกุล</h6>
-          <input class="w-100 text-white unedited" type="text" name="first-last name" value={{  FirstName }} {{ "  " }} {{ LastName }} disabled="disabled">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h6 id="unedited">สังกัด</h6>
-          <input class="w-100 text-white unedited" type="text" name="division" value= {{ DepartmentShort }} disabled="disabled">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h6 id="unedited">ตำแหน่ง</h6>
-          <input class="w-100 text-white unedited" type="text" name="position" value={{ PositionDescShort }} disabled="disabled">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h6 id="unedited">เพศ</h6>
-          <input class="w-100 text-white unedited" type="text" name="sex" value={{ Gender }} disabled="disabled">
-        </div>
-{#        <div class="col-6">#}
-{#          <h6 id="unedited">อายุ</h6>#}
-{#          <input class="w-100 text-white unedited" type="text" name="age" value={{  }} disabled="disabled">#}
-{#        </div>#}
-      </div>
-    </div>
-  </div>
-  <div class="py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h4>ข้อมูลเพิ่มเติม</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-  <form method="POST">
-    {% csrf_token %}
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h6 id="edited">เบอร์โทรศัพท์ภายใน</h6>
-          <input class="w-100 edited" type="text" name="ext">
-          <input type="hidden" name="page" value="1">
-        </div>
-        <div class="col-6">
-          <h6 id="edited">เบอร์โทรศัพท์มือถือ <font color="#f03d3d"> &nbsp; * &nbsp; </font></h6>
-          <input class="w-100 edited" name="mobile_phone" required type="text">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h6 id="edited">อาคาร เช่น อาคาร 1 <font color="#f03d3d"> &nbsp; * &nbsp; </font></h6>
-          <input class="w-100 edited" type="text" required name="building">
-        </div>
-        <div class="col-6">
-          <h6 id="edited">ชั้น <font color="#f03d3d"> &nbsp; * &nbsp; </font></h6>
-          <input class="w-100 edited" type="text" required name="floor">
-        </div>
-      </div>
-    </div>
-  </div>
-
-      <div class="py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h4>2. ข้อมูลที่อยู่ปัจจุบันที่สามารถติดต่อได้ทันที</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-    <div class="py-2">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h6 id="edited">ที่อยู่</h6>
-            <input type="hidden" name="page" value="2">
-            <input class="w-100 edited" name="address" type="text" required value="">
-          </div>
-        </div>
-      </div>
     </div>
     <div class="py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <!-- <input class="w-100 mapbtn" type="submit" value="กดเพื่อระบุ ที่อยู่ใน Map"> -->
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>1. ข้อมูลพนักงาน/ลูกจ้าง</h4>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <div class="py-2">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <h6 id="question">หากต้องแยกตัว 14 วัน ท่านจะเลือกพักที่ใด</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="py-0">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <ul>
-              <li>
-                <input type="radio" id="a-option" name="selector" required>
-                <label for="a-option">ตามที่อยู่ที่แจ้งไว้</label>
-                <div class="check"></div>
-              </li>
-              <li>
-                <input type="radio" id="b-option" name="selector" required>
-                <label for="b-option">อื่น ๆ โปรดระบุเพิ่ม</label>
-                <div class="check">
-                  <div class="inside"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h6 id="unedited">รหัสพนักงาน</h6>
+                    <input class="w-100 text-white unedited" type="text" value={{ EmployeeID }} disabled="disabled">
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="py-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h6 id="edited">ที่อยู่เพิ่มเติม</h6>
-              <input class="w-100 edited" name="addition_address" type="text">
             </div>
-          </div>
         </div>
-      </div>
-      <div class="py-3">
+    </div>
+    <div class="py-2">
         <div class="container">
-          <div class="row">
-            <div class="col-12 text-center">
-              <!-- <input class="w-100 mapbtn" type="submit" value="กดเพื่อระบุ ที่อยู่ใน Map"> -->
+            <div class="row">
+                <div class="col-12">
+                    <h6 id="unedited">ชื่อ-นามสกุล</h6>
+                    <input class="w-100 text-white unedited" type="text" name="first-last name"
+                           value={{ FirstName }} {{ "  " }} {{ LastName }} disabled="disabled">
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-
-
+    </div>
+    <div class="py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h6 id="unedited">สังกัด</h6>
+                    <input class="w-100 text-white unedited" type="text" name="division"
+                           value={{ DepartmentShort }} disabled="disabled">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h6 id="unedited">ตำแหน่ง</h6>
+                    <input class="w-100 text-white unedited" type="text" name="position"
+                           value={{ PositionDescShort }} disabled="disabled">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h6 id="unedited">เพศ</h6>
+                    <input class="w-100 text-white unedited" type="text" name="sex"
+                           value={{ Gender }} disabled="disabled">
+                </div>
+                {#        <div class="col-6">#}
+                {#          <h6 id="unedited">อายุ</h6>#}
+                {#          <input class="w-100 text-white unedited" type="text" name="age" value={{  }} disabled="disabled">#}
+                {#        </div>#}
+            </div>
+        </div>
+    </div>
+    <div class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4>ข้อมูลเพิ่มเติม</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="py-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h6 id="edited">เบอร์โทรศัพท์ภายใน</h6>
+                        <input class="w-100 edited" type="text" name="ext">
+{#                        <input type="hidden" name="page" value="1">#}
+                    </div>
+                    <div class="col-6">
+                        <h6 id="edited">เบอร์โทรศัพท์มือถือ <font color="#f03d3d"> &nbsp; * &nbsp; </font></h6>
+                        <input class="w-100 edited" name="mobile_phone" required type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h6 id="edited">อาคาร เช่น อาคาร 1 <font color="#f03d3d"> &nbsp; * &nbsp; </font></h6>
+                        <input class="w-100 edited" type="text" required name="building">
+                    </div>
+                    <div class="col-6">
+                        <h6 id="edited">ชั้น <font color="#f03d3d"> &nbsp; * &nbsp; </font></h6>
+                        <input class="w-100 edited" type="text" required name="floor">
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h4>3. ข้อมูลสำหรับการติดต่อฉุกเฉิน</h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4>2. ข้อมูลที่อยู่ปัจจุบันที่สามารถติดต่อได้ทันที</h4>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h6 id="question">ชื่อ </h6>
-          <input class="w-100 edited" name="firstname_ref_1" type="text" required>
+        <div class="py-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h6 id="edited">ที่อยู่</h6>
+{#                        <input type="hidden" name="page" value="2">#}
+                        <input class="w-100 edited" name="address" type="text" required value="">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-6">
-          <h6 id="question">นามสกุล</h6>
-          <input class="w-100 edited" name="lastname_ref_1" type="text" required>
+        <div class="py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <!-- <input class="w-100 mapbtn" type="submit" value="กดเพื่อระบุ ที่อยู่ใน Map"> -->
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <h6 id="question">หมายเลขโทรศัพท์มือถือ</h6>
-          <input class="w-100 edited" name="mobile_ref_1" type="text" required>
+        <div class="py-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h6 id="question">หากต้องแยกตัว 14 วัน ท่านจะเลือกพักที่ใด</h6>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-6">
-          <h6 id="question">ความสัมพันธ์</h6>
-          <input class="w-100 edited" name="relation_ref_1" type="text" required>
+        <div class="py-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <ul>
+                            <li>
+                                <input type="radio" id="a-option" name="selector" required>
+                                <label for="a-option">ตามที่อยู่ที่แจ้งไว้</label>
+                                <div class="check"></div>
+                            </li>
+                            <li>
+                                <input type="radio" id="b-option" name="selector" required>
+                                <label for="b-option">อื่น ๆ โปรดระบุเพิ่ม</label>
+                                <div class="check">
+                                    <div class="inside"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="py-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h6 id="edited">ที่อยู่เพิ่มเติม</h6>
+                            <input class="w-100 edited" name="addition_address" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <!-- <input class="w-100 mapbtn" type="submit" value="กดเพื่อระบุ ที่อยู่ใน Map"> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>3. ข้อมูลสำหรับการติดต่อฉุกเฉิน</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 id="question">ชื่อ </h6>
+                            <input class="w-100 edited" name="firstname_ref_1" type="text" required>
+                        </div>
+                        <div class="col-6">
+                            <h6 id="question">นามสกุล</h6>
+                            <input class="w-100 edited" name="lastname_ref_1" type="text" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 id="question">หมายเลขโทรศัพท์มือถือ</h6>
+                            <input class="w-100 edited" name="mobile_ref_1" type="text" required>
+                        </div>
+                        <div class="col-6">
+                            <h6 id="question">ความสัมพันธ์</h6>
+                            <input class="w-100 edited" name="relation_ref_1" type="text" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 my-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h6 id="remark">*กรุณาตรวจสอบข้อมูลความถูกต้อง</h6>
+                            <h6>ก่อนดำเนินการถัดไป</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+
+                            <input id="checkin" class="w-100 btn" type="submit" value="ถัดไป">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-{#  <div class="pt-4 pb-2">#}
-{#    <div class="container">#}
-{#      <div class="row">#}
-{#        <div class="col-12">#}
-{#          <h6 id="question">3.2 ข้อมูลผู้ติดต่อฉุกเฉินท่านที่ 2</h6>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-{#  <div class="py-2">#}
-{#    <div class="container">#}
-{#      <div class="row">#}
-{#        <div class="col-6">#}
-{#          <h6 id="question"><small>ชื่อ (ไม่ต้องมีคำนำหน้า)</small></h6>#}
-{#          <input class="w-100 edited" name="firstname_ref_2" type="text">#}
-{#        </div>#}
-{#        <div class="col-6">#}
-{#          <h6 id="question"><small>นามสกุล</small></h6>#}
-{#          <input class="w-100 edited" name="lastname_ref_2" type="text">#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-{#  <div class="py-2">#}
-{#    <div class="container">#}
-{#      <div class="row">#}
-{#        <div class="col-6">#}
-{#          <h6 id="question"><small>หมายเลขโทรศัพท์มือถือ</small></h6>#}
-{#          <input class="w-100 edited" name="mobile_ref_2" type="text">#}
-{#        </div>#}
-{#        <div class="col-6">#}
-{#          <h6 id="question"><small>ความสัมพันธ์</small></h6>#}
-{#          <input class="w-100 edited" name="relation_ref_2" type="text">#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-{#  <div class="pt-4 pb-2">#}
-{#    <div class="container">#}
-{#      <div class="row">#}
-{#        <div class="col-12">#}
-{#          <h6 id="question">3.3 ข้อมูลผู้ร่วมงานที่มีโอกาสใกล้ชิดท่านมากที่สุด</h6>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-{#  <div class="py-2">#}
-{#    <div class="container">#}
-{#      <div class="row">#}
-{#        <div class="col-6">#}
-{#          <h6 id="question"><small>ชื่อ (ไม่ต้องมีคำนำหน้า)</small></h6>#}
-{#          <input class="w-100 edited" name="firstname_ref_3" type="text">#}
-{#        </div>#}
-{#        <div class="col-6">#}
-{#          <h6 id="question"><small>นามสกุล</small></h6>#}
-{#          <input class="w-100 edited" name="lastname_ref_3" type="text">#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-{#  <div class="py-2">#}
-{#    <div class="container">#}
-{#      <div class="row">#}
-{#        <div class="col-6">#}
-{#          <h6 id="question"><small>หมายเลขโทรศัพท์มือถือ</small></h6>#}
-{#          <input class="w-100 edited" name="mobile_ref_3" type="text">#}
-{#        </div>#}
-{#        <div class="col-6">#}
-{#          <h6 id="question"><small>รหัสพนักงาน</small></h6>#}
-{#          <input class="w-100 edited" name="relation_ref_3" type="text">#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
-  <div class="py-4 my-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-            <h6 id="remark">*กรุณาตรวจสอบข้อมูลความถูกต้อง</h6>
-              <h6>ก่อนดำเนินการถัดไป</h6>
-        </div>
-      </div>
-    </div>
-  </div>
+    </form>
 
 
-
-
-  <div class="py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-
-          <input id="checkin" class="w-100 btn" type="submit" value="ถัดไป">
-        </div>
-      </div>
-    </div>
-  </div>
-  </form>
-
-
-  {% endblock %}
+{% endblock %}

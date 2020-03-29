@@ -236,6 +236,9 @@ def formwfh2(request, id):
 
 def meet_doc2(request, id):
     context = {'id': id}
+    user_meet_doc2 = employee.objects.get(employee_ID=str(id))
+    context.update({'director_name': user_meet_doc2.director_approve_name})
+
     if request.method == 'POST':
         page = request.POST.get('page')
         if (page == "1"):
@@ -252,7 +255,6 @@ def meet_doc2(request, id):
                    'datetime': datetime.now().strftime("%Y/%m/%d (%H:%M:%S)"),
                    'sent_request_to': {'id': id_boss, 'email': boss_email}}
             try:
-                user_meet_doc2 = employee.objects.get(employee_ID=str(id))
                 data = json.loads(user_meet_doc2.activity_text)
                 data.append(obj)
                 user_meet_doc2.activity_text = json.dumps(data, ensure_ascii=False)
