@@ -104,7 +104,7 @@ def handle_text_message(event):
                                                text='เรียนคุณ {} {} สังกัด {} โปรดตรวจสอบความถูกต้องของข้อมูล \n'
                                                     'หากข้อมูลถูกต้อง โปรดคลิกตาม link ด้านล่าง เพื่อลงทะเบียนยืนยันตัวตน \n'
                                                     'หาก "ไม่ใช่" กรุณาพิมพ์รหัสพนักงานอีกครั้ง\n'
-                                                    '"1 Mobile 1 LINE ID"'
+                                                    '"1 Mobile 1 LINE ID"\n'
                                                     'https://pea-covid19-test.herokuapp.com/register/{}{}/'.format(
                                                    first_name,
                                                    last_name, dept_sap_short, dict_source['user_id'], dict_message['text'])),

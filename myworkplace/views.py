@@ -391,22 +391,22 @@ def quarantine(request, id, existing_health):
 
 # API
 from rest_framework import viewsets
-from .serializers import QuestionSerializer, EmailSerializer, EmployeeSerializer
-
+from django_filters.rest_framework import DjangoFilterBackend, FilterSet
+from .serializers import QuestionSerializer, EmailSerializer ,EmployeeSerializer
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = question.objects.all().order_by('question_text')
     serializer_class = QuestionSerializer
 
-
 class EmailViewSet(viewsets.ModelViewSet):
     queryset = emailemployee.objects.all().order_by('employeeid')
     serializer_class = EmailSerializer
 
-
 class EmployeeViewSet(viewsets.ModelViewSet):
-    queryset = employee.objects.all().order_by('employee_ID')
+    queryset = emailemployee.objects.all().order_by('employee_ID')
     serializer_class = EmployeeSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['employee_line_ID']
 
 
 from django.http import HttpResponseForbidden, HttpResponse

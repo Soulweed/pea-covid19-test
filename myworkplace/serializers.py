@@ -14,6 +14,4 @@ class EmailSerializer(serializers.HyperlinkedModelSerializer):
 class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = employee
-        fields = ('employee_ID', 'emplyee_name' ,'activity_text','activity_daily_update','activity_challenge','activity_checkin','activity_checkout')
-
-
+        fields = ('employee_ID', 'employee_line_ID', 'emplyee_name' ,'activity_text','activity_daily_update','activity_challenge',' activity_checkin',' activity_checkout')
