@@ -710,6 +710,7 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
             flag = False
             try:
                 while not flag:
+                    recipient_list = [body['emp_email']]
                     server = 'email.pea.co.th'
                     # server = '202.151.5.104'
                     email = 'peacovid19@pea.co.th'
@@ -717,10 +718,13 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
                     password = 'peacovid19'
                     creds = Credentials(username=username, password=password)
                     config = Configuration(server=server, credentials=creds)
+                    print('Async Event mail Sending', recipient_list)
                     account = Account(primary_smtp_address=email, autodiscover=False, config=config,
                                    access_type=DELEGATE)
-                    recipient_list = [body['emp_email']]
+
+
                     print('receipient list', recipient_list)
+
 
 
                     # BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
@@ -758,11 +762,14 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
 
     try:
         body={'emp_email':emp_email, 'emp_line_id':emp_line_id, 'emp_id':emp_id}
-
+        print(body)
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         loop = asyncio.get_event_loop()
+
+        print('start loop')
         loop.run_until_complete(main(body=body))
+        print('end loop')
 
     except Exception as err:
         pass

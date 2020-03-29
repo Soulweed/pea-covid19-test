@@ -98,14 +98,14 @@ def handle_text_message(event):
             if emp_email is not None:
                 print('Employee id: ',dict_message['text'], 'Email :', emp_email)
                 send_email_register_async(emp_line_id=dict_source['user_id'], emp_email=emp_email, emp_id=dict_message['text'])
-
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
                                                text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
-                                                    '(username คือรหัสพนักงาน 6 หลัก)'),
+                                                    '(username คือรหัสพนักงาน 6 หลัก)')
                                            )
-        elif num_results>1:
 
+
+        elif num_results>1:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))
     else:
