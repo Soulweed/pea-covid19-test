@@ -96,7 +96,7 @@ def handle_text_message(event):
             sub_region, emp_email, level_code = get_user_email(dict_message['text'])
 
             if emp_email is not None:
-
+                print('Employee id: ',dict_message['text'], 'Email :', emp_email)
                 send_email_register_async(emp_line_id=dict_source['user_id'], emp_email=emp_email, emp_id=dict_message['text'])
 
                 line_bot_api.reply_message(event.reply_token,
@@ -104,24 +104,6 @@ def handle_text_message(event):
                                                text='โปรดทำการยืนยันตัวตนของคุณผ่าน PEA Mail เพื่อเข้าสู่ระบบตาม link ด้านล่างนี้ https://email.pea.co.th '
                                                     '(username คือรหัสพนักงาน 6 หลัก)'),
                                            )
-
-                line_bot_api.reply_message(event.reply_token,
-                                           [TextSendMessage(
-                                               text='ไปกรอกอีเมล์ใน IDM ด้วย http://idm.pea.co.th'),
-                                               ImageSendMessage(
-                                                   original_content_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg',
-                                                   preview_image_url='https://www.img.in.th/images/600a10b547eb587a9d42525edcce704f.jpg'
-                                               ),
-                                               ImageSendMessage(
-                                                   original_content_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg',
-                                                   preview_image_url='https://www.img.in.th/images/7ba36f03f09d94f2a8a692297e364db2.jpg'
-                                               ),
-                                               ImageSendMessage(
-                                                   original_content_url='https://www.imag.in.th/images/031525e6dce37aa260bac21483c11522.jpg',
-                                                   preview_image_url='https://www.imag.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
-                                               )
-                                           ])
-                print(' Please update email')
         elif num_results>1:
 
             line_bot_api.reply_message(event.reply_token,
