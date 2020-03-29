@@ -44,17 +44,16 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/line_bot/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="73" column="22" lean-forward="false" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+            <state relative-caret-position="289">
+              <caret line="80" column="30" lean-forward="false" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
               <folding>
-                <element signature="e#3622#4987#0" expanded="false" />
-                <element signature="e#5022#6501#0" expanded="false" />
-                <element signature="e#6911#12795#0" expanded="false" />
-                <element signature="e#7138#12705#0" expanded="false" />
-                <element signature="e#12861#13022#0" expanded="false" />
-                <element signature="e#13101#18858#0" expanded="false" />
-                <element signature="e#48380#50999#0" expanded="false" />
-                <element signature="e#51066#69807#0" expanded="false" />
+                <element signature="e#5097#6576#0" expanded="false" />
+                <element signature="e#6986#12870#0" expanded="false" />
+                <element signature="e#7213#12780#0" expanded="false" />
+                <element signature="e#12936#13097#0" expanded="false" />
+                <element signature="e#13176#18933#0" expanded="false" />
+                <element signature="e#48455#51074#0" expanded="false" />
+                <element signature="e#51141#69882#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -780,17 +779,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/line_bot/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="73" column="22" lean-forward="false" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+        <state relative-caret-position="289">
+          <caret line="80" column="30" lean-forward="false" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
           <folding>
-            <element signature="e#3622#4987#0" expanded="false" />
-            <element signature="e#5022#6501#0" expanded="false" />
-            <element signature="e#6911#12795#0" expanded="false" />
-            <element signature="e#7138#12705#0" expanded="false" />
-            <element signature="e#12861#13022#0" expanded="false" />
-            <element signature="e#13101#18858#0" expanded="false" />
-            <element signature="e#48380#50999#0" expanded="false" />
-            <element signature="e#51066#69807#0" expanded="false" />
+            <element signature="e#5097#6576#0" expanded="false" />
+            <element signature="e#6986#12870#0" expanded="false" />
+            <element signature="e#7213#12780#0" expanded="false" />
+            <element signature="e#12936#13097#0" expanded="false" />
+            <element signature="e#13176#18933#0" expanded="false" />
+            <element signature="e#48455#51074#0" expanded="false" />
+            <element signature="e#51141#69882#0" expanded="false" />
           </folding>
         </state>
       </provider>

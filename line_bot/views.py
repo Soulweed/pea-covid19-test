@@ -78,8 +78,10 @@ def handle_text_message(event):
         #     line_bot_api.reply_message(event.reply_token,
         #                                TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
         #     print('this Line ID is reistered')
+        print('start find number')
         num_results = employee.objects.filter(employee_line_ID=dict_source['user_id']).count()
-        #     connection.close()
+        print('number_reulst: ', num_results)
+        connection.close()
 
         if num_results== 1:
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
