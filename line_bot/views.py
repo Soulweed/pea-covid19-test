@@ -62,6 +62,9 @@ def handle_text_message(event):
     # print(dict_event)
     dict_source = dict_event['source'].__dict__
     dict_message = dict_event['message'].__dict__
+    emp_id=dict_message['text']
+    emp_line_id=dict_source['user_id']
+
     print(dict_source, dict_message)
     # print(dict_message['text'])
     # line_bot_api.reply_message(event.reply_token,
@@ -89,6 +92,9 @@ def handle_text_message(event):
 
         elif num_results==0:
             print('start get user  email')
+            print(dict_message['text'])
+            print(emp_id)
+
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
             sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
