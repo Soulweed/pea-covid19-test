@@ -720,7 +720,7 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
                     config = Configuration(server=server, credentials=creds)
                     account = Account(primary_smtp_address=email, autodiscover=False, config=config,
                                    access_type=DELEGATE)
-                    recipient_list = [body['emp_id']]
+                    recipient_list = [body['emp_email']]
                     print('receipient list', recipient_list)
 
 
