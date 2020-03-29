@@ -6,6 +6,7 @@ from myworkplace.models import employee
 from send_email.views import send_email_register, get_user_email
 import asyncio
 
+import time
 # Create your views here.
 
 from django.http import HttpResponseForbidden, HttpResponse
@@ -113,6 +114,8 @@ def handle_text_message(event):
                     except:
                         # send_complete = 0
                         r=r+1
+                        time.sleep(2)
+
 
                     if send_complete:
                         line_bot_api.reply_message(event.reply_token,

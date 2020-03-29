@@ -668,7 +668,6 @@ def register(request, id):
                 except:
                     r = r + 1
                     # send_complete = 0
-                    time.sleep(2)
 
             if send_complete:
                 return redirect(daily_update, emp_id)
