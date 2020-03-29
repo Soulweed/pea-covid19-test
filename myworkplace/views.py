@@ -624,6 +624,7 @@ def register(request, id):
                 emplyee_name='{} {}'.format(first_name, last_name),
                 employee_ID=emp_id,
                 employee_line_ID=line_id,
+                healthy='normal',
                 activity_text=json.dumps([obj], ensure_ascii=False),
                 # posi_text_short=posi_text_short,
                 employee_posi_text_short=posi_text_short,
@@ -1001,8 +1002,8 @@ def update_employee_profile2(request):
     i = 1
     print(total_num)
     for item in users:
-        # print(item.__dict__)
-        # print(item.employee_dept_sap_short)
+        print(item.__dict__)
+        print(item.employee_dept_sap_short)
 
         section = item.employee_dept_sap_short
         position = item.employee_level_code
@@ -1014,9 +1015,7 @@ def update_employee_profile2(request):
         arealist = ["กฟน.1", "กฟน.2", "กฟน.3", "กฟฉ.1", "กฟฉ.2", "กฟฉ.3", "กฟก.1", "กฟก.2", "กฟก.3", "กฟต.1", "กฟต.2",
                     "กฟต.3"]
 
-        if section.find('กฟอ.สดด.') == -1 \
-                and section.find('กฟส.อ.วว.') ==-1 and section.find('กฟภ.อ.ทมก.') == -1 \
-                and section.find('กฟจ.สค.2(บพว') == -1:
+        if section.find('กฟอ.สดด.') == -1:
 
             if len(section.split('/')) == 1:  # รผก. ประจำสำนัก ผชช.
                 director = Director_Governer_Emails.objects.get(lastref=section.split('/')[-1])
@@ -1080,10 +1079,8 @@ def update_employee_profile2(request):
                 elif (section.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
                 "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4).", "ฝวธ.(ภ1)", "ฝวธ.(ภ2)", "ฝวธ.(ภ3)","ฝวธ.(ภ4)"]):
                     print('case 2')
-
                     director = Director_4_Emails.objects.filter(ref2=section.split('/')[-3],
                                                                 ref1=section.split('/')[-2])[0]
-
                 else:
                     print('case 3')
 
