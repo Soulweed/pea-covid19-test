@@ -158,6 +158,8 @@ def send_email_register(emp_email, line_id, id):
                 to_recipients=recipient_list)
     m.send_and_save()
     protocol.close_connections()
+    del account
+
     # m.close()
     print('email register send: {} : {}'.format(id, emp_email))
 
@@ -198,6 +200,7 @@ def send_email_confrim_register(emp_id, emp_email):
     # print('message created')
     m.send_and_save()
     protocol.close_connections()
+    del account
 
     # print(m)
     print('email confirm register send: {} : {}'.format(emp_id, emp_email))
@@ -234,8 +237,8 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
                 to_recipients=recipient_list)
     # print('message created')
     m.send_and_save()
-    
     protocol.close_connections()
+    del account
 
     # print(m)
     print('email wfh request send: {} >> {}'.format(id, email_boss))
@@ -270,6 +273,7 @@ def send_email_confrim_wfh(boss, emp_email):
     # print('message created')
     m.send_and_save()
     protocol.close_connections()
+    del account
 
     # print(m)
     print('email confrim wfh send: {} >> {}'.format(boss, emp_email))
@@ -306,6 +310,8 @@ def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
     # print('message created')
     m.send_and_save()
     protocol.close_connections()
+    del account
+
 
     # print(m)
     print('email send: {} >> {}'.format(id, email_boss))
@@ -340,6 +346,8 @@ def send_email_meetdoc_request(id, email_boss, name):
 
     m.send_and_save()
     protocol.close_connections()
+    del account
+
     print('email send: {} >> {}'.format(id, email_boss))
     return True
     # print(m)
@@ -376,6 +384,8 @@ def send_email_wfh_warning(request, id, boss, day):
                 to_recipients=[boss])
     # print('message created')
     m.send_and_save()
+    del account
+
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
 
@@ -406,6 +416,8 @@ def send_email_leave(request, id, boss):
                 to_recipients=[boss])
     # print('message created')
     m.send_and_save()
+    del account
+
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
 
@@ -437,6 +449,8 @@ def send_email_outgoing_warning(request, id, boss):
                 to_recipients=[boss])
     # print('message created')
     m.send_and_save()
+    del account
+
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
 
@@ -469,6 +483,8 @@ def send_email_leave(request, id, boss):
                 to_recipients=[boss])
     # print('message created')
     m.send_and_save()
+    del account
+
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
 
@@ -501,6 +517,8 @@ def send_email_leave(request, id, boss):
                 to_recipients=[boss])
     # print('message created')
     m.send_and_save()
+    del account
+
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
 
@@ -535,6 +553,8 @@ def send_email_timestamp_warning(request, id, boss, day):
                 to_recipients=[boss])
     # print('message created')
     m.send_and_save()
+    del account
+
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
 
@@ -568,6 +588,9 @@ def send_email_challenge_warning(request, id, boss, day):
                 to_recipients=[boss])
     # print('message created')
     m.send_and_save()
+    del account
+
+
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
 
@@ -601,6 +624,8 @@ def send_email_dailyhealth_warning(request, id, boss, day):
                 to_recipients=[boss])
     # print('message created')
     m.send_and_save()
+    del account
+
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
 
@@ -634,6 +659,8 @@ def send_email_activity_warning(request, id, boss, day):
                 to_recipients=[boss])
     # print('message created')
     m.send_and_save()
+    del account
+
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
 
@@ -663,6 +690,7 @@ def send_test_email():
                     body=body,
                     to_recipients=recipient_list)
         m.send_and_save()
+        del account
 
         protocol.close_connections()
         print('email register send')

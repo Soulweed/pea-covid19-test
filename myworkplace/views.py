@@ -482,6 +482,10 @@ def register(request, id):
         emergency_two_last_name = ''
         emergency_two_tel = ''
 
+
+
+
+
         if request.method == "POST":
             # emp_name = request.POST.get("first-last name")
             ext = request.POST.get("ext")  # หมายเลขโทรศัพท์ภายใน
@@ -499,82 +503,90 @@ def register(request, id):
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
                 emp_id)
 
-            if dept_sap_short.find('สรก.(ว)') == -1 and dept_sap_short.find(
-                    'กฟอ.สดด.') == -1 \
-                    and dept_sap_short.find('สรก.(ทส)') == -1 and dept_sap_short.find(
-                'สรก.(อ)') == -1 \
-                    and dept_sap_short.find('สรก.(ภ4)') == -1 and dept_sap_short.find(
-                'กจท.(ภ4)') == -1 \
-                    and dept_sap_short.find('กบว.(ภ4)') == -1 and dept_sap_short.find(
-                'กบว.(ภ3)') == -1 \
-                    and dept_sap_short.find('กจท.(ภ2)') == -1 and dept_sap_short.find(
-                'สรก.(ภ1') == -1 \
-                    and dept_sap_short.find('กฟส.อ.วว.') == -1 and dept_sap_short.find(
-                'กฟภ.อ.ทมก.') == -1 \
-                    and dept_sap_short.find('กจท.(ภ1)') == -1 and dept_sap_short.find(
-                'กบว.(ภ1)') == -1 \
-                    and dept_sap_short.find('สวก.') == -1 and dept_sap_short.find(
-                'กจท.(ภ3)') == -1 \
-                    and dept_sap_short.find('สรก.(ธ)') == -1 and dept_sap_short.find(
-                'สกม.') == -1 \
-                    and dept_sap_short.find('กฟจ.สค.2(บพว') == -1 and dept_sap_short.find(
-                'กบว.(ภ2)') == -1 \
-                    and dept_sap_short.find('สตภ.') == -1 and dept_sap_short.find(
-                'ผชก.(ย)') == -1:
+            section = dept_sap_short
+            position = level_code
+            agencylist = ["สวก.", "สตภ.", "สกม."]
+            pglist = ["สชก.(ว)", "สชก.(ย)", "สชก.(ธ)", "สชก.(วศ)", "สชก.(ทส)", "สชก.(กบ)", "สชก.(ป)", "สชก.(อ)",
+                      "สชก.(บ)",
+                      "สชก.(ท)", "สชก.(ส)"]
+            arealist = ["กฟน.1", "กฟน.2", "กฟน.3", "กฟฉ.1", "กฟฉ.2", "กฟฉ.3", "กฟก.1", "กฟก.2", "กฟก.3", "กฟต.1",
+                        "กฟต.2",
+                        "กฟต.3"]
 
-                if len(dept_sap_short.split('/')) == 1:
-                    director = Director_Governer_Emails.objects.get(lastref=dept_sap_short.split('/')[-1])
+            if section.find('กฟอ.สดด.') == -1 and section.find('สรก.(อ)') == -1 \
+                    and section.find('กจท.(ภ4)') == -1 \
+                    and section.find('กบว.(ภ4)') == -1 and section.find('กบว.(ภ3)') == -1 \
+                    and section.find('กจท.(ภ2)') == -1 \
+                    and section.find('กฟส.อ.วว.') == -1 and section.find('กฟภ.อ.ทมก.') == -1 \
+                    and section.find('กจท.(ภ1)') == -1 and section.find('กบว.(ภ1)') == -1 \
+                    and section.find('กจท.(ภ3)') == -1 \
+                    and section.find('กฟจ.สค.2(บพว') == -1 and section.find('กบว.(ภ2)') == -1:
 
-                elif len(dept_sap_short.split('/')) == 2 and dept_sap_short.split('/')[
-                    0] in ["สวก.", "สตภ.", "สกม."]:
-                    director = Director_Agency_Emails.objects.get(ref1=dept_sap_short.split('/')[-2])
+                if len(section.split('/')) == 1:  # รผก. ประจำสำนัก ผชช.
+                    director = Director_Governer_Emails.objects.get(lastref=section.split('/')[-1])
 
-                elif len(dept_sap_short.split('/')) == 2 and dept_sap_short.split('/')[
-                    0] not in ["สวก.", "สตภ.",
-                               "สกม."]:
-                    director = Director_Governer_Emails.objects.get(lastref=dept_sap_short.split('/')[-1])
+                elif len(section.split('/')) == 2:
+                    if (section.split('/')[
+                            0] in agencylist and position == 's2') or position == 's3':  # อส. หรือ รผก. สายงาน
+                        director = Director_Governer_Emails.objects.get(lastref=section.split('/')[-1])
+                    elif position == 's1':
+                        director = Director_Governer_Emails.objects.get(
+                            lastref=section.split('/')[-1])  # อฝ. ภายใต้ สวก.
 
-                elif len(dept_sap_short.split('/')) == 4 and dept_sap_short.split('/')[
-                    0] in ["สชก.(ว)", "สชก.(ย)",
-                           "สชก.(ธ)",
-                           "สชก.(วศ)", "สชก.(ทส)",
-                           "สชก.(กบ)", "สชก.(ป)",
-                           "สชก.(อ)",
-                           "สชก.(บ)", "สชก.(ท)",
-                           "สชก.(ส)"]:
-                    director = Director_GA_Emails.objects.filter(ref2=dept_sap_short.split('/')[-3],
-                                                                 ref1=dept_sap_short.split('/')[-2])[0]
+                elif len(section.split('/')) == 3:
+                    if level_code == 'S2':
+                        director = Director_DP_Emails.objects.get(ref1=section.split('/')[-2])  # อข. ผชช.13 ผชก.
+                    elif level_code == 'S1' and (section.split('/')[0] in agencylist):
+                        director = Director_Agency_Emails.objects.get(ref1=section.split('/')[-2])  # อฝ. ภายใต้ 3 สำนัก
+                    elif (section.split('/')[0] in arealist):
+                        director = Director_Area_Emails.objects.filter(ref2=section.split('/')[-3],
+                                                                       ref1=section.split('/')[-2])[0]  # นวช ภายใต้ อข.
 
-                elif (dept_sap_short.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.",
-                                                                      "ฝคส.",
-                                                                      "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]):
-                    director = Director_4_Emails.objects.filter(ref2=dept_sap_short.split('/')[-3],
-                                                                ref1=dept_sap_short.split('/')[-2])[0]
+                elif len(section.split('/')) == 4:
+                    if section.split('/')[0] in pglist:
+                        director = Director_GA_Emails.objects.filter(ref2=section.split('/')[-3],
+                                                                     ref1=section.split('/')[-2])[
+                            0]  # อฝ. ภายใต้ ผชก. และ พนง.สังกัด สชก.
 
+                    elif section.split('/')[0] in arealist and position == 's1':
+                        director = Director_Area_Emails.objects.filter(ref2=section.split('/')[-3],
+                                                                       ref1=section.split('/')[-2])[0]  # อฝ. ภายใต้ อข.
+                    elif section.split('/')[-4].find("กอก."):
+                        director = Director_Area_Emails.objects.filter(ref2=section.split('/')[-3],
+                                                                       ref1=section.split('/')[-2])[
+                            0]  # อก.อก ภายใต้ อข.
 
-                elif len(dept_sap_short.split('/')) >= 4:
+                    elif (section.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
+                                                     "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]):
+                        director = Director_4_Emails.objects.filter(ref2=section.split('/')[-3],
+                                                                    ref1=section.split('/')[-2])[0]
 
-                    if (dept_sap_short.split('/')[-4] in ["กอก.", "กอก.(น1)", "กอก.(น2)", "กอก.(น3)",
-                                                                        "กอก.(ฉ1)", "กอก.(ฉ2)", "กอก.(ฉ3)",
-                                                                        "กอก.(ก1)", "กอก.(ก2)", "กอก.(ก3)", "กอก.(ต1)",
-                                                                        "กอก.(ต2)", "กอก.(ต3)"]) or (
-                            level_code == 'S1' and dept_sap_short.split('/')[0]
-                            not in ["ผชก.(ว)", "ผชก.(ย)", "ผชก.(ธ)", "ผชก.(วศ)", "ผชก.(ทส)", "ผชก.(กบ)", "ผชก.(ป)",
-                                    "ผชก.(อ)",
-                                    "ผชก.(บ)", "ผชก.(ท)", "ผชก.(ส)"]):
-
-                        director = Director_Area_Emails.objects.filter(ref2=dept_sap_short.split('/')[-3],
-                                                                       ref1=dept_sap_short.split('/')[
-                                                                           -2])[0]
                     else:
-                        # print('here')
-                        director = Director_3_Emails.objects.get(ref3=dept_sap_short.split('/')[-4],
-                                                                 ref2=dept_sap_short.split('/')[-3],
-                                                                 ref1=dept_sap_short.split('/')[-2])
+                        director = Director_3_Emails.objects.get(ref3=section.split('/')[-4],
+                                                                 ref2=section.split('/')[-3],
+                                                                 ref1=section.split('/')[-2])
+
+                elif len(section.split('/')) > 4:
+                    if (section.split('/')[-4]).find("กอก."):
+                        director = \
+                        Director_Area_Emails.objects.filter(ref2=section.split('/')[-3], ref1=section.split('/')[-2])[
+                            0]  # พนง. ภายใต้ กอก.
+
+                    elif (section.split('/')[-3] in ["ฝบส.", "ฝวก.", "ฝวต.", "ฝตล.", "ฝตส.", "ฝนก.", "ฝคส.",
+                                                     "ฝวธ(ภ1).", "ฝวธ(ภ2).", "ฝวธ(ภ3).", "ฝวธ(ภ4)."]):
+                        director = Director_4_Emails.objects.filter(ref2=section.split('/')[-3],
+                                                                    ref1=section.split('/')[-2])[0]
+
+                    else:
+                        director = Director_3_Emails.objects.get(ref3=section.split('/')[-4],
+                                                                 ref2=section.split('/')[-3],
+                                                                 ref1=section.split('/')[-2])
+
                 director_email=director.email
                 director_employee_id=director.employee_id
                 director_name= director.name
                 director_position=director.position
+
             else:
                 director_email = ''
                 director_employee_id = ''
@@ -715,7 +727,6 @@ def WFH_approve(request, id, boss, total_date):
         for i in range(5):
             try:
                 send_email_confrim_wfh(boss=boss, emp_email=emp_email)
-
                 send_complete = 1
                 break
             except:
@@ -883,6 +894,16 @@ def upload_director_email(request):
         b.save()
     return render(request, 'myworkplace/home.html')
 
+def upload_director_email1(request):
+    df1 = pd.read_excel('myworkplace/output1.xlsx', sheet_name='Sheet3')
+    for position, name, employee_id,  ref1, lastref, Email in zip(
+            df1['position'], df1['name'], df1['employee_id'],  df1['ref1'], df1['lastref'], df1['Email']):
+        a = Director_Agency_Emails(position=position, name=name, employee_id=employee_id,
+                                ref1=ref1, lastref=lastref, email=Email)
+        a.save()
+    return render(request, 'myworkplace/home.html')
+
+
 def upload_director_email2(request):
     df1 = pd.read_excel('myworkplace/output1.xlsx', sheet_name='Sheet2')
     for position, name, employee_id, ref2, ref1, lastref, Email in zip(
@@ -904,7 +925,7 @@ def upload_director_email3(request):
 
 def upload_director_email4(request):
     df1 = pd.read_excel('myworkplace/output6.xlsx', sheet_name='Sheet1')
-    for position, name, employee_id, ref2, ref1, lastref, Email in zip(
+    for position, name, employee_id, ref1, lastref, Email in zip(
             df1['position'], df1['name'], df1['employee_id'], df1['ref1'], df1['lastref'], df1['Email']):
         a = Director_DP_Emails(position=position, name=name, employee_id=employee_id,
                                ref1=ref1, lastref=lastref, email=Email)
@@ -1022,7 +1043,7 @@ def get_user_level_code(id):
 
 
 def update_employee_profile2(request):
-    users = employee.objects.filter(director_approve_id=None)
+    users = employee.objects.filter(director_approve_id=None).order_by('-id')
     print('start')
     total_num = len(users)
     i = 1
@@ -1030,7 +1051,6 @@ def update_employee_profile2(request):
     for item in users:
         print(item.__dict__)
         print(item.employee_dept_sap_short)
-        print(type(item.employee_dept_sap_short))
 
         section = item.employee_dept_sap_short
         position = item.employee_level_code
