@@ -668,7 +668,7 @@ def register(request, id):
                 except:
                     r = r + 1
                     # send_complete = 0
-
+                time.sleep(1)
             if send_complete:
                 return redirect(daily_update, emp_id)
         return render(request, 'myworkplace/formregister.html', context)
