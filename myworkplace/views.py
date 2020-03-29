@@ -117,7 +117,7 @@ def LEAVE_request(request, id):
             total_day = 14
             startdate = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
             enddate = (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
                 id_boss)
             # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
             #     id_boss)
@@ -243,7 +243,7 @@ def meet_doc2(request, id):
             boss_email = request.POST.get("email_boss")  # เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
             id_boss = request.POST.get("id_boss")
 
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email = get_user_email(
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email, level_code = get_user_email(
                 id_boss)
             startdate = (datetime.now() + timedelta(days=1)).strftime("%Y/%m/%d")
 

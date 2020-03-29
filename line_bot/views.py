@@ -95,7 +95,7 @@ def handle_text_message(event):
             print(dict_message['text'])
             print(emp_id)
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
-            sub_region, emp_email = get_user_email(emp_id)
+            sub_region, emp_email, level_code= get_user_email(emp_id)
             print('get user  email')
 
             if emp_email is not None:
