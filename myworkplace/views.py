@@ -144,15 +144,18 @@ def LEAVE_request(request, id):
                 user_LEAVE_request.employee_id_up_2 = boss_email
                 user_LEAVE_request.save()
                 connection.close()
+                send_complete = 0
+                r=0
+                while ((send_complete==0) and (r < 6)):
+                    # for i in range(5):
 
-                for i in range(5):
                     try:
                         send_email_wfh14day_request(id=id, email_boss=boss_email, name=user_LEAVE_request.emplyee_name,
                                                     startdate=startdate, enddate=enddate)
                         send_complete = 1
-                        break
                     except:
-                        send_complete = 0
+                        send_complete=0
+                        r = r+1
 
                 if send_complete:
                     return render(request, 'myworkplace/formleave4.html', context)
@@ -214,16 +217,21 @@ def formwfh2(request, id):
                 user_formwfh2.WFH_end_date = get_enddate
                 user_formwfh2.save()
                 connection.close()
-                for i in range(5):
+                send_complete = 0
+                r = 0
+                while ((send_complete == 0) and (r < 6)):
                     try:
+                        # for i in range(5):
+
                         send_email_wfh_request(id=id, email_boss=user_formwfh2.director_approve_email,
                                                total_date=get_total_date,
                                                name=user_formwfh2.emplyee_name, startdate=get_startdate,
                                                enddate=get_enddate)
                         send_complete = 1
-                        break
                     except:
-                        send_complete = 0
+                        # send_complete = 0
+
+                        r = r + 1
 
                 if send_complete:
                     return render(request, 'myworkplace/formwfh4.html')
@@ -267,16 +275,18 @@ def meet_doc2(request, id):
                 user_meet_doc2.employee_id_up_2 = boss_email
                 user_meet_doc2.save()
                 connection.close()
-
-                for i in range(5):
+                send_complete = 0
+                r = 0
+                while ((send_complete == 0) and (r < 6)):
+                # for i in range(5):
                     try:
                         send_email_meetdoc_request(id=id, email_boss=user_meet_doc2.director_approve_email,
                                                    name=user_meet_doc2.emplyee_name)
 
                         send_complete = 1
-                        break
                     except:
-                        send_complete = 0
+                        # send_complete = 0
+                        r=r+1
 
                 if send_complete:
                     return render(request, 'myworkplace/formseedoc3.html', context)
@@ -644,15 +654,18 @@ def register(request, id):
             print('model save: {}'.format(emp_id))
             print('------------------------')
             connection.close()
-
-            for i in range(5):
+            send_complete=0
+            r=0
+            while ((send_complete == 0) and (r < 6)):
+            # for i in range(5):
                 try:
                     send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
 
                     send_complete = 1
-                    break
+                    # break
                 except:
-                    send_complete = 0
+                    r=r+1
+                    # send_complete = 0
 
             if send_complete:
                 return redirect(daily_update, emp_id)
@@ -739,13 +752,17 @@ def WFH_approve(request, id, boss, total_date):
         connection.close()
         first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
             id)
-        for i in range(5):
+        send_complete = 0
+        r = 0
+        while ((send_complete == 0) and (r < 6)):
+        # for i in range(5):
             try:
                 send_email_confrim_wfh(boss=boss, emp_email=emp_email)
                 send_complete = 1
-                break
+                # break
             except:
-                send_complete = 0
+                # send_complete = 0
+                r=r+1
 
         if send_complete:
             return render(request, 'myworkplace/test2.html')
