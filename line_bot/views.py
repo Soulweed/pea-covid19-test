@@ -96,6 +96,7 @@ def handle_text_message(event):
             sub_region, emp_email, level_code = get_user_email(dict_message['text'])
 
             if emp_email is not None:
+
                 send_email_register_async(emp_line_id=dict_source['user_id'], emp_email=emp_email, emp_id=dict_message['text'])
 
                 line_bot_api.reply_message(event.reply_token,
