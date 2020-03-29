@@ -103,70 +103,63 @@ def daily_update(request, id):
 
 
 def LEAVE_request(request, id):
-    context = {'EmployeeID': id, }
-    user_LEAVE_request = employee.objects.get(employee_ID=str(id))
-    context.update({'director_name': user_LEAVE_request.director_approve_name})
-    if request.method == "POST":
-        page = request.POST.get("page")
-        if (page == "1"):
-            # print(page)
-            # print("OK1")
-            return render(request, 'myworkplace/formleave2.html', context)
-        if (page == "2"):
-            id_boss = request.POST.get("id_boss")
-            total_day = 14
-            startdate = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
-            enddate = (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
-                id_boss)
-            # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
-            #     id_boss)
-            context = {'id_boss': id_boss, 'email_boss': emp_email, 'total_day': total_day, 'startdate': startdate,
-                       'enddate': enddate,
-                       'boss_name': '{} {}'.format(first_name, last_name), 'JobDesc': posi_text_short,
-                       'Gender': sex_desc}
-            return render(request, 'myworkplace/formleave3.html', context)
-        if (page == "3"):
-            # email = request.POST.get("email_boss")  #เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
-            boss_email = request.POST.get("email_boss")  # เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
-            id_boss = request.POST.get("id_boss")
-            startdate = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
-            enddate = (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
-            obj = {'type': 'wfh14days_request', 'startdate': startdate, 'enddate': enddate,
-                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)"),
-                   'sent_request_to': {'id': id_boss, 'email': boss_email}}
-            try:
-                data = json.loads(user_LEAVE_request.activity_text)
-                data.append(obj)
-                user_LEAVE_request.activity_text = json.dumps(data, ensure_ascii=False)
-                user_LEAVE_request.approved_status = 'Leave'
-                user_LEAVE_request.employee_id_up_1 = id_boss
-                user_LEAVE_request.employee_id_up_2 = boss_email
-                user_LEAVE_request.save()
-                connection.close()
+    try:
+        user_LEAVE_request = employee.objects.get(employee_ID=str(id))
+        context = {'EmployeeID': id, }
+        context.update({'director_name': user_LEAVE_request.director_approve_name})
+        if request.method == "POST":
+            page = request.POST.get("page")
+            if (page == "1"):
+                return render(request, 'myworkplace/formleave2.html', context)
+            if (page == "2"):
+                id_boss = request.POST.get("id_boss")
+                total_day = 14
+                startdate = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
+                enddate = (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
+                first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
+                    id_boss)
+                # FirstName, LastName, DepartmentShort, PositionDescShort, LevelDesc , Gender= get_employee_profile(
+                #     id_boss)
+                context = {'id_boss': id_boss, 'email_boss': emp_email, 'total_day': total_day, 'startdate': startdate,
+                           'enddate': enddate,
+                           'boss_name': '{} {}'.format(first_name, last_name), 'JobDesc': posi_text_short,
+                           'Gender': sex_desc}
+                return render(request, 'myworkplace/formleave3.html', context)
+            if (page == "3"):
+                boss_email = request.POST.get("email_boss")  # เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+                id_boss = request.POST.get("id_boss")
+                startdate = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
+                enddate = (datetime.now() + timedelta(days=15)).strftime("%Y-%m-%d")
+                obj = {'type': 'wfh14days_request', 'startdate': startdate, 'enddate': enddate,
+                       'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)"),
+                       'sent_request_to': {'id': id_boss, 'email': boss_email}}
                 send_complete = 0
                 r = 0
                 while ((send_complete == 0) and (r < 6)):
-                    # for i in range(5):
-
                     try:
-                        send_email_wfh14day_request(id=id, email_boss=boss_email, name=user_LEAVE_request.emplyee_name,
+                        data = json.loads(user_LEAVE_request.activity_text)
+                        data.append(obj)
+                        user_LEAVE_request.activity_text = json.dumps(data, ensure_ascii=False)
+                        user_LEAVE_request.approved_status = 'Leave'
+                        # user_LEAVE_request.employee_id_up_1 = id_boss
+                        # user_LEAVE_request.employee_id_up_2 = boss_email
+                        user_LEAVE_request.save()
+                        connection.close()
+                        send_email_wfh14day_request(id=id, email_boss=user_LEAVE_request.director_approve_email,
+                                                    name=user_LEAVE_request.emplyee_name,
                                                     startdate=startdate, enddate=enddate)
                         send_complete = 1
                     except:
                         send_complete = 0
                         r = r + 1
-
                 if send_complete:
                     return render(request, 'myworkplace/formleave4.html', context)
 
-
-            except MultipleObjectsReturned:
-                print('ERROR LEAVE request : {}'.format(id))
-                remove_emp_id(id)
-                print('Remove duplicate LEAVE request : {}'.format(id))
-
-    return render(request, 'myworkplace/formleave1.html', context)
+        return render(request, 'myworkplace/formleave1.html', context)
+    except MultipleObjectsReturned:
+        print('ERROR LEAVE request : {}'.format(id))
+        remove_emp_id(id)
+        print('Remove duplicate LEAVE request : {}'.format(id))
 
 
 # async def send_email_meetdoc_request_async(id, email_boss, name):
@@ -185,38 +178,30 @@ def formwfh1(request, id):
 
 
 def formwfh2(request, id):
-    context = {'id': id}
-    user_formwfh2 = employee.objects.get(employee_ID=str(id))
-    context.update({'director_name': user_formwfh2.director_approve_name})
-    if request.method == "POST":
-        page = request.POST.get("page")
-        if (page == "1"):
-            get_startdate = request.POST.get("startdate")
-            get_enddate = request.POST.get("enddate")
-            startdate = datetime.strptime(get_startdate, "%Y-%m-%d").date()
-            enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
-            delta = enddate - startdate
-            total_date = delta.days + 1
-            context = {'startdate': get_startdate, 'enddate': get_enddate, 'total_date': total_date,
-                       'director_name': user_formwfh2.director_approve_name,
-                       'director_position': user_formwfh2.director_approve_position}
-            return render(request, 'myworkplace/formwfh3.html', context)
-        if (page == "2"):
-            get_total_date = request.POST.get("total_date")
-            get_startdate = request.POST.get("startdate")
-            get_enddate = request.POST.get("enddate")
-            obj = {'type': 'wfh_request', 'startdate': get_startdate, 'enddate': get_enddate,
-                   'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)"),
-                   'sent_request_to': {'director_id': user_formwfh2.director_approve_id}}
-            try:
-                data = json.loads(user_formwfh2.activity_text)
-                data.append(obj)
-                user_formwfh2.activity_text = json.dumps(data, ensure_ascii=False)
-                user_formwfh2.approved_status = 'WFH'
-                user_formwfh2.WFH_start_date = get_startdate
-                user_formwfh2.WFH_end_date = get_enddate
-                user_formwfh2.save()
-                connection.close()
+    try:
+        user_formwfh2 = employee.objects.get(employee_ID=str(id))
+        context = {'id': id}
+        context.update({'director_name': user_formwfh2.director_approve_name})
+        if request.method == "POST":
+            page = request.POST.get("page")
+            if (page == "1"):
+                get_startdate = request.POST.get("startdate")
+                get_enddate = request.POST.get("enddate")
+                startdate = datetime.strptime(get_startdate, "%Y-%m-%d").date()
+                enddate = datetime.strptime(get_enddate, "%Y-%m-%d").date()
+                delta = enddate - startdate
+                total_date = delta.days + 1
+                context = {'startdate': get_startdate, 'enddate': get_enddate, 'total_date': total_date,
+                           'director_name': user_formwfh2.director_approve_name,
+                           'director_position': user_formwfh2.director_approve_position}
+                return render(request, 'myworkplace/formwfh3.html', context)
+            if (page == "2"):
+                get_total_date = request.POST.get("total_date")
+                get_startdate = request.POST.get("startdate")
+                get_enddate = request.POST.get("enddate")
+                obj = {'type': 'wfh_request', 'startdate': get_startdate, 'enddate': get_enddate,
+                       'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)"),
+                       'sent_request_to': {'director_id': user_formwfh2.director_approve_id}}
                 send_complete = 0
                 r = 0
                 while ((send_complete == 0) and (r < 6)):
@@ -227,6 +212,14 @@ def formwfh2(request, id):
                                                enddate=get_enddate)
                         print('Sending email completed')
                         send_complete = 1
+                        data = json.loads(user_formwfh2.activity_text)
+                        data.append(obj)
+                        user_formwfh2.activity_text = json.dumps(data, ensure_ascii=False)
+                        user_formwfh2.approved_status = 'WFH'
+                        user_formwfh2.WFH_start_date = get_startdate
+                        user_formwfh2.WFH_end_date = get_enddate
+                        user_formwfh2.save()
+                        connection.close()
                     except:
                         # send_complete = 0
                         print('Sending email failed')
@@ -234,48 +227,37 @@ def formwfh2(request, id):
 
                 if send_complete:
                     return render(request, 'myworkplace/formwfh4.html')
+                else:
+                    return redirect(test3)
+        return render(request, 'myworkplace/formwfh2drange.html', context)
 
-            except MultipleObjectsReturned:
-                print('ERROR wfh request id: {}'.format(id))
-                remove_emp_id(id)
-
-                print('Remove duplicate wfh request : {}'.format(id))
-
-    return render(request, 'myworkplace/formwfh2drange.html', context)
+    except MultipleObjectsReturned:
+        print('ERROR wfh request id: {}'.format(id))
+        remove_emp_id(id)
+        print('Remove duplicate wfh request : {}'.format(id))
 
 
 def meet_doc2(request, id):
-    context = {'id': id}
-    user_meet_doc2 = employee.objects.get(employee_ID=str(id))
-    context.update({'director_name': user_meet_doc2.director_approve_name})
+    try:
+        context = {'id': id}
+        user_meet_doc2 = employee.objects.get(employee_ID=str(id))
+        context.update({'director_name': user_meet_doc2.director_approve_name})
+        if request.method == 'POST':
+            page = request.POST.get('page')
+            if (page == "1"):
+                # id_boss = request.POST.get("director")
+                boss_email = request.POST.get("email_boss")  # เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
+                id_boss = request.POST.get("id_boss")
 
-    if request.method == 'POST':
-        page = request.POST.get('page')
-        if (page == "1"):
-            # id_boss = request.POST.get("director")
-            boss_email = request.POST.get("email_boss")  # เอา email จาก ที่ซ่อนใว้ใน hidden ใน formleave3
-            id_boss = request.POST.get("id_boss")
-
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email, level_code = get_user_email(
-                id_boss)
-            startdate = (datetime.now() + timedelta(days=1)).strftime("%Y/%m/%d")
-
-            enddate = (datetime.now() + timedelta(days=15)).strftime("%Y/%m/%d")
-            obj = {'type': 'meet_doc_request', 'startdate': startdate, 'enddate': enddate,
-                   'datetime': datetime.now().strftime("%Y/%m/%d (%H:%M:%S)"),
-                   'sent_request_to': {'id': id_boss, 'email': boss_email}}
-            try:
+                first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email, level_code = get_user_email(
+                    id_boss)
+                startdate = (datetime.now() + timedelta(days=1)).strftime("%Y/%m/%d")
+                enddate = (datetime.now() + timedelta(days=15)).strftime("%Y/%m/%d")
+                obj = {'type': 'meet_doc_request', 'startdate': startdate, 'enddate': enddate,
+                       'datetime': datetime.now().strftime("%Y/%m/%d (%H:%M:%S)"),
+                       'sent_request_to': {'id': id_boss, 'email': boss_email}}
                 data = json.loads(user_meet_doc2.activity_text)
                 data.append(obj)
-                user_meet_doc2.activity_text = json.dumps(data, ensure_ascii=False)
-                user_meet_doc2.active_status = 'LEAVE'
-                user_meet_doc2.approved_status = 'Idle'
-                user_meet_doc2.LEAVE_start_date = startdate
-                user_meet_doc2.LEAVE_end_date = enddate
-                user_meet_doc2.employee_id_up_1 = id_boss
-                user_meet_doc2.employee_id_up_2 = boss_email
-                user_meet_doc2.save()
-                connection.close()
                 send_complete = 0
                 r = 0
                 while ((send_complete == 0) and (r < 6)):
@@ -283,20 +265,28 @@ def meet_doc2(request, id):
                     try:
                         send_email_meetdoc_request(id=id, email_boss=user_meet_doc2.director_approve_email,
                                                    name=user_meet_doc2.emplyee_name)
-
                         send_complete = 1
+                        user_meet_doc2.activity_text = json.dumps(data, ensure_ascii=False)
+                        user_meet_doc2.active_status = 'LEAVE'
+                        user_meet_doc2.approved_status = 'Idle'
+                        user_meet_doc2.LEAVE_start_date = startdate
+                        user_meet_doc2.LEAVE_end_date = enddate
+                        user_meet_doc2.employee_id_up_1 = id_boss
+                        user_meet_doc2.employee_id_up_2 = boss_email
+                        user_meet_doc2.save()
+                        connection.close()
                     except:
                         # send_complete = 0
                         r = r + 1
-
                 if send_complete:
                     return render(request, 'myworkplace/formseedoc3.html', context)
-            except MultipleObjectsReturned:
-                print('ERROR meet doc request id: {}'.format(id))
-                remove_emp_id(id)
-                print('Remove duplicate meet doc request : {}'.format(id))
-    return render(request, 'myworkplace/formseedoc2.html', context)
-
+                else:
+                    return redirect(test3)
+        return render(request, 'myworkplace/formseedoc2.html', context)
+    except MultipleObjectsReturned:
+        print('ERROR meet doc request id: {}'.format(id))
+        remove_emp_id(id)
+        print('Remove duplicate meet doc request : {}'.format(id))
 
 def personal_info(request, id):
     try:
@@ -621,56 +611,58 @@ def register(request, id):
                 director_position = ''
 
             obj = {'type': 'register', 'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-            user_data = employee(
-                emplyee_name='{} {}'.format(first_name, last_name),
-                employee_ID=emp_id,
-                employee_line_ID=line_id,
-                healthy='normal',
-                activity_text=json.dumps([obj], ensure_ascii=False),
-                # posi_text_short=posi_text_short,
-                employee_posi_text_short=posi_text_short,
-                employee_dept_sap_short=dept_sap_short,
-                employee_dept_sap=dept_sap,
-                employee_dept_upper=dept_upper,
-                employee_sub_region=sub_region,
-                employee_emp_email=emp_email,
-                employee_tel=ext,
-                tel=mobile_phone,
-                work_building=building,
-                work_floor=floor,
-                address_type=address,
-                address_to_live=addition_address,
-                workmate_first_name=firstname_ref_1,
-                workmate_last_name=lastname_ref_1,
-                workmate_tel=mobile_ref_1,
-                workmate_id=relation_ref_1,
-                employee_level_code=level_code,
-                director_approve_email=director_email,
-                director_approve_id=director_employee_id,
-                director_approve_name=director_name,
-                director_approve_position=director_position,
-            )
 
-            user_data.save()
-            print('------------------------')
-            print('model save: {}'.format(emp_id))
-            print('------------------------')
-            connection.close()
             send_complete = 0
             r = 0
             while ((send_complete == 0) and (r < 6)):
                 # for i in range(5):
                 try:
                     send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
-
                     send_complete = 1
+                    user_data = employee(
+                        emplyee_name='{} {}'.format(first_name, last_name),
+                        employee_ID=emp_id,
+                        employee_line_ID=line_id,
+                        healthy='normal',
+                        activity_text=json.dumps([obj], ensure_ascii=False),
+                        # posi_text_short=posi_text_short,
+                        employee_posi_text_short=posi_text_short,
+                        employee_dept_sap_short=dept_sap_short,
+                        employee_dept_sap=dept_sap,
+                        employee_dept_upper=dept_upper,
+                        employee_sub_region=sub_region,
+                        employee_emp_email=emp_email,
+                        employee_tel=ext,
+                        tel=mobile_phone,
+                        work_building=building,
+                        work_floor=floor,
+                        address_type=address,
+                        address_to_live=addition_address,
+                        workmate_first_name=firstname_ref_1,
+                        workmate_last_name=lastname_ref_1,
+                        workmate_tel=mobile_ref_1,
+                        workmate_id=relation_ref_1,
+                        employee_level_code=level_code,
+                        director_approve_email=director_email,
+                        director_approve_id=director_employee_id,
+                        director_approve_name=director_name,
+                        director_approve_position=director_position,
+                    )
+
+                    user_data.save()
+                    print('------------------------')
+                    print('model save: {}'.format(emp_id))
+                    print('------------------------')
+                    connection.close()
+
                     # break
                 except:
                     r = r + 1
                     # send_complete = 0
-
             if send_complete:
                 return redirect(daily_update, emp_id)
+            else:
+                return redirect(test3)
         return render(request, 'myworkplace/formregister.html', context)
 
 
@@ -739,6 +731,7 @@ def miss3d_ts(request, id):
 
 
 def WFH_approve(request, id, boss, total_date):
+
     obj = {'type': 'WFH_approved', 'approved_by': boss,
            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
            'finish_date': (datetime.now() + timedelta(days=int(total_date))).strftime("%Y-%m-%d"),
@@ -765,9 +758,10 @@ def WFH_approve(request, id, boss, total_date):
             except:
                 # send_complete = 0
                 r = r + 1
-
         if send_complete:
             return render(request, 'myworkplace/test2.html')
+        else:
+            return redirect(test3)
     except MultipleObjectsReturned:
         ('ERROR WFH_approve duplicate id: {}'.format(id))
         remove_emp_id(id)
@@ -799,34 +793,36 @@ def LEAVE_approve(request, id, boss):
         return redirect(home)
 
 
-def get_employee_profile(id):
-    url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
-    headers = {'content-type': 'text/xml'}
-    xmltext = '''<?xml version="1.0" encoding="utf-8"?>
-                <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-                <soap:Body>
-                    <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
-                    <WSAuthenKey>{0}</WSAuthenKey>
-                    <EmployeeId>{1}</EmployeeId>
-                    </GetEmployeeInfoByEmployeeId_SI>
-                </soap:Body>
-                </soap:Envelope>'''
-    wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
-    body = xmltext.format(wsauth, "{}".format(id))
-    res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
-    o = xmltodict.parse(res.text)
-    jsonconvert = dict(o)
-    # print(jsonconvert)
-    authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
-        'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
-
-    return authData.get("FirstName"), authData.get("LastName"), authData.get("DepartmentShort"), \
-           authData.get("PositionDescShort"), authData.get("LevelDesc"), authData.get("Gender")
+# def get_employee_profile(id):
+#     url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
+#     headers = {'content-type': 'text/xml'}
+#     xmltext = '''<?xml version="1.0" encoding="utf-8"?>
+#                 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+#                 <soap:Body>
+#                     <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
+#                     <WSAuthenKey>{0}</WSAuthenKey>
+#                     <EmployeeId>{1}</EmployeeId>
+#                     </GetEmployeeInfoByEmployeeId_SI>
+#                 </soap:Body>
+#                 </soap:Envelope>'''
+#     wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
+#     body = xmltext.format(wsauth, "{}".format(id))
+#     res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
+#     o = xmltodict.parse(res.text)
+#     jsonconvert = dict(o)
+#     # print(jsonconvert)
+#     authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
+#         'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
+#
+#     return authData.get("FirstName"), authData.get("LastName"), authData.get("DepartmentShort"), \
+#            authData.get("PositionDescShort"), authData.get("LevelDesc"), authData.get("Gender")
 
 
 def test(request):
     return render(request, 'myworkplace/test.html')
 
+def test3(request):
+    return render(request, 'myworkplace/test3.html')
 
 def remove_duplicate_all(request):
     context = {'data1': [],
@@ -888,6 +884,13 @@ def summarylist(request):
 def summarylist1(request, dept_sap):
     context = {'data': employee.objects.filter(employee_dept_sap=dept_sap)}
     return render(request, 'myworkplace/summary_list1.html', context)
+
+
+
+def summary_under_employee_list(request, id):
+    context={}
+    return render(request, 'myworkplace/summary_list1.html', context)
+
 
 
 def update_employee_profile(request):

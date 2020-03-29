@@ -42,6 +42,8 @@ urlpatterns = [
     path('resultscreen3/', views.resultscreen3, name='resultscreen3'),
     path('formleave/<id>', views.LEAVE_request, name='formleave'),
     path('test/', views.test, name='test'),
+    path('test3/', views.test3, name='test3'),
+
     path('summarylist/', views.summarylist, name='summarylist'),
     path('summarylist1/<dept_sap>/', views.summarylist1, name='summarylist1'),
     path('remove_duplicate_all/', views.remove_duplicate_all, name='remove_duplicate_all'),
