@@ -118,7 +118,6 @@ def handle_text_message(event):
                 #                                     '(username คือรหัสพนักงาน 6 หลัก)')
                 #                            )
 
-
         elif num_results>1:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))

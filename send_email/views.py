@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.db import connection
 
-
 from exchangelib import Configuration, Account, DELEGATE, Credentials
 from exchangelib import Message, Mailbox, FileAttachment, protocol
 from exchangelib.errors import UnauthorizedError, TransportError, RedirectError, RelativeRedirect
@@ -12,7 +11,7 @@ from datetime import datetime, timedelta
 from myworkplace.models import employee, emailemployee
 # Create your views here.
 import time
-
+import asyncio
 
 
 def connect(server, email, username, password):
@@ -86,7 +85,7 @@ def print_non_replies(emails, agents):
 def get_user_email(id):
     url = "http://pealife-ms.pea.co.th/api/Covid19/GetEmployeeDetail/"
 
-    payload = "{EmployeeID:\"%s\",ApiKey:\"fHC25Bp7cOj4oFuTF3dBMozOjMH1O8xj\"}\n" %(id)
+    payload = "{EmployeeID:\"%s\",ApiKey:\"fHC25Bp7cOj4oFuTF3dBMozOjMH1O8xj\"}\n" % (id)
     headers = {
         'Content-Type': 'application/json'
     }
@@ -96,13 +95,12 @@ def get_user_email(id):
     last_name = response['data']['dataDetail'][0]['last_name']
     sex_desc = response['data']['dataDetail'][0]['sex_desc']
     posi_text_short = response['data']['dataDetail'][0]['posi_text_short']
-    dept_sap_short=response['data']['dataDetail'][0]['dept_sap_short']
+    dept_sap_short = response['data']['dataDetail'][0]['dept_sap_short']
     dept_sap = response['data']['dataDetail'][0]['dept_sap']
     dept_upper = response['data']['dataDetail'][0]['dept_upper']
     sub_region = response['data']['dataDetail'][0]['sub_region']
     email = response['data']['dataDetail'][0]['email']
     level_code = response['data']['dataDetail'][0]['level_code']
-
 
     return first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, email, level_code
 
@@ -128,6 +126,7 @@ def get_user_email2(id):
         'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
 
     return authData.get("Email")
+
 
 #### สมัคร ยืนยัน Register
 def send_email_register(emp_email, line_id, id):
@@ -164,6 +163,7 @@ def send_email_register(emp_email, line_id, id):
     # m.close()
     print('email register send: {} : {}'.format(id, emp_email))
 
+
 def send_email_confrim_register(emp_id, emp_email):
     recipient_list = [Mailbox(email_address=emp_email)]
     recipient_list = [emp_email]
@@ -180,20 +180,20 @@ def send_email_confrim_register(emp_id, emp_email):
     BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
 
     subject = 'ยืนยันการลงทะเบียน'
-    body='ขอบคุณที่ร่วมลงทะเบียนกับเรา \n\nรหัสพนักงานของท่านได้ทำการลงทะเบียนในระบบ PEA COVID-19 LINE Official Account สำเร็จแล้ว\n\n' \
-         'วิธีการใช้งานเบื้องต้น\n\n'\
-         'เพื่อการใช้งานที่ต่อเนื่อง และมีประสิทธิภาพ หากอุปกรณ์ของคุณไม่รองรับปุ่มเมนู (เช่นใช้งานบน Tablet, iPad, LINE PC)\n\n' \
-         'คุณสามารถเข้าถึงเมนูของเราเพียง พิมพ์ข้อความ\n\n' \
-         '1. “ขออนุมัติ” เพื่อเข้าสู่ระบบการแจ้งลาทั้งแบบป่วย COVID-19 หรือ ลาทำงานอยู่บ้าน (Work From Home)\n\n' \
-         '2. “ช่วยเหลือ” เพื่อเข้าสู่ระบบศูนย์ช่วยเหลือ PEA COVID-19\n\n' \
-         '3. “ประเมินความเสี่ยง” เพื่อเข้าสู่ระบบประเมินความเสี่ยงประจำวัน และตอบคำถามลุ้นรับรางวัลทุกวัน\n\n' \
-         '4. “ข้อมูลส่วนตัว” เพื่อจัดการข้อมูลส่วนตัวของคุณ\n\n' \
-         '5. “สถานการณ์” เพื่อเกาะติดสถานการณ์ COVID-19\n\n' \
-         '6. “ใบเซ็นชื่อ” เพื่อเข้าระบบลงชื่อเข้าและเลิกทำงาน\n\n' \
-         'อย่าลืมเพิ่มระยะห่างทางสังคมนะครับ ถ้าเราไม่ติดกัน เราจะไม่ติดเชื้อ\n\n' \
-         'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
-         'PEA COVID-19\n' \
-         'By PEA Innovation Hub'
+    body = 'ขอบคุณที่ร่วมลงทะเบียนกับเรา \n\nรหัสพนักงานของท่านได้ทำการลงทะเบียนในระบบ PEA COVID-19 LINE Official Account สำเร็จแล้ว\n\n' \
+           'วิธีการใช้งานเบื้องต้น\n\n' \
+           'เพื่อการใช้งานที่ต่อเนื่อง และมีประสิทธิภาพ หากอุปกรณ์ของคุณไม่รองรับปุ่มเมนู (เช่นใช้งานบน Tablet, iPad, LINE PC)\n\n' \
+           'คุณสามารถเข้าถึงเมนูของเราเพียง พิมพ์ข้อความ\n\n' \
+           '1. “ขออนุมัติ” เพื่อเข้าสู่ระบบการแจ้งลาทั้งแบบป่วย COVID-19 หรือ ลาทำงานอยู่บ้าน (Work From Home)\n\n' \
+           '2. “ช่วยเหลือ” เพื่อเข้าสู่ระบบศูนย์ช่วยเหลือ PEA COVID-19\n\n' \
+           '3. “ประเมินความเสี่ยง” เพื่อเข้าสู่ระบบประเมินความเสี่ยงประจำวัน และตอบคำถามลุ้นรับรางวัลทุกวัน\n\n' \
+           '4. “ข้อมูลส่วนตัว” เพื่อจัดการข้อมูลส่วนตัวของคุณ\n\n' \
+           '5. “สถานการณ์” เพื่อเกาะติดสถานการณ์ COVID-19\n\n' \
+           '6. “ใบเซ็นชื่อ” เพื่อเข้าระบบลงชื่อเข้าและเลิกทำงาน\n\n' \
+           'อย่าลืมเพิ่มระยะห่างทางสังคมนะครับ ถ้าเราไม่ติดกัน เราจะไม่ติดเชื้อ\n\n' \
+           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
+           'PEA COVID-19\n' \
+           'By PEA Innovation Hub'
 
     m = Message(account=account,
                 subject=subject,
@@ -208,7 +208,7 @@ def send_email_confrim_register(emp_id, emp_email):
     print('email confirm register send: {} : {}'.format(emp_id, emp_email))
 
 
-def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
+def send_email_wfh_request(id, email_boss, total_date, name, startdate, enddate):
     # recipient_list = [Mailbox(email_address=emp_email)]
     recipient_list = [email_boss]
     print('receipient list', recipient_list)
@@ -224,7 +224,7 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
     BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
 
     # email_boss = boss + '@pea.co.th'
-    boss=email_boss[0:-5]
+    boss = email_boss[0:-5]
     subject = 'ขออนุมัติ Work from Home'
     body = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจากชื่อ  {} รหัสพนักงาน {} มีความประสงค์ขอปฏิบัติงานแบบ Work from home เงื่อนไขไม่เข้าเกณฑ์ผู้ที่มีความเสี่ยงต่อโรค COVID-19 \n\n' \
            'ระหว่างวันที่ {} ถึงวันที่ {} รวมระยะเวลาทั้งหมด {} วัน \n\n' \
@@ -264,12 +264,12 @@ def send_email_confrim_wfh(boss, emp_email):
     BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
 
     subject = 'แจ้งผลการอนุมัติ Work from home'
-    body='คำร้องการขอปฏิบัติงานแบบ Work From Home ของท่านได้รับการอนุมัติจากผู้บังคับบัญชาต้นสังกัดแล้ว\n\n' \
-         'สามารถดูข้อมูลเพิ่มเติมได้ที่ LINE: PEA COVID-19 โดยเข้าไปที่เมนู "ข้อมูลส่วนตัว"\n\n' \
-         'อย่าลืมลงบันทึกเวลาปฏิบัติงานและประเมินความเสี่ยงประจำวันผ่านระบบ PEA COVID-19 ด้วยนะครับ\n\n' \
-         'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
-         'PEA COVID-19\n' \
-         'By PEA Innovation Hub'
+    body = 'คำร้องการขอปฏิบัติงานแบบ Work From Home ของท่านได้รับการอนุมัติจากผู้บังคับบัญชาต้นสังกัดแล้ว\n\n' \
+           'สามารถดูข้อมูลเพิ่มเติมได้ที่ LINE: PEA COVID-19 โดยเข้าไปที่เมนู "ข้อมูลส่วนตัว"\n\n' \
+           'อย่าลืมลงบันทึกเวลาปฏิบัติงานและประเมินความเสี่ยงประจำวันผ่านระบบ PEA COVID-19 ด้วยนะครับ\n\n' \
+           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
+           'PEA COVID-19\n' \
+           'By PEA Innovation Hub'
 
     m = Message(account=account,
                 subject=subject,
@@ -318,7 +318,6 @@ def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
     protocol.close_connections()
     del account
 
-
     # print(m)
     print('email send: {} >> {}'.format(id, email_boss))
 
@@ -354,11 +353,6 @@ def send_email_meetdoc_request(id, email_boss, name):
     protocol.close_connections()
     del account
 
-    print('email send: {} >> {}'.format(id, email_boss))
-    return True
-    # print(m)
-
-
 
 ########################################### แจ้ง Boss ##########################################################
 ### แจ้งเตือน Boss พนักงานในสังกัดขาดการติดต่อระบบเกิน 3 วัน ไม่เข้าเกณฑ์กลุ่มเสี่ยง
@@ -382,7 +376,6 @@ def send_email_wfh_warning(request, id, boss, day):
            'PEA COVID-19 \n ' \
            'By PEA Innovation Hub'.format(
         id, day, id, boss, day)
-
 
     m = Message(account=account,
                 subject=subject,
@@ -411,7 +404,7 @@ def send_email_leave(request, id, boss):
            'ทางระบบได้ตรวจสอบพบว่าพนักงานคนดังกล่าว' \
            'ไม่ได้ทำการติดต่อกับระบบต่อเนื่องเป็นระยะเวลา 3 วัน ตั้งแต่วันที่ {} ถึงวันที่ {}\n\n' \
            'จึงขอให้ท่านตรวจสอบสถานะของพนักงานในสังกัดของท่านและรายงานผลการติดตามโดยเร็วที่สุด\n\n' \
-           'โดยคลิกตาม link ด้านล่าง เพื่อรายงานผล \n\n'\
+           'โดยคลิกตาม link ด้านล่าง เพื่อรายงานผล \n\n' \
            'https://pea-covid19-test.herokuapp.com/register/{}{}\n\n' \
            'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
            'PEA COVID-19\n' \
@@ -444,7 +437,7 @@ def send_email_outgoing_warning(request, id, boss):
            '{}รหัสพนักงาน {} ซึ่งเป็นพนักงานในสังกัดของท่าน \n\n' \
            'มีแนวโน้มออกนอกพื้นที่พักอาศัย ตามที่ได้ระบุไว้ในโครงการ Work from home เนื่องจากมีความเสี่ยงในการสัมผัสเชื้อโรค COVID-19 เป็นเวลา 14 วัน\n\n' \
            'ขอให้ท่านดำเนินการติดตามตำแหน่งที่อยู่พนักงานคนดังกล่าว และรายงานผลติดตามโดยเร็วที่สุด \n\n' \
-           'โดยคลิกตาม link ด้านล่าง เพื่อรายงานผล \n\n'\
+           'โดยคลิกตาม link ด้านล่าง เพื่อรายงานผล \n\n' \
            'https://pea-covid19-test.herokuapp.com/register/{}{}\n\n' \
            'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
            'PEA COVID-19\n' \
@@ -552,7 +545,6 @@ def send_email_timestamp_warning(request, id, boss, day):
            'By PEA Innovation Hub'.format(
         id, day, id, boss, day)
 
-
     m = Message(account=account,
                 subject=subject,
                 body=body,
@@ -587,7 +579,6 @@ def send_email_challenge_warning(request, id, boss, day):
            'By PEA Innovation Hub'.format(
         id, day, id, boss, day)
 
-
     m = Message(account=account,
                 subject=subject,
                 body=body,
@@ -595,7 +586,6 @@ def send_email_challenge_warning(request, id, boss, day):
     # print('message created')
     m.send_and_save()
     del account
-
 
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
@@ -622,7 +612,6 @@ def send_email_dailyhealth_warning(request, id, boss, day):
            'PEA COVID-19 \n ' \
            'By PEA Innovation Hub'.format(
         id, day, id, boss, day)
-
 
     m = Message(account=account,
                 subject=subject,
@@ -658,7 +647,6 @@ def send_email_activity_warning(request, id, boss, day):
            'By PEA Innovation Hub'.format(
         id, day, id, boss, day)
 
-
     m = Message(account=account,
                 subject=subject,
                 body=body,
@@ -669,10 +657,6 @@ def send_email_activity_warning(request, id, boss, day):
 
     # print(m)
     print('email send: {} >> {}'.format(id, boss))
-
-
-import asyncio
-
 
 
 def send_test_email():
@@ -706,10 +690,12 @@ def send_test_email():
 def send_email_register_async(emp_email, emp_line_id, emp_id):
     async def main(body):
         loop = asyncio.get_event_loop()
+
         def sendmq(body):
             flag = False
+            count = 0
             try:
-                while not flag:
+                while not flag and count < 21:
                     recipient_list = [body['emp_email']]
                     server = 'email.pea.co.th'
                     # server = '202.151.5.104'
@@ -718,9 +704,9 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
                     password = 'peacovid19'
                     creds = Credentials(username=username, password=password)
                     config = Configuration(server=server, credentials=creds)
-                    print('Async Event mail Sending', recipient_list)
+                    print('Async Event register mail Sending', recipient_list)
                     account = Account(primary_smtp_address=email, autodiscover=False, config=config,
-                                   access_type=DELEGATE)
+                                      access_type=DELEGATE)
                     print('receipient list', recipient_list)
 
                     # BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
@@ -728,12 +714,12 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
 
                     subject = 'ยืนยันการลงทะเบียน'
                     body_text = 'รหัสพนักงานของท่าน {} ได้มีการลงทะเบียนกับ PEA COVID-19\n\n' \
-                           'กรุณาเริ่มต้นการใช้งาน โดยยืนยันตัวตนของท่านผ่านข้อความฉบับนี้ โดยคลิกตาม link ด้านล่างนี้\n\n ' \
-                           'https://pea-covid19-test.herokuapp.com/register/{}{}/ \n\n' \
-                           'เพื่อกรอกข้อมูลส่วนตัว และประเมินความเสี่ยงเบื้องต้น \n\n' \
-                           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
-                           'PEA COVID-19 \n' \
-                           'By PEA Innovation Hub'.format(body['emp_id'], body['emp_line_id'], body['emp_id'])
+                                'กรุณาเริ่มต้นการใช้งาน โดยยืนยันตัวตนของท่านผ่านข้อความฉบับนี้ โดยคลิกตาม link ด้านล่างนี้\n\n ' \
+                                'https://pea-covid19-test.herokuapp.com/register/{}{}/ \n\n' \
+                                'เพื่อกรอกข้อมูลส่วนตัว และประเมินความเสี่ยงเบื้องต้น \n\n' \
+                                'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
+                                'PEA COVID-19 \n' \
+                                'By PEA Innovation Hub'.format(body['emp_id'], body['emp_line_id'], body['emp_id'])
 
                     m = Message(account=account,
                                 subject=subject,
@@ -747,9 +733,9 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
                     flag = True
             except Exception as err:
                 print('Create account {} fail'.format(body['emp_email']))
-                time.sleep(10)
+                count = count + 1
+                time.sleep(60)
                 sendmq(body)
-
 
         try:
 
@@ -759,7 +745,7 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
             pass
 
     try:
-        body={'emp_email':emp_email, 'emp_line_id':emp_line_id, 'emp_id':emp_id}
+        body = {'emp_email': emp_email, 'emp_line_id': emp_line_id, 'emp_id': emp_id}
 
         print(body)
         loop = asyncio.new_event_loop()
@@ -769,6 +755,380 @@ def send_email_register_async(emp_email, emp_line_id, emp_id):
         print('start loop')
         loop.run_until_complete(main(body=body))
         print('end loop')
+    except Exception as err:
+        pass
 
+def send_email_confirm_register_async(emp_id, emp_email):
+    async def main(body):
+        loop = asyncio.get_event_loop()
+
+        def sendmq(body):
+            flag = False
+            count = 0
+            try:
+                while not flag and count < 21:
+                    recipient_list = [body['emp_email']]
+                    server = 'email.pea.co.th'
+                    # server = '202.151.5.104'
+                    email = 'peacovid19@pea.co.th'
+                    username = 'peacovid19'
+                    password = 'peacovid19'
+                    creds = Credentials(username=username, password=password)
+                    config = Configuration(server=server, credentials=creds)
+                    print('Async Event confrim register email Sending', recipient_list)
+                    account = Account(primary_smtp_address=email, autodiscover=False, config=config,
+                                      access_type=DELEGATE)
+                    print('receipient list', recipient_list)
+
+                    # BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+                    # BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
+                    subject = 'ยืนยันการลงทะเบียน'
+                    body_text = 'ขอบคุณที่ร่วมลงทะเบียนกับเรา \n\nรหัสพนักงานของท่านได้ทำการลงทะเบียนในระบบ PEA COVID-19 LINE Official Account สำเร็จแล้ว\n\n' \
+                                'วิธีการใช้งานเบื้องต้น\n\n' \
+                                'เพื่อการใช้งานที่ต่อเนื่อง และมีประสิทธิภาพ หากอุปกรณ์ของคุณไม่รองรับปุ่มเมนู (เช่นใช้งานบน Tablet, iPad, LINE PC)\n\n' \
+                                'คุณสามารถเข้าถึงเมนูของเราเพียง พิมพ์ข้อความ\n\n' \
+                                '1. “ขออนุมัติ” เพื่อเข้าสู่ระบบการแจ้งลาทั้งแบบป่วย COVID-19 หรือ ลาทำงานอยู่บ้าน (Work From Home)\n\n' \
+                                '2. “ช่วยเหลือ” เพื่อเข้าสู่ระบบศูนย์ช่วยเหลือ PEA COVID-19\n\n' \
+                                '3. “ประเมินความเสี่ยง” เพื่อเข้าสู่ระบบประเมินความเสี่ยงประจำวัน และตอบคำถามลุ้นรับรางวัลทุกวัน\n\n' \
+                                '4. “ข้อมูลส่วนตัว” เพื่อจัดการข้อมูลส่วนตัวของคุณ\n\n' \
+                                '5. “สถานการณ์” เพื่อเกาะติดสถานการณ์ COVID-19\n\n' \
+                                '6. “ใบเซ็นชื่อ” เพื่อเข้าระบบลงชื่อเข้าและเลิกทำงาน\n\n' \
+                                'อย่าลืมเพิ่มระยะห่างทางสังคมนะครับ ถ้าเราไม่ติดกัน เราจะไม่ติดเชื้อ\n\n' \
+                                'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
+                                'PEA COVID-19\n' \
+                                'By PEA Innovation Hub'
+
+                    m = Message(account=account,
+                                subject=subject,
+                                body=body_text,
+                                to_recipients=recipient_list)
+                    m.send_and_save()
+                    print('Async send email success: ', recipient_list)
+
+                    protocol.close_connections()
+                    del account
+                    flag = True
+            except Exception as err:
+                print('Create account {} fail'.format(body['emp_email']))
+                count = count + 1
+                time.sleep(60)
+                sendmq(body)
+
+        try:
+
+            loop.run_in_executor(None, sendmq, body)
+            # response1 = await future1
+        except Exception as e:
+            pass
+
+    try:
+        body = {'emp_email': emp_email, 'emp_id': emp_id}
+
+        print(body)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop = asyncio.get_event_loop()
+
+        print('start loop')
+        loop.run_until_complete(main(body=body))
+        print('end loop')
+    except Exception as err:
+        pass
+
+def send_email_wfh_request_async(id, email_boss, total_date, name, startdate, enddate):
+    async def main(body):
+        loop = asyncio.get_event_loop()
+
+        def sendmq(body):
+            flag = False
+            count = 0
+            try:
+
+                while not flag and count < 21:
+                    recipient_list = [body['boss_email']]
+                    server = 'email.pea.co.th'
+                    # server = '202.151.5.104'
+                    email = 'peacovid19@pea.co.th'
+                    username = 'peacovid19'
+                    password = 'peacovid19'
+                    creds = Credentials(username=username, password=password)
+                    config = Configuration(server=server, credentials=creds)
+                    print('Async Event confrim register email Sending', recipient_list)
+                    account = Account(primary_smtp_address=email, autodiscover=False, config=config,
+                                      access_type=DELEGATE)
+                    print('receipient list', recipient_list)
+
+                    boss = email_boss[0:-5]
+                    # BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+                    # BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
+                    subject = 'ขออนุมัติ Work from Home'
+                    body_text = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจากชื่อ  {} รหัสพนักงาน {} มีความประสงค์ขอปฏิบัติงานแบบ Work from home เงื่อนไขไม่เข้าเกณฑ์ผู้ที่มีความเสี่ยงต่อโรค COVID-19 \n\n' \
+                                'ระหว่างวันที่ {} ถึงวันที่ {} รวมระยะเวลาทั้งหมด {} วัน \n\n' \
+                                'ขอให้ท่านพิจารณาอนุมัติการปฏิบัติงานแบบ Work from home ให้พนักงานในสังกัดของท่าน\n\n' \
+                                'หากท่านพิจารณาแล้วเห็นสมควร "อนุมัติ" ให้คลิกตาม link ด้านล่างนี้ \n\n' \
+                                'https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/{}/\n\n' \
+                                'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
+                                'PEA COVID-19\n' \
+                                'By PEA Innovation Hub'.format(body['emp_name'], body['id'], body['startdate'],
+                                                               body['enddate'],
+                                                               body['total_date'], body['id'], body['boss'],
+                                                               body['total_date'])
+                    m = Message(account=account,
+                                subject=subject,
+                                body=body_text,
+                                to_recipients=recipient_list)
+                    m.send_and_save()
+                    print('Async send email success: ', recipient_list)
+
+                    protocol.close_connections()
+                    del account
+                    flag = True
+
+            except Exception as err:
+                print('Create account {} fail'.format(body['emp_email']))
+                count = count + 1
+                time.sleep(60)
+                sendmq(body)
+
+        try:
+
+            loop.run_in_executor(None, sendmq, body)
+            # response1 = await future1
+        except Exception as e:
+            pass
+
+    try:
+        body = {'id': id, 'boss_email': email_boss, 'total_date': total_date, 'emp_name': name, 'startdate': startdate,
+                'enddate': enddate}
+
+        print(body)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop = asyncio.get_event_loop()
+
+        print('start loop')
+        loop.run_until_complete(main(body=body))
+        print('end loop')
+    except Exception as err:
+        pass
+
+def send_email_confrim_wfh_request_async(emp_email):
+    async def main(body):
+        loop = asyncio.get_event_loop()
+
+        def sendmq(body):
+            flag = False
+            count = 0
+            try:
+
+                while not flag and count < 21:
+                    recipient_list = [body['emp_email']]
+                    server = 'email.pea.co.th'
+                    # server = '202.151.5.104'
+                    email = 'peacovid19@pea.co.th'
+                    username = 'peacovid19'
+                    password = 'peacovid19'
+                    creds = Credentials(username=username, password=password)
+                    config = Configuration(server=server, credentials=creds)
+                    print('Async Event confrim register email Sending', recipient_list)
+                    account = Account(primary_smtp_address=email, autodiscover=False, config=config,
+                                      access_type=DELEGATE)
+                    print('receipient list', recipient_list)
+
+                    # BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+                    # BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
+                    subject = 'แจ้งผลการอนุมัติ Work from home'
+                    body_text = 'คำร้องการขอปฏิบัติงานแบบ Work From Home ของท่านได้รับการอนุมัติจากผู้บังคับบัญชาต้นสังกัดแล้ว\n\n' \
+                                'สามารถดูข้อมูลเพิ่มเติมได้ที่ LINE: PEA COVID-19 โดยเข้าไปที่เมนู "ข้อมูลส่วนตัว"\n\n' \
+                                'อย่าลืมลงบันทึกเวลาปฏิบัติงานและประเมินความเสี่ยงประจำวันผ่านระบบ PEA COVID-19 ด้วยนะครับ\n\n' \
+                                'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n\n' \
+                                'PEA COVID-19\n' \
+                                'By PEA Innovation Hub'
+
+                    m = Message(account=account,
+                                subject=subject,
+                                body=body_text,
+                                to_recipients=recipient_list)
+                    m.send_and_save()
+                    print('Async send email success: ', recipient_list)
+
+                    protocol.close_connections()
+                    del account
+                    flag = True
+
+            except Exception as err:
+                print('Create account {} fail'.format(body['emp_email']))
+                count = count + 1
+                time.sleep(60)
+                sendmq(body)
+
+        try:
+
+            loop.run_in_executor(None, sendmq, body)
+            # response1 = await future1
+        except Exception as e:
+            pass
+
+    try:
+        body = {'emp_email': emp_email}
+
+        print(body)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop = asyncio.get_event_loop()
+
+        print('start loop')
+        loop.run_until_complete(main(body=body))
+        print('end loop')
+    except Exception as err:
+        pass
+
+def send_email_wfh14day_request_async(id, email_boss, name, startdate, enddate):
+    async def main(body):
+        loop = asyncio.get_event_loop()
+
+        def sendmq(body):
+            flag = False
+            count = 0
+            try:
+
+                while not flag and count < 21:
+                    recipient_list = [body['emp_email']]
+                    server = 'email.pea.co.th'
+                    # server = '202.151.5.104'
+                    email = 'peacovid19@pea.co.th'
+                    username = 'peacovid19'
+                    password = 'peacovid19'
+                    creds = Credentials(username=username, password=password)
+                    config = Configuration(server=server, credentials=creds)
+                    print('Async Event confrim register email Sending', recipient_list)
+                    account = Account(primary_smtp_address=email, autodiscover=False, config=config,
+                                      access_type=DELEGATE)
+                    print('receipient list', recipient_list)
+
+                    # BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+                    # BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
+                    subject = 'ขออนุมัติ Work from home เพื่อแยกตัวเอง 14 วัน'
+
+                    body_text = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก {} รหัสพนักงาน {} \n\n' \
+                                'มีความประสงค์ขอปฏิบัติงานแบบ Work from home เพื่อขอแยกตัวเอง เนื่องจากมีความเสี่ยงในการสัมผัสเชื้อโรค COVID-19 เป็นเวลา 14 วัน ตั้งแต่วันที่ {} ถึงวันที่ {} ' \
+                                'ขอให้ท่านพิจารณาอนุมัติการปฏิบัติงานแบบ Work from home ให้พนักงานในสังกัดของท่าน\n\n' \
+                                'หากท่านพิจารณาแล้วเห็นสมควร "อนุมัติ" ให้คลิกตาม link ด้านล่างนี้ \n\n' \
+                                'https://pea-covid19-test.herokuapp.com/WFH_approve/{}/{}/{}/\n\n' \
+                                'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n' \
+                                'PEA COVID-19\n' \
+                                'By PEA Innovation Hub'.format(body['name'], body['id'], body['startdate'], body['enddate'], body['id'], body['email_boss'], 14)
+
+                    m = Message(account=account,
+                                subject=subject,
+                                body=body_text,
+                                to_recipients=recipient_list)
+                    m.send_and_save()
+                    print('Async send email success: ', recipient_list)
+
+                    protocol.close_connections()
+                    del account
+                    flag = True
+
+            except Exception as err:
+                print('Create account {} fail'.format(body['emp_email']))
+                count = count + 1
+                time.sleep(60)
+                sendmq(body)
+
+        try:
+
+            loop.run_in_executor(None, sendmq, body)
+            # response1 = await future1
+        except Exception as e:
+            pass
+
+    try:
+        body = {'id': id, 'email_boss': email_boss, 'name': name, 'startdate': startdate, 'enddate': enddate, }
+
+        print(body)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop = asyncio.get_event_loop()
+
+        print('start loop')
+        loop.run_until_complete(main(body=body))
+        print('end loop')
+    except Exception as err:
+        pass
+
+def send_email_meetdoc_request_async(id, email_boss, name):
+    async def main(body):
+        loop = asyncio.get_event_loop()
+
+        def sendmq(body):
+            flag = False
+            count = 0
+            try:
+
+                while not flag and count < 21:
+                    recipient_list = [body['emp_email']]
+                    server = 'email.pea.co.th'
+                    # server = '202.151.5.104'
+                    email = 'peacovid19@pea.co.th'
+                    username = 'peacovid19'
+                    password = 'peacovid19'
+                    creds = Credentials(username=username, password=password)
+                    config = Configuration(server=server, credentials=creds)
+                    print('Async Event confrim register email Sending', recipient_list)
+                    account = Account(primary_smtp_address=email, autodiscover=False, config=config,
+                                      access_type=DELEGATE)
+                    print('receipient list', recipient_list)
+
+                    # BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
+                    # BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
+
+                    subject =  'ขอลาป่วย 14 วัน'
+
+                    body_text = 'ระบบอัตโนมัติ PEA COVID-19 ได้รับแจ้งจาก  {}  รหัส {} ซึ่งเป็นพนักงานในสังกัดของท่าน มีความเสี่ยงในการติดเชื้อ COVID-19 ต้องแยกตัวเอง เพื่อเฝ้าดูอาการและควรพบแพทย์\n\n' \
+           'ขอให้ท่านติดตามอาการพนักงานในสังกัดของท่านอย่างใกล้ชิด \n\n' \
+           'ขอขอบพระคุณที่ท่านร่วมเป็นส่วนหนึ่งกับเรา ในการผ่านวิกฤติ COVID-19 ไปด้วยกัน\n' \
+           'PEA COVID-19\n' \
+           'By PEA Innovation Hub'.format(body['name'], body['id'])
+
+                    m = Message(account=account,
+                                subject=subject,
+                                body=body_text,
+                                to_recipients=recipient_list)
+                    m.send_and_save()
+                    print('Async send email success: ', recipient_list)
+
+                    protocol.close_connections()
+                    del account
+                    flag = True
+
+            except Exception as err:
+                print('Create account {} fail'.format(body['emp_email']))
+                count = count + 1
+                time.sleep(60)
+                sendmq(body)
+
+        try:
+
+            loop.run_in_executor(None, sendmq, body)
+            # response1 = await future1
+        except Exception as e:
+            pass
+
+    try:
+        body = {'id':id, 'email_boss':email_boss, 'name':name }
+
+        print(body)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop = asyncio.get_event_loop()
+
+        print('start loop')
+        loop.run_until_complete(main(body=body))
+        print('end loop')
     except Exception as err:
         pass

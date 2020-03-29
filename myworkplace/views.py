@@ -5,8 +5,12 @@ from .models import employee, question, emailemployee, Director_3_Emails, \
     Director_4_Emails, Director_GA_Emails, Director_Area_Emails, Director_Agency_Emails, Director_Governer_Emails, \
     Director_DP_Emails
 from send_email.views import send_email_wfh_request, get_user_email, send_email_wfh14day_request, \
-    send_email_confrim_register, \
-    send_email_meetdoc_request, send_email_confrim_wfh, send_email_register_async
+    send_email_confrim_register, send_email_meetdoc_request, send_email_confrim_wfh, \
+    send_email_register_async, send_email_confirm_register_async, send_email_confrim_wfh_request_async, \
+    send_email_wfh14day_request_async, send_email_meetdoc_request_async, send_email_wfh_request_async
+
+
+
 import json
 from datetime import datetime, timedelta, date
 import getpass
@@ -145,7 +149,7 @@ def LEAVE_request(request, id):
                         # user_LEAVE_request.employee_id_up_2 = boss_email
                         user_LEAVE_request.save()
                         connection.close()
-                        send_email_wfh14day_request(id=id, email_boss=user_LEAVE_request.director_approve_email,
+                        send_email_wfh14day_request_async(id=id, email_boss=user_LEAVE_request.director_approve_email,
                                                     name=user_LEAVE_request.emplyee_name,
                                                     startdate=startdate, enddate=enddate)
                         send_complete = 1
@@ -206,7 +210,7 @@ def formwfh2(request, id):
                 r = 0
                 while ((send_complete == 0) and (r < 6)):
                     try:
-                        send_email_wfh_request(id=id, email_boss=user_formwfh2.director_approve_email,
+                        send_email_wfh_request_async(id=id, email_boss=user_formwfh2.director_approve_email,
                                                total_date=get_total_date,
                                                name=user_formwfh2.emplyee_name, startdate=get_startdate,
                                                enddate=get_enddate)
@@ -263,7 +267,7 @@ def meet_doc2(request, id):
                 while ((send_complete == 0) and (r < 6)):
                     # for i in range(5):
                     try:
-                        send_email_meetdoc_request(id=id, email_boss=user_meet_doc2.director_approve_email,
+                        send_email_meetdoc_request_async(id=id, email_boss=user_meet_doc2.director_approve_email,
                                                    name=user_meet_doc2.emplyee_name)
                         send_complete = 1
                         user_meet_doc2.activity_text = json.dumps(data, ensure_ascii=False)
@@ -627,15 +631,13 @@ def register(request, id):
                 director_approve_name=director_name,
                 director_approve_position=director_position,
             )
-
             user_data.save()
             print('------------------------')
             print('model save: {}'.format(emp_id))
             print('------------------------')
             connection.close()
+            send_email_confirm_register_async(emp_id=emp_id, emp_email=emp_email)
 
-            send_complete = 0
-            r = 0
             return redirect(daily_update, emp_id)
 
         return render(request, 'myworkplace/formregister.html', context)
@@ -727,7 +729,7 @@ def WFH_approve(request, id, boss, total_date):
         while ((send_complete == 0) and (r < 6)):
             # for i in range(5):
             try:
-                send_email_confrim_wfh(boss=boss, emp_email=emp_email)
+                send_email_confrim_wfh_request_async(emp_email=emp_email)
                 send_complete = 1
                 # break
             except:
@@ -744,53 +746,30 @@ def WFH_approve(request, id, boss, total_date):
         return redirect(home)
 
 
-def LEAVE_approve(request, id, boss):
-    day = 14
-    obj = {'type': 'LEAVE_request', 'approved_by': boss,
-           'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
-           'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
-           'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
-    # send_email_LEAVE(email=, line_id=, id=)
-    try:
-        user_LEAVE_approve = employee.objects.get(employee_ID=str(id))
-        data = json.loads(user_LEAVE_approve.activity_text)
-        data.append(obj)
-        user_LEAVE_approve.activity_text = json.dumps(data, ensure_ascii=False)
-        user_LEAVE_approve.active_status = 'LEAVE'
-        user_LEAVE_approve.save()
-        connection.close()
-        context = {'data': 'Leave request'}
-        return render(request, 'myworkplace/test.html', context)
-    except MultipleObjectsReturned:
-        print('ERROR LEAVE_approve duplicate id: {}'.format(id))
-        remove_emp_id(id)
-        print('Remove LEAVE_approve duplicate id: {}'.format(id))
-        return redirect(home)
+# def LEAVE_approve(request, id, boss):
+#     day = 14
+#     obj = {'type': 'LEAVE_request', 'approved_by': boss,
+#            'start_date': (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d"),
+#            'finish_date': (datetime.now() + timedelta(days=int(day))).strftime("%Y-%m-%d"),
+#            'datetime': datetime.now().strftime("%Y-%m-%d (%H:%M:%S)")}
+#     # send_email_LEAVE(email=, line_id=, id=)
+#     try:
+#         user_LEAVE_approve = employee.objects.get(employee_ID=str(id))
+#         data = json.loads(user_LEAVE_approve.activity_text)
+#         data.append(obj)
+#         user_LEAVE_approve.activity_text = json.dumps(data, ensure_ascii=False)
+#         user_LEAVE_approve.active_status = 'LEAVE'
+#         user_LEAVE_approve.save()
+#         connection.close()
+#         context = {'data': 'Leave request'}
+#         return render(request, 'myworkplace/test.html', context)
+#     except MultipleObjectsReturned:
+#         print('ERROR LEAVE_approve duplicate id: {}'.format(id))
+#         remove_emp_id(id)
+#         print('Remove LEAVE_approve duplicate id: {}'.format(id))
+#         return redirect(home)
 
 
-# def get_employee_profile(id):
-#     url = "https://idm.pea.co.th/webservices/EmployeeServices.asmx?WSDL"
-#     headers = {'content-type': 'text/xml'}
-#     xmltext = '''<?xml version="1.0" encoding="utf-8"?>
-#                 <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-#                 <soap:Body>
-#                     <GetEmployeeInfoByEmployeeId_SI xmlns="http://idm.pea.co.th/">
-#                     <WSAuthenKey>{0}</WSAuthenKey>
-#                     <EmployeeId>{1}</EmployeeId>
-#                     </GetEmployeeInfoByEmployeeId_SI>
-#                 </soap:Body>
-#                 </soap:Envelope>'''
-#     wsauth = 'e7040c1f-cace-430b-9bc0-f477c44016c3'
-#     body = xmltext.format(wsauth, "{}".format(id))
-#     res = requests.post(url, data=body, headers=headers, timeout=1, allow_redirects=True)
-#     o = xmltodict.parse(res.text)
-#     jsonconvert = dict(o)
-#     # print(jsonconvert)
-#     authData = jsonconvert["soap:Envelope"]['soap:Body']['GetEmployeeInfoByEmployeeId_SIResponse'][
-#         'GetEmployeeInfoByEmployeeId_SIResult']['ResultObject']
-#
-#     return authData.get("FirstName"), authData.get("LastName"), authData.get("DepartmentShort"), \
-#            authData.get("PositionDescShort"), authData.get("LevelDesc"), authData.get("Gender")
 
 
 def test(request):
