@@ -92,12 +92,14 @@ def handle_text_message(event):
             print('this Line ID is reistered')
 
         elif num_results==0:
+
+            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
+            sub_region, emp_email, level_code = get_user_email(dict_message['text'])
+
             print('start get user  email')
             print(dict_message['text'])
             print(emp_id)
-            first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
-            sub_region, emp_email, level_code= get_user_email(emp_id)
-            print('get user  email')
+
 
             if emp_email is not None:
                 print('start send email')
@@ -684,239 +686,15 @@ def handle_text_message(event):
                                            )
                                            )
             elif dict_message['text'] == 'test2':
+
+                first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
+                sub_region, emp_email, level_code = get_user_email(dict_message['text'])
+
                 line_bot_api.reply_message(event.reply_token,
-                                           FlexSendMessage(
-                                               alt_text='hello',
-                                               contents={
-                                                   "type": "carousel",
-                                                   "contents": [
-                                                       {
-                                                           "type": "bubble",
-                                                           "hero": {
-                                                               "type": "image",
-                                                               "size": "full",
-                                                               "aspectRatio": "20:13",
-                                                               "aspectMode": "cover",
-                                                               "url": "https://s3-ap-southeast-1.amazonaws.com/img-in-th/022eb6b04e680592a3f0c340bd6c4954.png"
-                                                           },
-                                                           "body": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "spacing": "sm",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "PEA Support",
-                                                                       "wrap": True,
-                                                                       "weight": "bold",
-                                                                       "size": "xl"
-                                                                   },
-                                                                   {
-                                                                       "type": "box",
-                                                                       "layout": "baseline",
-                                                                       "flex": 1,
-                                                                       "contents": [
-                                                                           {
-                                                                               "type": "text",
-                                                                               "text": "คู่มือปฏิบัติตัว COVID-19",
-                                                                               "wrap": True,
-                                                                               "weight": "bold",
-                                                                               "size": "xl",
-                                                                               "flex": 0
-                                                                           }
-                                                                       ]
-                                                                   }
-                                                               ]
-                                                           },
-                                                           "footer": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "spacing": "sm",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "button",
-                                                                       "flex": 2,
-                                                                       "style": "primary",
-                                                                       "color": "#aaaaaa",
-                                                                       "action": {
-                                                                           "type": "message",
-                                                                           "label": "อ่านเลย",
-                                                                           "text": "guidecovid"
-                                                                       }
-                                                                   }
-                                                               ]
-                                                           }
-                                                       },
-                                                       {
-                                                           "type": "bubble",
-                                                           "hero": {
-                                                               "type": "image",
-                                                               "size": "full",
-                                                               "aspectRatio": "20:13",
-                                                               "aspectMode": "cover",
-                                                               "url": "https://s3-ap-southeast-1.amazonaws.com/img-in-th/6a77fcd94d5923db13d05d89748db110.png"
-                                                           },
-                                                           "body": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "spacing": "sm",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "วิธีการใช้งาน",
-                                                                       "wrap": True,
-                                                                       "weight": "bold",
-                                                                       "size": "xl"
-                                                                   },
-                                                                   {
-                                                                       "type": "box",
-                                                                       "layout": "baseline",
-                                                                       "flex": 1,
-                                                                       "contents": [
-                                                                           {
-                                                                               "type": "text",
-                                                                               "text": "PEA COVID-19 LINE Official Account",
-                                                                               "wrap": True,
-                                                                               "weight": "regular",
-                                                                               "size": "lg",
-                                                                               "flex": 0
-                                                                           }
-                                                                       ]
-                                                                   }
-                                                               ]
-                                                           },
-                                                           "footer": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "spacing": "sm",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "button",
-                                                                       "flex": 2,
-                                                                       "style": "primary",
-                                                                       "color": "#aaaaaa",
-                                                                       "action": {
-                                                                           "type": "message",
-                                                                           "label": "อ่านเลย",
-                                                                           "text": "guide-line"
-                                                                       }
-                                                                   }
-                                                               ]
-                                                           }
-                                                       },
-                                                       {
-                                                           "type": "bubble",
-                                                           "hero": {
-                                                               "type": "image",
-                                                               "size": "full",
-                                                               "aspectRatio": "20:13",
-                                                               "aspectMode": "cover",
-                                                               "url": "https://sv1.picz.in.th/images/2020/03/20/Qijv9I.png"
-                                                           },
-                                                           "body": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "spacing": "sm",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "สายด่วน PEA",
-                                                                       "wrap": True,
-                                                                       "weight": "bold",
-                                                                       "size": "xl"
-                                                                   },
-                                                                   {
-                                                                       "type": "box",
-                                                                       "layout": "baseline",
-                                                                       "flex": 1,
-                                                                       "contents": [
-                                                                           {
-                                                                               "type": "text",
-                                                                               "text": "ติดต่อฉุกเฉิน โทร",
-                                                                               "wrap": True,
-                                                                               "weight": "regular",
-                                                                               "size": "lg",
-                                                                               "flex": 0
-                                                                           }
-                                                                       ]
-                                                                   }
-                                                               ]
-                                                           },
-                                                           "footer": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "spacing": "sm",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "button",
-                                                                       "flex": 2,
-                                                                       "style": "primary",
-                                                                       "action": {
-                                                                           "type": "uri",
-                                                                           "label": "ติดต่อฉุกเฉิน",
-                                                                           "uri": "tel:1129"
-                                                                       }
-                                                                   }
-                                                               ]
-                                                           }
-                                                       },
-                                                       {
-                                                           "type": "bubble",
-                                                           "hero": {
-                                                               "type": "image",
-                                                               "size": "full",
-                                                               "aspectRatio": "20:13",
-                                                               "aspectMode": "cover",
-                                                               "url": "https://sv1.picz.in.th/images/2020/03/20/Qil2IN.png"
-                                                           },
-                                                           "body": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "spacing": "sm",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "text",
-                                                                       "text": "กรมควบคุมโรค",
-                                                                       "wrap": True,
-                                                                       "weight": "bold",
-                                                                       "size": "xl"
-                                                                   },
-                                                                   {
-                                                                       "type": "box",
-                                                                       "layout": "baseline",
-                                                                       "contents": [
-                                                                           {
-                                                                               "type": "text",
-                                                                               "text": "สายด่วน 1442",
-                                                                               "wrap": True,
-                                                                               "weight": "regular",
-                                                                               "size": "lg",
-                                                                               "flex": 0
-                                                                           }
-                                                                       ]
-                                                                   }
-                                                               ]
-                                                           },
-                                                           "footer": {
-                                                               "type": "box",
-                                                               "layout": "vertical",
-                                                               "spacing": "sm",
-                                                               "contents": [
-                                                                   {
-                                                                       "type": "button",
-                                                                       "style": "primary",
-                                                                       "action": {
-                                                                           "type": "uri",
-                                                                           "label": "ติดต่อฉุกเฉิน",
-                                                                           "uri": "tel:1442"
-                                                                       }
-                                                                   }
-                                                               ]
-                                                           }
-                                                       }
-                                                   ]
-                                               }
-                                           )
+                                           TextSendMessage(
+                                               text='เรียนคุณ {} {} สังกัด {} กรุณากดที่ link เพื่อลงทะเบียนยืนยันตัวตน หากไม่ใช้กรุณาแจ้ง admin '
+                                                    'https://pea-covid19-test.herokuapp.com/register/{}{}/'.format(first_name,
+                                                                                                            last_name, dept_sap_short,dict_source['user_id'] ,dict_message['text'])),
                                            )
             else:
                 line_bot_api.reply_message(event.reply_token,

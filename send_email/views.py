@@ -684,10 +684,8 @@ def send_test_email():
         email = 'peacovid19@pea.co.th'
         username = 'peacovid19'
         password = 'peacovid19'
-
         BaseProtocol.USERAGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'
         BaseProtocol.HTTP_ADAPTER_CLS = NoVerifyHTTPAdapter
-
         account = connect(server, email, username, password)
         subject = 'ยืนยันการลงทะเบียน'
         body = 'ทดสอบ'
@@ -697,16 +695,9 @@ def send_test_email():
                     to_recipients=recipient_list)
         m.send_and_save()
         del account
-
         protocol.close_connections()
         print('email register send')
         return True
-
     except Exception as e:
         print(" >>>> Fail: {}".format(e))
         return False
-
-
-
-
-
