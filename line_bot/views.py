@@ -686,7 +686,8 @@ def handle_text_message(event):
                                            )
                                            )
             elif dict_message['text'] == 'test2':
-                pass:
+                pass
+
                 # first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
                 # sub_region, emp_email, level_code = get_user_email(499959)
                 # line_bot_api.reply_message(event.reply_token,
