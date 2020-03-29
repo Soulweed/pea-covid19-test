@@ -72,20 +72,23 @@ def handle_text_message(event):
             len(dict_message['text']) == 6 or len(dict_message['text']) == 7):
         ##### function create email กับ content ข้างใน
         print('start registration')
-        try:
-            employee.objects.get(employee_line_ID=dict_source['user_id'])
-            connection.close()
-            line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
+        # try:
+        #     employee.objects.get(employee_line_ID=dict_source['user_id'])
+        #     connection.close()
+        #     line_bot_api.reply_message(event.reply_token,
+        #                                TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
+        #     print('this Line ID is reistered')
+        num_results = employee.objects.filter(employee_line_ID=dict_source['user_id']).count()
+        #     connection.close()
+
+        if num_results== 1:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
             print('this Line ID is reistered')
 
-        except ObjectDoesNotExist:
+        elif num_results==0:
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email = get_user_email(
                 id=dict_message['text'])
             if emp_email is not None:
-                # line_bot_api.reply_message(event.reply_token,
-                #                            TextSendMessage(text='ขณะนี้เรากำลังปรับปรุงระบบลงทะเบียนเพื่อรองรับผู้ใช้งานจำนวนมาก กรุณาลงทะเบียนอีกครั้งภายหลัง'))
-                # print('{} no email in system'.format(dict_message['text']))
                 for i in range(5):
                     try:
                         print('email: ',emp_email, 'line id: ', dict_source['user_id'], 'emp id: ', dict_message['text'])
@@ -125,7 +128,8 @@ def handle_text_message(event):
                                                )
                                            ])
                 print(' Please update email')
-        except MultipleObjectsReturned:
+        elif num_results>1:
+
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))
     else:
