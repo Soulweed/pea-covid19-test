@@ -114,9 +114,6 @@ def handle_text_message(event):
                     except:
                         # send_complete = 0
                         r=r+1
-                        time.sleep(2)
-
-
                     if send_complete:
                         line_bot_api.reply_message(event.reply_token,
                                                    TextSendMessage(
