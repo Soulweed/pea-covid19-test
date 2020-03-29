@@ -88,6 +88,7 @@ def handle_text_message(event):
                     try:
                         for i in range(5):
                             try:
+                                print('email: ',emp_email, 'line id: ', dict_source['user_id'], 'emp id: ', dict_message['text'])
                                 send_email_register(emp_email=emp_email, line_id=dict_source['user_id'],
                                                     id=dict_message['text'])
                                 send_complete = 1
@@ -126,6 +127,7 @@ def handle_text_message(event):
                                                    preview_image_url='https://www.imag.in.th/images/031525e6dce37aa260bac21483c11522.jpg'
                                                )
                                            ])
+                print(' Please update email')
         except MultipleObjectsReturned:
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))
