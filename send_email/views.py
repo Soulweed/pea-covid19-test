@@ -131,7 +131,7 @@ def get_user_email2(id):
 
 #### สมัคร ยืนยัน Register
 def send_email_register(emp_email, line_id, id):
-    recipient_list = [emp_email]
+    recipient_list = [Mailbox(email_address=emp_email)]
     print('receipient list', recipient_list)
 
     server = 'email.pea.co.th'
@@ -164,7 +164,7 @@ def send_email_register(emp_email, line_id, id):
     print('email register send: {} : {}'.format(id, emp_email))
 
 def send_email_confrim_register(emp_id, emp_email):
-    recipient_list = [emp_email]
+    recipient_list = [Mailbox(email_address=emp_email)]
     print('receipient list', recipient_list)
 
     server = 'email.pea.co.th'
@@ -207,7 +207,7 @@ def send_email_confrim_register(emp_id, emp_email):
 
 
 def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
-    recipient_list = [email_boss]
+    recipient_list = [Mailbox(email_address=emp_email)]
     print('receipient list', recipient_list)
 
     server = 'email.pea.co.th'
@@ -245,7 +245,7 @@ def send_email_wfh_request(id, email_boss, total_date, name, startdate,enddate):
 
 
 def send_email_confrim_wfh(boss, emp_email):
-    recipient_list = [emp_email]
+    recipient_list = [Mailbox(email_address=emp_email)]
     print('receipient list', recipient_list)
 
     server = 'email.pea.co.th'
@@ -280,7 +280,7 @@ def send_email_confrim_wfh(boss, emp_email):
 
 
 def send_email_wfh14day_request(id, email_boss, name, startdate, enddate):
-    recipient_list = [email_boss]
+    recipient_list = [Mailbox(email_address=email_boss)]
     print('receipient list', recipient_list)
 
     server = 'email.pea.co.th'

@@ -652,8 +652,6 @@ def register(request, id):
                 try:
                     send_email_confrim_register(emp_id=emp_id, emp_email=emp_email)
                     send_complete = 1
-
-
                     # break
                 except:
                     r = r + 1
