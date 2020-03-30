@@ -406,7 +406,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = emailemployee.objects.all().order_by('employee_ID')
     serializer_class = EmployeeSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['employee_line_ID']
+    filterset_fields = ['employee_line_ID','employee_ID']
 
 
 from django.http import HttpResponseForbidden, HttpResponse
