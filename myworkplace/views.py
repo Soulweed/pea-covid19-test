@@ -497,8 +497,8 @@ def register(request, id):
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
                 emp_id)
 
-            section = employee_dept_sap_short
-            position = employee_level_code
+            section = dept_sap_short
+            position = level_code
 
             agencylist = ["สวก.", "สตภ.", "สกม.", "สรก.(ว)"]
             dplist = ["สรก.(ภ1)", "สรก.(ภ2)", "สรก.(ภ3)", "สรก.(ภ4)", "สรก.(ว)", "สรก.(ย)", "สรก.(ธ)", "สรก.(วศ)",
