@@ -688,6 +688,7 @@ def send_test_email():
 
 
 def send_email_register_async(emp_email, emp_line_id, emp_id):
+
     async def main(body):
         loop = asyncio.get_event_loop()
 
@@ -873,7 +874,7 @@ def send_email_wfh_request_async(id, email_boss, total_date, name, startdate, en
                                 'PEA COVID-19\n' \
                                 'By PEA Innovation Hub'.format(body['emp_name'], body['id'], body['startdate'],
                                                                body['enddate'],
-                                                               body['total_date'], body['id'], body['boss'],
+                                                               body['total_date'], body['id'], body['boss_email'],
                                                                body['total_date'])
                     m = Message(account=account,
                                 subject=subject,
@@ -1048,6 +1049,8 @@ def send_email_wfh14day_request_async(id, email_boss, name, startdate, enddate):
             pass
 
     try:
+
+
         body = {'id': id, 'email_boss': email_boss, 'name': name, 'startdate': startdate, 'enddate': enddate, }
 
         print(body)
