@@ -497,8 +497,8 @@ def register(request, id):
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, sub_region, emp_email, level_code = get_user_email(
                 emp_id)
 
-            section = item.employee_dept_sap_short
-            position = item.employee_level_code
+            section = employee_dept_sap_short
+            position = employee_level_code
 
             agencylist = ["สวก.", "สตภ.", "สกม.", "สรก.(ว)"]
             dplist = ["สรก.(ภ1)", "สรก.(ภ2)", "สรก.(ภ3)", "สรก.(ภ4)", "สรก.(ว)", "สรก.(ย)", "สรก.(ธ)", "สรก.(วศ)",
@@ -833,6 +833,13 @@ def remove_line_emp_id(request, emp_line_id):
     return render(request, 'myworkplace/removeid.html', context)
 
 
+def list_duplicate_emp_id(request, emp_id):
+    users = employee.objects.filter(employee_ID=emp_id)
+    print(users)
+    return render(request, 'myworkplace/home.html')
+
+
+
 def summarylist(request):
     context = {'date_data': "26/03/2020",
                'director': "นายเสริมชัย จา..",
@@ -843,7 +850,6 @@ def summarylist(request):
 def summarylist1(request, dept_sap):
     context = {'data': employee.objects.filter(employee_dept_sap=dept_sap)}
     return render(request, 'myworkplace/summary_list1.html', context)
-
 
 
 def summary_under_employee_list(request, id):

@@ -4,6 +4,8 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 from myworkplace.models import employee
 from send_email.views import send_email_register, get_user_email, send_email_register_async
+
+from myworkplace.views import remove_line_id
 import asyncio
 
 import time
@@ -662,7 +664,6 @@ def handle_text_message(event):
                                            )
             elif dict_message['text'] == 'test2':
                 pass
-
             else:
                 line_bot_api.reply_message(event.reply_token,
                                            TextSendMessage(
@@ -679,6 +680,7 @@ def handle_text_message(event):
                                        TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดพิมพ์รหัสพนักงาน 6 ตัว'))
             print('this line id has not registered yet')
         except MultipleObjectsReturned:
+            remove_line_id(dict_source['user_id'])
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(
                                            text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin ผ่านช่องทาง facebook PEA INNOVATION HUB https://www.facebook.com/peaihub/'))

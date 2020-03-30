@@ -49,6 +49,9 @@ urlpatterns = [
     path('remove_duplicate_all/', views.remove_duplicate_all, name='remove_duplicate_all'),
     path('remove_duplicate_emp_id/<emp_id>/', views.remove_duplicate_emp_id, name='remove_duplicate_emp_id'),
     path('remove_line_emp_id/<emp_line_id>/', views.remove_line_emp_id, name='remove_line_emp_id'),
+
+    path('list_duplicate_emp_id/<emp_id>/', views.list_duplicate_emp_id, name='list_duplicate_emp_id'),
+
     path('update_employee_profile/', views.update_employee_profile, name='update_employee_profile'),
     path('update_employee_profile2/', views.update_employee_profile2, name='update_employee_profile2'),
     path('update_employee_profile3/<emp_id>/', views.update_employee_profile3, name='update_employee_profile3'),
