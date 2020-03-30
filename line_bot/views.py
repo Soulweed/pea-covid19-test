@@ -677,7 +677,7 @@ def handle_text_message(event):
                                                     '6. “ใบเซ็นชื่อ” เพื่อเข้าระบบลงชื่อเข้าและเลิกทำงาน\nอย่าลืมเพิ่มระยะห่างทางสังคมนะครับ ถ้าเราไม่ติดกัน เราจะไม่ติดเชื้อ'))
         except ObjectDoesNotExist:
             line_bot_api.reply_message(event.reply_token,
-                                       TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดพิมพ์รหัสพนักงาน 6 ตัว'))
+                                       TextSendMessage(text='ไลน์ไอดีนี้ยังไม่ได้ลงทะเบียน โปรดพิมพ์รหัสพนักงาน'))
             print('this line id has not registered yet')
         except MultipleObjectsReturned:
             remove_duplicate_emp_line_id(dict_source['user_id'])
