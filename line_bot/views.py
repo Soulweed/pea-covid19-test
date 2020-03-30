@@ -85,13 +85,14 @@ def handle_text_message(event):
         #     print('this Line ID is reistered')
         print('start find number')
         num_results = employee.objects.filter(employee_line_ID=dict_source['user_id']).count()
+        num_results2=employee.objects.filter(employee_ID=dict_message['text']).count()
         print('number_reulst: ', num_results)
         connection.close()
 
-        if num_results== 1:
+        if num_results== 1 or num_results2==1:
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='ท่านได้ลงทะเบียนแล้ว'))
 
-        elif num_results==0:
+        elif num_results==0 and num_results2==0:
 
             first_name, last_name, sex_desc, posi_text_short, dept_sap_short, dept_sap, dept_upper, \
             sub_region, emp_email, level_code = get_user_email(dict_message['text'])
@@ -118,9 +119,12 @@ def handle_text_message(event):
                 #                                     '(username คือรหัสพนักงาน 6 หลัก)')
                 #                            )
 
-        elif num_results>1:
+        elif num_results>1 :
             line_bot_api.reply_message(event.reply_token,
                                        TextSendMessage(text='ไลน์ไอดีนี้มีมากกว่า 2 บัญชี โปรดแจ้ง admin'))
+        elif num_results2>1:
+            line_bot_api.reply_message(event.reply_token,
+                                       TextSendMessage(text='รหัสพนักงานนี้ได้ลงทะเบียนเรียบร้อยแล้ว โปรดแจ้ง admin'))
     else:
         try:
             user_employee = employee.objects.get(employee_line_ID=dict_source['user_id'])
