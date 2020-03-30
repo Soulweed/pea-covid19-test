@@ -51,7 +51,7 @@ urlpatterns = [
     path('remove_line_emp_id/<emp_line_id>/', views.remove_line_emp_id, name='remove_line_emp_id'),
     path('update_employee_profile/', views.update_employee_profile, name='update_employee_profile'),
     path('update_employee_profile2/', views.update_employee_profile2, name='update_employee_profile2'),
-    path('update_employee_profile3/', views.update_employee_profile3, name='update_employee_profile3'),
+    path('update_employee_profile3/<emp_id>/', views.update_employee_profile3, name='update_employee_profile3'),
 
     path('upload_director_email1/', views.upload_director_email1, name='upload_director_email1'),
     path('upload_director_email2/', views.upload_director_email2, name='upload_director_email2'),

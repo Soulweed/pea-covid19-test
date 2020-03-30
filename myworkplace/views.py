@@ -1071,11 +1071,44 @@ def update_employee_profile2(request):
     return render(request, 'myworkplace/home.html')
 
 
-def update_employee_profile3(request):
-    users = employee.objects.filter(employee_level_code=None)
-    print(len(users))
-    for item in users:
-        item.employee_level_code = get_user_level_code(item.employee_ID)
-        item.save()
+def update_employee_profile3(request, emp_id):
+    user = employee.objects.get(employee_ID=emp_id)
+    print(user.director_approve_id)
+    section = user.employee_dept_sap_short
+    position = user.employee_level_code
+
+    agencylist = ["สวก.", "สตภ.", "สกม.", "สรก.(ว)"]
+    pglist = ["สชก.(ว)", "สชก.(ย)", "สชก.(ธ)", "สชก.(วศ)", "สชก.(ทส)", "สชก.(กบ)", "สชก.(ป)", "สชก.(อ)", "สชก.(บ)",
+              "สชก.(ท)", "สชก.(ส)"]
+
+    arealist = ["กฟน.1", "กฟน.2", "กฟน.3", "กฟฉ.1", "กฟฉ.2", "กฟฉ.3", "กฟก.1", "กฟก.2", "กฟก.3", "กฟต.1", "กฟต.2",
+                "กฟต.3"]
+
+    if len(section.split('/')) == 3:
+        print('position: ', position)
+        if position == 'S2':
+            print('case: 1')
+            director = Director_DP_Emails.objects.get(ref1=section.split('/')[-2])  # อข. ผชช.13 ผชก.
+        if (section.split('/')[0] in agencylist):
+            print('case: 1.1')
+            director = Director_DP_Emails.objects.get(ref1=section.split('/')[-2])  # ผชช. ลจค.
+        elif position == 'S1' and (section.split('/')[0] in agencylist):
+            print('case: 2')
+            director = Director_Agency_Emails.objects.get(ref1=section.split('/')[-2])  # อฝ. ภายใต้ 3 สำนัก
+
+
+        elif (section.split('/')[0] in arealist):
+            print('case: 3')
+
+            director = Director_Area_Emails.objects.filter(ref2=section.split('/')[-3],
+                                                           ref1=section.split('/')[-2])[0]  # นวช ภายใต้ อข.
+    print(director.__dict__)
+    user.director_approve_email = director.email
+    user.director_approve_id = director.employee_id
+    user.director_approve_name = director.name
+    user.director_approve_position = director.position
+    user.save()
+
+    print(user.director_approve_id)
 
     return render(request, 'myworkplace/home.html')

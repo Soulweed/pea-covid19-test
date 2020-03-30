@@ -887,7 +887,7 @@ def send_email_wfh_request_async(id, email_boss, total_date, name, startdate, en
                     flag = True
 
             except Exception as err:
-                print('Create account {} fail'.format(body['emp_email']))
+                print('Create account {} fail'.format(body['boss_email']))
                 count = count + 1
                 time.sleep(60)
                 sendmq(body)
