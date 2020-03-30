@@ -22,8 +22,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="975" column="38" lean-forward="true" selection-start-line="975" selection-start-column="38" selection-end-line="975" selection-end-column="38" />
+            <state relative-caret-position="346">
+              <caret line="1158" column="0" lean-forward="true" selection-start-line="1158" selection-start-column="0" selection-end-line="1158" selection-end-column="0" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#2146#4344#0" expanded="false" />
@@ -32,14 +32,9 @@
                 <element signature="e#8410#11570#0" expanded="false" />
                 <element signature="e#11605#14370#0" expanded="false" />
                 <element signature="e#14858#17216#0" expanded="false" />
-                <element signature="e#23017#23451#0" expanded="false" />
-                <element signature="e#23524#24536#0" expanded="false" />
-                <element signature="e#24609#26354#0" expanded="false" />
-                <element signature="e#26426#27812#0" expanded="false" />
-                <element signature="e#41560#42027#0" expanded="false" />
-                <element signature="e#42075#43109#0" expanded="false" />
-                <element signature="e#43145#43536#0" expanded="false" />
-                <element signature="e#50067#55355#0" expanded="false" />
+                <element signature="e#42116#42583#0" expanded="false" />
+                <element signature="e#42631#43665#0" expanded="false" />
+                <element signature="e#43701#44092#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -543,6 +538,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -779,8 +775,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myworkplace/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="975" column="38" lean-forward="true" selection-start-line="975" selection-start-column="38" selection-end-line="975" selection-end-column="38" />
+        <state relative-caret-position="346">
+          <caret line="1158" column="0" lean-forward="true" selection-start-line="1158" selection-start-column="0" selection-end-line="1158" selection-end-column="0" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#2146#4344#0" expanded="false" />
@@ -789,14 +785,9 @@
             <element signature="e#8410#11570#0" expanded="false" />
             <element signature="e#11605#14370#0" expanded="false" />
             <element signature="e#14858#17216#0" expanded="false" />
-            <element signature="e#23017#23451#0" expanded="false" />
-            <element signature="e#23524#24536#0" expanded="false" />
-            <element signature="e#24609#26354#0" expanded="false" />
-            <element signature="e#26426#27812#0" expanded="false" />
-            <element signature="e#41560#42027#0" expanded="false" />
-            <element signature="e#42075#43109#0" expanded="false" />
-            <element signature="e#43145#43536#0" expanded="false" />
-            <element signature="e#50067#55355#0" expanded="false" />
+            <element signature="e#42116#42583#0" expanded="false" />
+            <element signature="e#42631#43665#0" expanded="false" />
+            <element signature="e#43701#44092#0" expanded="false" />
           </folding>
         </state>
       </provider>
