@@ -821,7 +821,6 @@ def remove_line_id(emp_line_id):
         pk__in=employee.objects.filter(employee_line_ID=emp_line_id).values_list('id', flat=True)).delete()
     connection.close()
 
-
 def remove_line_emp_id(request, emp_line_id):
     context = {'data1': [],
                'data2': []}
@@ -832,6 +831,11 @@ def remove_line_emp_id(request, emp_line_id):
     connection.close()
     return render(request, 'myworkplace/removeid.html', context)
 
+
+def remove_duplicate_emp_line_id(emp_line_id):
+    employee.objects.filter(
+        pk__in=employee.objects.filter(employee_line_ID=emp_line_id).values_list('id', flat=True))[1:].delete()
+    connection.close()
 
 def list_duplicate_emp_id(request, emp_id):
     users = employee.objects.filter(employee_ID=emp_id)
